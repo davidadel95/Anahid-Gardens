@@ -79,9 +79,9 @@
                     </li>
                     <li><a href=""><i class="fa fa-angle-right"></i>Food</a>
                       <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-angle-right"></i>Breakfast</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Snack</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Launch</a></li>
+                        <li><a href="breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>
+                        <li><a href="snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>
+                        <li><a href="lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
                     </ul>
                     </li>
                   </ul>
