@@ -29,7 +29,7 @@
 
   </head>
   <body>
-
+    
       <!--left-fixed -navigation-->
       <aside class="sidebar-left">
         <nav class="navbar navbar-inverse">
@@ -50,7 +50,7 @@
                   <i class="fa fa-dashboard"></i> <span>Home</span>
                   </a>
                 </li>
-          <li class="treeview">
+                <li class="treeview">
                   <a href="#">
                   <i class="fa fa-laptop"></i>
                   <span>Kids Checklist</span>
@@ -79,6 +79,12 @@
                   <i class="fa fa-pie-chart"></i>
                   <span>Charts</span>
                   <span class="label label-primary pull-right">new</span>
+                  </a>
+                </li>
+                <li class="treeview">
+                  <a href="AddFood.php">
+                  <i class="fa fa-yoast"></i>
+                  <span>Add new type of food</span>
                   </a>
                 </li>
                 <li class="treeview">
