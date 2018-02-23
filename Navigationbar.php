@@ -27,22 +27,6 @@
    <link href="css/custom.css" rel="stylesheet">
    <!--//Metis Menu -->
 
-   <!-- 3ashan el carousel -->
-   <!-- requried-jsfiles-for owl -->
-           <link href="css/owl.carousel.css" rel="stylesheet">
-           <script src="js/owl.carousel.js"></script>
-             <script>
-               $(document).ready(function() {
-                 $("#owl-demo").owlCarousel({
-                   items : 3,
-                   lazyLoad : true,
-                   autoPlay : true,
-                   pagination : true,
-                   nav:true,
-                 });
-               });
-             </script>
-           <!-- //requried-jsfiles-for owl -->
   </head>
   <body>
 
@@ -56,25 +40,38 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               </button>
-              <h1><a class="navbar-brand" href="index.php"><span class="fa fa-area-chart"></span> Glance<span class="dashboard_text">Design dashboard</span></a></h1>
+              <h1><a class="navbar-brand" href="index.php"><span class="fa fa-area-chart"></span> Anahid<span class="dashboard_text">Gardens Nursery</span></a></h1>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
                   <a href="index.php">
-                  <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                  <i class="fa fa-dashboard"></i> <span>Home</span>
                   </a>
                 </li>
           <li class="treeview">
                   <a href="#">
                   <i class="fa fa-laptop"></i>
-                  <span>Components</span>
+                  <span>Kids Checklist</span>
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="grids.html"><i class="fa fa-angle-right"></i> Grids</a></li>
-                    <li><a href="media.html"><i class="fa fa-angle-right"></i> Media Css</a></li>
+                    <li><a href=""><i class="fa fa-angle-right"></i>Academic</a>
+                      <ul class="treeview-menu">
+                        <li><a href=""><i class="fa fa-angle-right"></i>French</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>English</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Arabic</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Quraan</a></li>
+                      </ul>
+                    </li>
+                    <li><a href=""><i class="fa fa-angle-right"></i>Food</a>
+                      <ul class="treeview-menu">
+                        <li><a href=""><i class="fa fa-angle-right"></i>Breakfast</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Snack</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Launch</a></li>
+                    </ul>
+                    </li>
                   </ul>
                 </li>
                 <li class="treeview">
