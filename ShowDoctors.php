@@ -67,10 +67,61 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-
-
-
-
+        <div class="tables">
+          <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
+            <h4>Doctors:</h4>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Mobile</th>
+                  <th>Description</th>
+                  <th>Faculty</th>
+                  <th>Salary</th>
+                  <th>Address</th>
+                  <th>Start Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>0122222222</td>
+                  <td>Kids Doctor</td>
+                  <td>Medicine</td>
+                  <td>123.45</td>
+                  <td>1 St. dsa</td>
+                  <td>12-2-2018</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>0122222222</td>
+                  <td>Kids Doctor</td>
+                  <td>Medicine</td>
+                  <td>123.45</td>
+                  <td>1 St. dsa</td>
+                  <td>12-2-2018</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>0122222222</td>
+                  <td>Kids Doctor</td>
+                  <td>Medicine</td>
+                  <td>123.45</td>
+                  <td>1 St. dsa</td>
+                  <td>12-2-2018</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 			</div>
 		</div>
 	<!--footer-->
