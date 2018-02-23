@@ -65,21 +65,89 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-		<div id="page-wrapper">
+    <div id="page-wrapper">
 			<div class="main-page">
-
-
-
-
+        <div class="forms">
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+						<div class="form-title">
+							<h4>Doctor Details</h4>
+						</div>
+						<div class="form-body">
+							<form>
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" placeholder="eg: John">
+                </div>
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" placeholder="eg: Smith">
+                </div>
+                <div class="form-group">
+                  <label>Mobile Number</label>
+                  <input type="text" class="form-control" placeholder="eg: 0123456789">
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <input type="text" class="form-control" placeholder="eg: Onchologist">
+                </div>
+                <div class="form-group">
+                  <label>Faculty</label>
+                  <input type="text" class="form-control" placeholder="eg: Medicine">
+                </div>
+                <div class="form-group">
+                  <label>Expected Salary</label>
+                  <input type="text" class="form-control" placeholder="eg: 123.45">
+                </div>
+                <div class="form-group">
+                  <label>Date of Birth</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="form-group">
+                  <!-- di hateb2a calculated b AJAX -->
+                  <label>Age</label>
+                  <input type="text" class="form-control" placeholder="eg: 23">
+                </div>
+                <div class="form-group">
+                  <label>Address</label>
+                  <input type="text" class="form-control" placeholder="eg: 1 St.">
+                </div>
+                <div class="form-group">
+                  <label>Known us from</label>
+                  <input type="text" class="form-control" placeholder="eg: Facebook Page">
+                </div>
+                <div class="form-group">
+                  <label>Experience</label>
+                  <input type="text" class="form-control" placeholder="eg: Experience">
+                </div>
+                <div class="form-group">
+                  <label>Language</label>
+                    <input type="text" class="form-control" placeholder="eg: English">
+                </div>
+                <div class="form-group">
+                  <label>Date of applying</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Start Date</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Comments</label>
+                  <input type="text" class="form-control" placeholder="eg: Comments">
+                </div>
+                <button type="submit" class="btn btn-success">Confirm</button>
+              </form>
+						</div>
+					</div>
+        </div>
 			</div>
 		</div>
-	<!--footer-->
-	<div class="footer">
-	   <?php include("Footer.php"); ?>
-	</div>
+  	<!--footer-->
+  	<div class="footer">
+  	   <?php include("Footer.php"); ?>
+  	</div>
     <!--//footer-->
 	</div>
-
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->

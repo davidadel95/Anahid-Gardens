@@ -84,8 +84,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									  </select>
 								</div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Food Name</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="eg: cheese, milk">
+                  <label>Food Name</label>
+                  <input type="text" class="form-control" placeholder="eg: cheese, milk">
                 </div>
                 <button type="submit" class="btn btn-success">Confirm</button>
               </form>
