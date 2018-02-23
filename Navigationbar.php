@@ -29,7 +29,7 @@
 
   </head>
   <body>
-    
+
       <!--left-fixed -navigation-->
       <aside class="sidebar-left">
         <nav class="navbar navbar-inverse">
@@ -40,6 +40,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               </button>
+              <!-- navigation title -->
               <h1><a class="navbar-brand" href="index.php"><span class="fa fa-area-chart"></span> Anahid<span class="dashboard_text">Gardens Nursery</span></a></h1>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -47,9 +48,11 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
                   <a href="index.php">
-                  <i class="fa fa-dashboard"></i> <span>Home</span>
+                    <i class="fa fa-dashboard"></i>
+                    <span>Home</span>
                   </a>
                 </li>
+                <!-- kids checklist menu -->
                 <li class="treeview">
                   <a href="#">
                   <i class="fa fa-laptop"></i>
@@ -74,6 +77,8 @@
                     </li>
                   </ul>
                 </li>
+
+
                 <li class="treeview">
                   <a href="charts.html">
                   <i class="fa fa-pie-chart"></i>
@@ -81,13 +86,28 @@
                   <span class="label label-primary pull-right">new</span>
                   </a>
                 </li>
+
+
                 <li class="treeview">
                   <a href="AddFood.php">
                   <i class="fa fa-yoast"></i>
-                  <span>Add new type of food</span>
+                  <span>Add new type of food or drink</span>
                   </a>
                 </li>
+
                 <li class="treeview">
+                  <a href="#">
+                  <i class="fa fa-user-md"></i>
+                  <span>Doctors</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i> Add new doctor info</a></li>
+                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i> Show doctors</a></li>
+                  </ul>
+                </li>
+
+
                 <li class="treeview">
                   <a href="#">
                   <i class="fa fa-laptop"></i>
@@ -101,7 +121,7 @@
                     <li><a href="typography.html"><i class="fa fa-angle-right"></i> Typography</a></li>
                   </ul>
                 </li>
-          <li>
+                <li>
                   <a href="widgets.html">
                   <i class="fa fa-th"></i> <span>Widgets</span>
                   <small class="label pull-right label-info">08</small>
@@ -113,7 +133,7 @@
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="forms.html"><i class="fa fa-angle-right"></i> General Forms</a></li>
+                    <li><a href="forms.php"><i class="fa fa-angle-right"></i> General Forms</a></li>
                     <li><a href="validation.html"><i class="fa fa-angle-right"></i> Form Validations</a></li>
                   </ul>
                 </li>

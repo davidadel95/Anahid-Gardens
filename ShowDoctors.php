@@ -67,31 +67,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-        <div class="forms">
-          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-						<div class="form-title">
-							<h4>Food or Drink :</h4>
-						</div>
-						<div class="form-body">
-							<form>
-                <div class="form-group">
-									<label>Category</label>
-                    <select name="selector1" id="selector1" class="form-control1">
-  										<option>Breakfast</option>
-  										<option>Lunch</option>
-  										<option>Snack</option>
-  										<option>Drink</option>
-									  </select>
-								</div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Food Name</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="eg: cheese, milk">
-                </div>
-                <button type="submit" class="btn btn-success">Confirm</button>
-              </form>
-						</div>
-					</div>
-        </div>
+
+
+
+
 			</div>
 		</div>
 	<!--footer-->
