@@ -46,7 +46,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <body class="cbp-spmenu-push">
 	<div class="main-content">
 	<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-	   <?php include("NavigationBar.php"); ?>
+	   <?php include("Navigationbar.php"); ?>
 	</div>
 		<!--left-fixed -navigation-->
 
@@ -370,7 +370,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!-- side nav js -->
-	
+
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->
