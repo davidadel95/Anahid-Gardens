@@ -62,62 +62,64 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
             <h2>Lunch</h2>
             <br/>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <td>|</td>
-                    <th>Egg</th>  
-                    <th>Cheese</th>
-                    <th>Zabady</th>
-                    <th>Apple</th>
-                    <th>Milk</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Youssef Alaa Eldin</td>
-                  <td>|</td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>    
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>David Adel</td>
-                  <td>|</td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Mahmoud Ahmed</td>
-                  <td>|</td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div> </td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                  <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                </tr>
-                <tr>
-                    <th>4</th>
-                    <td>John Monir</td>
-                    <td>|</td>
-                    <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                </tr>
-              </tbody>
-            </table>
+            <form action="" method="POST">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <td>|</td>
+                        <th>Egg</th>  
+                        <th>Cheese</th>
+                        <th>Zabady</th>
+                        <th>Apple</th>
+                        <th>Milk</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Youssef Alaa Eldin</td>
+                      <td>|</td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>    
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>David Adel</td>
+                      <td>|</td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Mahmoud Ahmed</td>
+                      <td>|</td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div> </td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td>John Monir</td>
+                        <td>|</td>
+                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+            </form>
           </div>
         </div>
 			</div>

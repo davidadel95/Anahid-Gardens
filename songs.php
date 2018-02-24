@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Anahid Gardens - Breakfast Table</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anahid Gardens - Snack Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -12,7 +12,7 @@
 <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/meal.css" rel="stylesheet" type="text/css"/>
+<link href="css/songs.css" rel="stylesheet" type="text/css"/>
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 
@@ -60,66 +60,54 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="main-page">
         <div class="tables" border="1">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h2>Breakfast</h2>
+            <h2>Songs List</h2>
             <br/>
-            <form action="" method="POST">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <td>|</td>
-                        <th>Egg</th>  
-                        <th>Cheese</th>
-                        <th>Zabady</th>
-                        <th>Apple</th>
-                        <th>Milk</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Youssef Alaa Eldin</td>
-                      <td>|</td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>    
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>David Adel</td>
-                      <td>|</td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Mahmoud Ahmed</td>
-                      <td>|</td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div> </td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    </tr>
-                    <tr>
-                        <th>4</th>
-                        <td>John Monir</td>
-                        <td>|</td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                    </tr>
-                  </tbody>
-                </table>
-            </form>    
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                    <th>Song Name</th>
+                    <th>Song Lyrics</th>
+                    
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row"><p class="songName"><strong>Frere Jacques</strong></p></td>
+                  <td>Frere Jacques, Frere Jacques
+                    Dormez vous? Dormez vous?
+                    Sonnez les matines
+                    Sonnez les matines
+                    Din din don
+                    Din din don
+                    Are you sleeping?
+                    Are you sleeping?
+                    Brother John, Brother John 
+                    Morning bells are ringing
+                    Morning bells are ringing
+                    Din dang dong
+                    Din dang dong
+                  </td>
+                  
+                 
+                </tr>
+                <tr>
+                  <td scope="row"><p class="songName"><strong>Alouette</strong></p></td>
+                  <td>Alouette, gentille alouette
+                    Alouette, je te plumerai
+                    Aloutette, gentille alouette
+                    Alouette, je te plumerai
+                    Je te plumerai la tete
+                    Je te plumerai la tete
+                    Et la tete
+                    Et la tete
+                    Alouett’
+                    Alouett’
+                    Oh.
+                  </td>
+                  
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 			</div>

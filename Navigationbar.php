@@ -84,6 +84,7 @@
                         <li><a href="lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
                     </ul>
                     </li>
+                    <li><a href="songs.php"><i class="fa fa-angle-right"></i>Song List</a>
                   </ul>
                 </li>
 
