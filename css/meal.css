@@ -1,32 +1,5 @@
-#bfHeader{
+.checkboxes input {
     position: relative;
-    top: 20%;
-    color: red;
-}
-.bftable{
-    position: relative;
-    left:0;
-    top:0;
-    width:500px;
-    height: auto
-}
-.bftable, .bftable th,.bftable td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-.bftable th,.bftable td,.bftable input[type="checkbox"] {
-    padding: 5px;   
-    font-size: 18px;
-    text-align: center; 
-}
-.bf{
-    position: absolute;
-    top:20%;
-    right:45%;
-    height: auto;
-    width: auto;
-}
-
-#bfH{
-    font-size: 30px;
+    top:3px;
+    left:15%;   
 }
