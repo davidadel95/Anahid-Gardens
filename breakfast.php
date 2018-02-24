@@ -5,7 +5,7 @@
     <title>Add food</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/meal.css">
-    
+
 <link href="css/style.css" rel='stylesheet' type="text/css" />
 
   </head>
@@ -13,7 +13,7 @@
     <!-- header -->
     <?php include("Header.php"); ?>
     <!-- navbar -->
-    <?php include("NavigationBar.php"); ?>
+    <?php include("Navigationbar.php"); ?>
 
     <!-- footer -->
   	<!-- <?php include("Footer.php"); ?> -->
@@ -30,7 +30,7 @@
                 <th>Cheese</th>
                 <th>Zabady</th>
                 <th>Apple</th>
-                <th>Milk</th>  
+                <th>Milk</th>
               </tr>
               <tr>
                 <th>Name</th>
@@ -42,7 +42,7 @@
                 <td>
                     <div>
                     <input name="cb2" type="checkbox">
-                    </div>  
+                    </div>
                 </td>
                 <td>
                     <div>
@@ -52,17 +52,17 @@
                 <td>
                     <div>
                     <input name="cb4" type="checkbox">
-                    </div>  
+                    </div>
                 </td>
                 <td>
                     <div>
                     <input name="cb5"  type="checkbox">
-                    </div>  
+                    </div>
                 </td>
               </tr>
             </table>
         </form>
     </div>
-    
+
   </body>
 </html>
