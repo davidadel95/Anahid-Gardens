@@ -129,6 +129,20 @@
                </li>
 
 
+               <!-- Nannys menu -->
+                <li class="treeview">
+                 <a href="#">
+                <i class="fa fa-user-md"></i>
+                <span>Nannys</span>
+                <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                <li><a href="AddNanny.php"><i class="fa fa-angle-right"></i> Add Nanny </a></li>
+                <li><a href="ShowNanny.php"><i class="fa fa-angle-right"></i> Show Nanny </a></li>
+                </ul>
+                </li>
+
+
                 <li class="treeview">
                   <a href="#">
                   <i class="fa fa-folder"></i> <span>Examples</span>
