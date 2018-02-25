@@ -92,8 +92,8 @@
                       </li>
                       <li><a href="earlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
                   </ul>
-                
-                    
+
+
                 <li class="treeview">
                   <a href="#">
                   <i class="fa fa-user-md"></i>
@@ -118,7 +118,18 @@
                   </ul>
                 </li>
 
-
+                <!-- Trip menu -->
+                 <li class="treeview">
+                  <a href="#">
+                 <i class="fa fa-user-md"></i>
+                 <span>Trips</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+                 </a>
+                 <ul class="treeview-menu">
+                 <li><a href="AddTrips.php"><i class="fa fa-angle-right"></i> Add New Trip </a></li>
+                 <li><a href="ShowTrips.php"><i class="fa fa-angle-right"></i> Show Trips </a></li>
+                 </ul>
+                 </li>
 
 
                 <!-- Attendence menu -->

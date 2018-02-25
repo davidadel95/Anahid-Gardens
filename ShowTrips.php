@@ -69,41 +69,50 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Name of the class:</h4>
+            <h4>Trips:</h4>
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Attendance</th>
+                  <th>Trip Name</th>
+                  <th>Place</th>
+                  <th>Manger First Name</th>
+                  <th>Manger Last Name</th>
+                  <th>Manger Mobile</th>
+                  <th>Place Address</th>
+                  <th>Price</th>
+                  <th>Comments</th>
+                  <th>Start Date</th>
                 </tr>
               </thead>
               <tbody>
-                <form name ="Attendence" method="Post">
-                  <tr>
+                <tr>
                   <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td><input type="checkbox"></td>
+                  <td><a href="Reservation.php"> Dream Park Trip </a></td>
+                  <td>Dream Park</td>
+                  <td>Ahmed</td>
+                  <td>Mohamed</td>
+                  <td>0122345678</td>
+                  <td>25 abd el hamid</td>
+                  <td>123.45</td>
+                  <td>Any comment</td>
+                  <td>12-2-2018</td>
                 </tr>
                 <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td><input type="checkbox"></td>
+                  <tr>
+                 <th scope="row">2</th>
+                 <td><a href="Reservation.php"> Cinema Trip </a></td>
+                 <td>City Stars</td>
+                 <td>David</td>
+                 <td>Alaa</td>
+                 <td>0122345678</td>
+                 <td>25 abd el hamid</td>
+                 <td>123.45</td>
+                 <td>Any comment</td>
+                 <td>12-2-2018</td>
                 </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-
               </tbody>
             </table>
-        <button type="submit" class="btn btn-success">Submit</button>
-          </form>
           </div>
         </div>
 			</div>

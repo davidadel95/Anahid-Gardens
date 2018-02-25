@@ -69,41 +69,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Name of the class:</h4>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Attendance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <form name ="Attendence" method="Post">
-                  <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td><input type="checkbox"></td>
-                </tr>
+           <table class="table table-hover">
+						 <tr>
+					 <td> <a href="ListofReservation.php"> Who Reserved </a> </td>
+				 </tr>
+				 <tr>
+					 <td><a href="ShowClassesReservation.php"> New Reservation </a></td>
+				 </tr>
+				 <tr>
+			 </table>
 
-              </tbody>
-            </table>
-        <button type="submit" class="btn btn-success">Submit</button>
-          </form>
           </div>
         </div>
 			</div>

@@ -69,41 +69,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Name of the class:</h4>
+            <!-- PHP Name -->
+            <h4>Name of the Trip:</h4>
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>Attendance</th>
+                  <th>Class</th>
+                  <th>Remaining Money</th>
                 </tr>
               </thead>
               <tbody>
-                <form name ="Attendence" method="Post">
+
                   <tr>
                   <th scope="row">1</th>
                   <td>Mark</td>
                   <td>Otto</td>
-                  <td><input type="checkbox"></td>
+                  <td>1A</td>
+                  <td>0 </td>
                 </tr>
                 <tr>
                   <th scope="row">2</th>
                   <td>Jacob</td>
                   <td>Thornton</td>
-                  <td><input type="checkbox"></td>
+                  <td>2B</td>
+                  <td> 0</td>
                 </tr>
                 <tr>
                   <th scope="row">3</th>
                   <td>Larry</td>
                   <td>the Bird</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-
-              </tbody>
-            </table>
-        <button type="submit" class="btn btn-success">Submit</button>
-          </form>
+                  <td>1A</td>
+                  <td>20 LE</td>
+                  </tr>
+             </tbody>
+           </table>
           </div>
         </div>
 			</div>
@@ -114,40 +116,3 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
     <!--//footer-->
 	</div>
-
-
-
-	<!-- Classie --><!-- for toggle left push menu script -->
-		<script src="js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				body = document.body;
-
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
-
-
-			function disableOther( button ) {
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			}
-		</script>
-	<!-- //Classie --><!-- //for toggle left push menu script -->
-
-	<!--scrolling js-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
-	<!--//scrolling js-->
-
-	<!-- Bootstrap Core JavaScript -->
-   <!-- <script src="js/bootstrap.js"> </script> -->
-	<!-- //Bootstrap Core JavaScript -->
-
-</body>
-</html>

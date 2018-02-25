@@ -74,33 +74,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Reservation</th>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>Attendance</th>
+                  <th>Amount to pay</th>
+                  <th>Remaining Amount</th>
                 </tr>
               </thead>
               <tbody>
                 <form name ="Attendence" method="Post">
                   <tr>
                   <th scope="row">1</th>
+                  <td><input type="checkbox"></td>
                   <td>Mark</td>
                   <td>Otto</td>
-                  <td><input type="checkbox"></td>
+                  <td><input type="text"></td>
+                  <td>150 LE</td>
                 </tr>
                 <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td><input type="checkbox"></td>
-                </tr>
+                  <th scope="row">1</th>
+                  <td>Reserved</td>
+                  <td>Ahmed</td>
+                  <td>Mohamed</td>
+                  <td> </td>
+                  <td>0 LE</td>
+               </tr>
                 <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-
-              </tbody>
+                  <th scope="row">1</th>
+                  <td><input type="checkbox" /checked></td>
+                  <td>Ahmed</td>
+                  <td>Mohamed</td>
+                  <td> <input type="text"></td>
+                  <td>5 LE</td>
+               </tr>
+               </tbody>
             </table>
         <button type="submit" class="btn btn-success">Submit</button>
           </form>

@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Dashboard</title>
+<title>Add Trips</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -65,56 +65,68 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-		<div id="page-wrapper">
+    <div id="page-wrapper">
 			<div class="main-page">
-        <div class="tables">
-          <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Name of the class:</h4>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Attendance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <form name ="Attendence" method="Post">
-                  <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td><input type="checkbox"></td>
-                </tr>
+        <div class="forms">
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+						<div class="form-title">
+							<h4>Trip Details</h4>
+						</div>
+						<div class="form-body">
+							<form>
+                <div class="form-group">
+                  <label>Trip Name</label>
+                  <input type="text" class="form-control" placeholder="eg: Dream Park Trip">
+                </div>
+                <div class="form-group">
+                  <label>Place</label>
+                  <input type="text" class="form-control" placeholder="eg: Dream Park">
+                </div>
+                <div class="form-group">
+                  <label>Manger First Name </label>
+                  <input type="text" class="form-control" placeholder="eg: Ahmed">
+                </div>
 
-              </tbody>
-            </table>
-        <button type="submit" class="btn btn-success">Submit</button>
-          </form>
-          </div>
+                <div class="form-group">
+                  <label>Manger Last Name </label>
+                  <input type="text" class="form-control" placeholder="eg: Alaa">
+                </div>
+
+                <div class="form-group">
+                  <label>Manger Mobile </label>
+                  <input type="text" class="form-control" placeholder="eg: 0123456789">
+                </div>
+                <div class="form-group">
+                 <label>Address of place</label>
+                  <input type="text" class="form-control" placeholder="eg: 6 october">
+                </div>
+                <div class="form-group">
+                  <label>Price</label>
+                  <input type="text" class="form-control" placeholder="eg: 23LE">
+                </div>
+                <div class="form-group">
+                  <label>Comments</label>
+                  <input type="text" class="form-control" placeholder="eg: Any Comment">
+                </div>
+
+                  <div class="form-group">
+                  <label>Date of the trip</label>
+                  <input type="date" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-success">Confirm</button>
+              </form>
+						</div>
+					</div>
         </div>
 			</div>
 		</div>
-	<!--footer-->
-	<div class="footer">
-	   <?php include("Footer.php"); ?>
-	</div>
+  	<!--footer-->
+  	<div class="footer">
+  	   <?php include("Footer.php"); ?>
+  	</div>
     <!--//footer-->
 	</div>
-
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
