@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,7 +12,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-
 <!-- font-awesome icons CSS -->
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons CSS-->
@@ -65,27 +58,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-		<div id="page-wrapper">
+    <div id="page-wrapper">
 			<div class="main-page">
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 						<div class="form-title">
-							<h4>Food or Drink :</h4>
+							<h2>New Song</h2>
 						</div>
 						<div class="form-body">
-							<form>
+							<form method="POST" action="">
                 <div class="form-group">
-									<label>Category</label>
-                    <select name="selector1" id="selector1" class="form-control1">
-  										<option>Breakfast</option>
-  										<option>Lunch</option>
-  										<option>Snack</option>
-									  </select>
-								</div>
-                <div class="form-group">
-                  <label>Food Name</label>
-                  <input type="text" class="form-control" placeholder="eg: cheese, milk">
+                    <label>Song Name</label>
+                    <input type="text" class="form-control" placeholder="eg: Frere Jacques">
+                    
                 </div>
+                <div class="form-group">
+                  
+                  <label>Song Lyrics</label>
+                    
+                  <input type="text" class="form-control" placeholder="State the lyrics">
+                </div>
+                
                 <button type="submit" class="btn btn-success">Confirm</button>
               </form>
 						</div>
@@ -93,13 +86,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 			</div>
 		</div>
-	<!--footer-->
-	<div class="footer">
-	   <?php include("Footer.php"); ?>
-	</div>
+  	<!--footer-->
+  	<div class="footer">
+  	   <?php include("Footer.php"); ?>
+  	</div>
     <!--//footer-->
 	</div>
-
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->

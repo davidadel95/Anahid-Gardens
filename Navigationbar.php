@@ -56,7 +56,7 @@
                 <li class="treeview">
                   <a href="AddFood.php">
                   <i class="fa fa-yoast"></i>
-                  <span>Add new type of food or drink</span>
+                  <span>Add New Type of Food</span>
                   </a>
                 </li>
 
@@ -78,16 +78,22 @@
                       </ul>
                     </li>
                     <li><a href=""><i class="fa fa-angle-right"></i>Food</a>
-                      <ul class="treeview-menu">
-                        <li><a href="breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>
-                        <li><a href="snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>
-                        <li><a href="lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
-                    </ul>
+                          <ul class="treeview-menu">
+                            <li><a href="breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>
+                            <li><a href="snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>
+                            <li><a href="lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
+                        </ul>
                     </li>
-                    <li><a href="songs.php"><i class="fa fa-angle-right"></i>Song List</a>
+                    <li><a href=""><i class="fa fa-angle-right"></i>Songs</a>
+                        <ul class="treeview-menu">
+                            <li><a href="addSong.php"><i class="fa fa-angle-right"></i>Add a New Song</a></li>
+                            <li><a href="songs.php"><i class="fa fa-angle-right"></i>Song List</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="earlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
                   </ul>
-                </li>
-
+                
+                    
                 <li class="treeview">
                   <a href="#">
                   <i class="fa fa-user-md"></i>
@@ -96,7 +102,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i> Add new doctor info</a></li>
-                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i> Show doctors</a></li>
+                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i> Show Doctors</a></li>
                   </ul>
                 </li>
 
@@ -108,7 +114,7 @@
                   </a>
                   <ul class="treeview-menu">
                     <li><a href="AddNewService.php"><i class="fa fa-angle-right"></i> Add new service info</a></li>
-                    <li><a href="ShowServices.php"><i class="fa fa-angle-right"></i> Show services</a></li>
+                    <li><a href="ShowServices.php"><i class="fa fa-angle-right"></i> Show Services</a></li>
                   </ul>
                 </li>
 

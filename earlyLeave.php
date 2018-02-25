@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,7 +12,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-
+<link href="css/datetime.css" rel='stylesheet' type='text/css' />
+<link href="css/wickedpicker.css" rel='stylesheet' type='text/css' />
 <!-- font-awesome icons CSS -->
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons CSS-->
@@ -65,26 +60,51 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-		<div id="page-wrapper">
+    <div id="page-wrapper">
 			<div class="main-page">
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 						<div class="form-title">
-							<h4>Food or Drink :</h4>
+							<h2>Leave Form</h2>
 						</div>
 						<div class="form-body">
-							<form>
+							<form method="POST" action="">
                 <div class="form-group">
-									<label>Category</label>
-                    <select name="selector1" id="selector1" class="form-control1">
-  										<option>Breakfast</option>
-  										<option>Lunch</option>
-  										<option>Snack</option>
-									  </select>
-								</div>
+                    <label>ID</label>
+                    <input type="text" class="form-control" placeholder="eg: 123">
+                    
+                </div>
                 <div class="form-group">
-                  <label>Food Name</label>
-                  <input type="text" class="form-control" placeholder="eg: cheese, milk">
+                  
+                  <label>Firstname</label>
+                    
+                  <input type="text" class="form-control" placeholder="eg: John">
+                </div>
+                <div class="form-group">
+                  <label>Lastname</label>
+                  <input type="text" class="form-control" placeholder="eg: Smith">
+                </div>
+                <div class="form-group">
+                  <label>Date</label>
+                  <div class="container">
+
+                        <select class="bear-dates"></select>
+
+                        <select class="bear-months"></select>
+
+                        <select class="bear-years"></select>
+                    </div>
+
+
+                    
+                </div>
+                <div class="form-group">
+                  <label>From: <input type="text" name="timepicker1" class="timepicker"/> </label>
+                  <label>To: <input type="text" name="timepicker2" class="timepicker"/></label>
+                </div>
+                <div class="form-group">
+                  <label>Reason</label>
+                  <input type="text" class="form-control" placeholder="State the Reason">
                 </div>
                 <button type="submit" class="btn btn-success">Confirm</button>
               </form>
@@ -93,13 +113,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 			</div>
 		</div>
-	<!--footer-->
-	<div class="footer">
-	   <?php include("Footer.php"); ?>
-	</div>
+  	<!--footer-->
+  	<div class="footer">
+  	   <?php include("Footer.php"); ?>
+  	</div>
     <!--//footer-->
 	</div>
-
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
@@ -128,6 +147,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--scrolling js-->
 	<script src="js/jquery.nicescroll.js"></script>
 	<script src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/wickedpicker.js"></script>
+    <script src="js/calender.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                    dates('option');
+                    months('option');
+                    years('option', 2018, 2035);
+                    </script>
 	<!--//scrolling js-->
 
 	<!-- Bootstrap Core JavaScript -->
