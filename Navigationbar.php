@@ -144,6 +144,20 @@
                 </li>
 
 
+                <!-- Drivers menu -->
+                 <li class="treeview">
+                  <a href="#">
+                 <i class="fa fa-user-md"></i>
+                 <span>Drivers</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+                 </a>
+                 <ul class="treeview-menu">
+                 <li><a href="AddDriver.php"><i class="fa fa-angle-right"></i> Add Driver </a></li>
+                 <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i> Show Drivers </a></li>
+                 </ul>
+                 </li>
+
+
                 <li class="treeview">
                   <a href="#">
                   <i class="fa fa-folder"></i> <span>Examples</span>
