@@ -53,13 +53,6 @@
                   </a>
                 </li>
 
-                <li class="treeview">
-                  <a href="AddFood.php">
-                  <i class="fa fa-yoast"></i>
-                  <span>Add New Type of Food</span>
-                  </a>
-                </li>
-
 
                 <!-- kids checklist menu -->
                 <li class="treeview">
@@ -82,6 +75,7 @@
                             <li><a href="breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>
                             <li><a href="snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>
                             <li><a href="lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
+                            <li><a href="AddFood.php"><i class="fa fa-angle-right"></i>Add New Type of Food</a></li>
                         </ul>
                     </li>
                     <li><a href=""><i class="fa fa-angle-right"></i>Songs</a>
@@ -90,7 +84,7 @@
                             <li><a href="songs.php"><i class="fa fa-angle-right"></i>Song List</a></li>
                         </ul>
                       </li>
-                      <li><a href="earlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
+                      
                   </ul>
 
 
@@ -142,6 +136,7 @@
                <ul class="treeview-menu">
                <li><a href="AttendanceTeachers.php"><i class="fa fa-angle-right"></i> Teachers </a></li>
                <li><a href="ClassesKids.php"><i class="fa fa-angle-right"></i> Students </a></li>
+                <li><a href="earlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
                </ul>
                </li>
 

@@ -13,7 +13,7 @@
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <link href="css/datetime.css" rel='stylesheet' type='text/css' />
-<link href="css/wickedpicker.css" rel='stylesheet' type='text/css' />
+    <link href="css/wickedpicker.min.css" rel='stylesheet' type='text/css' />
 <!-- font-awesome icons CSS -->
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons CSS-->

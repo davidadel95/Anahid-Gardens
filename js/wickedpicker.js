@@ -40,7 +40,7 @@
             downArrow: 'wickedpicker__controls__control-down',
             close: 'wickedpicker__close',
             hoverState: 'hover-state',
-            title: 'Timepicker',
+            title: 'Pick the time',
             showSeconds: false,
             timeSeparator: ' : ',
             secondsInterval: 1,
