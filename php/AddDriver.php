@@ -105,15 +105,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="form-group">
                   <label>Address</label>
-                  <input type="date" class="form-control" placeholder="eg: 2 abd el hamid abd el wehab">
+                  <input type="text" class="form-control" placeholder="eg: 2 abd el hamid abd el wehab">
                 </div>
                 <div class="form-group">
                   <label>Previous Salary</label>
                   <input type="text" class="form-control" placeholder="eg: Previous Salary">
                 </div>
+								<div class="form-group">
+                  <label>New Salary</label>
+                  <input type="text" class="form-control" placeholder="eg: New Salary">
+                </div>
                 <div class="form-group">
                   <label>Comments</label>
-                  <input type="date" class="form-control" placeholder="eg: Not working sundays">
+                  <input type="text" class="form-control" placeholder="eg: Not working sundays">
                 </div>
                   <div class="form-group">
                   <label>Date of applying</label>

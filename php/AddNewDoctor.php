@@ -87,7 +87,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   <input type="text" class="form-control" placeholder="eg: 0123456789">
                 </div>
                 <div class="form-group">
-                  <label>Description</label>
+                  <label>Profession</label>
                   <input type="text" class="form-control" placeholder="eg: Onchologist">
                 </div>
                 <div class="form-group">
@@ -118,10 +118,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="form-group">
                   <label>Experience</label>
                   <input type="text" class="form-control" placeholder="eg: Experience">
-                </div>
-                <div class="form-group">
-                  <label>Language</label>
-                    <input type="text" class="form-control" placeholder="eg: English">
                 </div>
                 <div class="form-group">
                   <label>Date of applying</label>

@@ -80,6 +80,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   										<option>Breakfast</option>
   										<option>Lunch</option>
   										<option>Snack</option>
+											<option>Drink</option>
 									  </select>
 								</div>
                 <div class="form-group">
