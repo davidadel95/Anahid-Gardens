@@ -49,7 +49,7 @@
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar.php"); ?>
+      <?php include("Navigationbar2.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->
@@ -72,12 +72,12 @@
                 <div class="form-group">
                     <label>ID</label>
                     <input type="text" class="form-control" placeholder="eg: 123">
-                    
+
                 </div>
                 <div class="form-group">
-                  
+
                   <label>Firstname</label>
-                    
+
                   <input type="text" class="form-control" placeholder="eg: John">
                 </div>
                 <div class="form-group">
@@ -96,7 +96,7 @@
                     </div>
 
 
-                    
+
                 </div>
                 <div class="form-group">
                   <label>From: <input type="text" name="timepicker1" class="timepicker"/> </label>

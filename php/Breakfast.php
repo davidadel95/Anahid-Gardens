@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-      
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -45,7 +45,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar.php"); ?>
+      <?php include("Navigationbar2.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->
@@ -69,7 +69,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                         <th>#</th>
                         <th>Name</th>
                         <td>|</td>
-                        <th>Egg</th>  
+                        <th>Egg</th>
                         <th>Cheese</th>
                         <th>Zabady</th>
                         <th>Apple</th>
@@ -84,7 +84,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>    
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                     </tr>
                     <tr>
@@ -119,7 +119,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     </tr>
                   </tbody>
                 </table>
-            </form>    
+            </form>
           </div>
         </div>
 			</div>

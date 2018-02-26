@@ -47,7 +47,7 @@
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar.php"); ?>
+      <?php include("Navigationbar2.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->
@@ -70,15 +70,15 @@
                 <div class="form-group">
                     <label>Song Name</label>
                     <input type="text" class="form-control" placeholder="eg: Frere Jacques">
-                    
+
                 </div>
                 <div class="form-group">
-                  
+
                   <label>Song Lyrics</label>
-                    
+
                   <input type="text" class="form-control" placeholder="State the lyrics">
                 </div>
-                
+
                 <button type="submit" class="btn btn-success">Confirm</button>
               </form>
 						</div>

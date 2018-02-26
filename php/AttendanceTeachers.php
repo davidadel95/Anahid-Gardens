@@ -54,7 +54,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar.php"); ?>
+      <?php include("Navigationbar2.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->

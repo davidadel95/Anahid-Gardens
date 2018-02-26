@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-      
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Glance Design Dashboard Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -45,7 +45,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
   <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar.php"); ?>
+      <?php include("Navigationbar2.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->
@@ -67,7 +67,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <tr>
                     <th>Song Name</th>
                     <th>Song Lyrics</th>
-                    
+
                 </tr>
               </thead>
               <tbody>
@@ -81,14 +81,14 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     Din din don
                     Are you sleeping?
                     Are you sleeping?
-                    Brother John, Brother John 
+                    Brother John, Brother John
                     Morning bells are ringing
                     Morning bells are ringing
                     Din dang dong
                     Din dang dong
                   </td>
-                  
-                 
+
+
                 </tr>
                 <tr>
                   <td scope="row"><p class="songName"><strong>Alouette</strong></p></td>
@@ -104,7 +104,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     Alouett’
                     Oh.
                   </td>
-                  
+
                 </tr>
               </tbody>
             </table>

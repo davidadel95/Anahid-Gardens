@@ -46,7 +46,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <body class="cbp-spmenu-push">
 	<div class="main-content">
 	<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-	   <?php include("Navigationbar.php"); ?>
+	   <?php include("Navigationbar2.php"); ?>
 	</div>
 		<!--left-fixed -navigation-->
 
