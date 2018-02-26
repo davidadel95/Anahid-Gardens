@@ -4,7 +4,7 @@
         <meta http-equiv="refresh" content="0;url=pages/index.html">
         <title>FDJZ-Bank</title>
         <script language="javascript">
-            window.location.href = "php/dashboard.php"
+            window.location.href = "php/Dashboard.php"
         </script>
     </head>
     <body>
