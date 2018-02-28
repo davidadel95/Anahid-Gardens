@@ -1,7 +1,13 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Anahid Gardens - Add Song</title>
+<title>Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -12,6 +18,7 @@
 
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+
 <!-- font-awesome icons CSS -->
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons CSS-->
@@ -58,40 +65,52 @@
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-    <div id="page-wrapper">
+		<div id="page-wrapper">
 			<div class="main-page">
-        <div class="forms">
-          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-						<div class="form-title">
-							<h2>New Song</h2>
-						</div>
-						<div class="form-body">
-							<form method="POST" action="">
-                <div class="form-group">
-                    <label>Song Name</label>
-                    <input type="text" class="form-control" placeholder="eg: Frere Jacques">
-
-                </div>
-                <div class="form-group">
-
-                  <label>Song Lyrics</label>
-
-                  <input type="text" class="form-control" placeholder="State the lyrics">
-                </div>
-
-                <button type="submit" class="btn btn-success">Confirm</button>
-              </form>
-						</div>
-					</div>
+        <div class="tables">
+          <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
+            <h4>Drivers:</h4>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Class</th>
+                  <th>Number of kids</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td><a href="">1</a></td>
+                  <td>20</td>
+                  <td>comment</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td><a href="">2</a></td>
+                  <td>12</td>
+                  <td>comment</td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td><a href="">3</a></td>
+                  <td>7</td>
+                  <td>comment</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 			</div>
 		</div>
-  	<!--footer-->
-  	<div class="footer">
-  	   <?php include("Footer.php"); ?>
-  	</div>
+	<!--footer-->
+	<div class="footer">
+	   <?php include("Footer.php"); ?>
+	</div>
     <!--//footer-->
 	</div>
+
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->

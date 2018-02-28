@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Anahid Gardens - Snack Table</title>
+    <title>Anahid Gardens - Arts Table</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -60,7 +60,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="main-page">
         <div class="tables" border="1">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h2>Snack</h2>
+            <h2>Arts</h2>
             <br/>
             <form action="" method="POST">
                 <table class="table table-hover">
@@ -69,11 +69,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                         <th>#</th>
                         <th>Name</th>
                         <td>|</td>
-                        <th>Egg</th>
-                        <th>Cheese</th>
-                        <th>Zabady</th>
-                        <th>Apple</th>
-                        <th>Milk</th>
+                        <th>Coloring</th>
+                        <th>Painting</th>
+                        <th>Puzzle</th>
+                        <th>Handmade Act.</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -81,7 +80,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                       <th scope="row">1</th>
                       <td>Youssef Alaa Eldin</td>
                       <td>|</td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
@@ -95,7 +93,6 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
@@ -105,13 +102,11 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
                       <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
                     </tr>
                     <tr>
                         <th>4</th>
                         <td>John Monir</td>
                         <td>|</td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
                         <td><div class="checkboxes"><input type="checkbox"/></div></td>
                         <td><div class="checkboxes"><input type="checkbox"/></div></td>
                         <td><div class="checkboxes"><input type="checkbox"/></div></td>

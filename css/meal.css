@@ -3,3 +3,19 @@
     top:3px;
     left:15%;   
 }
+
+.abnCheckbox{
+    position: relative;
+    top:3px;
+    left:15%;
+}
+.uriCheckbox{
+    position: relative;
+    top:3px;
+    left:10%;
+}
+.stoCheckbox{
+    position: relative;
+    top:3px;
+    left:10%;
+}
