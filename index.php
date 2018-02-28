@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta http-equiv="refresh" content="0;url=pages/index.html">
-        <title>FDJZ-Bank</title>
+        <title>Anahid Gardens Nursery</title>
         <script language="javascript">
-            window.location.href = "dashboard.php"
+            window.location.href = "php/Dashboard.php"
         </script>
     </head>
     <body>
