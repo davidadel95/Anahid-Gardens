@@ -68,6 +68,12 @@
                         <li><a href=""><i class="fa fa-angle-right"></i>English</a></li>
                         <li><a href=""><i class="fa fa-angle-right"></i>Arabic</a></li>
                         <li><a href=""><i class="fa fa-angle-right"></i>Quraan</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Arts</a>
+                            <ul class="treeview-menu">
+                                <li><a href="ArtsCheck.php"><i class="fa fa-angle-right"></i>Arts Table</a></li>
+                                <li><a href="AddArt.php"><i class="fa fa-angle-right"></i>Add New Art</a></li>
+                            </ul>
+                        </li>
                       </ul>
                     </li>
                     <li><a href=""><i class="fa fa-angle-right"></i>Food</a>
@@ -78,13 +84,20 @@
                             <li><a href="AddFood.php"><i class="fa fa-angle-right"></i>Add New Type of Food</a></li>
                         </ul>
                     </li>
+                    <li><a href=""><i class="fa fa-angle-right"></i>Fun</a>
+                          <ul class="treeview-menu">
+                            <li><a href="FunCheck.php"><i class="fa fa-angle-right"></i>Fun Table</a></li>
+                            <li><a href="AddFun.php"><i class="fa fa-angle-right"></i>Add New Fun Event</a></li>
+                        </ul>
+                    </li>  
                     <li><a href=""><i class="fa fa-angle-right"></i>Songs</a>
                         <ul class="treeview-menu">
                             <li><a href="AddSong.php"><i class="fa fa-angle-right"></i>Add a New Song</a></li>
                             <li><a href="Songs.php"><i class="fa fa-angle-right"></i>Song List</a></li>
                         </ul>
                       </li>
-
+                       
+                      <li><a href="toiletCheck.php"><i class="fa fa-angle-right"></i>Toilet</a></li>
                   </ul>
 
 
@@ -95,8 +108,8 @@
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i> Add new doctor info</a></li>
-                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i> Show Doctors</a></li>
+                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Add new doctor info</a></li>
+                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>Show Doctors</a></li>
                   </ul>
                 </li>
 
@@ -107,8 +120,8 @@
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="AddNewService.php"><i class="fa fa-angle-right"></i> Add new service info</a></li>
-                    <li><a href="ShowServices.php"><i class="fa fa-angle-right"></i> Show Services</a></li>
+                    <li><a href="AddNewService.php"><i class="fa fa-angle-right"></i>Add new service info</a></li>
+                    <li><a href="ShowServices.php"><i class="fa fa-angle-right"></i>Show Services</a></li>
                   </ul>
                 </li>
 
@@ -120,8 +133,8 @@
                  <i class="fa fa-angle-left pull-right"></i>
                  </a>
                  <ul class="treeview-menu">
-                 <li><a href="AddTrips.php"><i class="fa fa-angle-right"></i> Add New Trip </a></li>
-                 <li><a href="ShowTrips.php"><i class="fa fa-angle-right"></i> Show Trips </a></li>
+                 <li><a href="AddTrips.php"><i class="fa fa-angle-right"></i>Add New Trip </a></li>
+                 <li><a href="ShowTrips.php"><i class="fa fa-angle-right"></i>Show Trips </a></li>
                  </ul>
                  </li>
 
@@ -134,9 +147,9 @@
                <i class="fa fa-angle-left pull-right"></i>
                </a>
                <ul class="treeview-menu">
-               <li><a href="AttendanceTeachers.php"><i class="fa fa-angle-right"></i> Teachers </a></li>
-               <li><a href="ClassesKids.php"><i class="fa fa-angle-right"></i> Students </a></li>
-                <li><a href="EarlyLeave.php"><i class="fa fa-angle-right"></i> Leave Form</a>
+               <li><a href="AttendanceTeachers.php"><i class="fa fa-angle-right"></i>Teachers </a></li>
+               <li><a href="ClassesKids.php"><i class="fa fa-angle-right"></i>Students </a></li>
+                <li><a href="EarlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
                </ul>
                </li>
 
@@ -149,8 +162,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                <li><a href="AddNanny.php"><i class="fa fa-angle-right"></i> Add Nanny </a></li>
-                <li><a href="ShowNanny.php"><i class="fa fa-angle-right"></i> Show Nannys </a></li>
+                <li><a href="AddNanny.php"><i class="fa fa-angle-right"></i>Add Nanny </a></li>
+                <li><a href="ShowNanny.php"><i class="fa fa-angle-right"></i>Show Nannys </a></li>
                 </ul>
                 </li>
 
@@ -163,11 +176,11 @@
                  <i class="fa fa-angle-left pull-right"></i>
                  </a>
                  <ul class="treeview-menu">
-                 <li><a href="AddDriver.php"><i class="fa fa-angle-right"></i> Add Driver </a></li>
-                 <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i> Show Drivers </a></li>
+                 <li><a href="AddDriver.php"><i class="fa fa-angle-right"></i>Add Driver </a></li>
+                 <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i>Show Drivers </a></li>
                  </ul>
                  </li>
-
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Anahid Gardens - Snack Table</title>
+    <title>Anahid Gardens - Toilet Table</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -60,7 +60,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			<div class="main-page">
         <div class="tables" border="1">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h2>Snack</h2>
+            <h2>Toilet</h2>
             <br/>
             <form action="" method="POST">
                 <table class="table table-hover">
@@ -69,53 +69,43 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                         <th>#</th>
                         <th>Name</th>
                         <td>|</td>
-                        <th>Egg</th>
-                        <th>Cheese</th>
-                        <th>Zabady</th>
-                        <th>Apple</th>
-                        <th>Milk</th>
+                        <th>Urine</th>
+                        <th>Stool</th>
+                        <th>Abnormal</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td>Youssef Alaa Eldin</td>
-                      <td>|</td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                        <td>Youssef Alaa Eldin</td>
+                        <td>|</td>                     
+                      <td><div class="uriCheckbox"><input type="checkbox"/></div></td>
+                      <td><div class="stoCheckbox"><input type="checkbox"/></div></td>
+                      <td><div class="abnCheckbox"><input type="checkbox"/></div></td>
                     </tr>
                     <tr>
                       <th scope="row">2</th>
                       <td>David Adel</td>
                       <td>|</td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="uriCheckbox"><input type="checkbox"/></div></td>
+                      <td><div class="stoCheckbox"><input type="checkbox"/></div></td>
+                      <td><div class="abnCheckbox"><input type="checkbox"/></div></td>
                     </tr>
                     <tr>
                       <th scope="row">3</th>
                       <td>Mahmoud Ahmed</td>
                       <td>|</td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div> </td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                      <td><div class="uriCheckbox"><input type="checkbox"/></div> </td>
+                      <td><div class="stoCheckbox"><input type="checkbox"/></div></td>
+                      <td><div class="abnCheckbox"><input type="checkbox"/></div></td>
                     </tr>
                     <tr>
                         <th>4</th>
                         <td>John Monir</td>
                         <td>|</td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
-                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                        <td><div class="uriCheckbox"><input type="checkbox"/></div></td>
+                        <td><div class="stoCheckbox"><input type="checkbox"/></div></td>
+                        <td><div class="abnCheckbox"><input type="checkbox"/></div></td>
                     </tr>
                   </tbody>
                 </table>
@@ -157,8 +147,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->
-	<script src="js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="../js/jquery.nicescroll.js"></script>
+	<script src="../js/scripts.js"></script>
 	<!--//scrolling js-->
 
 	<!-- Bootstrap Core JavaScript -->

@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Add Trips</title>
+<title>Anahid Gardens - Add Fun</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -67,60 +67,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- main content start-->
     <div id="page-wrapper">
 			<div class="main-page">
-        <div class="forms">
-          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-						<div class="form-title">
-							<h4>Trip Details</h4>
-						</div>
-						<div class="form-body">
-							<form method="POST" action="">
-                <div class="form-group">
-                  <label>Trip Name</label>
-                  <input type="text" class="form-control" placeholder="eg: Dream Park Trip">
-                </div>
-                <div class="form-group">
-                  <label>Place</label>
-                  <input type="text" class="form-control" placeholder="eg: Dream Park">
-                </div>
-                <div class="form-group">
-                  <label>Manger First Name </label>
-                  <input type="text" class="form-control" placeholder="eg: Ahmed">
-                </div>
+                <div class="forms">
+                  <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                        <div class="form-title">
+                            <h4>Fun Details</h4>
+                        </div>
+                        <div class="form-body">
+                        <form method="POST" action="">
+                        <div class="form-group">
+                          <label>Fun Name</label>
+                          <input type="text" class="form-control" placeholder="eg: Cooking">
+                        </div>
+                        <div class="form-group">
+                          <label>Fun Description</label>
+                          <input type="text" class="form-control" placeholder="eg: Kids participate in...">
+                        </div>
+                        <div class="form-group">
+                          <label>Fun Images (If Available)</label>
+                          <input type="File" class="form-control">
+                            </div>
 
-                <div class="form-group">
-                  <label>Manger Last Name </label>
-                  <input type="text" class="form-control" placeholder="eg: Alaa">
+                        <button type="submit" class="btn btn-success">Confirm</button>
+                      </form>
+                     </div>
+                   </div>
                 </div>
-
-                <div class="form-group">
-                  <label>Manger Mobile </label>
-                  <input type="text" class="form-control" placeholder="eg: 0123456789">
+                    </div>
                 </div>
-                <div class="form-group">
-                 <label>Address of place</label>
-                  <input type="text" class="form-control" placeholder="eg: 6 october">
-                </div>
-                <div class="form-group">
-                  <label>Price</label>
-                  <input type="text" class="form-control" placeholder="eg: 23LE">
-                </div>
-                <div class="form-group">
-                  <label>Comments</label>
-                  <input type="text" class="form-control" placeholder="eg: Any Comment">
-                </div>
-
-                  <div class="form-group">
-                  <label>Date of the trip</label>
-                  <input type="date" class="form-control">
-                </div>
-
-                <button type="submit" class="btn btn-success">Confirm</button>
-              </form>
-						</div>
-					</div>
-        </div>
-			</div>
-		</div>
   	<!--footer-->
   	<div class="footer">
   	   <?php include("Footer.php"); ?>
