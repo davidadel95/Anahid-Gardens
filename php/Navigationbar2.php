@@ -81,7 +81,6 @@
                             <li><a href="Breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>
                             <li><a href="Snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>
                             <li><a href="Lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
-                            <li><a href="AddFood.php"><i class="fa fa-angle-right"></i>Add New Type of Food</a></li>
                         </ul>
                     </li>
                     <li><a href=""><i class="fa fa-angle-right"></i>Fun</a>
@@ -89,15 +88,16 @@
                             <li><a href="FunCheck.php"><i class="fa fa-angle-right"></i>Fun Table</a></li>
                             <li><a href="AddFun.php"><i class="fa fa-angle-right"></i>Add New Fun Event</a></li>
                         </ul>
-                    </li>  
+                    </li>
                     <li><a href=""><i class="fa fa-angle-right"></i>Songs</a>
                         <ul class="treeview-menu">
                             <li><a href="AddSong.php"><i class="fa fa-angle-right"></i>Add a New Song</a></li>
                             <li><a href="Songs.php"><i class="fa fa-angle-right"></i>Song List</a></li>
                         </ul>
                       </li>
-                       
-                      <li><a href="toiletCheck.php"><i class="fa fa-angle-right"></i>Toilet</a></li>
+
+                      <li><a href="ToiletCheck.php"><i class="fa fa-angle-right"></i>Toilet</a></li>
+                      <li><a href="SportsCheck.php"><i class="fa fa-angle-right"></i>Sports</a></li>
                   </ul>
 
 
@@ -171,15 +171,56 @@
                 <!-- Drivers menu -->
                  <li class="treeview">
                   <a href="#">
-                 <i class="fa fa-car"></i>
-                 <span>Drivers</span>
-                 <i class="fa fa-angle-left pull-right"></i>
-                 </a>
-                 <ul class="treeview-menu">
-                 <li><a href="AddDriver.php"><i class="fa fa-angle-right"></i>Add Driver </a></li>
-                 <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i>Show Drivers </a></li>
-                 </ul>
+                     <i class="fa fa-car"></i>
+                     <span>Drivers</span>
+                     <i class="fa fa-angle-left pull-right"></i>
+                   </a>
+                   <ul class="treeview-menu">
+                     <li><a href="AddDriver.php"><i class="fa fa-angle-right"></i>Add Driver </a></li>
+                     <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i>Show Drivers </a></li>
+                   </ul>
                  </li>
+
+                 <!-- Applications menu -->
+                  <li class="treeview">
+                   <a href="#">
+                    <i class="fa fa-wpforms"></i>
+                    <span>Applications</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                   </a>
+                   <ul class="treeview-menu">
+                    <li><a href="ChildrenApplication.php"><i class="fa fa-angle-right"></i>New Child Application </a></li>
+                    <li><a href="ChildrenInformation.php"><i class="fa fa-angle-right"></i>Show Submitted Applications </a></li>
+                   </ul>
+                  </li>
+
+                  <!-- Show all kids menu -->
+                   <li class="treeview">
+                    <a href="#">
+                     <i class="fa fa-list-ul"></i>
+                     <span>Show All Kids</span>
+                     <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                     <li><a href="ShowAllKids.php"><i class="fa fa-angle-right"></i>Show all kids </a></li>
+                     <li><a href="ShowAllClasses.php"><i class="fa fa-angle-right"></i>Show all classes </a></li>
+                     <li><a href="ChildrenInformation.php"><i class="fa fa-angle-right"></i>Show Specific report </a></li>
+                    </ul>
+                   </li>
+
+                  <!-- Settings menu -->
+                   <li class="treeview">
+                    <a href="#">
+                     <i class="fa fa-cog"></i>
+                     <span>Settings</span>
+                     <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                     <li><a href="AddFood.php"><i class="fa fa-angle-right"></i>Add New Type of Food</a></li>
+                     <li><a href="AddNewChecklistItem.php"><i class="fa fa-angle-right"></i>Add New Checklist Category</a></li>
+                    </ul>
+                   </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
