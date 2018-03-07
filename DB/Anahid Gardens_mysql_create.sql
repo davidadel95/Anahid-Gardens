@@ -1,0 +1,715 @@
+CREATE TABLE `User` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`RoleID` INT NOT NULL,
+	`UID` INT NOT NULL,
+	`DateAdded` DATETIME NOT NULL,
+	`Status` varchar NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Role` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `RolePages` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`RoleID` INT NOT NULL,
+	`PageID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Pages` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`URL` varchar(500) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Duration` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`StartDate` DATETIME NOT NULL,
+	`LeftDate` DATETIME NOT NULL,
+	`LogDate` DATETIME NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Food` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`FoodID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Foodies` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`FoodID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `FoodiesLog` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`FoodID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ExtraClothes` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`ClotheID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `StudentClothes` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`ClothesID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Attendance` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	`Attended` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `AttendanceLog` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	`Attended` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Toilet` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Type` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ToiletCheck` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`TypeID` INT NOT NULL,
+	`UserID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `CarType` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`CarTypeID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Activities` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `UserActivities` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`ActivityID` INT NOT NULL,
+	`UserID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `CarColor` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Color` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `CarYear` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Year` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `CarData` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`TypeID` INT NOT NULL,
+	`ColorID` INT NOT NULL,
+	`YearID` INT NOT NULL,
+	`DriverID` INT NOT NULL,
+	`PlateNb` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `OptionsTypes` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Type` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `CommentDetails` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Comments` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`CommentID` INT NOT NULL,
+	`EventDetailsID` INT NOT NULL,
+	`Value` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `EventType` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `EventDetails` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Price` FLOAT NOT NULL,
+	`EventTypeID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `PaymentMethods` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`PName` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `POptions` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`TypeID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `PaymentOptions` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`PaymentMethodID` INT NOT NULL,
+	`POptionID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `PaymentOptionsValue` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`PaymentOptionsID` INT NOT NULL,
+	`Value` varchar(200) NOT NULL,
+	`TransactionID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Transaction` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`EventID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	`Quantity` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Localization` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Language` varchar(200) NOT NULL,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Word` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`LanguageID` INT NOT NULL,
+	`PageID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `LogTable` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Message` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `MessagesAndErros` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`TypeID` INT NOT NULL,
+	`PageID` INT NOT NULL,
+	`StatusID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ErrorTypes` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Nulls` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `NullsType` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`NullID` INT NOT NULL,
+	`UserID` INT NOT NULL,
+	`Value` varchar(600) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `TransactionLog` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Date` DATETIME NOT NULL,
+	`StatusID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `MessageStatus` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Course` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `UserClassCourse` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`CourseID` INT NOT NULL,
+	`ClassID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Class` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Vaccination` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Medicine` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `UserVaccination` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`VaccinationID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Disease` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `UserDisease` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`DiseaseID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `MedicineDisease` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`MedicineID` INT NOT NULL,
+	`UserDiseaseID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `UserStatus` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Status` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ApplicationOptions` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	`OptionTypeID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Application` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`RoleID` INT NOT NULL,
+	`ApplicationOptionID` INT NOT NULL,
+	`isVisible` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ApplicationValue` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`ApplicationID` INT NOT NULL,
+	`UserID` INT NOT NULL,
+	`Value` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `FormName` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `FormOptions` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar NOT NULL,
+	`OptionID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Form` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`FormNameID` INT NOT NULL,
+	`FormOptionsID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `FormOptionsValue` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`FormID` INT NOT NULL,
+	`Value` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Days` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `CourseTimetable` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`StartTime` TIMESTAMP NOT NULL,
+	`EndTime` TIMESTAMP NOT NULL,
+	`CourseID` INT NOT NULL,
+	`ClassID` INT NOT NULL,
+	`DaysID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `BusSchedule` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Time` TIMESTAMP NOT NULL,
+	`ChildID` INT NOT NULL,
+	`isArriving` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `FoodTimeTable` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`StartTime` TIMESTAMP NOT NULL,
+	`EndTime` TIMESTAMP NOT NULL,
+	`FoodID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ReportName` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ReportOptionsType` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`OptionsTypeID` INT NOT NULL,
+	`Name` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Report` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`ReportNameID` INT NOT NULL,
+	`ReportOptionsTypeID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ReportsValue` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`ReportID` INT NOT NULL,
+	`Value` varchar(200) NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Leaving` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`AttendanceID` INT NOT NULL,
+	`LeaveTime` TIMESTAMP NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `WorkersHoursSalary` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`BasicHour` FLOAT NOT NULL,
+	`ExtraHour` FLOAT NOT NULL,
+	`DeductionHour` FLOAT NOT NULL,
+	`RoleID` INT NOT NULL,
+	`NormalHours` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `UserDailyHours` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Date` DATE NOT NULL,
+	`Hours` INT NOT NULL,
+	`isExtra` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `SalaryManipulation` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Date` DATE NOT NULL,
+	`Value` FLOAT NOT NULL,
+	`isBonus` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `SalaryManipulationLog` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Date` DATE NOT NULL,
+	`Value` FLOAT NOT NULL,
+	`isBonus` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `UserDailyHoursLog` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Date` DATE NOT NULL,
+	`Hours` INT NOT NULL,
+	`isExtra` BOOLEAN NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ExperienceSalaries` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`UserID` INT NOT NULL,
+	`Value` FLOAT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `Expenditures` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Value` FLOAT NOT NULL,
+	`Date` TIMESTAMP NOT NULL,
+	`PaymentMethodID` INT NOT NULL,
+	`ExpenditureTypeID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `ExpenditureTypes` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `SalariesPayment` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`ValueToBePaid` FLOAT NOT NULL,
+	`isPaid` BOOLEAN NOT NULL,
+	`StartDate` DATETIME NOT NULL,
+	`EndDate` DATETIME NOT NULL,
+	`UserID` INT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
+ALTER TABLE `User` ADD CONSTRAINT `User_fk0` FOREIGN KEY (`RoleID`) REFERENCES `Role`(`ID`);
+
+ALTER TABLE `User` ADD CONSTRAINT `User_fk1` FOREIGN KEY (`UID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `User` ADD CONSTRAINT `User_fk2` FOREIGN KEY (`Status`) REFERENCES `UserStatus`(`ID`);
+
+ALTER TABLE `RolePages` ADD CONSTRAINT `RolePages_fk0` FOREIGN KEY (`RoleID`) REFERENCES `Role`(`ID`);
+
+ALTER TABLE `RolePages` ADD CONSTRAINT `RolePages_fk1` FOREIGN KEY (`PageID`) REFERENCES `Pages`(`ID`);
+
+ALTER TABLE `Duration` ADD CONSTRAINT `Duration_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `Food` ADD CONSTRAINT `Food_fk0` FOREIGN KEY (`FoodID`) REFERENCES `Food`(`ID`);
+
+ALTER TABLE `Foodies` ADD CONSTRAINT `Foodies_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `Foodies` ADD CONSTRAINT `Foodies_fk1` FOREIGN KEY (`FoodID`) REFERENCES `Food`(`ID`);
+
+ALTER TABLE `FoodiesLog` ADD CONSTRAINT `FoodiesLog_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `FoodiesLog` ADD CONSTRAINT `FoodiesLog_fk1` FOREIGN KEY (`FoodID`) REFERENCES `Food`(`ID`);
+
+ALTER TABLE `ExtraClothes` ADD CONSTRAINT `ExtraClothes_fk0` FOREIGN KEY (`ClotheID`) REFERENCES `ExtraClothes`(`ID`);
+
+ALTER TABLE `StudentClothes` ADD CONSTRAINT `StudentClothes_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `StudentClothes` ADD CONSTRAINT `StudentClothes_fk1` FOREIGN KEY (`ClothesID`) REFERENCES `ExtraClothes`(`ID`);
+
+ALTER TABLE `Attendance` ADD CONSTRAINT `Attendance_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `AttendanceLog` ADD CONSTRAINT `AttendanceLog_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `ToiletCheck` ADD CONSTRAINT `ToiletCheck_fk0` FOREIGN KEY (`TypeID`) REFERENCES `Toilet`(`ID`);
+
+ALTER TABLE `ToiletCheck` ADD CONSTRAINT `ToiletCheck_fk1` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `CarType` ADD CONSTRAINT `CarType_fk0` FOREIGN KEY (`CarTypeID`) REFERENCES `CarType`(`ID`);
+
+ALTER TABLE `UserActivities` ADD CONSTRAINT `UserActivities_fk0` FOREIGN KEY (`ActivityID`) REFERENCES `Activities`(`ID`);
+
+ALTER TABLE `UserActivities` ADD CONSTRAINT `UserActivities_fk1` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `CarData` ADD CONSTRAINT `CarData_fk0` FOREIGN KEY (`TypeID`) REFERENCES `CarType`(`ID`);
+
+ALTER TABLE `CarData` ADD CONSTRAINT `CarData_fk1` FOREIGN KEY (`ColorID`) REFERENCES `CarColor`(`ID`);
+
+ALTER TABLE `CarData` ADD CONSTRAINT `CarData_fk2` FOREIGN KEY (`YearID`) REFERENCES `CarYear`(`ID`);
+
+ALTER TABLE `CarData` ADD CONSTRAINT `CarData_fk3` FOREIGN KEY (`DriverID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `Comments` ADD CONSTRAINT `Comments_fk0` FOREIGN KEY (`CommentID`) REFERENCES `CommentDetails`(`ID`);
+
+ALTER TABLE `Comments` ADD CONSTRAINT `Comments_fk1` FOREIGN KEY (`EventDetailsID`) REFERENCES `EventDetails`(`ID`);
+
+ALTER TABLE `EventDetails` ADD CONSTRAINT `EventDetails_fk0` FOREIGN KEY (`EventTypeID`) REFERENCES `EventType`(`ID`);
+
+ALTER TABLE `POptions` ADD CONSTRAINT `POptions_fk0` FOREIGN KEY (`TypeID`) REFERENCES `OptionsTypes`(`ID`);
+
+ALTER TABLE `PaymentOptions` ADD CONSTRAINT `PaymentOptions_fk0` FOREIGN KEY (`PaymentMethodID`) REFERENCES `PaymentMethods`(`ID`);
+
+ALTER TABLE `PaymentOptions` ADD CONSTRAINT `PaymentOptions_fk1` FOREIGN KEY (`POptionID`) REFERENCES `POptions`(`ID`);
+
+ALTER TABLE `PaymentOptionsValue` ADD CONSTRAINT `PaymentOptionsValue_fk0` FOREIGN KEY (`PaymentOptionsID`) REFERENCES `PaymentOptions`(`ID`);
+
+ALTER TABLE `PaymentOptionsValue` ADD CONSTRAINT `PaymentOptionsValue_fk1` FOREIGN KEY (`TransactionID`) REFERENCES `Transaction`(`ID`);
+
+ALTER TABLE `Transaction` ADD CONSTRAINT `Transaction_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `Transaction` ADD CONSTRAINT `Transaction_fk1` FOREIGN KEY (`EventID`) REFERENCES `EventDetails`(`ID`);
+
+ALTER TABLE `Word` ADD CONSTRAINT `Word_fk0` FOREIGN KEY (`LanguageID`) REFERENCES `Localization`(`ID`);
+
+ALTER TABLE `Word` ADD CONSTRAINT `Word_fk1` FOREIGN KEY (`PageID`) REFERENCES `Pages`(`ID`);
+
+ALTER TABLE `LogTable` ADD CONSTRAINT `LogTable_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `MessagesAndErros` ADD CONSTRAINT `MessagesAndErros_fk0` FOREIGN KEY (`TypeID`) REFERENCES `ErrorTypes`(`ID`);
+
+ALTER TABLE `MessagesAndErros` ADD CONSTRAINT `MessagesAndErros_fk1` FOREIGN KEY (`PageID`) REFERENCES `Pages`(`ID`);
+
+ALTER TABLE `MessagesAndErros` ADD CONSTRAINT `MessagesAndErros_fk2` FOREIGN KEY (`StatusID`) REFERENCES `MessageStatus`(`ID`);
+
+ALTER TABLE `NullsType` ADD CONSTRAINT `NullsType_fk0` FOREIGN KEY (`NullID`) REFERENCES `Nulls`(`ID`);
+
+ALTER TABLE `NullsType` ADD CONSTRAINT `NullsType_fk1` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `TransactionLog` ADD CONSTRAINT `TransactionLog_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `TransactionLog` ADD CONSTRAINT `TransactionLog_fk1` FOREIGN KEY (`StatusID`) REFERENCES `UserStatus`(`ID`);
+
+ALTER TABLE `UserClassCourse` ADD CONSTRAINT `UserClassCourse_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `UserClassCourse` ADD CONSTRAINT `UserClassCourse_fk1` FOREIGN KEY (`CourseID`) REFERENCES `Course`(`ID`);
+
+ALTER TABLE `UserClassCourse` ADD CONSTRAINT `UserClassCourse_fk2` FOREIGN KEY (`ClassID`) REFERENCES `Class`(`ID`);
+
+ALTER TABLE `UserVaccination` ADD CONSTRAINT `UserVaccination_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `UserVaccination` ADD CONSTRAINT `UserVaccination_fk1` FOREIGN KEY (`VaccinationID`) REFERENCES `Vaccination`(`ID`);
+
+ALTER TABLE `UserDisease` ADD CONSTRAINT `UserDisease_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `UserDisease` ADD CONSTRAINT `UserDisease_fk1` FOREIGN KEY (`DiseaseID`) REFERENCES `Disease`(`ID`);
+
+ALTER TABLE `MedicineDisease` ADD CONSTRAINT `MedicineDisease_fk0` FOREIGN KEY (`MedicineID`) REFERENCES `Medicine`(`ID`);
+
+ALTER TABLE `MedicineDisease` ADD CONSTRAINT `MedicineDisease_fk1` FOREIGN KEY (`UserDiseaseID`) REFERENCES `UserDisease`(`ID`);
+
+ALTER TABLE `ApplicationOptions` ADD CONSTRAINT `ApplicationOptions_fk0` FOREIGN KEY (`OptionTypeID`) REFERENCES `OptionsTypes`(`ID`);
+
+ALTER TABLE `Application` ADD CONSTRAINT `Application_fk0` FOREIGN KEY (`RoleID`) REFERENCES `Role`(`ID`);
+
+ALTER TABLE `Application` ADD CONSTRAINT `Application_fk1` FOREIGN KEY (`ApplicationOptionID`) REFERENCES `ApplicationOptions`(`ID`);
+
+ALTER TABLE `ApplicationValue` ADD CONSTRAINT `ApplicationValue_fk0` FOREIGN KEY (`ApplicationID`) REFERENCES `Application`(`ID`);
+
+ALTER TABLE `ApplicationValue` ADD CONSTRAINT `ApplicationValue_fk1` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `FormOptions` ADD CONSTRAINT `FormOptions_fk0` FOREIGN KEY (`OptionID`) REFERENCES `OptionsTypes`(`ID`);
+
+ALTER TABLE `Form` ADD CONSTRAINT `Form_fk0` FOREIGN KEY (`FormNameID`) REFERENCES `FormName`(`ID`);
+
+ALTER TABLE `Form` ADD CONSTRAINT `Form_fk1` FOREIGN KEY (`FormOptionsID`) REFERENCES `FormOptions`(`ID`);
+
+ALTER TABLE `FormOptionsValue` ADD CONSTRAINT `FormOptionsValue_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `FormOptionsValue` ADD CONSTRAINT `FormOptionsValue_fk1` FOREIGN KEY (`FormID`) REFERENCES `Form`(`ID`);
+
+ALTER TABLE `CourseTimetable` ADD CONSTRAINT `CourseTimetable_fk0` FOREIGN KEY (`CourseID`) REFERENCES `Course`(`ID`);
+
+ALTER TABLE `CourseTimetable` ADD CONSTRAINT `CourseTimetable_fk1` FOREIGN KEY (`ClassID`) REFERENCES `Class`(`ID`);
+
+ALTER TABLE `CourseTimetable` ADD CONSTRAINT `CourseTimetable_fk2` FOREIGN KEY (`DaysID`) REFERENCES `Days`(`ID`);
+
+ALTER TABLE `BusSchedule` ADD CONSTRAINT `BusSchedule_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `BusSchedule` ADD CONSTRAINT `BusSchedule_fk1` FOREIGN KEY (`ChildID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `FoodTimeTable` ADD CONSTRAINT `FoodTimeTable_fk0` FOREIGN KEY (`FoodID`) REFERENCES `Food`(`ID`);
+
+ALTER TABLE `ReportOptionsType` ADD CONSTRAINT `ReportOptionsType_fk0` FOREIGN KEY (`OptionsTypeID`) REFERENCES `OptionsTypes`(`ID`);
+
+ALTER TABLE `Report` ADD CONSTRAINT `Report_fk0` FOREIGN KEY (`ReportNameID`) REFERENCES `ReportName`(`ID`);
+
+ALTER TABLE `Report` ADD CONSTRAINT `Report_fk1` FOREIGN KEY (`ReportOptionsTypeID`) REFERENCES `ReportOptionsType`(`ID`);
+
+ALTER TABLE `ReportsValue` ADD CONSTRAINT `ReportsValue_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `ReportsValue` ADD CONSTRAINT `ReportsValue_fk1` FOREIGN KEY (`ReportID`) REFERENCES `Report`(`ID`);
+
+ALTER TABLE `Leaving` ADD CONSTRAINT `Leaving_fk0` FOREIGN KEY (`AttendanceID`) REFERENCES `Attendance`(`ID`);
+
+ALTER TABLE `WorkersHoursSalary` ADD CONSTRAINT `WorkersHoursSalary_fk0` FOREIGN KEY (`RoleID`) REFERENCES `Role`(`ID`);
+
+ALTER TABLE `UserDailyHours` ADD CONSTRAINT `UserDailyHours_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `SalaryManipulation` ADD CONSTRAINT `SalaryManipulation_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `SalaryManipulationLog` ADD CONSTRAINT `SalaryManipulationLog_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `UserDailyHoursLog` ADD CONSTRAINT `UserDailyHoursLog_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `ExperienceSalaries` ADD CONSTRAINT `ExperienceSalaries_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `Expenditures` ADD CONSTRAINT `Expenditures_fk0` FOREIGN KEY (`PaymentMethodID`) REFERENCES `PaymentMethods`(`ID`);
+
+ALTER TABLE `Expenditures` ADD CONSTRAINT `Expenditures_fk1` FOREIGN KEY (`ExpenditureTypeID`) REFERENCES `ExpenditureTypes`(`ID`);
+
+ALTER TABLE `SalariesPayment` ADD CONSTRAINT `SalariesPayment_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
