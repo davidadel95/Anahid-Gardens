@@ -202,6 +202,15 @@
                    </ul>
                   </li>
 
+
+
+
+                  <li class="treeview">
+                    <a href="Claasification.php">
+                      <i class="fa fa-dashboard"></i>
+                      <span>Edit Data</span>
+                    </a>
+                  </li>
                   <!-- Show all kids menu -->
                    <li class="treeview">
                     <a href="#">
