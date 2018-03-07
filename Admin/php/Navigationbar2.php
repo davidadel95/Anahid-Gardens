@@ -206,7 +206,7 @@
 
 
                   <li class="treeview">
-                    <a href="Claasification.php">
+                    <a href="Classification.php">
                       <i class="fa fa-dashboard"></i>
                       <span>Edit Data</span>
                     </a>
