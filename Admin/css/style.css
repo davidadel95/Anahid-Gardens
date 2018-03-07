@@ -108,7 +108,7 @@ button#showLeftPush {
     border-radius: 50%;
     height: 40px;
     width: 40px;
-    margin-top: 11px;
+    margin-top: 5px;
 }
 button#showLeftPush:hover {
     color: #eee;
@@ -8434,7 +8434,7 @@ h4.asd label {
 		font-size: 13px;
 	}
 	.profile_details li a i.fa.lnr {
-		right: 2%;
+		right: 5%;
 	}
 	.r3_counter_box {
 		padding: 10px 10px 0px;
