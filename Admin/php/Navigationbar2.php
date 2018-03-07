@@ -154,6 +154,14 @@
                </li>
 
 
+                <!-- Forms menu -->
+                <li class="treeview">
+                  <a href="EditForm.php">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Forms</span>
+                  </a>
+                </li>
+
                <!-- Nannys menu -->
                 <li class="treeview">
                  <a href="#">

@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Dashboard</title>
+<title>Form Edit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -69,60 +69,92 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+
 						<div class="form-title">
-							<h4>Nanny's Details</h4>
+							<h4>New Form</h4>
 						</div>
 						<div class="form-body">
-							<form>
-                <div class="form-group">
-                  <label>First Name</label>
-                  <input type="text" class="form-control" placeholder="eg: John">
-                </div>
-                <div class="form-group">
-                  <label>Last Name</label>
-                  <input type="text" class="form-control" placeholder="eg: Smith">
-                </div>
-                <div class="form-group">
-                  <label>Mobile Number</label>
-                  <input type="text" class="form-control" placeholder="eg: 0123456789">
-                </div>
+							<form method="post" >
+								<div class="form-group">
 
-                <div class="form-group">
-                  <label>Faculty</label>
-                  <input type="text" class="form-control" placeholder="eg: Medicine">
-                </div>
-                <div class="form-group">
-                 <label>Age</label>
-                  <input type="text" class="form-control" placeholder="eg: 23">
-                </div>
-                <div class="form-group">
-                  <label>Address</label>
-                  <input type="text" class="form-control" placeholder="eg: 1 St.">
-                </div>
-                <div class="form-group">
-                  <label>Known us from</label>
-                  <input type="text" class="form-control" placeholder="eg: Facebook Page">
-                </div>
-                <div class="form-group">
-                  <label>Experience</label>
-                  <input type="text" class="form-control" placeholder="eg: Experience">
-                </div>
-                <div class="form-group">
-                  <label>Previous Salary</label>
-                  <input type="date" class="form-control" placeholder="eg: 20.0">
-                </div>
-                  <div class="form-group">
-                  <label>Date of applying</label>
-                  <input type="date" class="form-control">
-                </div>
 
-                <button type="submit" class="btn btn-success">Confirm</button>
+										<label> Form Name </label>
+										<input type="text" class="form-control" placeholder="eg: Student Application">
+										<br>
+										<input type="submit">
+
+								</form>
+</div>
+</div>
+
+
+
+						<div class="form-title">
+							<h4>Add Fields</h4>
+						</div>
+
+							<div class="form-body">
+
+							<form name="Options">
+								<div class="form-group">
+									<label>Field Name</label>
+									<input type="text" name="FieldName" class="form-control" placeholder="eg: Date Of Birth">
+									<label> Field Type </label>
+									<select name="TypeOfField"  class="form-control" >
+
+									<option value="varchar">Text</option>
+									<option value="Integer">Integer</option>
+									<option value="Float">Decimel</option>
+									<option value="Boolean">Yes Or No</option>
+									</select>
+									<br> <br>
+									<input type="submit">
+								</div>
+							</form>
+					</div>
+
+
+
+
+
+
+
+				<div class="form-title">
+					<h4>Forms Edit</h4>
+				</div>
+
+
+
+						<div class="form-body">
+							<form method="post" >
+                <div class="form-group">
+									<select name="cars"  class="form-control" >
+
+  								<option value="volvo">Nannys Form</option>
+  								<option value="saab">Drivers Form</option>
+  								<option value="fiat">Doctors Forms</option>
+  								<option value="audi">Teachers Forms</option>
+									</select>
+
+                </div>
+								<div class="form-group">
+									<input type = "checkbox" value= "FirstName"> First Name </br>
+									<input type = "checkbox" value= "LastName"> Last Name </br>
+									<input type = "checkbox" value= "Age"> Age </br>
+									<input type = "checkbox" value= "Comments"> Comments </br>
+									<input type = "checkbox" value= "Address"> Address  </br>
+									<input type = "checkbox" value= "KnownUsFrom"> Known Us Form  </br>
+
+
+                </div>
+               <input type="submit">
               </form>
 						</div>
 					</div>
         </div>
 			</div>
 		</div>
+	</div>
   	<!--footer-->
   	<div class="footer">
   	   <?php include("Footer.php"); ?>
