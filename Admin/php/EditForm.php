@@ -99,6 +99,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="form-group">
 									<label>Field Name</label>
 									<input type="text" name="FieldName" class="form-control" placeholder="eg: Date Of Birth">
+									<br>
 									<label> Field Type </label>
 									<select name="TypeOfField"  class="form-control" >
 
