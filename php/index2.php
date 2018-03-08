@@ -30,7 +30,7 @@
 <!-- //header -->
 
 <!-- navigation bar -->
-<?php include("NavigationBar.php"); ?>
+<?php include("navbar.php"); ?>
 <!-- //navigation bar -->
 
 
