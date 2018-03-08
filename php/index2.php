@@ -11,28 +11,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- custom-theme -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Nursery Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Nursery Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //custom-theme -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
-<link rel="stylesheet" href="css/easy-responsive-tabs.css">
-<link rel="stylesheet" href="css/jquery.gallery.css">
-<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="../css/easy-responsive-tabs.css">
+<link rel="stylesheet" href="../css/jquery.gallery.css">
+<link href="../css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome-icons -->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="../css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome-icons -->
 <link href="//fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 </head>
-	
+
 <body>
-<script src="js/jquery.vide.min.js"></script>
+<script src="../js/jquery.vide.min.js"></script>
 <!-- header -->
 	<div class="w3_agile_header">
 		<div class="container">
@@ -75,13 +75,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</nav>
 				</div>
-			</nav>	
+			</nav>
 		</div>
 	</div>
 <!-- //header -->
 <!-- pop-up-box -->
 	<div id="small-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
-		<h3>LOGIN</h3>		
+		<h3>LOGIN</h3>
 		<div class="agileits_modal_body">
 			<form action="#" method="post">
 				<div class="agileits_w3layouts_user">
@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
-		<h3>Sign Up</h3>		
+		<h3>Sign Up</h3>
 		<div class="agileits_modal_body">
 			<form action="#" method="post">
 				<h4>Profile information :</h4>
@@ -149,8 +149,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h5>Already a member <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Sign In</a></h5>
 		</div>
 	</div>
+
+	<!-- el part beta3 our programs -->
 <!-- //pop-up-box -->
-<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
 <script>
 	$(document).ready(function() {
 	$('.popup-with-zoom-anim').magnificPopup({
@@ -164,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		removalDelay: 300,
 		mainClass: 'my-mfp-zoom-in'
 	});
-																	
+
 	});
 </script>
 <!-- banner -->
@@ -190,24 +192,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="modal-content">
 				<div class="modal-header">
 					Nursery
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				</div>
 				<section>
 					<div class="modal-body">
 						<div class="w3_modal_body_left">
-							<img src="images/1.jpg" alt=" " class="img-responsive" />
+							<img src="../images/1.jpg" alt=" " class="img-responsive" />
 						</div>
 						<div class="w3_modal_body_right">
 							<h4>Suspendisse et sapien ac diam suscipit posuere</h4>
-							<p>Ut enim ad minima veniam, quis nostrum 
-							exercitationem ullam corporis suscipit laboriosam, 
-							nisi ut aliquid ex ea commodi consequatur? Quis autem 
-							vel eum iure reprehenderit qui in ea voluptate velit 
+							<p>Ut enim ad minima veniam, quis nostrum
+							exercitationem ullam corporis suscipit laboriosam,
+							nisi ut aliquid ex ea commodi consequatur? Quis autem
+							vel eum iure reprehenderit qui in ea voluptate velit
 							esse quam nihil molestiae consequatur.
-							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
+							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit
 								esse quam nihil molestiae consequatur.</i>
-								Fusce in ex eget ligula tempor placerat. Aliquam laoreet mi id felis commodo 
-								interdum. Integer sollicitudin risus sed risus rutrum 
+								Fusce in ex eget ligula tempor placerat. Aliquam laoreet mi id felis commodo
+								interdum. Integer sollicitudin risus sed risus rutrum
 								elementum ac ac purus.</p>
 						</div>
 						<div class="clearfix"> </div>
@@ -225,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agile_banner_bottom_grids">
 				<div class="col-md-3 agile_banner_bottom_grid">
 					<div class="view view-first">
-						<img src="images/2.jpg" alt=" " class="img-responsive" />
+						<img src="../images/2.jpg" alt=" " class="img-responsive" />
 						<div class="mask">
 							<h5>Nursery</h5>
 							<p>Integer ac condimentum ligula. Ut malesuada in purus convallis venenatis.</p>
@@ -237,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-3 agile_banner_bottom_grid">
 					<div class="view view-first">
-						<img src="images/3.jpg" alt=" " class="img-responsive" />
+						<img src="../images/3.jpg" alt=" " class="img-responsive" />
 						<div class="mask">
 							<h5 class="agileits_w3layouts1">Nursery</h5>
 							<p>Integer ac condimentum ligula. Ut malesuada in purus convallis venenatis.</p>
@@ -249,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-3 agile_banner_bottom_grid">
 					<div class="view view-first">
-						<img src="images/4.jpg" alt=" " class="img-responsive" />
+						<img src="../images/4.jpg" alt=" " class="img-responsive" />
 						<div class="mask">
 							<h5 class="agileits_w3layouts2">Nursery</h5>
 							<p>Integer ac condimentum ligula. Ut malesuada in purus convallis venenatis.</p>
@@ -261,7 +263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-3 agile_banner_bottom_grid">
 					<div class="view view-first">
-						<img src="images/5.jpg" alt=" " class="img-responsive" />
+						<img src="../images/5.jpg" alt=" " class="img-responsive" />
 						<div class="mask">
 							<h5 class="agileits_w3layouts3">Nursery</h5>
 							<p>Integer ac condimentum ligula. Ut malesuada in purus convallis venenatis.</p>
@@ -291,10 +293,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 					<div class="resp-tabs-container">
 						<div class="w3layouts_vertical_tab">
-							<p>Proin id arcu odio. Proin tincidunt ante lacus, at commodo felis 
-								aliquam eu. Praesent ut turpis venenatis, aliquam mauris tempus, lobortis 
+							<p>Proin id arcu odio. Proin tincidunt ante lacus, at commodo felis
+								aliquam eu. Praesent ut turpis venenatis, aliquam mauris tempus, lobortis
 								nunc. Pellentesque maximus ipsum turpis.
-								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor 
+								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor
 									aliquam risus eget sagittis. Nulla eu imperdiet mauris.</i></p>
 							<ul>
 								<li><i class="fa fa-check-square-o" aria-hidden="true"></i>Nulla eu imperdiet mauris in nunc</li>
@@ -305,10 +307,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 						</div>
 						<div class="w3layouts_vertical_tab">
-							<p>Donec felis mi, tristique in sodales non, porttitor id orci. 
-								Mauris vulputate placerat justo vitae sollicitudin. Nunc venenatis tortor 
+							<p>Donec felis mi, tristique in sodales non, porttitor id orci.
+								Mauris vulputate placerat justo vitae sollicitudin. Nunc venenatis tortor
 								dapibus magna commodo gravida.
-								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor 
+								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor
 									aliquam risus eget sagittis. Nulla eu imperdiet mauris.</i></p>
 							<ul>
 								<li><i class="fa fa-check-square-o" aria-hidden="true"></i>Nulla eu imperdiet mauris in nunc</li>
@@ -319,10 +321,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 						</div>
 						<div class="w3layouts_vertical_tab">
-							<p>Integer ac condimentum ligula. Ut malesuada in purus convallis venenatis, 
+							<p>Integer ac condimentum ligula. Ut malesuada in purus convallis venenatis,
 								lobortis nunc. Pellentesque maximus ipsum turpis.Nulla eu imperdiet mauris.
 								 Fusce cursus convallis malesuada.
-								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor 
+								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor
 									aliquam risus eget sagittis. Nulla eu imperdiet mauris.</i></p>
 							<ul>
 								<li><i class="fa fa-check-square-o" aria-hidden="true"></i>Nulla eu imperdiet mauris in nunc</li>
@@ -333,10 +335,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 						</div>
 						<div class="w3layouts_vertical_tab">
-							<p>Quisque dictum elit in nunc malesuada lacinia. Cras id porttitor turpis. 
-								Nulla scelerisque ut lectus vitae tincidunt. Duis nec tellus at nunc blandit 
+							<p>Quisque dictum elit in nunc malesuada lacinia. Cras id porttitor turpis.
+								Nulla scelerisque ut lectus vitae tincidunt. Duis nec tellus at nunc blandit
 								malesuada.Cras rhoncus varius arcu.
-								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor 
+								<i>" Cras feugiat dui augue, in malesuada sem porta id. Mauris tempor
 									aliquam risus eget sagittis. Nulla eu imperdiet mauris.</i></p>
 							<ul>
 								<li><i class="fa fa-check-square-o" aria-hidden="true"></i>Nulla eu imperdiet mauris in nunc</li>
@@ -362,7 +364,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="slides">
 						<li class="slide">
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/7.jpg" alt=" " class="img-responsive" />
+								<img src="../images/7.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Olivia Wilde</h4>
 									<p>Teacher</p>
@@ -376,7 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/9.jpg" alt=" " class="img-responsive" />
+								<img src="../images/9.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Brett Cullen</h4>
 									<p>Teacher</p>
@@ -390,7 +392,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/8.jpg" alt=" " class="img-responsive" />
+								<img src="../images/8.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Emma Stone</h4>
 									<p>Teacher</p>
@@ -404,7 +406,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/10.jpg" alt=" " class="img-responsive" />
+								<img src="../images/10.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Jorge Nicolas</h4>
 									<p>Teacher</p>
@@ -421,7 +423,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</li>
 						<li class="slide">
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/7.jpg" alt=" " class="img-responsive" />
+								<img src="../images/7.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Olivia Wilde</h4>
 									<p>Teacher</p>
@@ -435,7 +437,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/9.jpg" alt=" " class="img-responsive" />
+								<img src="../images/9.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Brett Cullen</h4>
 									<p>Teacher</p>
@@ -449,7 +451,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/8.jpg" alt=" " class="img-responsive" />
+								<img src="../images/8.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Emma Stone</h4>
 									<p>Teacher</p>
@@ -463,7 +465,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 							<div class="col-md-3 wthree_team_grid">
-								<img src="images/10.jpg" alt=" " class="img-responsive" />
+								<img src="../images/10.jpg" alt=" " class="img-responsive" />
 								<div class="wthree_team_grid_w3">
 									<h4>Jorge Nicolas</h4>
 									<p>Teacher</p>
@@ -530,11 +532,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p class="w3_agile_elit">Quisque dictum elit in nunc malesuada lacinia. Cras id porttitor turpis.</p>
 			<div class="agile_banner_bottom_grids">
 				<div class="agile_events_grid">
-					<img src="images/1.jpg" alt=" " class="img-responsive" />
+					<img src="../images/1.jpg" alt=" " class="img-responsive" />
 					<div class="agile_events_grid_pos agile_events_grid_pos1">
 						<h5><span>01</span> 12 / 2016</h5>
 						<h4><a href="#" data-toggle="modal" data-target="#myModal">nunc malesuada lacinia</a></h4>
-						<p>Nunc non maximus augue, sit amet dictum diam. Etiam ultrices hendrerit sapien, 
+						<p>Nunc non maximus augue, sit amet dictum diam. Etiam ultrices hendrerit sapien,
 							id volutpat tortor viverra et.</p>
 					</div>
 					<div class="agileits_w3layouts_events_grid_social">
@@ -546,11 +548,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="agile_events_grid">
-					<img src="images/13.jpg" alt=" " class="img-responsive" />
+					<img src="../images/13.jpg" alt=" " class="img-responsive" />
 					<div class="agile_events_grid_pos_sub agile_events_grid_pos1">
 						<h5 class="w3_agileits_event_head"><span>05</span> 12 / 2016</h5>
 						<h4><a href="#" data-toggle="modal" data-target="#myModal">consequat dictum sodales</a></h4>
-						<p>Nunc non maximus augue, sit amet dictum diam. Etiam ultrices hendrerit sapien, 
+						<p>Nunc non maximus augue, sit amet dictum diam. Etiam ultrices hendrerit sapien,
 							id volutpat tortor viverra et.</p>
 					</div>
 					<div class="agileits_w3layouts_events_grid_social1">
@@ -562,11 +564,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="agile_events_grid">
-					<img src="images/15.jpg" alt=" " class="img-responsive" />
+					<img src="../images/15.jpg" alt=" " class="img-responsive" />
 					<div class="agile_events_grid_pos agile_events_grid_pos1">
 						<h5><span>09</span> 12 / 2016</h5>
 						<h4><a href="#" data-toggle="modal" data-target="#myModal">ultrices hendrerit amet</a></h4>
-						<p>Nunc non maximus augue, sit amet dictum diam. Etiam ultrices hendrerit sapien, 
+						<p>Nunc non maximus augue, sit amet dictum diam. Etiam ultrices hendrerit sapien,
 							id volutpat tortor viverra et.</p>
 					</div>
 					<div class="agileits_w3layouts_events_grid_social">
@@ -588,36 +590,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p class="w3_agile_elit">Quisque dictum elit in nunc malesuada lacinia. Cras id porttitor turpis.</p>
 			<div class="agile_banner_bottom_grids">
 				<div class="agileits_testimonials_grids">
-					<ul id="flexiselDemo1">	
+					<ul id="flexiselDemo1">
 						<li>
 							<div class="agileinfo_testimonials_grid">
-								<img src="images/17.jpg" alt=" " class="img-responsive" />
+								<img src="../images/17.jpg" alt=" " class="img-responsive" />
 							</div>
 						</li>
 						<li>
 							<div class="agileinfo_testimonials_grid">
-								<img src="images/18.jpg" alt=" " class="img-responsive" />
+								<img src="../images/18.jpg" alt=" " class="img-responsive" />
 							</div>
 						</li>
 						<li>
 							<div class="agileinfo_testimonials_grid">
-								<img src="images/19.jpg" alt=" " class="img-responsive" />
+								<img src="../images/19.jpg" alt=" " class="img-responsive" />
 							</div>
 						</li>
 						<li>
 							<div class="agileinfo_testimonials_grid">
-								<img src="images/20.jpg" alt=" " class="img-responsive" />
+								<img src="../images/20.jpg" alt=" " class="img-responsive" />
 							</div>
 						</li>
 						<li>
 							<div class="agileinfo_testimonials_grid">
-								<img src="images/21.jpg" alt=" " class="img-responsive" />
+								<img src="../images/21.jpg" alt=" " class="img-responsive" />
 							</div>
 						</li>
 					</ul>
 					<h3>About <span>Nursery</span> / Parent</h3>
-					<p>Mauris vulputate placerat justo vitae sollicitudin. Nunc venenatis tortor dapibus 
-						magna commodo gravida. Nunc non maximus augue, sit amet dictum diam. Etiam ultrices 
+					<p>Mauris vulputate placerat justo vitae sollicitudin. Nunc venenatis tortor dapibus
+						magna commodo gravida. Nunc non maximus augue, sit amet dictum diam. Etiam ultrices
 						hendrerit sapien, id volutpat tortor viverra et.</p>
 				</div>
 			</div>
@@ -642,10 +644,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="w3_tab_img agileinfo_img">
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/13.jpg">
+										<a href="../images/13.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/13.jpg" alt=" " class="img-responsive" />
+													<img src="../images/13.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -654,36 +656,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</a>
 									</div>
 									<div class="agileits_demo">
-										<a href="images/15.jpg">
+										<a href="../images/15.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/15.jpg" alt=" " class="img-responsive" />
-												</div>
-												<figcaption>
-													<span>Nursery</span>
-												</figcaption>
-											</figure>
-										</a>
-									</div>
-								</div>
-								<div class="col-md-4 w3_tab_img_left">
-									<div class="agileits_demo">
-										<a href="images/1.jpg">
-											<figure class="w3layouts_work">
-												<div class="w3layouts_work_sub">
-													<img src="images/1.jpg" alt=" " class="img-responsive" />
-												</div>
-												<figcaption>
-													<span>Nursery</span>
-												</figcaption>
-											</figure>
-										</a>
-									</div>
-									<div class="agileits_demo">
-										<a href="images/22.jpg">
-											<figure class="w3layouts_work">
-												<div class="w3layouts_work_sub">
-													<img src="images/22.jpg" alt=" " class="img-responsive" />
+													<img src="../images/15.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -694,10 +670,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/12.jpg">
+										<a href="../images/1.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/12.jpg" alt=" " class="img-responsive" />
+													<img src="../images/1.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -706,10 +682,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</a>
 									</div>
 									<div class="agileits_demo">
-										<a href="images/23.jpg">
+										<a href="../images/22.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/23.jpg" alt=" " class="img-responsive" />
+													<img src="../images/22.jpg" alt=" " class="img-responsive" />
+												</div>
+												<figcaption>
+													<span>Nursery</span>
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+								<div class="col-md-4 w3_tab_img_left">
+									<div class="agileits_demo">
+										<a href="../images/12.jpg">
+											<figure class="w3layouts_work">
+												<div class="w3layouts_work_sub">
+													<img src="../images/12.jpg" alt=" " class="img-responsive" />
+												</div>
+												<figcaption>
+													<span>Nursery</span>
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+									<div class="agileits_demo">
+										<a href="../images/23.jpg">
+											<figure class="w3layouts_work">
+												<div class="w3layouts_work_sub">
+													<img src="../images/23.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -725,10 +727,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="w3_tab_img agileinfo_img">
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/15.jpg">
+										<a href="../images/15.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/15.jpg" alt=" " class="img-responsive" />
+													<img src="../images/15.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -739,10 +741,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/1.jpg">
+										<a href="../images/1.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/1.jpg" alt=" " class="img-responsive" />
+													<img src="../images/1.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -753,10 +755,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/23.jpg">
+										<a href="../images/23.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/23.jpg" alt=" " class="img-responsive" />
+													<img src="../images/23.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -772,10 +774,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="w3_tab_img agileinfo_img">
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/13.jpg">
+										<a href="../images/13.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/13.jpg" alt=" " class="img-responsive" />
+													<img src="../images/13.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -786,10 +788,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/23.jpg">
+										<a href="../images/23.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/23.jpg" alt=" " class="img-responsive" />
+													<img src="../images/23.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -805,10 +807,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="w3_tab_img agileinfo_img">
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/1.jpg">
+										<a href="../images/1.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/1.jpg" alt=" " class="img-responsive" />
+													<img src="../images/1.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -819,10 +821,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="col-md-4 w3_tab_img_left">
 									<div class="agileits_demo">
-										<a href="images/22.jpg">
+										<a href="../images/22.jpg">
 											<figure class="w3layouts_work">
 												<div class="w3layouts_work_sub">
-													<img src="images/22.jpg" alt=" " class="img-responsive" />
+													<img src="../images/22.jpg" alt=" " class="img-responsive" />
 												</div>
 												<figcaption>
 													<span>Nursery</span>
@@ -943,7 +945,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-6 wthree_footer_grid_left">
 			<div class="col-md-5 wthree_footer_grid_left1">
 				<h4>About Us</h4>
-				<p>Donec viverra nunc eu neque porta, quis laoreet nisl gravida. Proin gravida, 
+				<p>Donec viverra nunc eu neque porta, quis laoreet nisl gravida. Proin gravida,
 					diam ut consectetur porttitor.</p>
 			</div>
 			<div class="col-md-4 wthree_footer_grid_left1">
@@ -979,32 +981,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-7 wthree_footer_grid_right2">
 					<div class="wthree_footer_grid_right2_w3">
 						<a href="#" data-toggle="modal" data-target="#myModal">
-							<img src="images/1.jpg" alt=" " class="img-responsive" />
+							<img src="../images/1.jpg" alt=" " class="img-responsive" />
 						</a>
 					</div>
 					<div class="wthree_footer_grid_right2_w3">
 						<a href="#" data-toggle="modal" data-target="#myModal">
-							<img src="images/12.jpg" alt=" " class="img-responsive" />
+							<img src="../images/12.jpg" alt=" " class="img-responsive" />
 						</a>
 					</div>
 					<div class="wthree_footer_grid_right2_w3">
 						<a href="#" data-toggle="modal" data-target="#myModal">
-							<img src="images/13.jpg" alt=" " class="img-responsive" />
+							<img src="../images/13.jpg" alt=" " class="img-responsive" />
 						</a>
 					</div>
 					<div class="wthree_footer_grid_right2_w3">
 						<a href="#" data-toggle="modal" data-target="#myModal">
-							<img src="images/15.jpg" alt=" " class="img-responsive" />
+							<img src="../images/15.jpg" alt=" " class="img-responsive" />
 						</a>
 					</div>
 					<div class="wthree_footer_grid_right2_w3">
 						<a href="#" data-toggle="modal" data-target="#myModal">
-							<img src="images/22.jpg" alt=" " class="img-responsive" />
+							<img src="../images/22.jpg" alt=" " class="img-responsive" />
 						</a>
 					</div>
 					<div class="wthree_footer_grid_right2_w3">
 						<a href="#" data-toggle="modal" data-target="#myModal">
-							<img src="images/23.jpg" alt=" " class="img-responsive" />
+							<img src="../images/23.jpg" alt=" " class="img-responsive" />
 						</a>
 					</div>
 					<div class="clearfix"> </div>
@@ -1029,7 +1031,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 <!-- //footer -->
 <!-- contact-effect -->
-<script src="js/classie.js"></script>
+<script src="../js/classie.js"></script>
 <script>
 	(function() {
 		// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
@@ -1067,7 +1069,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- //contact-effect -->
 <!-- work -->
-	<script type="text/javascript"  src="js/jquery.gallery.js" ></script>
+	<script type="text/javascript"  src="../js/jquery.gallery.js" ></script>
 	<script>
 		$(function() {
 			$('.w3_tab_img').createSimpleImgGallery();
@@ -1081,31 +1083,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				visibleItems: 5,
 				animationSpeed: 1000,
 				autoPlay: true,
-				autoPlaySpeed: 3000,    		
+				autoPlaySpeed: 3000,
 				pauseOnHover: true,
 				enableResponsiveBreakpoints: true,
-				responsiveBreakpoints: { 
-					portrait: { 
+				responsiveBreakpoints: {
+					portrait: {
 						changePoint:480,
 						visibleItems: 1
-					}, 
-					landscape: { 
+					},
+					landscape: {
 						changePoint:640,
 						visibleItems:3
 					},
-					tablet: { 
+					tablet: {
 						changePoint:768,
 						visibleItems: 3
 					}
 				}
 			});
-			
+
 		});
 	</script>
-	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	<script type="text/javascript" src="../js/jquery.flexisel.js"></script>
 <!-- //flexisel -->
 <!-- team-slider -->
-	<script type="text/javascript" src="js/jquery.glide.js"></script>
+	<script type="text/javascript" src="../js/jquery.glide.js"></script>
 	<script type="text/javascript">
 		var glide = $('.w3_slider').glide().data('api_glide');
 
@@ -1117,7 +1119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 <!-- //team-slider -->
 <!-- responsive-tabs -->
-	<script src="js/easy-responsive-tabs.js"></script>
+	<script src="../js/easy-responsive-tabs.js"></script>
 	<script>
 		$(document).ready(function () {
 		$('#verticalTab').easyResponsiveTabs({
@@ -1127,10 +1129,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		});
 	</script>
-<!-- //responsive-tabs -->	
+<!-- //responsive-tabs -->
 <!-- text-effect -->
-		<script type="text/javascript" src="js/jquery.transit.js"></script> 
-		<script type="text/javascript" src="js/jquery.textFx.js"></script> 
+		<script type="text/javascript" src="../js/jquery.transit.js"></script>
+		<script type="text/javascript" src="../js/jquery.textFx.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 					$('.test2').textFx({
@@ -1143,11 +1145,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 <!-- //text-effect -->
 <!-- start-smoth-scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="../js/move-top.js"></script>
+<script type="text/javascript" src="../js/easing.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
+		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
@@ -1162,17 +1164,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
-				easingType: 'linear' 
+				easingType: 'linear'
 				};
 			*/
-								
+
 			$().UItoTop({ easingType: 'easeOutQuart' });
-								
+
 			});
 	</script>
 <!-- //here ends scrolling icon -->
 <!-- for bootstrap working -->
-	<script src="js/bootstrap.js"></script>
+	<script src="../js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 </body>
 </html>
