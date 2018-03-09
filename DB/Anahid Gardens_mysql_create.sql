@@ -283,7 +283,7 @@ CREATE TABLE `MessageStatus` (
 
 CREATE TABLE `Course` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
-	`Name` varchar(200) NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
 	PRIMARY KEY (`ID`)
 );
 
