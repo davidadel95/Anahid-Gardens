@@ -17,7 +17,7 @@
     <!-- js-->
    <script src="../js/jquery-1.11.1.min.js"></script>
    <script src="../js/modernizr.custom.js"></script>
-
+      
    <!--webfonts-->
    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
    <!--//webfonts-->
@@ -53,7 +53,39 @@
                   </a>
                 </li>
 
-
+                  
+                <!-- User -->
+                <li class="treeview">
+                  <a href="#">
+                  <i class="fa fa-user-md"></i>
+                  <span>Users</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Manipulate Users</a>
+                        <ul class="treeview-menu">
+                            <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add User</a></li>
+                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit User</a></li>
+                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete User</a></li>
+                            <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Users</a></li>
+                        </ul>
+                    </li>
+                    <li><a href=""><i class="fa fa-angle-right"></i>User Roles</a><ul class="treeview-menu">
+                        <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add Role</a></li>
+                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Role</a></li>
+                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Role</a></li>
+                        <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Roles</a></li>
+                    </ul></li>
+                      
+                    <li><a href=""><i class="fa fa-angle-right"></i>User Options</a><ul class="treeview-menu">
+                        <li><a href="AddUserOption.php"><i class="fa fa-angle-right"></i>Add Option</a></li>
+                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Option</a></li>
+                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Option</a></li>
+                        <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Options</a></li>
+                  </ul>
+                        </li>
+                  </ul>
+                </li>
                 <!-- kids checklist menu -->
                 <li class="treeview">
                   <a href="#">

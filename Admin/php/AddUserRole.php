@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Form Edit</title>
+<title>Anahid Gardens - Add User Roles</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -65,103 +65,67 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-    <div id="page-wrapper">
+		<div id="page-wrapper">
 			<div class="main-page">
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-
 						<div class="form-title">
-							<h4>New Form</h4>
+							<h4>New Role:</h4>
 						</div>
 						<div class="form-body">
-							<form method="post" >
-								<div class="form-group">
-
-
-										<label> Form Name </label>
-										<input type="text" class="form-control" placeholder="eg: Student Application">
-										<br>
-										<input type="submit">
-                                </div>
-								</form>
-</div>
-</div>
-
-
-
-						<div class="form-title">
-							<h4>Add Fields</h4>
-						</div>
-
-							<div class="form-body">
-
-							<form name="Options">
-								<div class="form-group">
-									<label>Field Name</label>
-									<input type="text" name="FieldName" class="form-control" placeholder="eg: Date Of Birth">
-									<br>
-									<label> Field Type </label>
-									<select name="TypeOfField"  class="form-control" >
-
-									<option value="varchar">Text</option>
-									<option value="Integer">Integer</option>
-									<option value="Float">Decimel</option>
-									<option value="Boolean">Yes Or No</option>
-									</select>
-									<br> <br>
-									<input type="submit">
-								</div>
-							</form>
-					</div>
-
-
-
-
-
-
-
-				<div class="form-title">
-					<h4>Forms Edit</h4>
-				</div>
-
-
-
-						<div class="form-body">
-							<form method="post">
+							<form method="POST" action="">
                 <div class="form-group">
-									<select name="cars"  class="form-control" >
-
-  								<option value="volvo">Nannys Form</option>
-  								<option value="saab">Drivers Form</option>
-  								<option value="fiat">Doctors Forms</option>
-  								<option value="audi">Teachers Forms</option>
-									</select>
-
+                  <label>Role Name</label>
+                  <input type="text" class="form-control" placeholder="eg: Child,Teacher,...">
                 </div>
-								<div class="form-group">
-									<input type = "checkbox" value= "FirstName"> First Name </br>
-									<input type = "checkbox" value= "LastName"> Last Name </br>
-									<input type = "checkbox" value= "Age"> Age </br>
-									<input type = "checkbox" value= "Comments"> Comments </br>
-									<input type = "checkbox" value= "Address"> Address  </br>
-									<input type = "checkbox" value= "KnownUsFrom"> Known Us Form  </br>
-
-
+                <div class="form-group">
+                    <table class="table table-hover">
+                  <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Option Name</th>
+                        <th>Check/Uncheck</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>First Name</td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Last Name</td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Date of Birth</td>
+                      <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td>Address</td>
+                        <td><div class="checkboxes"><input type="checkbox"/></div></td>
+                    </tr>
+                  </tbody>
+                </table>
                 </div>
-               <input type="submit">
+                <button type="submit" class="btn btn-success">Confirm</button>
               </form>
 						</div>
+              
 					</div>
         </div>
 			</div>
 		</div>
+	<!--footer-->
+	<div class="footer">
+	   <?php include("Footer.php"); ?>
 	</div>
-  	<!--footer-->
-  	<div class="footer">
-  	   <?php include("Footer.php"); ?>
-  	</div>
     <!--//footer-->
 	</div>
+
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
