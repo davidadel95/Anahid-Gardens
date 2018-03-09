@@ -277,7 +277,7 @@ CREATE TABLE `TransactionLog` (
 
 CREATE TABLE `MessageStatus` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
-	`Name` varchar(200) NOT NULL AUTO_INCREMENT,
+	`Name` varchar(200) NOT NULL,
 	PRIMARY KEY (`ID`)
 );
 
