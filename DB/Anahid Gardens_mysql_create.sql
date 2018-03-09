@@ -297,7 +297,7 @@ CREATE TABLE `UserClassCourse` (
 
 CREATE TABLE `Class` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
-	`Name` varchar NOT NULL,
+	`Name` varchar(200) NOT NULL,
 	PRIMARY KEY (`ID`)
 );
 
@@ -377,7 +377,7 @@ CREATE TABLE `FormName` (
 
 CREATE TABLE `FormOptions` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
-	`Name` varchar NOT NULL,
+	`Name` varchar(200) NOT NULL,
 	`OptionID` INT NOT NULL,
 	PRIMARY KEY (`ID`)
 );
@@ -529,7 +529,7 @@ CREATE TABLE `Expenditures` (
 
 CREATE TABLE `ExpenditureTypes` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
-	`Name` varchar NOT NULL,
+	`Name` varchar(200) NOT NULL,
 	PRIMARY KEY (`ID`)
 );
 
