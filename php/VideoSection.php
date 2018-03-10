@@ -25,7 +25,7 @@
   <body>
       <script src="../js/jquery.vide.min.js"></script>
 
-      <div data-vide-bg="video/nursery">
+      <div data-vide-bg="../video/nursery">
     		<div class="center-container">
     			<div class="container">
     				<div class="w3_agile_banner_info">
