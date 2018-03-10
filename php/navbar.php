@@ -47,8 +47,8 @@
     							<li class="menu__item"><a href="#events" class="scroll menu__link">Our Events</a></li>
     							<li class="menu__item"><a href="#programs" class="scroll menu__link">Programs</a></li>
     							<li class="menu__item"><a href="#work" class="scroll menu__link">Work</a></li>
-    							<li class="menu__item"><a href="#team" class="scroll menu__link">Team</a></li>
     							<li class="menu__item"><a href="#mail" class="scroll menu__link">Mail Us</a></li>
+                  <li class="menu__item menu__item--current"><a href="contactus.php" class="menu__link">Contact Us</a></li>
     						</ul>
     					</nav>
     				</div>
