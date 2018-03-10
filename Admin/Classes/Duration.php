@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Duration implements CRUD
 {
     /**
      *
@@ -21,16 +21,22 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $User;
 
     /**
      * @var void
      */
-    public $AttributeType;
+    public $StartDate;
 
+    /**
+     * @var void
+     */
+    public $EndDate;
 
-
-
+    /**
+     * @var void
+     */
+    public $LogDate;
 
 
     /**
@@ -64,9 +70,5 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
-
 
 }

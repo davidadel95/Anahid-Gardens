@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Page implements CRUD
 {
     /**
      *
@@ -21,17 +21,26 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $name;
 
     /**
      * @var void
      */
-    public $AttributeType;
+    public $URL;
+
+    /**
+     * @var void
+     */
+    public $Word[];
 
 
-
-
-
+    /**
+     *
+     */
+    public function WYCWYG():void
+    {
+        // TODO: implement here
+    }
 
     /**
      * @inheritDoc
@@ -64,9 +73,5 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
-
 
 }

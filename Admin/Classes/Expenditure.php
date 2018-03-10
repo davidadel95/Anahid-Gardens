@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Expenditure implements CRUD
 {
     /**
      *
@@ -21,15 +21,22 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $Value;
 
     /**
      * @var void
      */
-    public $AttributeType;
+    public $Date;
 
+    /**
+     * @var void
+     */
+    public $ExpenditureType;
 
-
+    /**
+     * @var void
+     */
+    public $Entity;
 
 
 
@@ -64,9 +71,5 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
-
 
 }

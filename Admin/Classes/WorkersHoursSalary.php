@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class WorkersHoursSalary implements CRUD
 {
     /**
      *
@@ -21,16 +21,27 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $BasicHour;
 
     /**
      * @var void
      */
-    public $AttributeType;
+    public $ExtraHour;
 
+    /**
+     * @var void
+     */
+    public $DeductionHour;
 
+    /**
+     * @var void
+     */
+    public $NormalHours;
 
-
+    /**
+     * @var void
+     */
+    public $RoleEav;
 
 
     /**
@@ -64,9 +75,5 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
-
 
 }

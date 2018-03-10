@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Car implements CRUD
 {
     /**
      *
@@ -26,11 +26,17 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $AttributeType;
+    public $Color;
 
+    /**
+     * @var void
+     */
+    public $Year;
 
-
-
+    /**
+     * @var void
+     */
+    public $PlateNB;
 
 
     /**
@@ -64,9 +70,6 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
 
 
 }

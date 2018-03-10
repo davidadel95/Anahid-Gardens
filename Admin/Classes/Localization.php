@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Localization implements CRUD
 {
     /**
      *
@@ -21,16 +21,7 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
-
-    /**
-     * @var void
-     */
-    public $AttributeType;
-
-
-
-
+    public $Language;
 
 
     /**
@@ -64,9 +55,6 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
 
 
 }

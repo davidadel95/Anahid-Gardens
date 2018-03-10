@@ -4,7 +4,7 @@
 /**
  *
  */
-class Values
+class Status
 {
     /**
      *
@@ -16,15 +16,12 @@ class Values
     /**
      * @var void
      */
-    public $Attribute;
+    public $ID;
 
     /**
      * @var void
      */
-    public $Value;
-
-
-
+    public $Name;
 
 
 }

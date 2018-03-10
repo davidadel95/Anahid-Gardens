@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Nulls implements CRUD
 {
     /**
      *
@@ -21,15 +21,17 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $NullType;
 
     /**
      * @var void
      */
-    public $AttributeType;
+    public $User;
 
-
-
+    /**
+     * @var void
+     */
+    public $Value;
 
 
 
@@ -64,9 +66,5 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
-
 
 }

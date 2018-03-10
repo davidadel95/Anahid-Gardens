@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Word implements CRUD
 {
     /**
      *
@@ -21,15 +21,17 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $Name;
 
     /**
      * @var void
      */
-    public $AttributeType;
+    public $Page;
 
-
-
+    /**
+     * @var void
+     */
+    public $Localization;
 
 
 
@@ -64,9 +66,6 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
 
 
 }

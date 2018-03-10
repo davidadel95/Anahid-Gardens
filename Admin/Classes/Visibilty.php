@@ -4,7 +4,7 @@
 /**
  *
  */
-class Values
+class Visibilty
 {
     /**
      *
@@ -21,9 +21,7 @@ class Values
     /**
      * @var void
      */
-    public $Value;
-
-
+    public $IsVisible;
 
 
 

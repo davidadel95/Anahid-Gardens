@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class Attendance implements CRUD
 {
     /**
      *
@@ -21,17 +21,23 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $User;
 
     /**
      * @var void
      */
-    public $AttributeType;
+    public $Date;
+
+    /**
+     * @var void
+     */
+    public $Attended;
 
 
-
-
-
+    /**
+     * @var \OnLeave
+     */
+    public $has;
 
     /**
      * @inheritDoc
@@ -64,9 +70,6 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
 
 
 }

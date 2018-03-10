@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class RoleAttributes implements CRUD
 {
     /**
      *
@@ -21,15 +21,12 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $Type;
+    public $Name;
 
     /**
      * @var void
      */
-    public $AttributeType;
-
-
-
+    public $Visibilty[];
 
 
 
@@ -64,9 +61,6 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
 
 
 }

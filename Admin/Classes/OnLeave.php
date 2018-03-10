@@ -4,7 +4,7 @@
 /**
  *
  */
-class Attribute implements CRUD
+class OnLeave implements CRUD
 {
     /**
      *
@@ -16,21 +16,12 @@ class Attribute implements CRUD
     /**
      * @var void
      */
-    public $ID;
+    public $Attendance;
 
     /**
      * @var void
      */
-    public $Type;
-
-    /**
-     * @var void
-     */
-    public $AttributeType;
-
-
-
-
+    public $LeaveTime;
 
 
     /**
@@ -64,9 +55,5 @@ class Attribute implements CRUD
     {
         // TODO: implement here
     }
-
-
-
-
 
 }
