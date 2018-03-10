@@ -1,0 +1,1243 @@
+﻿body {
+    font-family: Saira;
+    margin: 0;
+    padding: 0;
+    background-color: #D2CCC6;
+}
+
+.mySlides {
+    display: none
+}
+.accContent {
+    color: black;
+    padding: 0;
+    margin-left:20px;
+    margin-top:10px;
+    margin-right:0;
+    margin-bottom:10px;
+    text-align: left;
+    cursor: pointer;
+}
+    .accContent:hover {
+        text-decoration: underline;
+        opacity:0.8;
+    }
+    #urAcc:hover .Acc-content {
+    display: block;
+    z-index: 9999;
+}
+#reqTable{
+    background-color:white;
+    width:800px;
+	border:1px solid black;
+}   
+
+#booksUL
+{   
+    position: absolute;
+    top:-177px;
+}
+
+.Acc-content {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 189px;
+    left: 350px;
+    background-color: white;
+    display: none;
+    border: 1px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+    .accContent:hover::before {
+        background-color: #FF6600;
+        width: 0%;
+    }
+.accContent::before {
+    background-color: #FF6600;
+    width: 0%;
+}
+.login{
+    position:relative;
+    margin-top:10px;
+    height:250px;
+    background-color:white;
+    width:88%;
+    font-size:24px;
+    letter-spacing:1px;
+    margin-left:22px;
+}
+
+.login p{
+    margin-left:10px;
+}
+
+#profPic{
+    position:absolute;
+    top:5px;
+    left:20px;
+}
+
+#orders{
+    color:gray;
+    margin-bottom:-20px;
+}
+#recent{
+    font-size:18px;
+}
+#greeting{
+    margin-left:130px;
+    margin-top:10px;
+    top:16px;
+    position:relative;
+}
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1500px;
+    position: relative;
+    margin: 0;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+    }
+
+/* Caption text */
+.text {
+    color: #FF6600;
+    font-size: 24px;
+    padding: 8px 12px;
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    bottom: 8px;
+    text-align: center;
+    margin-left: 550px;
+    margin-bottom: 20px;
+}
+.text2{
+    
+    height: 25px;
+    width: 50%;
+	float:center;
+    top:200px;
+	position:relative;
+    left:10px;
+	
+    
+}
+
+
+.avatar {
+    width: 90%;
+    height: 300px;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .prev, .next, .text {
+        font-size: 11px
+    }
+}
+
+
+
+.sideAds {
+    position: absolute;
+    margin-left: 1048px;
+    margin-top: -61px;
+    width: 300px;
+    height: 1350px;
+    background-color: #454648;
+}
+
+.mainSliderContainer {
+    position: absolute;
+    margin-top: -61px;
+    width: 1048px;
+    height: 1350px;
+    background-color: white
+}
+
+hr {
+    display: block;
+    height: 1px;
+    margin-left: 30px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    padding: 0;
+    width: 90%;
+}
+#h22{
+    margin-left:20px;
+    margin-bottom:-10px;
+    text-decoration:underline;
+}
+h2 {
+    margin-left: 50px;
+}
+
+.scrollmenu {
+    margin-left: 50px;
+    background-color: white;
+    overflow: auto;
+    white-space: nowrap;
+    width: 900px;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+.topDiv {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    background-color: black;
+}
+
+.langdropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+    .langdropdown-content a:hover {
+        background-color: #f1f1f1
+    }
+
+.dropbtn:hover .langdropdown-content {
+    display: block;
+}
+
+.dropbtn{
+    position: relative;
+    width: 115px;
+    height: 100px;
+}
+
+.langdropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#dropBTN {
+    margin-top: 20px;
+    color: white;
+    padding: 16px;
+    font-size: 13px;
+    border: none;
+    background-color: transparent;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: #333;
+}
+
+nav img {
+    top: 4px;
+    right: 0;
+    position: absolute
+}
+
+nav li {
+    float: left;
+    margin-right: 30px;
+}
+
+    nav li a {
+        letter-spacing: 1px;
+        display: block;
+        top: 7px;
+        margin-top: 15px;
+        margin-left: 70px;
+        margin-bottom: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+    }
+    
+    nav li #sellProduct
+    {
+        letter-spacing: 1px;
+        font-family: Saira;
+        display: block;
+        font-size: 18px;
+        top: 7px;
+        margin-top: 15px;
+        margin-left: 71px;
+        margin-bottom: 30px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        background-color: transparent;
+        border: none;
+    }  
+
+        nav li a:hover {
+            color: #FF6600;
+            background-color: transparent
+        }
+    
+        nav li #sellProduct:hover{
+            color: #FF6600;
+            background-color: transparent
+        }
+
+        nav li a::before {
+            content: '';
+            display: block;
+            height: 5px;
+            width: 100%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            width: 0%;
+            transition: all ease-in-out 250ms;
+        }
+    
+        nav li #sellProduct::before {
+            content: '';
+            display: block;
+            height: 5px;
+            width: 100%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            width: 0%;
+            transition: all ease-in-out 250ms;
+        }
+
+        nav li a:hover::before {
+            background-color: #FF6600;
+            width: 100%;
+        }
+
+        nav li #sellProduct:hover::before {
+            background-color: #FF6600;
+            width: 90%;
+        }
+
+.searchDiv {
+    width: 400px;
+    position: absolute;
+    top: 110px;
+    right: 70px;
+    display: block;
+    margin: auto;
+}
+
+#searchForm {
+    display: block;
+    position: relative;
+    width: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: all ease 0.5s;
+}
+
+    #searchForm::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+.searchDiv input {
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    outline: 0;
+    font-family: inherit;
+    color: black;
+    font-weight: 600;
+    padding: 20px;
+    padding-right: 42px;
+    transition: all ease 0.5s;
+    width: 100%;
+    float: right;
+    right: 0;
+    background-color: transparent;
+}
+
+.searchDiv button {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border: none;
+    background-color: #FF6600;
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    color: white;
+    right: 5px;
+    top: 8px;
+    margin: auto;
+}
+
+.searchDiv button:hover #inputs{
+    background-color:white;
+}
+
+.searchDiv:hover #searchForm {
+    width: 100%;
+}
+
+#inputs:hover {
+    width: 100%;
+    background-color: white;
+}
+
+#menuBtn {
+    position: absolute;
+    right: 10px;
+    top: 120px;
+    font-size: 32px;
+    background-color: transparent;
+    border: hidden;
+}
+
+    #menuBtn:hover {
+        color: white;
+        transition: all 0.3s;
+    }
+
+.menuNav {
+    right: 0;
+    position: absolute;
+    display: none;
+    z-index: 9999;
+    
+}
+
+    .menuNav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .menuNav ul ul {
+            transition: all 0.3s;
+            visibility: hidden;
+            opacity: 0;
+            right: 100%;
+            top: 0;
+            position: absolute
+        }   
+
+        .menuNav ul #accUL {
+            top: -59px;
+        }
+
+        .menuNav ul #fashUL {
+            top: -118px;
+        }
+
+        .menuNav ul #womenUL {
+            top: -60px;
+        }
+
+        .menuNav ul #makeUL {
+            top: -120px;
+        }
+
+        .menuNav ul #brandsUL {
+            top: -180px;
+        }
+
+        .menuNav ul #sonyUL {
+            top: -60px;
+        }
+
+        .menuNav ul #appleUL {
+            top: -120px;
+        }
+
+        .menuNav ul li:hover > ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .menuNav ul li:hover {
+            background-color: #FF6600;
+            color: black;
+        }
+
+        .menuNav ul li {
+            font-size: 18px;
+            text-align: center;
+            padding: 15px;
+            border-bottom: 1px solid white;
+            background-color: black;
+            width: 150px;
+            position: relative;
+            letter-spacing:1px;
+            
+        }
+
+
+.spn {
+    float: left;
+}
+
+.menuNav li:last-child {
+    border: none;
+}
+
+.menuNav ul a {
+    text-decoration: none;
+    display: block;
+    color: white;
+}
+
+
+
+/**/
+
+
+/* el css beta3 el login hat7oto hena */
+/**/
+/* Full-width input fields */
+
+.loginContainer input[type=text], .loginContainer input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+
+#urAcc:hover .yourAcc-content {
+    display: block;
+    z-index: 9999;
+}
+
+/* Set a style for all buttons */
+.yourAcc-content {
+    width: 200px;
+    height: 130px;
+    position: absolute;
+    top: 193px;
+    left: 380px;
+    background-color: white;
+    display: none;
+    border:1px solid black;
+    border-top: none;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+
+    .yourAcc-content p {
+        margin-left: 35px;
+        font-size: 13px;
+    }
+
+#signUpAnchor {
+    position: absolute;
+    margin-left: 122px;
+    top: 53px;
+    font-size: 13px;
+    color: blue;
+}
+
+#loginBtnMenu {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#signUpAnchor:before {
+    width: 0;
+}
+
+#loginBtn {
+    background-color: #FF6600;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px 0px 0px 30px;
+    border: none;
+    width: 70%;
+}
+
+    #loginBtn:hover {
+        opacity: 0.8;
+    }
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 100%;
+    height:30%;
+    border-radius: 50%;
+}
+
+.loginContainer {
+    padding: 16px;
+   
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */ /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+
+    background-color: #fefefe;
+    margin: 0% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+   
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+/*---------------------*/
+
+footer {
+        position:relative;
+}
+.botnav {
+    background-color: black;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 350px;
+    width: 100%;
+    padding-bottom: 8px;
+}
+
+    .botnav ul {
+        list-style-type: none;
+        float: left;
+        left: 16px;
+        display: block;
+        color: white;
+        text-align: left;
+        margin: 2px 25px 8px 106px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .botnav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .botnav a:hover{
+        text-decoration:underline
+    }
+
+    .botnav p {
+        text-align: left;
+        color: #FF6600;
+        margin: 60px 25px 8px 150px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+#x {
+    background-color: transparent;
+    position: absolute;
+    top: 310px;
+    left: 1170px;
+    color: #FF6600;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+
+.pnav {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 300px;
+    height: 350px;
+    width: 100%;
+    padding-bottom: 8px;
+    margin-left: -80px;
+}
+
+    .pnav p {
+        color: #FF6600;
+        margin-top: 60px;
+    }
+
+.onav {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 600px;
+    height: 350px;
+    width: 100%;
+    padding-bottom: 8px;
+    margin-left: -80px;
+}
+
+    .onav p {
+        color: #FF6600;
+        margin-top: 60px;
+    }
+
+.socialnav {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 900px;
+    height: 350px;
+    width: 100%;
+    padding-bottom: 8px;
+    font-size: 20px
+}
+
+    .socialnav p {
+        color: #FF6600;
+        margin-top: 60px;
+        margin-left: 0px;
+    }
+
+    .socialnav aside {
+        margin-left: 12px;
+        margin-top: 45px;
+    }
+
+#white {
+    color: orange;
+    margin-left: 20px;
+    margin-top: -10px;
+}
+
+.paynav {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 1150px;
+    height: 350px;
+    width: 100%;
+    padding-bottom: 8px;
+}
+
+    .paynav p {
+        margin-left: 0px;
+    }
+
+#corp {
+    color: #FF6600;
+    position: absolute;
+    margin-top: 60px;
+}
+
+#doksh {
+    position: absolute;
+    right: 43px;
+    bottom: 20px;
+}
+
+#contact {
+    margin-top: 4px;
+}
+.modalyy {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+        
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-contentyy 
+{
+    position: relative;
+    width: 810px;
+    height: auto;
+    left: 250px;
+    top: 200px;
+    background-color: transparent;
+}
+.closeyy {
+    color: #aaa;
+    float: right;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.closeyy:hover,
+.closeyy:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.dropbtna {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdowna {
+    position: relative;
+    display: inline-block;
+	width: 51%;
+	top:170px;
+	height: 30px;
+    left:10px;
+}
+
+.dropdowna-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    width: 50%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	top:110px;
+	height: 25px;
+}
+
+.dropdowna-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+}
+
+	
+	
+.dropdowna-content a:hover {
+            background-color: #f1f1f1
+}
+
+.dropdowna:hover .dropdowna-content {
+    display: block;
+}
+
+.dropdowna:hover .dropbtna {
+    background-color: black;
+}
+
+
+
+
+
+
+
+/*----------------------------*/
+
+.modala {
+     
+
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+   
+    width: 500px; /* Full width */
+    height: 600px; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    margin-left:500px;
+    margin-top:-50px;
+    padding-top: 60px;
+}
+.modala img{
+     
+    position: absolute;
+    top:-15px;
+    left:-55px;
+    
+}
+
+/* Modal Content/Box */
+.modala-content {
+   
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    background-color: white;
+    width: 100%;
+    height:300px;
+    margin-left: :100px;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.closea {
+    position: absolute;
+    right:0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+    .closea:hover,
+    .closea:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+
+
+    .cancelbtn {
+        width: 40%;
+    }
+}
+
+#btttn {
+    width: 50%;
+}
+
+#bts{
+
+width:200px;
+
+
+
+}
+#btc{
+
+
+    width:200px;
+}
+
+
+.genCode{
+	
+  height: 35px;
+  position: absolute;
+  top:225px;
+  width:220px;
+  left: 240px;
+  cursor: pointer;
+  background: red;
+  text-decoration: none;
+  transition:0.5s ease-in-out;
+  font-family:Saira;
+  font-size:0.9em;
+  text-transform:none;
+  color:#fff; 
+  text-align:center;
+  padding: 5px 20px 20px 20px;
+  font-size:18px;
+  margin:30px;
+  border:none;
+  border-radius:3px;
+}
+
+
+.genCode1{
+	
+  height: 35px;
+  position: absolute;
+  top:280px;
+  width:220px;
+  left: 240px;
+  cursor: pointer;
+  background:green;
+  text-decoration: none;
+  transition:0.5s ease-in-out;
+  font-family:Saira;
+  font-size:0.9em;
+  text-transform:none;
+  color:#fff; 
+  text-align:center;
+  padding: 5px 20px 20px 20px;
+  font-size:18px;
+  margin:30px;
+  border:none;
+  border-radius:3px;
+}
+
+.ColorRed
+{
+    background-color:#c80810;
+}
+.ColorRed:hover
+{
+    background-color:#ef1821;
+    box-shadow:#ff0000 0 0 10px;
+}
+
+ColorGreen {
+    background-color: #1e8449;
+}
+
+.ColorGreen:hover {
+        background-color: #28b463;
+        box-shadow: #2ecc71 0 0 10px;
+    }
+
+
+
+.texta2{
+    
+    height: 25px;
+    width: 50%;
+	float:center;
+    top:200px;
+	position:relative;
+    left:10px;
+	
+    
+}
+
+
+
+.avatara {
+	width:280px;
+	height:165px;
+    border-radius: 0%;
+	left:200px;
+	top:0px;
+}
+
+
+.imgcontainera {
+   
+	top:80px;
+	position:absolute;
+    margin: 24px 0 12px 0;
+	width:300px;
+	height:200px;
+    left:140px;
+	
+
+}
+.imgcontainers {
+   
+	top:80px;
+	position:absolute;
+    margin: 24px 0 12px 0;
+	width:300px;
+	height:200px;
+    left:140px;
+	
+
+}
+.modals {
+     
+
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+   
+ 
+    width: 500px; /* Full width */
+    height: 300px; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    margin-left:500px;
+    margin-top:50px;
+    padding-top: 60px;
+}
+.modals img{
+     
+    position: absolute;
+    top:-15px;
+    left:-55px;
+    
+}
+
+/* Modal Content/Box */
+.modal-contents {
+   
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    background-color:white;
+    width: 100%;
+    height:300px;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.closes {
+    position: absolute;
+    right:0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+    .closes:hover,
+    .closes:focus {
+        color: red;
+        cursor: pointer;
+    }
+.avatars {
+	width:280px;
+	height:165px;
+    border-radius: 0%;
+	left:200px;
+	top:0px;
+}
+
+.p {
+    text-align: center;
+	font-size: 25px;
+	font-style:bold;
+	color:black;
+	position:absolute;
+	font-style:italic;
+    top:320px;
+    left:120px;
+    font-family:Saira Light;
+}
+
