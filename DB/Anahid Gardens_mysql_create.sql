@@ -219,7 +219,6 @@ CREATE TABLE `Transaction` (
 CREATE TABLE `Localization` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
 	`Language` varchar(200) NOT NULL,
-	`Name` varchar(200) NOT NULL,
 	PRIMARY KEY (`ID`)
 );
 
@@ -326,17 +325,12 @@ CREATE TABLE `Disease` (
 	PRIMARY KEY (`ID`)
 );
 
-CREATE TABLE `UserDisease` (
-	`ID` INT NOT NULL AUTO_INCREMENT,
-	`UserID` INT NOT NULL,
-	`DiseaseID` INT NOT NULL,
-	PRIMARY KEY (`ID`)
-);
-
 CREATE TABLE `MedicineDisease` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
 	`MedicineID` INT NOT NULL,
-	`UserDiseaseID` INT NOT NULL,
+	`UserID` INT NOT NULL,
+	`DiseaseID` INT NOT NULL,
+	`isSick` BOOLEAN NOT NULL,
 	PRIMARY KEY (`ID`)
 );
 
@@ -543,6 +537,13 @@ CREATE TABLE `SalariesPayment` (
 	PRIMARY KEY (`ID`)
 );
 
+CREATE TABLE `PagesHTML` (
+	`ID` INT NOT NULL AUTO_INCREMENT,
+	`PagesID` INT NOT NULL,
+	`HTML` TEXT NOT NULL,
+	PRIMARY KEY (`ID`)
+);
+
 ALTER TABLE `User` ADD CONSTRAINT `User_fk0` FOREIGN KEY (`RoleID`) REFERENCES `Role`(`ID`);
 
 ALTER TABLE `User` ADD CONSTRAINT `User_fk1` FOREIGN KEY (`UID`) REFERENCES `User`(`ID`);
@@ -643,13 +644,11 @@ ALTER TABLE `UserVaccination` ADD CONSTRAINT `UserVaccination_fk0` FOREIGN KEY (
 
 ALTER TABLE `UserVaccination` ADD CONSTRAINT `UserVaccination_fk1` FOREIGN KEY (`VaccinationID`) REFERENCES `Vaccination`(`ID`);
 
-ALTER TABLE `UserDisease` ADD CONSTRAINT `UserDisease_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
-
-ALTER TABLE `UserDisease` ADD CONSTRAINT `UserDisease_fk1` FOREIGN KEY (`DiseaseID`) REFERENCES `Disease`(`ID`);
-
 ALTER TABLE `MedicineDisease` ADD CONSTRAINT `MedicineDisease_fk0` FOREIGN KEY (`MedicineID`) REFERENCES `Medicine`(`ID`);
 
-ALTER TABLE `MedicineDisease` ADD CONSTRAINT `MedicineDisease_fk1` FOREIGN KEY (`UserDiseaseID`) REFERENCES `UserDisease`(`ID`);
+ALTER TABLE `MedicineDisease` ADD CONSTRAINT `MedicineDisease_fk1` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `MedicineDisease` ADD CONSTRAINT `MedicineDisease_fk2` FOREIGN KEY (`DiseaseID`) REFERENCES `Disease`(`ID`);
 
 ALTER TABLE `ApplicationOptions` ADD CONSTRAINT `ApplicationOptions_fk0` FOREIGN KEY (`OptionTypeID`) REFERENCES `OptionsTypes`(`ID`);
 
@@ -712,4 +711,6 @@ ALTER TABLE `Expenditures` ADD CONSTRAINT `Expenditures_fk0` FOREIGN KEY (`Payme
 ALTER TABLE `Expenditures` ADD CONSTRAINT `Expenditures_fk1` FOREIGN KEY (`ExpenditureTypeID`) REFERENCES `ExpenditureTypes`(`ID`);
 
 ALTER TABLE `SalariesPayment` ADD CONSTRAINT `SalariesPayment_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+
+ALTER TABLE `PagesHTML` ADD CONSTRAINT `PagesHTML_fk0` FOREIGN KEY (`PagesID`) REFERENCES `Pages`(`ID`);
 
