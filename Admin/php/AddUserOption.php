@@ -75,7 +75,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 						<div class="form-title">
-							<h4>Add Option</h4>
+							<h4>New Option</h4>
 						</div>
 
 							<div class="form-body">
@@ -94,7 +94,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<option value="Boolean">Yes Or No</option>
 									</select>
 									<br> <br>
-									<input type="submit">
+									<button type="submit" class="btn btn-success">Confirm</button>
 								</div>
 							</form>
 					</div>

@@ -1,0 +1,339 @@
+﻿body {
+    padding:0;
+    margin:0;
+    overflow-x:hidden;
+    background-color: white;
+}
+
+.top h1 {
+    font-size: 72px;
+    top:-400px;
+    position: relative
+}
+.top {
+    font-family: Arial;
+    letter-spacing: 2px;
+    color: white;
+    
+    position: relative;
+    text-align: center;
+}
+.top p {
+    font-family: Calibri;
+    position: relative;
+    top: -440px;
+    color: white;
+    font-size:18px;
+    width:50%;
+    left:350px;
+    text-align: center;
+}
+    .top a {
+        font-size: 50px;
+        top: -400px;
+        position: relative;
+        cursor:pointer;
+    }
+
+
+
+
+
+
+
+
+
+
+textarea{
+    width:448px;
+}
+
+
+.subs{
+    top:1200px;
+    left:10px;
+    position: absolute;
+    background-color: white;
+    width:1300px;
+    height:650px;
+    text-align: center;
+    padding-top: 50px;
+    border: 5px solid orange ;
+    
+}
+
+.title{
+    font-style: bold;
+    font-size: 35px;
+    font-style: italic;
+    font-family: Saira;
+}
+
+.lName{
+    float: left;
+    margin-left: 85px;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.lMail{
+    float: left;
+    margin-left: -400px;
+    font-size: 25px;
+    margin-top: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.lOrder{
+    float: left;
+    margin-left: -400px;
+    font-size: 25px;
+    margin-top: 120px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.lSubject{
+    margin-left: -60px;
+    position: absolute;
+    top: 175px;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.lDesc{
+    margin-left: 145px;
+    position: absolute;
+    top: 325px;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+.eName{
+    float:left;
+    width: 400px;
+    height: 50px;
+    margin-left: 85px;
+    margin-top: 20px;
+}
+
+.eMail{
+    float: left;
+    width: 400px;
+    height: 50px;
+    margin-left: -75px;
+    margin-top: 90px;
+}
+
+.eOrder{
+    float: left;
+    width: 400px;
+    height: 50px;
+    margin-left: -405px;
+    margin-top: 160px;
+}
+
+.eMail:focus{
+  box-shadow: 0 0 35px orange;
+  padding: 3px 0px 3px 3px;
+  border: 1px orange;
+}
+
+.eName:focus{
+  box-shadow: 0 0 35px orange;
+  padding: 3px 0px 3px 3px;
+  border: 1px orange;
+}
+
+.eOrder:focus{
+  box-shadow: 0 0 35px orange;
+  padding: 3px 0px 3px 3px;
+  border: 1px orange;
+}
+
+.auIcons{
+    display: inline;
+    left:0px;
+    position: relative;
+    width:250px;
+    height:250px;
+    border-radius: 50%;
+    float: left;
+    margin-left: 120px;
+    margin-top: 540px;
+}
+
+.auP1{
+    color: black;
+    font-size: 20px;
+    font-family: Saira;
+    left: 190px;
+    position: absolute;
+    top:775px;
+    text-align: center;
+}
+.auP2{
+    color: black;
+    font-size: 20px;
+    font-family: Saira;
+    left: 525px;
+    position: absolute;
+    top:775px;
+    text-align: center;
+}
+.auP3{
+    color: black;
+    font-size: 20px;
+    font-family: Saira;
+    left: 950px;
+    position: absolute;
+    top:775px;
+    text-align: center;
+}
+
+
+.auTop{
+    left:50px;
+    top: 200px;
+    right:150px;
+    position: absolute;
+    height: auto;
+    display: inline-block;
+}
+
+.genCode{
+	
+  height: 35px;
+  position: absolute;
+  top:225px;
+  width:220px;
+  left: 240px;
+  cursor: pointer;
+  background: red;
+  text-decoration: none;
+  transition:0.5s ease-in-out;
+  font-family:Saira;
+  font-size:0.9em;
+  text-transform:none;
+  color:#fff; 
+  text-align:center;
+  padding: 5px 20px 20px 20px;
+  font-size:18px;
+  margin:30px;
+  border:none;
+  border-radius:3px;
+}
+
+.b{
+    color: orange;
+}
+
+
+.dropdownc {
+    position: relative;
+    display: inline-block;
+	width: 30%;
+	top:-150px;
+	height: 30px;
+    left:10px;
+}
+
+.dropdownc-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    width: 50%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	top:110px;
+	height: 25px;
+}
+
+.dropdownc-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+}
+
+	
+	
+.dropdownc-content a:hover {
+            background-color: #f1f1f1
+}
+
+.dropdownc:hover .dropdowna-content {
+    display: block;
+}
+
+.dropdownc:hover .dropbtna {
+    background-color: black;
+}
+
+
+.tArea{
+    height:125px;
+    margin-left: 25px;
+    margin-top: -50px;
+}
+
+.sButton{
+  height: 35px;
+  position: absolute;
+  top:600px;
+  width:220px;
+  left: 500px;
+  cursor: pointer;
+  background:orange;
+  text-decoration: none;
+  transition:0.5s ease-in-out;
+  font-family:Saira;
+  font-size:0.9em;
+  text-transform:none;
+  color:#fff; 
+  text-align:center;
+  padding: 5px 20px 20px 20px;
+  font-size:18px;
+  margin:30px;
+  border:none;
+  border-radius:3px;
+}
+
+
+.ColorRed
+{
+    background-color:orange;
+}
+
+.ColorRed:hover
+{
+    background-color:orange;
+    box-shadow:#ffd27f 0 0 60px;
+}
+
+.tArea:focus{
+  box-shadow: 0 0 35px orange;
+  padding: 3px 0px 3px 3px;
+  border: 1px orange;
+}
+
+.a{
+    display: inline;
+    color: white;
+    font-size: 20px;
+    font-family: Saira;
+    left:0px;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+
+.a:hover{
+    background-color: orange;
+    box-shadow:#ffd27f 0 0 60px;
+
+}
+
+html{
+    scroll-behavior: smooth;
+}
