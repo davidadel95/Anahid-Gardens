@@ -43,7 +43,7 @@
     				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
     					<nav class="menu menu--miranda">
     						<ul class="nav navbar-nav menu__list">
-    							<li class="menu__item menu__item--current"><a href="index2.php" class="menu__link">Home</a></li>
+    							<li class="menu__item"><a href="index2.php" class="menu__link">Home</a></li>
     							<li class="menu__item"><a href="#events" class="scroll menu__link">Our Events</a></li>
     							<li class="menu__item"><a href="#programs" class="scroll menu__link">Programs</a></li>
     							<li class="menu__item"><a href="#work" class="scroll menu__link">Work</a></li>
