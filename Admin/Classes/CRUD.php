@@ -9,20 +9,20 @@ interface CRUD
     /**
      *
      */
-    public function Add():void;
+    public function Add();
 
     /**
      *
      */
-    public function Edit():void;
+    public function Edit();
 
     /**
      *
      */
-    public function View():void;
+    public function View();
 
     /**
      *
      */
-    public function Delete():void;
+    public function Delete();
 }

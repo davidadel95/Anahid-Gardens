@@ -1,17 +1,15 @@
 <?php
-
+include "dbconnect.php";
+include "CRUD.php";
 
 /**
  *
  */
 class NameEAV implements CRUD
 {
-    /**
-     *
-     */
-    public function __construct()
-    {
-    }
+
+
+
 
     /**
      * @var void
@@ -23,13 +21,25 @@ class NameEAV implements CRUD
      */
     public $Name;
 
+    public $db;
 
 
+
+
+    public function Add()
+    {
+      $db = new dbconnect;
+      $db->connect();
+      $sql= "INSERT INTO Role(ID,Name)    VALUES ('','$this->Name')";
+      $result=$db->executesql($sql);
+
+
+    }
 
     /**
      * @inheritDoc
      */
-    public function Add():void
+    public function Edit()
     {
         // TODO: implement here
     }
@@ -37,7 +47,7 @@ class NameEAV implements CRUD
     /**
      * @inheritDoc
      */
-    public function Edit():void
+    public function View()
     {
         // TODO: implement here
     }
@@ -45,15 +55,7 @@ class NameEAV implements CRUD
     /**
      * @inheritDoc
      */
-    public function View():void
-    {
-        // TODO: implement here
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function Delete():void
+    public function Delete()
     {
         // TODO: implement here
     }

@@ -49,6 +49,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </style>
 
+<?php
+include "../Classes/NameEAV.php";
+if($_POST){
+$NameEAV= new NameEAV;
+$NameEAV->Name= $_POST["RoleName"];
+$NameEAV->Add();
+
+}
+
+
+
+?>
 
 </head>
 <body class="cbp-spmenu-push">
@@ -77,7 +89,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<form method="post" >
 								<div class="form-group">
 										<label> Role Name </label>
-										<input type="text" class="form-control" placeholder="eg: Student ">
+										<input name="RoleName"type="text" class="form-control" placeholder="eg: Student ">
 										<br>
 
 										<input type="submit">
