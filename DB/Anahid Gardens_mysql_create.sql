@@ -385,7 +385,7 @@ CREATE TABLE `Form` (
 
 CREATE TABLE `FormOptionsValue` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
-	`UserID` INT NOT NULL,
+	`PageID` INT NOT NULL,
 	`FormID` INT NOT NULL,
 	`Value` varchar(200) NOT NULL,
 	PRIMARY KEY (`ID`)
@@ -666,7 +666,7 @@ ALTER TABLE `Form` ADD CONSTRAINT `Form_fk0` FOREIGN KEY (`FormNameID`) REFERENC
 
 ALTER TABLE `Form` ADD CONSTRAINT `Form_fk1` FOREIGN KEY (`FormOptionsID`) REFERENCES `FormOptions`(`ID`);
 
-ALTER TABLE `FormOptionsValue` ADD CONSTRAINT `FormOptionsValue_fk0` FOREIGN KEY (`UserID`) REFERENCES `User`(`ID`);
+ALTER TABLE `FormOptionsValue` ADD CONSTRAINT `FormOptionsValue_fk0` FOREIGN KEY (`PageID`) REFERENCES `Pages`(`ID`);
 
 ALTER TABLE `FormOptionsValue` ADD CONSTRAINT `FormOptionsValue_fk1` FOREIGN KEY (`FormID`) REFERENCES `Form`(`ID`);
 
