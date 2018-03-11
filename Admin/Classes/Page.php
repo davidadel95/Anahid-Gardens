@@ -34,13 +34,7 @@ class Page implements CRUD
     public $Word[];
 
 
-    /**
-     *
-     */
-    public function WYCWYG():void
-    {
-        // TODO: implement here
-    }
+
 
     /**
      * @inheritDoc
@@ -73,5 +67,7 @@ class Page implements CRUD
     {
         // TODO: implement here
     }
+
+
 
 }

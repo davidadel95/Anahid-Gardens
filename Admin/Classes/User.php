@@ -40,12 +40,11 @@ class User extends EAV implements CRUD
 
 
 
-
     /**
      * @param void $$User
      * @param void $$Car
      */
-    public function AddDriverCar($$User, $$Car):void
+    public function addDriverCar($$User, $$Car):void
     {
         // TODO: implement here
     }
@@ -55,7 +54,7 @@ class User extends EAV implements CRUD
      * @param void $$Class
      * @param void $$Course
      */
-    public function AssignChild($$User, $$Class, $$Course):void
+    public function assignUser($$User, $$Class, $$Course):void
     {
         // TODO: implement here
     }
@@ -64,7 +63,7 @@ class User extends EAV implements CRUD
      * @param void $$UserName
      * @param void $$Password
      */
-    public function Login($$UserName, $$Password):void
+    public function login($$UserName, $$Password):void
     {
         // TODO: implement here
     }
@@ -72,7 +71,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function AddAnotherUser($$User):void
+    public function addAnotherUser($$User):void
     {
         // TODO: implement here
     }
@@ -80,7 +79,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function EditAnotherUser($$User):void
+    public function editAnotherUser($$User):void
     {
         // TODO: implement here
     }
@@ -88,7 +87,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function ChangeStatus($$User):void
+    public function changeStatus($$User):void
     {
         // TODO: implement here
     }
@@ -96,7 +95,39 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function ViewAnotherUserInfo($$User):void
+    public function viewAnotherUserInfo($$User):void
+    {
+        // TODO: implement here
+    }
+
+    /**
+     * @param void $$Password
+     */
+    public function hash($$Password):void
+    {
+        // TODO: implement here
+    }
+
+    /**
+     * @param void $$x
+     */
+    public function encrypt($$x):void
+    {
+        // TODO: implement here
+    }
+
+    /**
+     * @param void $$x
+     */
+    public function decrypt($$x):void
+    {
+        // TODO: implement here
+    }
+
+    /**
+     *
+     */
+    public function showNav():void
     {
         // TODO: implement here
     }

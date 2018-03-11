@@ -4,7 +4,7 @@
 /**
  *
  */
-class RoleEav implements CRUD
+class DBConnect
 {
     /**
      *
@@ -16,60 +16,49 @@ class RoleEav implements CRUD
     /**
      * @var void
      */
-    public $ID;
+    public $ServerName;
 
     /**
      * @var void
      */
-    public $RoleAttributes;
+    public $UserName;
 
     /**
      * @var void
      */
-    public $values[];
+    public $Password;
 
     /**
      * @var void
      */
-    public $page[];
-
-
-
-
-
+    public $DB;
 
     /**
-     * @inheritDoc
+     * @var void
      */
-    public function Add():void
+    public $Con;
+
+    /**
+     *
+     */
+    public function Connect():void
     {
         // TODO: implement here
     }
 
     /**
-     * @inheritDoc
+     *
      */
-    public function Edit():void
+    public function Disconnect():void
     {
         // TODO: implement here
     }
 
     /**
-     * @inheritDoc
+     * @param void $sql
      */
-    public function View():void
+    public function Executesql($sql):void
     {
         // TODO: implement here
     }
-
-    /**
-     * @inheritDoc
-     */
-    public function Delete():void
-    {
-        // TODO: implement here
-    }
-
-
-
 }

@@ -4,7 +4,7 @@
 /**
  *
  */
-class Status implements CRUD
+class PageHTML
 {
     /**
      *
@@ -21,27 +21,16 @@ class Status implements CRUD
     /**
      * @var void
      */
-    public $Name;
-
+    public $HTML;
 
     /**
-     * @inheritDoc
+     * @var void
      */
-    public function Add():void
-    {
-        // TODO: implement here
-    }
+    public $Page;
+
 
     /**
-     * @inheritDoc
-     */
-    public function Edit():void
-    {
-        // TODO: implement here
-    }
-
-    /**
-     * @inheritDoc
+     *
      */
     public function View():void
     {
@@ -49,12 +38,10 @@ class Status implements CRUD
     }
 
     /**
-     * @inheritDoc
+     *
      */
-    public function Delete():void
+    public function Edit():void
     {
         // TODO: implement here
     }
-
-
 }

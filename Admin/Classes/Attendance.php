@@ -40,6 +40,14 @@ class Attendance implements CRUD
     public $has;
 
     /**
+     *
+     */
+    public function ThreeDaysOfAbsence():void
+    {
+        // TODO: implement here
+    }
+
+    /**
      * @inheritDoc
      */
     public function Add():void
