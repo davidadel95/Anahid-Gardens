@@ -17,7 +17,7 @@
     <!-- js-->
    <script src="../js/jquery-1.11.1.min.js"></script>
    <script src="../js/modernizr.custom.js"></script>
-      
+
    <!--webfonts-->
    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
    <!--//webfonts-->
@@ -53,7 +53,7 @@
                   </a>
                 </li>
 
-                  
+
                 <!-- User -->
                 <li class="treeview">
                   <a href="#">
@@ -76,7 +76,7 @@
                         <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Role</a></li>
                         <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Roles</a></li>
                     </ul></li>
-                      
+
                     <li><a href=""><i class="fa fa-angle-right"></i>User Options</a><ul class="treeview-menu">
                         <li><a href="AddUserOption.php"><i class="fa fa-angle-right"></i>Add Option</a></li>
                         <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Option</a></li>
@@ -234,6 +234,13 @@
                    </ul>
                   </li>
 
+                  <!-- Edit Contact Us menu -->
+                  <li class="treeview">
+                    <a href="getdata.php">
+                      <i class="fa fa-dashboard"></i>
+                      <span>Edit Static Pages</span>
+                    </a>
+                  </li>
 
 
 

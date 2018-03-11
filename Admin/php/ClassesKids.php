@@ -91,48 +91,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					 <td><a href="AttendanceKids.php"> 3B </a></td>
 				 </tr>
 			 </table>
-            <!-- <table class="table table-hover">
-              <thead>
-                <tr>
-
-                </tr>
-              </thead> -->
-              <!-- <tbody>
-                <tr>
-                  <th scope="row"></th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>0122222222</td>
-                  <td>Kids Doctor</td>
-                  <td>Medicine</td>
-                  <td>123.45</td>
-                  <td>1 St. dsa</td>
-                  <td>12-2-2018</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>0122222222</td>
-                  <td>Kids Doctor</td>
-                  <td>Medicine</td>
-                  <td>123.45</td>
-                  <td>1 St. dsa</td>
-                  <td>12-2-2018</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>0122222222</td>
-                  <td>Kids Doctor</td>
-                  <td>Medicine</td>
-                  <td>123.45</td>
-                  <td>1 St. dsa</td>
-                  <td>12-2-2018</td>
-                </tr>
-              </tbody>
-            </table> -->
+        
           </div>
         </div>
 			</div>
@@ -140,8 +99,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--footer-->
 	<div class="footer">
 	   <?php include("Footer.php"); ?>
-	</div>
-    <!--//footer-->
 	</div>
 
 
