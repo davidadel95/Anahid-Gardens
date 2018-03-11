@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2018 at 04:09 PM
+-- Generation Time: Mar 11, 2018 at 06:27 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -32,6 +32,13 @@ CREATE TABLE `activities` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `activities`
+--
+
+INSERT INTO `activities` (`ID`, `Name`) VALUES
+(1, 'soccer');
 
 -- --------------------------------------------------------
 
@@ -111,6 +118,13 @@ CREATE TABLE `attendance` (
   `Attended` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`ID`, `UserID`, `Date`, `Attended`) VALUES
+(1, 1, '2018-03-11 00:00:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -133,10 +147,17 @@ CREATE TABLE `attendancelog` (
 CREATE TABLE `busschedule` (
   `ID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL,
-  `Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Time` time NOT NULL,
   `ChildID` int(11) NOT NULL,
   `isArriving` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `busschedule`
+--
+
+INSERT INTO `busschedule` (`ID`, `UserID`, `Time`, `ChildID`, `isArriving`) VALUES
+(2, 1, '08:00:00', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -148,6 +169,13 @@ CREATE TABLE `carcolor` (
   `ID` int(11) NOT NULL,
   `Color` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `carcolor`
+--
+
+INSERT INTO `carcolor` (`ID`, `Color`) VALUES
+(1, 'Blue');
 
 -- --------------------------------------------------------
 
@@ -164,6 +192,13 @@ CREATE TABLE `cardata` (
   `PlateNb` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cardata`
+--
+
+INSERT INTO `cardata` (`ID`, `TypeID`, `ColorID`, `YearID`, `DriverID`, `PlateNb`) VALUES
+(1, 2, 1, 1, 1, 'fln351');
+
 -- --------------------------------------------------------
 
 --
@@ -173,8 +208,16 @@ CREATE TABLE `cardata` (
 CREATE TABLE `cartype` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL,
-  `CarTypeID` int(11) NOT NULL
+  `CarTypeID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cartype`
+--
+
+INSERT INTO `cartype` (`ID`, `Name`, `CarTypeID`) VALUES
+(1, 'Kia', NULL),
+(2, 'Carens', 1);
 
 -- --------------------------------------------------------
 
@@ -186,6 +229,13 @@ CREATE TABLE `caryear` (
   `ID` int(11) NOT NULL,
   `Year` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `caryear`
+--
+
+INSERT INTO `caryear` (`ID`, `Year`) VALUES
+(1, '2010');
 
 -- --------------------------------------------------------
 
@@ -216,6 +266,13 @@ CREATE TABLE `commentdetails` (
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `commentdetails`
+--
+
+INSERT INTO `commentdetails` (`ID`, `Name`) VALUES
+(1, 'Place');
+
 -- --------------------------------------------------------
 
 --
@@ -228,6 +285,13 @@ CREATE TABLE `comments` (
   `EventDetailsID` int(11) NOT NULL,
   `Value` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`ID`, `CommentID`, `EventDetailsID`, `Value`) VALUES
+(1, 1, 1, 'Anahid Gardens');
 
 -- --------------------------------------------------------
 
@@ -255,12 +319,20 @@ INSERT INTO `course` (`ID`, `Name`) VALUES
 
 CREATE TABLE `coursetimetable` (
   `ID` int(11) NOT NULL,
-  `StartTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `EndTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `StartTime` time NOT NULL,
+  `EndTime` time NOT NULL,
   `CourseID` int(11) NOT NULL,
   `ClassID` int(11) NOT NULL,
   `DaysID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `coursetimetable`
+--
+
+INSERT INTO `coursetimetable` (`ID`, `StartTime`, `EndTime`, `CourseID`, `ClassID`, `DaysID`) VALUES
+(1, '08:00:00', '09:00:00', 1, 1, 1),
+(2, '12:00:00', '15:00:00', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -273,6 +345,13 @@ CREATE TABLE `days` (
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `days`
+--
+
+INSERT INTO `days` (`ID`, `Name`) VALUES
+(1, 'Monday');
+
 -- --------------------------------------------------------
 
 --
@@ -283,6 +362,13 @@ CREATE TABLE `disease` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `disease`
+--
+
+INSERT INTO `disease` (`ID`, `Name`) VALUES
+(1, 'Flu');
 
 -- --------------------------------------------------------
 
@@ -298,6 +384,13 @@ CREATE TABLE `duration` (
   `LogDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `duration`
+--
+
+INSERT INTO `duration` (`ID`, `UserID`, `StartDate`, `LeftDate`, `LogDate`) VALUES
+(1, 1, '2018-03-01 00:00:00', '2018-03-02 00:00:00', '2018-03-11 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -308,6 +401,14 @@ CREATE TABLE `errortypes` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `errortypes`
+--
+
+INSERT INTO `errortypes` (`ID`, `Name`) VALUES
+(2, 'Validation'),
+(3, 'Error');
 
 -- --------------------------------------------------------
 
@@ -321,6 +422,13 @@ CREATE TABLE `eventdetails` (
   `EventTypeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `eventdetails`
+--
+
+INSERT INTO `eventdetails` (`ID`, `Price`, `EventTypeID`) VALUES
+(1, 2000, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -331,6 +439,13 @@ CREATE TABLE `eventtype` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `eventtype`
+--
+
+INSERT INTO `eventtype` (`ID`, `Name`) VALUES
+(1, 'Subscription ');
 
 -- --------------------------------------------------------
 
@@ -346,6 +461,13 @@ CREATE TABLE `expenditures` (
   `ExpenditureTypeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `expenditures`
+--
+
+INSERT INTO `expenditures` (`ID`, `Value`, `Date`, `PaymentMethodID`, `ExpenditureTypeID`) VALUES
+(1, 50, '2018-03-11 16:14:12', 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -356,6 +478,13 @@ CREATE TABLE `expendituretypes` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `expendituretypes`
+--
+
+INSERT INTO `expendituretypes` (`ID`, `Name`) VALUES
+(1, 'SuperMarket');
 
 -- --------------------------------------------------------
 
@@ -369,6 +498,13 @@ CREATE TABLE `experiencesalaries` (
   `Value` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `experiencesalaries`
+--
+
+INSERT INTO `experiencesalaries` (`ID`, `UserID`, `Value`) VALUES
+(1, 1, 9000);
+
 -- --------------------------------------------------------
 
 --
@@ -377,9 +513,15 @@ CREATE TABLE `experiencesalaries` (
 
 CREATE TABLE `extraclothes` (
   `ID` int(11) NOT NULL,
-  `Name` varchar(200) NOT NULL,
-  `ClotheID` int(11) NOT NULL
+  `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `extraclothes`
+--
+
+INSERT INTO `extraclothes` (`ID`, `Name`) VALUES
+(1, 'Pampers');
 
 -- --------------------------------------------------------
 
@@ -390,8 +532,23 @@ CREATE TABLE `extraclothes` (
 CREATE TABLE `food` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL,
-  `FoodID` int(11) NOT NULL
+  `FoodID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `food`
+--
+
+INSERT INTO `food` (`ID`, `Name`, `FoodID`) VALUES
+(1, 'PARENTS', NULL),
+(2, 'BreakFast', 1),
+(3, 'Dinner', 1),
+(4, 'Snack', 1),
+(5, 'Drink', 1),
+(6, 'Snickers', 4),
+(7, 'Milk', 5),
+(8, 'Chicken', 2),
+(9, 'Beef', 3);
 
 -- --------------------------------------------------------
 
@@ -405,6 +562,14 @@ CREATE TABLE `foodies` (
   `FoodID` int(11) NOT NULL,
   `Date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `foodies`
+--
+
+INSERT INTO `foodies` (`ID`, `UserID`, `FoodID`, `Date`) VALUES
+(1, 1, 7, '2018-03-11 00:00:00'),
+(2, 1, 8, '2018-03-11 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -427,10 +592,17 @@ CREATE TABLE `foodieslog` (
 
 CREATE TABLE `foodtimetable` (
   `ID` int(11) NOT NULL,
-  `StartTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `EndTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `StartTime` time NOT NULL,
+  `EndTime` time NOT NULL,
   `FoodID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `foodtimetable`
+--
+
+INSERT INTO `foodtimetable` (`ID`, `StartTime`, `EndTime`, `FoodID`) VALUES
+(1, '10:00:00', '11:00:00', 2);
 
 -- --------------------------------------------------------
 
@@ -444,6 +616,14 @@ CREATE TABLE `form` (
   `FormOptionsID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `form`
+--
+
+INSERT INTO `form` (`ID`, `FormNameID`, `FormOptionsID`) VALUES
+(1, 1, 1),
+(2, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -454,6 +634,13 @@ CREATE TABLE `formname` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `formname`
+--
+
+INSERT INTO `formname` (`ID`, `Name`) VALUES
+(1, 'EarlyLeave');
 
 -- --------------------------------------------------------
 
@@ -467,6 +654,14 @@ CREATE TABLE `formoptions` (
   `OptionID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `formoptions`
+--
+
+INSERT INTO `formoptions` (`ID`, `Name`, `OptionID`) VALUES
+(1, 'FirstName', 2),
+(2, 'Reason for leaving ', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -475,10 +670,18 @@ CREATE TABLE `formoptions` (
 
 CREATE TABLE `formoptionsvalue` (
   `ID` int(11) NOT NULL,
-  `PageID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL,
   `FormID` int(11) NOT NULL,
   `Value` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `formoptionsvalue`
+--
+
+INSERT INTO `formoptionsvalue` (`ID`, `UserID`, `FormID`, `Value`) VALUES
+(1, 1, 1, 'Anahid'),
+(2, 1, 2, 'Tired');
 
 -- --------------------------------------------------------
 
@@ -492,6 +695,13 @@ CREATE TABLE `leaving` (
   `LeaveTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `leaving`
+--
+
+INSERT INTO `leaving` (`ID`, `AttendanceID`, `LeaveTime`) VALUES
+(1, 1, '2018-03-11 16:34:28');
+
 -- --------------------------------------------------------
 
 --
@@ -503,6 +713,14 @@ CREATE TABLE `localization` (
   `Language` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `localization`
+--
+
+INSERT INTO `localization` (`ID`, `Language`) VALUES
+(1, 'English'),
+(2, 'French');
+
 -- --------------------------------------------------------
 
 --
@@ -511,9 +729,15 @@ CREATE TABLE `localization` (
 
 CREATE TABLE `logtable` (
   `ID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL,
   `Message` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `logtable`
+--
+
+INSERT INTO `logtable` (`ID`, `Message`) VALUES
+(1, 'Logged');
 
 -- --------------------------------------------------------
 
@@ -525,6 +749,13 @@ CREATE TABLE `medicine` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `medicine`
+--
+
+INSERT INTO `medicine` (`ID`, `Name`) VALUES
+(1, 'Panadol');
 
 -- --------------------------------------------------------
 
@@ -540,6 +771,13 @@ CREATE TABLE `medicinedisease` (
   `isSick` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `medicinedisease`
+--
+
+INSERT INTO `medicinedisease` (`ID`, `MedicineID`, `UserID`, `DiseaseID`, `isSick`) VALUES
+(1, 1, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -550,20 +788,15 @@ CREATE TABLE `messagesanderros` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL,
   `TypeID` int(11) NOT NULL,
-  `PageID` int(11) NOT NULL,
-  `StatusID` int(11) NOT NULL
+  `PageID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `messagestatus`
+-- Dumping data for table `messagesanderros`
 --
 
-CREATE TABLE `messagestatus` (
-  `ID` int(11) NOT NULL,
-  `Name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `messagesanderros` (`ID`, `Name`, `TypeID`, `PageID`) VALUES
+(1, 'Invalid UserName', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -575,6 +808,15 @@ CREATE TABLE `nulls` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nulls`
+--
+
+INSERT INTO `nulls` (`ID`, `Name`) VALUES
+(1, 'Telephone'),
+(4, 'Hobby'),
+(5, 'Experience');
 
 -- --------------------------------------------------------
 
@@ -588,6 +830,14 @@ CREATE TABLE `nullstype` (
   `UserID` int(11) NOT NULL,
   `Value` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nullstype`
+--
+
+INSERT INTO `nullstype` (`ID`, `NullID`, `UserID`, `Value`) VALUES
+(1, 1, 1, '022877779'),
+(2, 4, 1, 'Fishing');
 
 -- --------------------------------------------------------
 
@@ -645,7 +895,7 @@ CREATE TABLE `pageshtml` (
 --
 
 INSERT INTO `pageshtml` (`ID`, `PagesID`, `HTML`) VALUES
-(1, 1, '<p>Shaf3yElgamed</p>');
+(1, 1, '<p style=\"text-align: right;\"><em><strong>Shaf3yElgamed</strong></em></p>');
 
 -- --------------------------------------------------------
 
@@ -658,6 +908,13 @@ CREATE TABLE `paymentmethods` (
   `PName` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `paymentmethods`
+--
+
+INSERT INTO `paymentmethods` (`ID`, `PName`) VALUES
+(1, 'Cash');
+
 -- --------------------------------------------------------
 
 --
@@ -669,6 +926,14 @@ CREATE TABLE `paymentoptions` (
   `PaymentMethodID` int(11) NOT NULL,
   `POptionID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `paymentoptions`
+--
+
+INSERT INTO `paymentoptions` (`ID`, `PaymentMethodID`, `POptionID`) VALUES
+(1, 1, 1),
+(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -683,6 +948,14 @@ CREATE TABLE `paymentoptionsvalue` (
   `TransactionID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `paymentoptionsvalue`
+--
+
+INSERT INTO `paymentoptionsvalue` (`ID`, `PaymentOptionsID`, `Value`, `TransactionID`) VALUES
+(1, 1, 'Anahid', 1),
+(2, 2, '20HishamLabib', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -694,6 +967,14 @@ CREATE TABLE `poptions` (
   `Name` varchar(200) NOT NULL,
   `TypeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `poptions`
+--
+
+INSERT INTO `poptions` (`ID`, `Name`, `TypeID`) VALUES
+(1, 'Name', 2),
+(2, 'address', 2);
 
 -- --------------------------------------------------------
 
@@ -707,6 +988,15 @@ CREATE TABLE `report` (
   `ReportOptionsTypeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`ID`, `ReportNameID`, `ReportOptionsTypeID`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -717,6 +1007,13 @@ CREATE TABLE `reportname` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reportname`
+--
+
+INSERT INTO `reportname` (`ID`, `Name`) VALUES
+(1, 'ChildReport');
 
 -- --------------------------------------------------------
 
@@ -730,6 +1027,15 @@ CREATE TABLE `reportoptionstype` (
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `reportoptionstype`
+--
+
+INSERT INTO `reportoptionstype` (`ID`, `OptionsTypeID`, `Name`) VALUES
+(1, 2, 'Name'),
+(2, 2, 'Manner'),
+(3, 2, 'Comment');
+
 -- --------------------------------------------------------
 
 --
@@ -742,6 +1048,15 @@ CREATE TABLE `reportsvalue` (
   `ReportID` int(11) NOT NULL,
   `Value` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reportsvalue`
+--
+
+INSERT INTO `reportsvalue` (`ID`, `UserID`, `ReportID`, `Value`) VALUES
+(1, 1, 1, 'AnahidChild'),
+(2, 1, 2, 'Bad'),
+(3, 1, 3, 'N/A');
 
 -- --------------------------------------------------------
 
@@ -773,6 +1088,13 @@ CREATE TABLE `rolepages` (
   `PageID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `rolepages`
+--
+
+INSERT INTO `rolepages` (`ID`, `RoleID`, `PageID`) VALUES
+(1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -788,6 +1110,13 @@ CREATE TABLE `salariespayment` (
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `salariespayment`
+--
+
+INSERT INTO `salariespayment` (`ID`, `ValueToBePaid`, `isPaid`, `StartDate`, `EndDate`, `UserID`) VALUES
+(1, 6000, 0, '2018-02-11 00:00:00', '2018-03-11 00:00:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -801,6 +1130,13 @@ CREATE TABLE `salarymanipulation` (
   `Value` float NOT NULL,
   `isBonus` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `salarymanipulation`
+--
+
+INSERT INTO `salarymanipulation` (`ID`, `UserID`, `Date`, `Value`, `isBonus`) VALUES
+(1, 1, '2018-03-11', 300, 1);
 
 -- --------------------------------------------------------
 
@@ -829,6 +1165,13 @@ CREATE TABLE `studentclothes` (
   `Date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `studentclothes`
+--
+
+INSERT INTO `studentclothes` (`ID`, `UserID`, `ClothesID`, `Date`) VALUES
+(1, 1, 1, '2018-03-11 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -839,6 +1182,15 @@ CREATE TABLE `toilet` (
   `ID` int(11) NOT NULL,
   `Type` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `toilet`
+--
+
+INSERT INTO `toilet` (`ID`, `Type`) VALUES
+(1, 'Pee'),
+(2, 'Poop'),
+(3, 'Abnormal');
 
 -- --------------------------------------------------------
 
@@ -852,6 +1204,13 @@ CREATE TABLE `toiletcheck` (
   `UserID` int(11) NOT NULL,
   `Date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `toiletcheck`
+--
+
+INSERT INTO `toiletcheck` (`ID`, `TypeID`, `UserID`, `Date`) VALUES
+(1, 1, 1, '2018-03-11 15:00:00');
 
 -- --------------------------------------------------------
 
@@ -867,6 +1226,13 @@ CREATE TABLE `transaction` (
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`ID`, `UserID`, `EventID`, `Date`, `Quantity`) VALUES
+(1, 1, 1, '2018-03-11 00:00:00', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -877,8 +1243,15 @@ CREATE TABLE `transactionlog` (
   `ID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL,
   `Date` datetime NOT NULL,
-  `StatusID` int(11) NOT NULL
+  `LogtableID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transactionlog`
+--
+
+INSERT INTO `transactionlog` (`ID`, `UserID`, `Date`, `LogtableID`) VALUES
+(1, 1, '2018-03-11 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -913,6 +1286,13 @@ CREATE TABLE `useractivities` (
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `useractivities`
+--
+
+INSERT INTO `useractivities` (`ID`, `ActivityID`, `UserID`) VALUES
+(1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -925,6 +1305,13 @@ CREATE TABLE `userclasscourse` (
   `CourseID` int(11) NOT NULL,
   `ClassID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userclasscourse`
+--
+
+INSERT INTO `userclasscourse` (`ID`, `UserID`, `CourseID`, `ClassID`) VALUES
+(1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -939,6 +1326,13 @@ CREATE TABLE `userdailyhours` (
   `Hours` int(11) NOT NULL,
   `isExtra` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userdailyhours`
+--
+
+INSERT INTO `userdailyhours` (`ID`, `UserID`, `Date`, `Hours`, `isExtra`) VALUES
+(1, 1, '2018-03-11', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -987,6 +1381,13 @@ CREATE TABLE `uservaccination` (
   `VaccinationID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `uservaccination`
+--
+
+INSERT INTO `uservaccination` (`ID`, `UserID`, `VaccinationID`) VALUES
+(1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -998,6 +1399,13 @@ CREATE TABLE `vaccination` (
   `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `vaccination`
+--
+
+INSERT INTO `vaccination` (`ID`, `Name`) VALUES
+(1, 'Ta3oon');
+
 -- --------------------------------------------------------
 
 --
@@ -1007,9 +1415,36 @@ CREATE TABLE `vaccination` (
 CREATE TABLE `word` (
   `ID` int(11) NOT NULL,
   `Name` varchar(200) NOT NULL,
-  `LanguageID` int(11) NOT NULL,
   `PageID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `word`
+--
+
+INSERT INTO `word` (`ID`, `Name`, `PageID`) VALUES
+(1, 'One', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wordlang`
+--
+
+CREATE TABLE `wordlang` (
+  `ID` int(11) NOT NULL,
+  `WordID` int(11) NOT NULL,
+  `LangID` int(11) NOT NULL,
+  `Value` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wordlang`
+--
+
+INSERT INTO `wordlang` (`ID`, `WordID`, `LangID`, `Value`) VALUES
+(1, 1, 1, 'One'),
+(4, 1, 2, 'un');
 
 -- --------------------------------------------------------
 
@@ -1025,6 +1460,13 @@ CREATE TABLE `workershourssalary` (
   `RoleID` int(11) NOT NULL,
   `NormalHours` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `workershourssalary`
+--
+
+INSERT INTO `workershourssalary` (`ID`, `BasicHour`, `ExtraHour`, `DeductionHour`, `RoleID`, `NormalHours`) VALUES
+(1, 25, 20, 30, 1, 8);
 
 --
 -- Indexes for dumped tables
@@ -1208,8 +1650,7 @@ ALTER TABLE `experiencesalaries`
 -- Indexes for table `extraclothes`
 --
 ALTER TABLE `extraclothes`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `ExtraClothes_fk0` (`ClotheID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `food`
@@ -1267,8 +1708,8 @@ ALTER TABLE `formoptions`
 --
 ALTER TABLE `formoptionsvalue`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `FormOptionsValue_fk0` (`PageID`),
-  ADD KEY `FormOptionsValue_fk1` (`FormID`);
+  ADD KEY `FormOptionsValue_fk1` (`FormID`),
+  ADD KEY `FormOptionsValue_fk0` (`UserID`);
 
 --
 -- Indexes for table `leaving`
@@ -1287,8 +1728,7 @@ ALTER TABLE `localization`
 -- Indexes for table `logtable`
 --
 ALTER TABLE `logtable`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `LogTable_fk0` (`UserID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `medicine`
@@ -1311,14 +1751,7 @@ ALTER TABLE `medicinedisease`
 ALTER TABLE `messagesanderros`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `MessagesAndErros_fk0` (`TypeID`),
-  ADD KEY `MessagesAndErros_fk1` (`PageID`),
-  ADD KEY `MessagesAndErros_fk2` (`StatusID`);
-
---
--- Indexes for table `messagestatus`
---
-ALTER TABLE `messagestatus`
-  ADD PRIMARY KEY (`ID`);
+  ADD KEY `MessagesAndErros_fk1` (`PageID`);
 
 --
 -- Indexes for table `nulls`
@@ -1482,7 +1915,7 @@ ALTER TABLE `transaction`
 ALTER TABLE `transactionlog`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `TransactionLog_fk0` (`UserID`),
-  ADD KEY `TransactionLog_fk1` (`StatusID`);
+  ADD KEY `TransactionLog_fk1` (`LogtableID`);
 
 --
 -- Indexes for table `user`
@@ -1549,8 +1982,15 @@ ALTER TABLE `vaccination`
 --
 ALTER TABLE `word`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `Word_fk0` (`LanguageID`),
   ADD KEY `Word_fk1` (`PageID`);
+
+--
+-- Indexes for table `wordlang`
+--
+ALTER TABLE `wordlang`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `fk_1` (`LangID`),
+  ADD KEY `fk_2` (`WordID`);
 
 --
 -- Indexes for table `workershourssalary`
@@ -1567,7 +2007,7 @@ ALTER TABLE `workershourssalary`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `application`
@@ -1591,7 +2031,7 @@ ALTER TABLE `applicationvalue`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `attendancelog`
@@ -1603,31 +2043,31 @@ ALTER TABLE `attendancelog`
 -- AUTO_INCREMENT for table `busschedule`
 --
 ALTER TABLE `busschedule`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `carcolor`
 --
 ALTER TABLE `carcolor`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cardata`
 --
 ALTER TABLE `cardata`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cartype`
 --
 ALTER TABLE `cartype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `caryear`
 --
 ALTER TABLE `caryear`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `class`
@@ -1639,13 +2079,13 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `commentdetails`
 --
 ALTER TABLE `commentdetails`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `course`
@@ -1657,79 +2097,79 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `coursetimetable`
 --
 ALTER TABLE `coursetimetable`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `days`
 --
 ALTER TABLE `days`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `disease`
 --
 ALTER TABLE `disease`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `duration`
 --
 ALTER TABLE `duration`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `errortypes`
 --
 ALTER TABLE `errortypes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `eventdetails`
 --
 ALTER TABLE `eventdetails`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `eventtype`
 --
 ALTER TABLE `eventtype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `expenditures`
 --
 ALTER TABLE `expenditures`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `expendituretypes`
 --
 ALTER TABLE `expendituretypes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `experiencesalaries`
 --
 ALTER TABLE `experiencesalaries`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `extraclothes`
 --
 ALTER TABLE `extraclothes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `foodies`
 --
 ALTER TABLE `foodies`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `foodieslog`
@@ -1741,85 +2181,79 @@ ALTER TABLE `foodieslog`
 -- AUTO_INCREMENT for table `foodtimetable`
 --
 ALTER TABLE `foodtimetable`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `form`
 --
 ALTER TABLE `form`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `formname`
 --
 ALTER TABLE `formname`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `formoptions`
 --
 ALTER TABLE `formoptions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `formoptionsvalue`
 --
 ALTER TABLE `formoptionsvalue`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `leaving`
 --
 ALTER TABLE `leaving`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `localization`
 --
 ALTER TABLE `localization`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `logtable`
 --
 ALTER TABLE `logtable`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `medicinedisease`
 --
 ALTER TABLE `medicinedisease`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `messagesanderros`
 --
 ALTER TABLE `messagesanderros`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `messagestatus`
---
-ALTER TABLE `messagestatus`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `nulls`
 --
 ALTER TABLE `nulls`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `nullstype`
 --
 ALTER TABLE `nullstype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `optionstypes`
@@ -1843,49 +2277,49 @@ ALTER TABLE `pageshtml`
 -- AUTO_INCREMENT for table `paymentmethods`
 --
 ALTER TABLE `paymentmethods`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `paymentoptions`
 --
 ALTER TABLE `paymentoptions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `paymentoptionsvalue`
 --
 ALTER TABLE `paymentoptionsvalue`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `poptions`
 --
 ALTER TABLE `poptions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reportname`
 --
 ALTER TABLE `reportname`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reportoptionstype`
 --
 ALTER TABLE `reportoptionstype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reportsvalue`
 --
 ALTER TABLE `reportsvalue`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -1897,19 +2331,19 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `rolepages`
 --
 ALTER TABLE `rolepages`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `salariespayment`
 --
 ALTER TABLE `salariespayment`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `salarymanipulation`
 --
 ALTER TABLE `salarymanipulation`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `salarymanipulationlog`
@@ -1921,31 +2355,31 @@ ALTER TABLE `salarymanipulationlog`
 -- AUTO_INCREMENT for table `studentclothes`
 --
 ALTER TABLE `studentclothes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `toilet`
 --
 ALTER TABLE `toilet`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `toiletcheck`
 --
 ALTER TABLE `toiletcheck`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `transactionlog`
 --
 ALTER TABLE `transactionlog`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -1957,19 +2391,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `useractivities`
 --
 ALTER TABLE `useractivities`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `userclasscourse`
 --
 ALTER TABLE `userclasscourse`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `userdailyhours`
 --
 ALTER TABLE `userdailyhours`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `userdailyhourslog`
@@ -1987,25 +2421,31 @@ ALTER TABLE `userstatus`
 -- AUTO_INCREMENT for table `uservaccination`
 --
 ALTER TABLE `uservaccination`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `vaccination`
 --
 ALTER TABLE `vaccination`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `word`
 --
 ALTER TABLE `word`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `wordlang`
+--
+ALTER TABLE `wordlang`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `workershourssalary`
 --
 ALTER TABLE `workershourssalary`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -2106,12 +2546,6 @@ ALTER TABLE `experiencesalaries`
   ADD CONSTRAINT `ExperienceSalaries_fk0` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`);
 
 --
--- Constraints for table `extraclothes`
---
-ALTER TABLE `extraclothes`
-  ADD CONSTRAINT `ExtraClothes_fk0` FOREIGN KEY (`ClotheID`) REFERENCES `extraclothes` (`ID`);
-
---
 -- Constraints for table `food`
 --
 ALTER TABLE `food`
@@ -2154,7 +2588,7 @@ ALTER TABLE `formoptions`
 -- Constraints for table `formoptionsvalue`
 --
 ALTER TABLE `formoptionsvalue`
-  ADD CONSTRAINT `FormOptionsValue_fk0` FOREIGN KEY (`PageID`) REFERENCES `pages` (`ID`),
+  ADD CONSTRAINT `FormOptionsValue_fk0` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`),
   ADD CONSTRAINT `FormOptionsValue_fk1` FOREIGN KEY (`FormID`) REFERENCES `form` (`ID`);
 
 --
@@ -2162,12 +2596,6 @@ ALTER TABLE `formoptionsvalue`
 --
 ALTER TABLE `leaving`
   ADD CONSTRAINT `Leaving_fk0` FOREIGN KEY (`AttendanceID`) REFERENCES `attendance` (`ID`);
-
---
--- Constraints for table `logtable`
---
-ALTER TABLE `logtable`
-  ADD CONSTRAINT `LogTable_fk0` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`);
 
 --
 -- Constraints for table `medicinedisease`
@@ -2182,8 +2610,7 @@ ALTER TABLE `medicinedisease`
 --
 ALTER TABLE `messagesanderros`
   ADD CONSTRAINT `MessagesAndErros_fk0` FOREIGN KEY (`TypeID`) REFERENCES `errortypes` (`ID`),
-  ADD CONSTRAINT `MessagesAndErros_fk1` FOREIGN KEY (`PageID`) REFERENCES `pages` (`ID`),
-  ADD CONSTRAINT `MessagesAndErros_fk2` FOREIGN KEY (`StatusID`) REFERENCES `messagestatus` (`ID`);
+  ADD CONSTRAINT `MessagesAndErros_fk1` FOREIGN KEY (`PageID`) REFERENCES `pages` (`ID`);
 
 --
 -- Constraints for table `nullstype`
@@ -2289,7 +2716,7 @@ ALTER TABLE `transaction`
 --
 ALTER TABLE `transactionlog`
   ADD CONSTRAINT `TransactionLog_fk0` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`),
-  ADD CONSTRAINT `TransactionLog_fk1` FOREIGN KEY (`StatusID`) REFERENCES `userstatus` (`ID`);
+  ADD CONSTRAINT `TransactionLog_fk1` FOREIGN KEY (`LogtableID`) REFERENCES `logtable` (`ID`);
 
 --
 -- Constraints for table `user`
@@ -2337,8 +2764,14 @@ ALTER TABLE `uservaccination`
 -- Constraints for table `word`
 --
 ALTER TABLE `word`
-  ADD CONSTRAINT `Word_fk0` FOREIGN KEY (`LanguageID`) REFERENCES `localization` (`ID`),
   ADD CONSTRAINT `Word_fk1` FOREIGN KEY (`PageID`) REFERENCES `pages` (`ID`);
+
+--
+-- Constraints for table `wordlang`
+--
+ALTER TABLE `wordlang`
+  ADD CONSTRAINT `fk_1` FOREIGN KEY (`LangID`) REFERENCES `localization` (`ID`),
+  ADD CONSTRAINT `fk_2` FOREIGN KEY (`WordID`) REFERENCES `word` (`ID`);
 
 --
 -- Constraints for table `workershourssalary`
