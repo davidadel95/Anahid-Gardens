@@ -52,22 +52,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php
 include_once "../Classes/AttributeType.php";
 include_once "../Classes/NameEAV.php";
+include_once "../Classes/Attribute.php";
 $AttributeType=new AttributeType;
 $NameEAV= new NameEAV;
+$Attruibute = new Attribute;
 $NumberOfValuesOfFields=$AttributeType->view();
 $NumberOfValuesOfRoles= $NameEAV->view();
+$NumberOfAttruibutes=$Attruibute->view();
 if (isset($_POST["RoleNameAdded"])) {
 
 $NameEAV->Name= $_POST["RoleName"];
 $NameEAV->Add();
+header ("Location: CreateApplication.php");
 }
 if (isset($_POST["FieldTypeAdded"])) {
 
-
 $AttributeType->Type=$_POST["NewField"];
 $AttributeType->Add();
+header ("Location: CreateApplication.php");
 }
 
+if (isset($_POST["NewApplicationOption"])){
+
+$Attruibute->AttributeType=$_POST["TypeOfFieldSelected"];
+$Attruibute->Type=$_POST["FieldNameAdded"];
+$Attruibute->Add();
+header ("Location: CreateApplication.php");
+
+}
 
 
 ?>
@@ -130,10 +142,10 @@ $AttributeType->Add();
 									<form method="post" >
 									<div class="form-group">
 									<label> Field Name </label>
-									<input type="text" class="form-control" placeholder="eg: Student ">
+									<input name="FieldNameAdded" type="text" class="form-control" placeholder="eg: Student ">
 									<label>Field Type </label>
 
-									<select name="TypeOfField"  class="form-control" >
+									<select name="TypeOfFieldSelected"  class="form-control" >
 
 										<?php
 										for ($x=0;$x<=$NumberOfValuesOfFields;$x++)
@@ -147,7 +159,7 @@ $AttributeType->Add();
 
 									</select>
 									<br>
-									<input type="submit">
+									<input name="NewApplicationOption" type="submit">
 									</div>
 									</form>
 									</div>
@@ -161,12 +173,18 @@ $AttributeType->Add();
 							<form name="Options">
 								<div class="form-group">
 									<label>Field Name</label>
+
 									<select name="TypeOfField"  class="form-control" >
 
-									<option value="varchar">Text</option>
-									<option value="Integer">Integer</option>
-									<option value="Float">Decimel</option>
-									<option value="Boolean">Yes Or No</option>
+										<?php
+										for ($x=0;$x<=$NumberOfAttruibutes;$x++)
+										{
+
+											echo "<option value='".$Attruibute->Types[$x]."'> ".$Attruibute->Types[$x]."</option>";
+
+
+										}
+										?>
 									</select>
 									<br>
 
