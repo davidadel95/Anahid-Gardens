@@ -1,6 +1,6 @@
 <?php
-include "dbconnect.php";
-include "CRUD.php";
+include_once "dbconnect.php";
+include_once "CRUD.php";
 
 /**
  *
@@ -22,6 +22,8 @@ class NameEAV implements CRUD
     public $Name;
 
     public $db;
+
+    public $Names;
 
 
 
@@ -49,7 +51,16 @@ class NameEAV implements CRUD
      */
     public function View()
     {
-        // TODO: implement here
+      $db = new dbconnect;
+      $db->connect();
+      $sql= "SELECT * FROM Role";
+      $result=$db->executesql($sql);
+      $i=-1;
+      while($row =mysqli_fetch_array($result)){
+      $i++;
+      $this->Names[$i]=$row["Name"];
+      }
+      return $i;
     }
 
     /**

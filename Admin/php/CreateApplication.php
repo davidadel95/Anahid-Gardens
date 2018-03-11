@@ -50,12 +50,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </style>
 
 <?php
-include "../Classes/NameEAV.php";
-if($_POST){
+include_once "../Classes/AttributeType.php";
+include_once "../Classes/NameEAV.php";
+$AttributeType=new AttributeType;
 $NameEAV= new NameEAV;
+$NumberOfValuesOfFields=$AttributeType->view();
+$NumberOfValuesOfRoles= $NameEAV->view();
+if (isset($_POST["RoleNameAdded"])) {
+
 $NameEAV->Name= $_POST["RoleName"];
 $NameEAV->Add();
+}
+if (isset($_POST["FieldTypeAdded"])) {
 
+
+$AttributeType->Type=$_POST["NewField"];
+$AttributeType->Add();
 }
 
 
@@ -73,7 +83,7 @@ $NameEAV->Add();
 
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
-				<?php include("Header.php"); ?>
+				<?php //include("Header.php"); ?>
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -92,22 +102,22 @@ $NameEAV->Add();
 										<input name="RoleName"type="text" class="form-control" placeholder="eg: Student ">
 										<br>
 
-										<input type="submit">
+										<input type="submit" name="RoleNameAdded">
                                 </div>
 															</form>
 															</div>
 
 
 									<div class="form-title">
-											<h4>Field Type</h4>
+											<h4>New Type</h4>
 										</div>
 						    	<div class="form-body">
 									<form method="post" >
 									<div class="form-group">
 									<label> Field Type </label>
-									<input type="text" class="form-control" placeholder="eg: Student ">
+									<input name="NewField" type="text" class="form-control" placeholder="eg: Student ">
 									<br>
-									<input type="submit">
+									<input type="submit" name="FieldTypeAdded">
 									</div>
 									</form>
 									</div>
@@ -122,12 +132,19 @@ $NameEAV->Add();
 									<label> Field Name </label>
 									<input type="text" class="form-control" placeholder="eg: Student ">
 									<label>Field Type </label>
+
 									<select name="TypeOfField"  class="form-control" >
 
-									<option value="varchar">Text</option>
-									<option value="Integer">Integer</option>
-									<option value="Float">Decimel</option>
-									<option value="Boolean">Yes Or No</option>
+										<?php
+										for ($x=0;$x<=$NumberOfValuesOfFields;$x++)
+										{
+
+											echo "<option value='".$AttributeType->Types[$x]."'> ".$AttributeType->Types[$x]."</option>";
+
+
+										}
+										?>
+
 									</select>
 									<br>
 									<input type="submit">
@@ -155,11 +172,15 @@ $NameEAV->Add();
 
 									<label>Role Name </label>
 									<select name="TypeOfField"  class="form-control" >
+										<?php
+										for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+										{
 
-									<option value="varchar">Text</option>
-									<option value="Integer">Integer</option>
-									<option value="Float">Decimel</option>
-									<option value="Boolean">Yes Or No</option>
+											echo "<option value='".$NameEAV->Names[$x]."'> ".$NameEAV->Names[$x]."</option>";
+
+
+										}
+										?>
 									</select>
 									<br> <br>
 									<input type="submit">
@@ -193,10 +214,15 @@ $NameEAV->Add();
 								<label>Role Name </label>
 								<select name="TypeOfField"  class="form-control" >
 
-								<option value="varchar">Text</option>
-								<option value="Integer">Integer</option>
-								<option value="Float">Decimel</option>
-								<option value="Boolean">Yes Or No</option>
+									<?php
+									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+									{
+
+										echo "<option value='".$NameEAV->Names[$x]."'> ".$NameEAV->Names[$x]."</option>";
+
+
+									}
+									?>
 								</select>
 								<br> <br>
 								<input type="submit">
