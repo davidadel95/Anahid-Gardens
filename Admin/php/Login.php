@@ -45,8 +45,8 @@
 						<h2 class="title1">Login</h2>
 						<div class="widget-shadow">
 							<div class="login-body">
-								<form action="#" method="post">
-									<input type="text" class="user" name="username" placeholder="Enter Your Email" required="">
+								<form action="" method="post">
+									<input type="password" class="user" name="username" placeholder="Enter Your username" required="">
 									<input type="password" name="password" class="lock" placeholder="Password" required="">
 									<div class="forgot-grid">
 									<input type="submit" name="Sign-In" value="Sign-In">
