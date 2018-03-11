@@ -44,6 +44,7 @@ class WorkersHoursSalary implements CRUD
     public $RoleEav;
 
 
+
     /**
      * @inheritDoc
      */

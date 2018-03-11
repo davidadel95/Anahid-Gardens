@@ -109,22 +109,6 @@ class User extends EAV implements CRUD
     }
 
     /**
-     * @param void $$x
-     */
-    public function encrypt($$x):void
-    {
-        // TODO: implement here
-    }
-
-    /**
-     * @param void $$x
-     */
-    public function decrypt($$x):void
-    {
-        // TODO: implement here
-    }
-
-    /**
      *
      */
     public function showNav():void

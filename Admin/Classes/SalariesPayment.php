@@ -48,6 +48,7 @@ class SalariesPayment
 
 
 
+
     /**
      * @param void $$ExperienceSalary
      * @param void $$SalaryManipulation
@@ -58,6 +59,15 @@ class SalariesPayment
     {
         // TODO: implement here
     }
+
+    /**
+     * @param void $$Encryption x
+     */
+    public function encryptor($$Encryption x):void
+    {
+        // TODO: implement here
+    }
+
 
 
 

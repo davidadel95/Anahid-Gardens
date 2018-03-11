@@ -48,6 +48,14 @@ class Attendance implements CRUD
     }
 
     /**
+     *
+     */
+    public function Alert():void
+    {
+        // TODO: implement here
+    }
+
+    /**
      * @inheritDoc
      */
     public function Add():void

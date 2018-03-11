@@ -40,12 +40,15 @@ class UserDailyHours
 
 
 
+
     /**
      * @param void $$OnLeave
+     * @param void $$WorkersHoursSalary
      */
-    public function AddUser($$OnLeave):void
+    public function AddUserDailyHours($$OnLeave, $$WorkersHoursSalary):void
     {
         // TODO: implement here
     }
+
 
 }
