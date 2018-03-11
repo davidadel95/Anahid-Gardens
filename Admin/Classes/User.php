@@ -5,7 +5,8 @@
  *
  */
 include("dbconnect.php");
-class User extends EAV implements CRUD
+include("RoleEav.php");
+class User implements CRUD
 {
     
 
@@ -30,23 +31,11 @@ class User extends EAV implements CRUD
     public $RoleEav;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @param void $$User
      * @param void $$Car
      */
-    public function addDriverCar($$User, $$Car)
+    public function addDriverCar($User, $Car)
     {
         // TODO: implement here
     }
@@ -56,7 +45,7 @@ class User extends EAV implements CRUD
      * @param void $$Class
      * @param void $$Course
      */
-    public function assignUser($$User, $$Class, $$Course)
+    public function assignUser($User, $Class, $Course)
     {
         // TODO: implement here
     }
@@ -65,15 +54,32 @@ class User extends EAV implements CRUD
      * @param void $$UserName
      * @param void $$Password
      */
-    public function login($$UserName, $$Password)
+    public function login($UserName, $Password)
     {
-        $sql=
+         $db=new dbconnect();
+        $sql="SELECT * FROM applicationoptions 
+                INNER JOIN application
+                ON applicationoptions.ID = application.ApplicationOptionID
+                INNER JOIN applicationvalue
+                ON application.ID= applicationvalue.ApplicationID
+                where Name ='username' OR Name='password'";
+        $result=$db->executesql($sql);
+        $login=array();
+        While($row = mysqli_fetch_array($result)){
+            array_push($login,$row['Value']);
+        }
+        if($login[0]==$UserName && $login[1]==$Password){
+            $this->RoleEav= new RoleEav;
+            
+            
+        }
+        
     }
 
     /**
      * @param void $$User
      */
-    public function addAnotherUser($$User)
+    public function addAnotherUser($User)
     {
         // TODO: implement here
     }
@@ -81,7 +87,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function editAnotherUser($$User)
+    public function editAnotherUser($User)
     {
         // TODO: implement here
     }
@@ -89,7 +95,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function changeStatus($$User)
+    public function changeStatus($User)
     {
         // TODO: implement here
     }
@@ -97,7 +103,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function viewAnotherUserInfo($$User)
+    public function viewAnotherUserInfo($User)
     {
         // TODO: implement here
     }
@@ -105,7 +111,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$Password
      */
-    public function hash($$Password)
+    public function hash($Password)
     {
         // TODO: implement here
     }

@@ -4,6 +4,8 @@
 /**
  *
  */
+include_once("Values.php");
+include_once("CRUD.php");
 class RoleEav implements CRUD
 {
     /**
@@ -26,12 +28,12 @@ class RoleEav implements CRUD
     /**
      * @var void
      */
-    public $values[];
-
+    public $values=array();
+    
     /**
      * @var void
      */
-    public $page[];
+    public $page=array();
 
 
 
@@ -41,7 +43,7 @@ class RoleEav implements CRUD
     /**
      * @inheritDoc
      */
-    public function Add():void
+    public function Add()
     {
         // TODO: implement here
     }
@@ -49,7 +51,7 @@ class RoleEav implements CRUD
     /**
      * @inheritDoc
      */
-    public function Edit():void
+    public function Edit()
     {
         // TODO: implement here
     }
@@ -57,7 +59,7 @@ class RoleEav implements CRUD
     /**
      * @inheritDoc
      */
-    public function View():void
+    public function View()
     {
         // TODO: implement here
     }
@@ -65,7 +67,7 @@ class RoleEav implements CRUD
     /**
      * @inheritDoc
      */
-    public function Delete():void
+    public function Delete()
     {
         // TODO: implement here
     }
