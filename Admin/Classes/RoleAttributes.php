@@ -21,12 +21,14 @@ class RoleAttributes implements CRUD
     /**
      * @var void
      */
-    public $Name;
+    public $NameEAV;
 
     /**
      * @var void
      */
     public $Visibilty[];
+
+
 
 
 
@@ -61,6 +63,7 @@ class RoleAttributes implements CRUD
     {
         // TODO: implement here
     }
+
 
 
 }

@@ -21,12 +21,13 @@ class Entity implements CRUD
     /**
      * @var void
      */
-    public $Name;
+    public $NameEAV;
 
     /**
      * @var void
      */
     public $Attributes[];
+
 
 
 
