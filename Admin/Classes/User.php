@@ -1,14 +1,9 @@
 <?php
-
-
-/**
- *
- */
 include("dbconnect.php");
 include("RoleEav.php");
 class User implements CRUD
 {
-    
+
 
     /**
      * @var void
@@ -56,11 +51,11 @@ class User implements CRUD
      */
     public function login($UserName, $Password)
     {
-         $db=new dbconnect();
-        $sql="SELECT * FROM applicationoptions 
-                INNER JOIN application
+        $db=new dbconnect();
+        $sql="SELECT * FROM `applicationoptions`
+                INNER JOIN `application`
                 ON applicationoptions.ID = application.ApplicationOptionID
-                INNER JOIN applicationvalue
+                INNER JOIN `applicationvalue`
                 ON application.ID= applicationvalue.ApplicationID
                 where Name ='username' OR Name='password'";
         $result=$db->executesql($sql);
@@ -68,12 +63,10 @@ class User implements CRUD
         While($row = mysqli_fetch_array($result)){
             array_push($login,$row['Value']);
         }
-        if($login[0]==$UserName && $login[1]==$Password){
+        if($login[0] == $UserName && $login[1] == $Password){
             $this->RoleEav= new RoleEav;
-            
-            
+            echo '<script>window.location.replace("../php/Dashboard.php")</script>';
         }
-        
     }
 
     /**
@@ -155,16 +148,4 @@ class User implements CRUD
     {
         // TODO: implement here
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
