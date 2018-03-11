@@ -4,8 +4,10 @@
 /**
  *
  */
+include("dbconnect.php");
 class User extends EAV implements CRUD
 {
+    
 
     /**
      * @var void
@@ -44,7 +46,7 @@ class User extends EAV implements CRUD
      * @param void $$User
      * @param void $$Car
      */
-    public function addDriverCar($$User, $$Car):void
+    public function addDriverCar($$User, $$Car)
     {
         // TODO: implement here
     }
@@ -54,7 +56,7 @@ class User extends EAV implements CRUD
      * @param void $$Class
      * @param void $$Course
      */
-    public function assignUser($$User, $$Class, $$Course):void
+    public function assignUser($$User, $$Class, $$Course)
     {
         // TODO: implement here
     }
@@ -63,7 +65,15 @@ class User extends EAV implements CRUD
      * @param void $$UserName
      * @param void $$Password
      */
-    public function login($$UserName, $$Password):void
+    public function login($$UserName, $$Password)
+    {
+        $sql=
+    }
+
+    /**
+     * @param void $$User
+     */
+    public function addAnotherUser($$User)
     {
         // TODO: implement here
     }
@@ -71,7 +81,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function addAnotherUser($$User):void
+    public function editAnotherUser($$User)
     {
         // TODO: implement here
     }
@@ -79,7 +89,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function editAnotherUser($$User):void
+    public function changeStatus($$User)
     {
         // TODO: implement here
     }
@@ -87,15 +97,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$User
      */
-    public function changeStatus($$User):void
-    {
-        // TODO: implement here
-    }
-
-    /**
-     * @param void $$User
-     */
-    public function viewAnotherUserInfo($$User):void
+    public function viewAnotherUserInfo($$User)
     {
         // TODO: implement here
     }
@@ -103,7 +105,7 @@ class User extends EAV implements CRUD
     /**
      * @param void $$Password
      */
-    public function hash($$Password):void
+    public function hash($$Password)
     {
         // TODO: implement here
     }
@@ -111,7 +113,7 @@ class User extends EAV implements CRUD
     /**
      *
      */
-    public function showNav():void
+    public function showNav()
     {
         // TODO: implement here
     }
@@ -119,7 +121,7 @@ class User extends EAV implements CRUD
     /**
      * @inheritDoc
      */
-    public function Add():void
+    public function Add()
     {
         // TODO: implement here
     }
@@ -127,7 +129,7 @@ class User extends EAV implements CRUD
     /**
      * @inheritDoc
      */
-    public function Edit():void
+    public function Edit()
     {
         // TODO: implement here
     }
@@ -135,7 +137,7 @@ class User extends EAV implements CRUD
     /**
      * @inheritDoc
      */
-    public function View():void
+    public function View()
     {
         // TODO: implement here
     }
@@ -143,7 +145,7 @@ class User extends EAV implements CRUD
     /**
      * @inheritDoc
      */
-    public function Delete():void
+    public function Delete()
     {
         // TODO: implement here
     }
