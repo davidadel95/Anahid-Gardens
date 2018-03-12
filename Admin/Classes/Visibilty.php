@@ -1,5 +1,5 @@
 <?php
-
+include_once "Attribute.php";
 
 /**
  *
@@ -9,9 +9,7 @@ class Visibilty
     /**
      *
      */
-    public function __construct()
-    {
-    }
+
 
     /**
      * @var void
@@ -23,6 +21,10 @@ class Visibilty
      */
     public $IsVisible;
 
+    public function __construct()
+    {
 
+
+    }
 
 }
