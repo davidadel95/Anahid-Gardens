@@ -32,7 +32,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="../js/modernizr.custom.js"></script>
 
 <!--webfonts-->
-<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+<!-- <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet"> -->
 <!--//webfonts-->
 
 <!-- chart -->
@@ -53,9 +53,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 include_once "../Classes/AttributeType.php";
 include_once "../Classes/NameEAV.php";
 include_once "../Classes/Attribute.php";
+include_once "../Classes/RoleAttributes.php";
 $AttributeType=new AttributeType;
 $NameEAV= new NameEAV;
 $Attruibute = new Attribute;
+$RoleAttributes= new RoleAttributes;
+
 $NumberOfValuesOfFields=$AttributeType->view();
 $NumberOfValuesOfRoles= $NameEAV->view();
 $NumberOfAttruibutes=$Attruibute->view();
@@ -80,6 +83,16 @@ $Attruibute->Add();
 header ("Location: CreateApplication.php");
 
 }
+if (isset($_POST["NewInField"]))
+{
+	echo "Ahmed";
+$RoleAttributes->NameEAV->Name = $_POST["InFiledRoleName"];
+
+$RoleAttributes->Visibility->Attribute->Name= $_POST["InFiledFieldName"];
+$RoleAttributes->Visibility->IsVisible=true;
+$RoleAttributes->Add();
+}
+
 
 
 ?>
@@ -95,7 +108,7 @@ header ("Location: CreateApplication.php");
 
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
-				<?php //include("Header.php"); ?>
+				<?php include("Header.php"); ?>
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -110,7 +123,7 @@ header ("Location: CreateApplication.php");
 						<div class="form-body">
 							<form method="post" >
 								<div class="form-group">
-										<label> Role Name </label>
+										<label> Role Name</label>
 										<input name="RoleName"type="text" class="form-control" placeholder="eg: Student ">
 										<br>
 
@@ -170,11 +183,11 @@ header ("Location: CreateApplication.php");
 
 							<div class="form-body">
 
-							<form name="Options">
+							<form name="InField" method="post">
 								<div class="form-group">
 									<label>Field Name</label>
 
-									<select name="TypeOfField"  class="form-control" >
+										<select name="InFiledFieldName"  class="form-control" >
 
 										<?php
 										for ($x=0;$x<=$NumberOfAttruibutes;$x++)
@@ -189,7 +202,7 @@ header ("Location: CreateApplication.php");
 									<br>
 
 									<label>Role Name </label>
-									<select name="TypeOfField"  class="form-control" >
+									<select name="InFiledRoleName"  class="form-control" >
 										<?php
 										for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
 										{
@@ -201,7 +214,7 @@ header ("Location: CreateApplication.php");
 										?>
 									</select>
 									<br> <br>
-									<input type="submit">
+									<input name="NewInField" type="submit">
 								</div>
 							</form>
 					</div>
@@ -269,10 +282,15 @@ header ("Location: CreateApplication.php");
 								<label>Role Name </label>
 								<select name="TypeOfField"  class="form-control" >
 
-								<option value="varchar">Text</option>
-								<option value="Integer">Integer</option>
-								<option value="Float">Decimel</option>
-								<option value="Boolean">Yes Or No</option>
+									<?php
+									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+									{
+
+										echo "<option value='".$NameEAV->Names[$x]."'> ".$NameEAV->Names[$x]."</option>";
+
+
+									}
+									?>
 								</select>
 								<br> <br>
 								<input type="submit">
