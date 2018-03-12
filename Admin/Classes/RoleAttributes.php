@@ -66,6 +66,8 @@ echo $sql;
 // ('','$this->NameEAV->ID','$ID','$this->Visibilty->IsVisible' )";
 
 
+
+
     /**
      * @inheritDoc
      */

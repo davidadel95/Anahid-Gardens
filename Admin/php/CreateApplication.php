@@ -54,11 +54,13 @@ include_once "../Classes/AttributeType.php";
 include_once "../Classes/NameEAV.php";
 include_once "../Classes/Attribute.php";
 include_once "../Classes/RoleAttributes.php";
+include_once "../Classes/Page.php";
 $AttributeType=new AttributeType;
 $NameEAV= new NameEAV;
 $Attruibute = new Attribute;
 $RoleAttributes= new RoleAttributes;
-
+$Pages = new Page;
+$NumberOfPages = $Pages->view();
 $NumberOfValuesOfFields=$AttributeType->view();
 $NumberOfValuesOfRoles= $NameEAV->view();
 $NumberOfAttruibutes=$Attruibute->view();
@@ -83,15 +85,7 @@ $Attruibute->Add();
 header ("Location: CreateApplication.php");
 
 }
-if (isset($_POST["NewInField"]))
-{
-	echo "Ahmed";
-$RoleAttributes->NameEAV->Name = $_POST["InFiledRoleName"];
 
-$RoleAttributes->Visibility->Attribute->Name= $_POST["InFiledFieldName"];
-$RoleAttributes->Visibility->IsVisible=true;
-$RoleAttributes->Add();
-}
 
 
 
@@ -125,6 +119,15 @@ $RoleAttributes->Add();
 								<div class="form-group">
 										<label> Role Name</label>
 										<input name="RoleName"type="text" class="form-control" placeholder="eg: Student ">
+										<br>
+										<label> Page To Redirect on </label>
+
+										<select class="form-control">
+										<?php
+										for ($x=0;$x<=$NumberOfPages;$x++)
+										echo "<option value='".$Pages->Names[$x]."'> ".$Pages->Names[$x]."</option>";
+ 										?>
+										</select>
 										<br>
 
 										<input type="submit" name="RoleNameAdded">

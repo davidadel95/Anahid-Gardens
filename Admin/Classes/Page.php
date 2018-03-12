@@ -1,4 +1,6 @@
 <?php
+include_once "dbconnect.php";
+include_once "CRUD.php";
 
 
 /**
@@ -31,15 +33,18 @@ class Page implements CRUD
     /**
      * @var void
      */
-    public $Word[];
+    public $Word;
 
+    public $Names;
+
+    public $URLS;
 
 
 
     /**
      * @inheritDoc
      */
-    public function Add():void
+    public function Add()
     {
         // TODO: implement here
     }
@@ -47,7 +52,7 @@ class Page implements CRUD
     /**
      * @inheritDoc
      */
-    public function Edit():void
+    public function Edit()
     {
         // TODO: implement here
     }
@@ -55,15 +60,25 @@ class Page implements CRUD
     /**
      * @inheritDoc
      */
-    public function View():void
+    public function View()
     {
-        // TODO: implement here
+      $db= new dbconnect;
+      $db->connect();
+      $sql= "SELECT * FROM Pages";
+      $result=$db->executesql($sql);
+        $i=-1;
+      while($row =mysqli_fetch_array($result)){
+        $i++;
+        $this->Names[$i]=$row["Name"];
+        $this->URLS[$i]=$row["URL"];
+      }
+      return $i;
     }
 
     /**
      * @inheritDoc
      */
-    public function Delete():void
+    public function Delete()
     {
         // TODO: implement here
     }
