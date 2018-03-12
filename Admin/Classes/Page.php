@@ -75,6 +75,20 @@ class Page implements CRUD
       return $i;
     }
 
+    public function GetID($name)
+    {
+      $db= new dbconnect;
+      $db->connect();
+      $sql= "SELECT * FROM Pages where Name='$name'" ;
+      $result=$db->executesql($sql);
+        $i=-1;
+      while($row =mysqli_fetch_array($result)){
+
+        $ID=$row["ID"];
+      }
+      return $ID;
+    }
+
     /**
      * @inheritDoc
      */

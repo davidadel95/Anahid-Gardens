@@ -85,6 +85,17 @@ $Attruibute->Add();
 header ("Location: CreateApplication.php");
 
 }
+if (isset($_POST["addpagesrole"])){
+$pageid = $Pages->GetID($_POST["PageID"]);
+$roleid = $NameEAV->GetID($_POST["rolename"]);
+$db = new dbconnect;
+$db->connect();
+echo $sql;
+$sql= "INSERT INTO rolepages(ID,RoleID,PageID)    VALUES ('','$pageid','$roleid')";
+$result=$db->executesql($sql);
+header ("Location: CreateApplication.php");
+
+}
 
 
 
@@ -236,13 +247,14 @@ header ("Location: CreateApplication.php");
 						<form name="Options">
 							<div class="form-group">
 								<label>Field Name</label>
-								<select name="TypeOfField"  class="form-control" >
-
-								<option value="varchar">Text</option>
-								<option value="Integer">Integer</option>
-								<option value="Float">Decimel</option>
-								<option value="Boolean">Yes Or No</option>
-								</select>
+								<select name="InFiledFieldName"  class="form-control" >
+								<?php
+								for ($x=0;$x<=$NumberOfAttruibutes;$x++)
+								{
+								echo "<option value='".$Attruibute->Types[$x]."'> ".$Attruibute->Types[$x]."</option>";
+								}
+								?>
+							 </select>
 								<br>
 
 								<label>Role Name </label>
@@ -275,11 +287,16 @@ header ("Location: CreateApplication.php");
 
 								<label> Pages </label>
 								<select name="TypeOfField"  class="form-control" >
+									<?php
+									for ($x=0;$x<=$NumberOfPages;$x++)
+									{
 
-								<option value="varchar">Text</option>
-								<option value="Integer">Integer</option>
-								<option value="Float">Decimel</option>
-								<option value="Boolean">Yes Or No</option>
+										echo "<option value='".$Pages->Names[$x]."'> ".$Pages->Names[$x]."</option>";
+
+
+									}
+									?>
+
 								</select>
 								<br> <br>
 								<label>Role Name </label>
