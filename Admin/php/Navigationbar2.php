@@ -234,14 +234,6 @@
                    </ul>
                   </li>
 
-                  <!-- Create Application menu -->
-                  <li class="treeview">
-                    <a href="CreateApplication.php">
-                      <i class="fa fa-dashboard"></i>
-                      <span>Create Application</span>
-                    </a>
-                  </li>
-
                   <!-- Edit Contact Us menu -->
                   <li class="treeview">
                     <a href="getdata.php">
