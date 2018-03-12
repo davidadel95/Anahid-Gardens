@@ -52,6 +52,7 @@ class User implements CRUD
     public function login($UserName, $Password)
     {
         $db=new dbconnect();
+
         $sql="SELECT * FROM `applicationoptions`
                 INNER JOIN `application`
                 ON applicationoptions.ID = application.ApplicationOptionID
@@ -59,13 +60,26 @@ class User implements CRUD
                 ON application.ID= applicationvalue.ApplicationID
                 where Name ='username' OR Name='password'";
         $result=$db->executesql($sql);
+
         $login=array();
-        While($row = mysqli_fetch_array($result)){
-            array_push($login,$row['Value']);
+
+
+        While($rows= mysqli_fetch_array($result)){
+            array_push($login,$rows['Value']);
+            $x=$rows['RoleID'];
         }
+
+
         if($login[0] == $UserName && $login[1] == $Password){
             $this->RoleEav= new RoleEav;
-            echo '<script>window.location.replace("../php/Dashboard.php")</script>';
+            $row = mysqli_fetch_array($result);
+              $sql="SELECT * FROM role where id = '".$x."'";
+              $result=$db->executesql($sql);
+              $qrow = mysqli_fetch_array($result);
+             header("location:".$qrow['LoginUrl']);
+
+        }else {
+          echo "string";
         }
     }
 

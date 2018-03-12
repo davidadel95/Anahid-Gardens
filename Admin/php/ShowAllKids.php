@@ -69,43 +69,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Drivers:</h4>
+            <h4>Users:</h4>
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Name</th>
-                  <th>Mobile</th>
-                  <th>Class</th>
-                  <th>Comments</th>
-                  <th>Start Date</th>
+                  <th>Role</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td><a href="">Mark Otto</a></td>
-                  <td>0122222222</td>
-                  <td>1</td>
-                  <td>comment</td>
-                  <td>12-2-2018</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td><a href="">Ahmed Mohamed</a></td>
-                  <td>0122222222</td>
-                  <td>2</td>
-                  <td>comment</td>
-                  <td>12-2-2018</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td><a href="">John Mounir</a></td>
-                  <td>0122222222</td>
-                  <td>3</td>
-                  <td>comment</td>
-                  <td>12-2-2018</td>
-                </tr>
+
+								<?php
+									include_once("dbconnect.php");
+
+									$db = new dbconnect();
+									$sql = "SELECT * FROM `applicationoptions`
+                INNER JOIN `application`
+                ON applicationoptions.ID = application.ApplicationOptionID
+                INNER JOIN `applicationvalue`
+                ON application.ID= applicationvalue.ApplicationID
+                where Name ='name'";
+								$result = $db->executesql($sql);
+								$i=0;
+									While($rows= mysqli_fetch_array($result)){
+										$i=$i+1;
+					            $sql2="SELECT * FROM role WHERE id = '".$rows['RoleID']."'";
+											$result2 = $db->executesql($sql2);
+											$row= mysqli_fetch_array($result2);
+											echo'<tr>
+												<th scope="row">'.$i.'</th>
+												<td><a href="">'.$rows['Value'].'</a></td>
+												<td>'.$row['Name'].'</td>
+											</tr>';
+					        }
+
+								?>
               </tbody>
             </table>
           </div>
