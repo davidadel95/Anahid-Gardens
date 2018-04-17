@@ -263,6 +263,13 @@
                      <li><a href="ChildrenInformation.php"><i class="fa fa-angle-right"></i>Show Specific report </a></li>
                     </ul>
                    </li>
+                   <!-- Create Application menu -->
+                  <li class="treeview">
+                    <a href="CreateApplication.php">
+                      <i class="fa fa-dashboard"></i>
+                      <span>Create Application</span>
+                    </a>
+                  </li>
 
                   <!-- Settings menu -->
                    <li class="treeview">
