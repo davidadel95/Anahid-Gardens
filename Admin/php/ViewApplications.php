@@ -75,27 +75,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="form-title">
           <h4>New Application
         </h4>
-				<label>Role Name </label>
-
-				<select name="InFiledRoleName" id="mySelect" onchange="shaf3y()" class="form-control" >
-					<?php
-					include_once "../Classes/RoleNameEAV.php";
-					$RoleNameEAV = new RoleNameEAV;
-			   	$NumberOfValuesOfRoles= $RoleNameEAV->View();
-
-					for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
-					{
-
-						echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
 
 
-					}
-//Dh code l ajaxxxxx
-					// $RoleName = $_POST["InFiledRoleName"];
-					// $RoleID=$RoleNameEAV->GetID($RoleName);
-
-		?>
-		</select>
 
 
 
@@ -103,10 +84,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
         <div class="form-body">
+					<label>Role Name </label>
+								<select name="InFiledRoleName" id="mySelect" onchange="shaf3y()" class="form-control" >
+									<?php
+									include_once "../Classes/RoleNameEAV.php";
+									$RoleNameEAV = new RoleNameEAV;
+							   	$NumberOfValuesOfRoles= $RoleNameEAV->View();
+
+									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+									{
+
+										echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
+
+
+									}
+				?>
+						</select>
           <form method="post" >
             <div class="form-group">
                 <div id="ajax">
-	
+
           </div>
           </div>
         </form>
@@ -148,12 +145,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
-		
+
     function shaf3y() {
-    
+
         var x = document.getElementById("mySelect").value;
-        
-     
+
+
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
