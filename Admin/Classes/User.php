@@ -58,7 +58,8 @@ class User implements CRUD
              ON applicationoptions.ID = application.ApplicationOptionID
              INNER JOIN `applicationvalue`
              ON application.ID= applicationvalue.ApplicationID
-             where Name ='username' OR Name='password'";
+             where Name ='username' OR Name='password'
+             ORDER BY UserID,OptionTypeID";
        $result = $mysqli->query($sql_query);
 
 
@@ -73,8 +74,8 @@ class User implements CRUD
             $x=$rows['RoleID'];
         }
 
-
-        if($login[0] == $UserName && $login[1] == $Password){
+        for($i=0;$i<sizeof($login);$i=$i+2){
+        if($login[$i] == $UserName && $login[$i+1] == $Password){
 
             $this->RoleEav= new RoleEav;
 
@@ -91,7 +92,7 @@ class User implements CRUD
           echo "string";
         }
     }
-
+    }
     /**
      * @param void $$User
      */
