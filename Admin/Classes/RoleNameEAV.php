@@ -77,4 +77,16 @@ class RoleNameEAV implements CRUD
         // TODO: implement here
     }
 
+    public function GetID($name)
+    {
+      $db = dbconnect::getInstance();
+    $mysqli = $db->getConnection();
+    $sql_query = "SELECT * FROM Role where name = '$name'";
+    $result = $mysqli->query($sql_query);
+      while($row =mysqli_fetch_array($result)){
+          $ID=$row["ID"];
+      }
+      return $ID;
+    }
+
 }

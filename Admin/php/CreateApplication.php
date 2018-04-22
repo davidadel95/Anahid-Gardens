@@ -61,6 +61,7 @@ $RoleNameEAV= new RoleNameEAV;
 $Attruibute = new Attribute;
 $RoleAttributes= new RoleAttributes;
 $Pages = new Page;
+$Visibility = new Visibilty;
 $NumberOfPages = $Pages->view();
 $NumberOfValuesOfFields=$AttributeType->view();
 $NumberOfValuesOfRoles= $RoleNameEAV->view();
@@ -87,24 +88,33 @@ $SQLRETURNED = $Attruibute->Add();
  	header ("Location: CreateApplication.php");
 
 }
-if (isset($_POST["addpagesrole"])){
-$pageid = $Pages->GetID($_POST["PageID"]);
-$roleid = $NameEAV->GetID($_POST["rolename"]);
-$db = new dbconnect;
-$db->connect();
-echo $sql;
-$sql= "INSERT INTO rolepages(ID,RoleID,PageID)    VALUES ('','$pageid','$roleid')";
-$result=$db->executesql($sql);
-header ("Location: CreateApplication.php");
 
-}
 if (isset($_POST["NewInField"])){
 
+$FieldName =$_POST["InFiledFieldName"];
+$RoleName =$_POST["InFiledRoleName"];
+$RoleID = $RoleNameEAV->GetID($RoleName);
+$FieldID = $Attruibute->GetID($FieldName);
+$Visibility->RoleID = $RoleID;
+$Visibility->FieldID = $FieldID;
+$Visibility->IsVisible=1;
+$Visibility->Add();
+header ("Location: CreateApplication.php");
+}
+if (isset($_POST["NewOutField"])){
 
+	$FieldName =$_POST["OutFiledFieldName"];
+	$RoleName =$_POST["RoleTypeOfField"];
+	$RoleID = $RoleNameEAV->GetID($RoleName);
+	$FieldID = $Attruibute->GetID($FieldName);
+	$Visibility->RoleID = $RoleID;
+	$Visibility->FieldID = $FieldID;
+	$Visibility->IsVisible=0;
+	$Visibility->Add();
+header ("Location: CreateApplication.php");
 
 
 }
-
 
 
 
@@ -256,10 +266,10 @@ if (isset($_POST["NewInField"])){
 
 						<div class="form-body">
 
-						<form name="Options">
+						<form method="post" >
 							<div class="form-group">
 								<label>Field Name</label>
-								<select name="InFiledFieldName"  class="form-control" >
+								<select name="OutFiledFieldName"  class="form-control" >
 								<?php
 								for ($x=0;$x<=$NumberOfAttruibutes;$x++)
 								{
@@ -270,7 +280,7 @@ if (isset($_POST["NewInField"])){
 								<br>
 
 								<label>Role Name </label>
-								<select name="TypeOfField"  class="form-control" >
+								<select name="RoleTypeOfField"  class="form-control" >
 
 									<?php
 									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
@@ -283,7 +293,7 @@ if (isset($_POST["NewInField"])){
 									?>
 								</select>
 								<br> <br>
-								<input type="submit">
+								<input type="submit" name="NewOutField">
 							</div>
 						</form>
 				</div>

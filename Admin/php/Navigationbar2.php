@@ -242,6 +242,14 @@
                     </a>
                   </li>
 
+<!-- View Applications -->
+                  <li class="treeview">
+                    <a href="ViewApplications.php">
+                      <i class="fa fa-dashboard"></i>
+                      <span>View Applications</span>
+                    </a>
+                  </li>
+
 
 
                   <li class="treeview">

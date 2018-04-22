@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Edit About Us</title>
+<title>Show Applications</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -42,33 +42,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Metis Menu -->
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
-<script  src="../js/index1.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
-<?php
-	include "dbconnect.php";
-		$db = dbconnect::getInstance();
-		$mysqli = $db->getConnection();
-	$sql_query = "SELECT * FROM Pages INNER JOIN PagesHTML ON Pages.ID = PagesHTML.PagesID WHERE Pages.Name='Contact Us' ";
-	$result = $mysqli->query($sql_query);
-	if($row=mysqli_fetch_array($result)){
-		$html = $row["HTML"];
-		$id=$row["PagesID"];
-	}
-	if($_POST)
-	{
-			$NewHtml=$_POST["newhtml"];
-			// $NewHtml = trim($NewHtml);
-			// $NewHtml = stripslashes($NewHtml);
-			// $NewHtml = htmlspecialchars($NewHtml);
-			$sql_query = "UPDATE PagesHTML
-			SET HTML = '$NewHtml'
-			WHERE PagesID='$id';";
-			$result = $mysqli->query($sql_query);
-			header('Location: Dashboard.php');
-			exit();
-	}
+<!--//Metis Menu -->
+<style>
 
-?>
+</style>
 
 
 </head>
@@ -86,37 +64,61 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-    <div id="page-wrapper">
+		<div id="page-wrapper">
 			<div class="main-page">
-        <div class="forms">
-          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
-						<div class="form-title">
-							<h4>Edit About Us</h4>
-						</div>
-						<div class="form-body">
-							<form method="post" >
-								<div class="form-group">
-                    <textarea  name="newhtml" class="tinymce" id="texteditor"> <?php echo $html; ?> </textarea>
-										<br>
-										<input type="submit" value="Change">
-                </div>
-								</form>
-                </div>
-                </div>
-                </div>
-            </div>
-					</div>
+
+    <script  src="js/index1.js"></script>
+    <div class="forms">
+      <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+
+        <div class="form-title">
+          <h4>New Application
+        </h4>
+
         </div>
+        <div class="form-body">
+          <form method="post" >
+            <div class="form-group">
+						<?php
+            include_once "../Classes/DBconnect.php";
+             $Names;
+             $Types;
+             $db = dbconnect::getInstance();
+             $mysqli = $db->getConnection();
+             $sql_query = "      SELECT * FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
+INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = 1 And isVisible = 1" ;
+            $result = $mysqli->query($sql_query);
+            $i=-1;
+            while($row =mysqli_fetch_array($result)){
+            $i++;
+            echo "<br />";
+            $Names[$i]=$row["Name"];
+           $Types[$i]=$row["Type"];
+              echo "<label>". $Names[$i]. "</label>";
+              echo "<input type='".$Types[$i]."' class='form-control' placeholder='".$Types[$i]." '>";
+
+ }
+            ?>
+          </div>
+          </div>
+        </form>
+            </div>
+				</div>
+					<!--//sreen-gallery-cursual---->
 			</div>
 		</div>
+
+
+			</div>
+		</div>
+	<!--footer-->
+	<div class="footer">
+	   <?php include("Footer.php"); ?>
 	</div>
-  	<!--footer-->
-  	<div class="footer">
-  	   <?php include("Footer.php"); ?>
-  	</div>
     <!--//footer-->
 	</div>
+
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
@@ -145,9 +147,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--scrolling js-->
 	<script src="../js/jquery.nicescroll.js"></script>
 	<script src="../js/scripts.js"></script>
-	<script type="text/javascript" src="CDO/plugin/tinymce/tinymce.min.js"></script>
-	<script type="text/javascript" src="CDO/plugin/tinymce/init-tinymce.js"></script>
-	<script type="text/javascript" src="CDO/js/getdata.js"></script>
 	<!--//scrolling js-->
 
 	<!-- Bootstrap Core JavaScript -->
