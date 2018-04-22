@@ -51,23 +51,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <?php
 include_once "../Classes/AttributeType.php";
-include_once "../Classes/NameEAV.php";
 include_once "../Classes/Attribute.php";
 include_once "../Classes/RoleAttributes.php";
 include_once "../Classes/Page.php";
+include_once "../Classes/RoleNameEAV.php";
+
 $AttributeType=new AttributeType;
-$NameEAV= new NameEAV;
+$RoleNameEAV= new RoleNameEAV;
 $Attruibute = new Attribute;
 $RoleAttributes= new RoleAttributes;
 $Pages = new Page;
 $NumberOfPages = $Pages->view();
 $NumberOfValuesOfFields=$AttributeType->view();
-$NumberOfValuesOfRoles= $NameEAV->view();
+$NumberOfValuesOfRoles= $RoleNameEAV->view();
 $NumberOfAttruibutes=$Attruibute->view();
 if (isset($_POST["RoleNameAdded"])) {
 
-$NameEAV->Name= $_POST["RoleName"];
-$NameEAV->Add();
+$RoleNameEAV->Name= $_POST["RoleName"];
+$RoleNameEAV->URL="../php/" .$_POST["Page"]. '.php';
+$RoleNameEAV->Add();
 header ("Location: CreateApplication.php");
 }
 if (isset($_POST["FieldTypeAdded"])) {
@@ -143,7 +145,7 @@ if (isset($_POST["NewInField"])){
 										<br>
 										<label> Page To Redirect on </label>
 
-										<select class="form-control">
+										<select name="Page" class="form-control">
 										<?php
 										for ($x=0;$x<=$NumberOfPages;$x++)
 										echo "<option value='".$Pages->Names[$x]."'> ".$Pages->Names[$x]."</option>";
@@ -231,7 +233,7 @@ if (isset($_POST["NewInField"])){
 										for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
 										{
 
-											echo "<option value='".$NameEAV->Names[$x]."'> ".$NameEAV->Names[$x]."</option>";
+											echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
 
 
 										}
@@ -274,7 +276,7 @@ if (isset($_POST["NewInField"])){
 									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
 									{
 
-										echo "<option value='".$NameEAV->Names[$x]."'> ".$NameEAV->Names[$x]."</option>";
+										echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
 
 
 									}
@@ -316,7 +318,7 @@ if (isset($_POST["NewInField"])){
 									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
 									{
 
-										echo "<option value='".$NameEAV->Names[$x]."'> ".$NameEAV->Names[$x]."</option>";
+										echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
 
 
 									}

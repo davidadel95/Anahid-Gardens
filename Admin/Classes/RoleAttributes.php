@@ -31,7 +31,7 @@ class RoleAttributes implements CRUD
 
     public function __construct()
     {
-      $this->NameEAV = new NameEAV;
+      $this->RoleNameEAV = new RoleNameEAV;
     }
 
 
