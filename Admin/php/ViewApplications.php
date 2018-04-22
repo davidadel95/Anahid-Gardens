@@ -77,7 +77,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </h4>
 				<label>Role Name </label>
 
-				<select name="InFiledRoleName"  class="form-control" >
+				<select name="InFiledRoleName" id="mySelect" onchange="shaf3y()" class="form-control" >
 					<?php
 					include_once "../Classes/RoleNameEAV.php";
 					$RoleNameEAV = new RoleNameEAV;
@@ -105,25 +105,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="form-body">
           <form method="post" >
             <div class="form-group">
-						<?php
-             $Names;
-             $Types;
-             $db = dbconnect::getInstance();
-             $mysqli = $db->getConnection();
-             $sql_query = "      SELECT * FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '$RoleID' And isVisible = 1" ;
-            $result = $mysqli->query($sql_query);
-            $i=-1;
-            while($row =mysqli_fetch_array($result)){
-            $i++;
-            echo "<br />";
-            $Names[$i]=$row["Name"];
-           $Types[$i]=$row["Type"];
-              echo "<label>". $Names[$i]. "</label>";
-              echo "<input type='".$Types[$i]."' class='form-control' placeholder='".$Types[$i]." '>";
-
- }
-            ?>
+                <div id="ajax">
+	
           </div>
           </div>
         </form>
@@ -165,7 +148,22 @@ INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHE
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
-		</script>
+		
+    function shaf3y() {
+    
+        var x = document.getElementById("mySelect").value;
+        
+     
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("ajax").value = this.responseText;
+         }
+        };
+        xmlhttp.open("GET", "ajax.php?q=" + x, true);
+        xmlhttp.send();
+    }
+</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->
