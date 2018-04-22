@@ -75,19 +75,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="form-title">
           <h4>New Application
         </h4>
+				<label>Role Name </label>
+			<form method="post">
+				<select name="InFiledRoleName"  class="form-control" >
+					<?php
+					include_once "../Classes/RoleNameEAV.php";
+					$RoleNameEAV = new RoleNameEAV;
+			   	$NumberOfValuesOfRoles= $RoleNameEAV->View();
+
+					for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+					{
+
+						echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
+
+
+					}
+//Dh code l ajaxxxxx
+					// $RoleName = $_POST["InFiledRoleName"];
+					// $RoleID=$RoleNameEAV->GetID($RoleName);
+
+		?>
+		</select>
+	</form>
+
+
+
 
         </div>
         <div class="form-body">
           <form method="post" >
             <div class="form-group">
 						<?php
-            include_once "../Classes/DBconnect.php";
              $Names;
              $Types;
              $db = dbconnect::getInstance();
              $mysqli = $db->getConnection();
              $sql_query = "      SELECT * FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = 1 And isVisible = 1" ;
+INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '$RoleID' And isVisible = 1" ;
             $result = $mysqli->query($sql_query);
             $i=-1;
             while($row =mysqli_fetch_array($result)){
