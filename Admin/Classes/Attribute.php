@@ -54,6 +54,20 @@ class Attribute implements CRUD
         $result = $mysqli->query($sql_query);
     }
 
+
+    public function GetID($Name){
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "SELECT * FROM ApplicationOptions where Name = '$Name'" ;
+      $result = $mysqli->query($sql_query);
+
+      while($row =mysqli_fetch_array($result)){
+          $ID=$row["ID"];
+      }
+      return $ID;
+
+    }
+
     /**
      * @inheritDoc
      */

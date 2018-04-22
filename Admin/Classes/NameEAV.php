@@ -51,14 +51,7 @@ class NameEAV implements CRUD
 
     public function GetID($name)
     {
-      $db = new dbconnect;
-      $db->connect();
-      $sql= "SELECT * FROM Role where name = '$name'";
-      $result=$db->executesql($sql);
-      while($row =mysqli_fetch_array($result)){
-          $ID=$row["ID"];
-      }
-      return $ID;
+  
     }
 
 

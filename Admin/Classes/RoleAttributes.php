@@ -22,7 +22,7 @@ class RoleAttributes implements CRUD
     /**
      * @var void
      */
-    public $NameEAV;
+    public $RoleNameEAV;
 
     /**
      * @var void
@@ -42,13 +42,13 @@ class RoleAttributes implements CRUD
     {
       $db= new dbconnect;
       $db->connect();
-      $NameEAV = new NameEAV;
+      $RoleNameEAV = new RoleNameEAV;
       $Visibilty= new Visibilty;
       $Visibilty->Attribute = new Attribute;
-      $sql= "Select * From Role WHERE Name = '".$this->NameEAV->Name."'";
+      $sql= "Select * From Role WHERE Name = '".$this->$RoleNameEAV->Name."'";
       $result=$db->executesql($sql);
       while($row =mysqli_fetch_array($result)){
-      $this->NameEAV->ID=$row["ID"];
+      $this->RoleNameEAV->ID=$row["ID"];
       }
 
       $sql= "Select * From ApplicationOptions WHERE Name = ".$this->Visibility->Attribute->Name;
@@ -58,7 +58,7 @@ class RoleAttributes implements CRUD
       }
 
 $this->Visibilty->IsVisible=TRUE;
-      $sql= "INSERT INTO application(ID,RoleID,ApplicationOptionID,IsVisible) VALUES ('','".$this->NameEAV->ID."','".$this->Visibility->Attribute->ID."','".$this->Visibilty->IsVisible."' )";
+      $sql= "INSERT INTO application(ID,RoleID,ApplicationOptionID,IsVisible) VALUES ('','".$this->RoleNameEAV->ID."','".$this->Visibility->Attribute->ID."','".$this->Visibilty->IsVisible."' )";
 echo $sql;
       $result=$db->executesql($sql);
 
