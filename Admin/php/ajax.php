@@ -1,6 +1,7 @@
 <?php
+include_once "DBconnect.php";
 $q = $_REQUEST["q"];
-					
+			echo $q;		
              $Names;
              $Types;
              $db = dbconnect::getInstance();
