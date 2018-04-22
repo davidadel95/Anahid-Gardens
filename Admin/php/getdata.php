@@ -46,9 +46,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="../css/custom.css" rel="stylesheet">
 <?php
 	include "dbconnect.php";
-	$db = new dbconnect;
-	$sql = "SELECT * FROM Pages INNER JOIN PagesHTML ON Pages.ID = PagesHTML.PagesID WHERE Pages.Name='Contact Us' ";
-	$result= $db->executesql($sql);
+		$db = dbconnect::getInstance();
+		$mysqli = $db->getConnection();
+	$sql_query = "SELECT * FROM Pages INNER JOIN PagesHTML ON Pages.ID = PagesHTML.PagesID WHERE Pages.Name='Contact Us' ";
+	$result = $mysqli->query($sql_query);
 	if($row=mysqli_fetch_array($result)){
 		$html = $row["HTML"];
 		$id=$row["PagesID"];
@@ -56,10 +57,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	if($_POST)
 	{
 			$NewHtml=$_POST["newhtml"];
-			$sql = "UPDATE PagesHTML
+			// $NewHtml = trim($NewHtml);
+			// $NewHtml = stripslashes($NewHtml);
+			// $NewHtml = htmlspecialchars($NewHtml);
+			$sql_query = "UPDATE PagesHTML
 			SET HTML = '$NewHtml'
 			WHERE PagesID='$id';";
-			$db->executesql($sql);
+			$result = $mysqli->query($sql_query);
 			header('Location: Dashboard.php');
 			exit();
 	}
