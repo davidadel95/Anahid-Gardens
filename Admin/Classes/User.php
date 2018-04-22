@@ -62,26 +62,25 @@ class User implements CRUD
              ORDER BY UserID,OptionTypeID";
        $result = $mysqli->query($sql_query);
 
-
-
-
-
         $login=array();
 
 
         while($rows= mysqli_fetch_array($result)){
-            array_push($login,$rows['Value']);
-            $x=$rows['RoleID'];
+            array_push($login,$rows['Value']);   
         }
 
         for($i=0;$i<sizeof($login);$i=$i+2){
         if($login[$i] == $UserName && $login[$i+1] == $Password){
-
+             $sql_query="SELECT * FROM `applicationoptions`
+             INNER JOIN `application`
+             ON applicationoptions.ID = application.ApplicationOptionID
+             INNER JOIN `applicationvalue`
+             ON application.ID= applicationvalue.ApplicationID
+             where	name = 'username' AND value = '".$login[$i]."'";
+              $result=$mysqli->query($sql_query);
+              $row = mysqli_fetch_array($result);
+                $x=$row['RoleID'];
             $this->RoleEav= new RoleEav;
-
-
-
-
             $row = mysqli_fetch_array($result);
               $sql_query="SELECT * FROM role where id = '".$x."'";
               $result=$mysqli->query($sql_query);
