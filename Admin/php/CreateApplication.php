@@ -96,6 +96,12 @@ $result=$db->executesql($sql);
 header ("Location: CreateApplication.php");
 
 }
+if (isset($_POST["NewInField"])){
+
+
+
+
+}
 
 
 

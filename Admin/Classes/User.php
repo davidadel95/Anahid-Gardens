@@ -51,30 +51,39 @@ class User implements CRUD
      */
     public function login($UserName, $Password)
     {
-        $db=new dbconnect();
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query = "SELECT * FROM `applicationoptions`
+             INNER JOIN `application`
+             ON applicationoptions.ID = application.ApplicationOptionID
+             INNER JOIN `applicationvalue`
+             ON application.ID= applicationvalue.ApplicationID
+             where Name ='username' OR Name='password'";
+       $result = $mysqli->query($sql_query);
 
-        $sql="SELECT * FROM `applicationoptions`
-                INNER JOIN `application`
-                ON applicationoptions.ID = application.ApplicationOptionID
-                INNER JOIN `applicationvalue`
-                ON application.ID= applicationvalue.ApplicationID
-                where Name ='username' OR Name='password'";
-        $result=$db->executesql($sql);
+
+
+
 
         $login=array();
 
 
-        While($rows= mysqli_fetch_array($result)){
+        while($rows= mysqli_fetch_array($result)){
             array_push($login,$rows['Value']);
             $x=$rows['RoleID'];
         }
 
 
         if($login[0] == $UserName && $login[1] == $Password){
+
             $this->RoleEav= new RoleEav;
+
+
+          
+
             $row = mysqli_fetch_array($result);
-              $sql="SELECT * FROM role where id = '".$x."'";
-              $result=$db->executesql($sql);
+              $$sql_query="SELECT * FROM role where id = '".$x."'";
+              $result=$mysqli->query($sql_query);
               $qrow = mysqli_fetch_array($result);
              header("location:".$qrow['LoginUrl']);
 
