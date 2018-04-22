@@ -1,9 +1,5 @@
 <?php
 
-
-/**
- *
- */
 interface CRUD
 {
     /**

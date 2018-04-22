@@ -1,7 +1,8 @@
 <?php
 require_once "../dbconnect.php";
+require_once "CRUD.php";
 
-class UserModel{
+class UserModel implements CRUD{
     public $UserID;
     public $DateAdded;
     public $Status;
@@ -30,7 +31,7 @@ class UserModel{
         $result = $mysqli->query($sql);
 
         return $result;
-        
+
         $login=array();
 
         While($rows= mysqli_fetch_array($result)){
@@ -44,7 +45,7 @@ class UserModel{
               $sql="SELECT * FROM role where id = '".$x."'";
               $result=$db->executesql($sql);
               $qrow = mysqli_fetch_array($result);
-             header("location:".$qrow['LoginUrl']);
+              header("location:".$qrow['LoginUrl']);
 
         }else {
           echo "string";

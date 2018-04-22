@@ -1,7 +1,7 @@
 <?php
-  include("UserModel.php");
+  include("../Controller/UserController.php");
 
-  $user = new User();
-  $user->login("hi", "hi");
+  $user = new UserController();
+  $user->userLogin("hi");
 
 ?>

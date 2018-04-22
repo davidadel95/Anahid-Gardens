@@ -4,10 +4,22 @@
 
   $userModel = new UserModel();
   $userView = new UserView();
-  $userView->login();
 
   class UserController{
+    private $userModel;
+    private $userView;
 
+    public function __construct() {
+        $this->UserModel = new UserModel();
+        $this->UserView = new UserView();
+    }
+    public function userLogin(){
+        $this->userView->login($userModel);
+    }
+
+    public function addNewUser($userObj){
+
+    }
 
   }
 ?>
