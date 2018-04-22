@@ -1,52 +1,40 @@
 <?php
-  class dbconnect
-  {
-      private $servername;
-      private $username;
-      private $password;
-      private $db;
-      private $con;
+  class dbconnect {
+  	private $host = "localhost";
+  	private $username = "root";
+  	private $password = "";
+  	private $database = "anahiddb";
+  	private $connection;
+  	private static $instance;
 
-      function __construct()
-      {
-          $this->servername = "localhost"; 
-          $this->username = "root";
-          $this->password = "";
-          $this->db = "anahiddb";
-          $this->con = $this->Connect();
-      }
+  	public static function getInstance() {
+  		if(!self::$instance) {
+  			self::$instance = new self();
+  		}
+  		return self::$instance;
+  	}
+  	private function __construct() {
+  		$this->connection = new mysqli($this->host, $this->username,$this->password, $this->database);
 
-      function connect()
-      {
-          $this->con = mysqli_connect($this->servername, $this->username, $this->password, $this->db);
+  		if(mysqli_connect_error()) {
+  			trigger_error("Failed to conencto to MySQL: " . mysql_connect_error(),E_USER_ERROR);
+  		}
+  	}
 
-          if ($this -> con ->connect_error)
-          {
-              die("Failed to connect: " .$this->con->connect_error);
-          }
-          else
-          {
-              return $this->con;
-          }
-      }
+    function disconnect(){
+        return $this->connection->close();
+    }
 
-      function disconnect()
-      {
-          return $this->con->close();
-      }
-
-
-      function executesql($sql)
-      {
-        $result = mysqli_query($this->con, $sql);
-        if($result == TRUE)
-              {
-          return $result;
-        }
-        else
-              {
-          echo "Error executing SQL statement: " .$this->con->error;
-        }
-      }
+  	public function getConnection() {
+  		return $this->connection;
+  	}
   }
+
+// To make a connection to the database and make a query
+//
+// $db = dbconnect::getInstance();
+// $mysqli = $db->getConnection();
+// $sql_query = "SELECT foo FROM .....";
+// $result = $mysqli->query($sql_query);
+
 ?>

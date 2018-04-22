@@ -33,11 +33,11 @@ class AttributeType implements CRUD
      * @inheritDoc
      */
     public function Add()
-    {
-        $db= new dbconnect;
-        $db->connect();
-        $sql= "INSERT INTO optionstypes(ID,Type)    VALUES ('','$this->Type')";
-        $result=$db->executesql($sql);
+    {      $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "INSERT INTO optionstypes(ID,Type)    VALUES ('','$this->Type')";
+        $result = $mysqli->query($sql_query);
+
 
     }
 
@@ -54,10 +54,12 @@ class AttributeType implements CRUD
      */
     public function View()
     {
-      $db= new dbconnect;
-      $db->connect();
-      $sql= "SELECT * FROM optionstypes";
-      $result=$db->executesql($sql);
+       $db = dbconnect::getInstance();
+     $mysqli = $db->getConnection();
+     $sql_query = "SELECT * FROM optionstypes";
+     $result = $mysqli->query($sql_query);
+
+
         $i=-1;
       while($row =mysqli_fetch_array($result)){
         $i++;

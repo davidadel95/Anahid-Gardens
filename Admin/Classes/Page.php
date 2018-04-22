@@ -62,10 +62,12 @@ class Page implements CRUD
      */
     public function View()
     {
-      $db= new dbconnect;
-      $db->connect();
-      $sql= "SELECT * FROM Pages";
-      $result=$db->executesql($sql);
+       $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+       $sql_query = "SELECT * FROM Pages";
+      $result = $mysqli->query($sql_query);
+
+
         $i=-1;
       while($row =mysqli_fetch_array($result)){
         $i++;

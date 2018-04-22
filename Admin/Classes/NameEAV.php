@@ -30,10 +30,12 @@ class NameEAV implements CRUD
 
     public function Add()
     {
-      $db = new dbconnect;
-      $db->connect();
-      $sql= "INSERT INTO Role(ID,Name)    VALUES ('','$this->Name')";
-      $result=$db->executesql($sql);
+      $db = dbconnect::getInstance();
+    $mysqli = $db->getConnection();
+    $sql_query = "INSERT INTO Role(ID,Name)    VALUES ('','$this->Name')";
+    $result = $mysqli->query($sql_query);
+
+
 
 
     }
@@ -51,10 +53,12 @@ class NameEAV implements CRUD
      */
     public function View()
     {
-      $db = new dbconnect;
-      $db->connect();
-      $sql= "SELECT * FROM Role";
-      $result=$db->executesql($sql);
+
+      $db = dbconnect::getInstance();
+    $mysqli = $db->getConnection();
+    $sql_query = "SELECT * FROM Role";
+    $result = $mysqli->query($sql_query);
+
       $i=-1;
       while($row =mysqli_fetch_array($result)){
       $i++;

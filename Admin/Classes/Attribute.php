@@ -41,16 +41,18 @@ class Attribute implements CRUD
      */
     public function Add()
     {
-      $db= new dbconnect;
-      $db->connect();
-      $sql= "Select ID from optionstypes where Type='$this->AttributeType'";
-      $result=$db->executesql($sql);
+      $db = dbconnect::getInstance();
+    $mysqli = $db->getConnection();
+    $sql_query = "Select ID from optionstypes where Type='$this->AttributeType";
+    $result = $mysqli->query($sql_query);
+
       while($row =mysqli_fetch_array($result)){
         $ID=$row["ID"];
       }
 
-      $sql= "INSERT INTO ApplicationOptions(ID,Name,OptionTypeID)    VALUES ('','$this->Type',$ID)";
-      $result=$db->executesql($sql);
+      $sql_query= "INSERT INTO ApplicationOptions(ID,Name,OptionTypeID)    VALUES ('','$this->Type',$ID)";
+      echo   $sql_query;
+        $result = $mysqli->query($sql_query);
     }
 
     /**
@@ -65,11 +67,13 @@ class Attribute implements CRUD
      * @inheritDoc
      */
     public function View()
-    {
-      $db= new dbconnect;
-      $db->connect();
-      $sql= "SELECT * FROM ApplicationOptions";
-      $result=$db->executesql($sql);
+    {  $db = dbconnect::getInstance();
+     $mysqli = $db->getConnection();
+     $sql_query = "SELECT * FROM ApplicationOptions";
+     $result = $mysqli->query($sql_query);
+
+
+
         $i=-1;
       while($row =mysqli_fetch_array($result)){
         $i++;

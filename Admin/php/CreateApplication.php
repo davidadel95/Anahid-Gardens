@@ -43,7 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
 <script  src="../js/index1.js"></script>
-<link href="../css/custom.css" rel="stylesheet">
+<!-- <link href="../css/custom.css" rel="stylesheet"> -->
 <!--//Metis Menu -->
 <style>
 
@@ -106,7 +106,9 @@ header ("Location: CreateApplication.php");
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar2.php"); ?>
+      <?php
+			include("Navigationbar2.php"); 
+			?>
     </div>
 
 		<!--left-fixed -navigation-->
