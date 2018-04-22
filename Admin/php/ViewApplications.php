@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="form-body">
 					<label>Role Name </label>
-								<select name="InFiledRoleName" id="mySelect" onchange="shaf3y()" class="form-control" >
+								<select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
 									<?php
 									include_once "../Classes/RoleNameEAV.php";
 									$RoleNameEAV = new RoleNameEAV;
@@ -146,9 +146,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				}
 			}
 
-    function shaf3y() {
+    function shaf3y(x) {
 
-        var x = document.getElementById("mySelect").value;
+        //var x = document.getElementById("mySelect").value;
 
 
         var xmlhttp = new XMLHttpRequest();
