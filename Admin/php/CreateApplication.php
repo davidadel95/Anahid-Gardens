@@ -81,8 +81,8 @@ if (isset($_POST["NewApplicationOption"])){
 
 $Attruibute->AttributeType=$_POST["TypeOfFieldSelected"];
 $Attruibute->Type=$_POST["FieldNameAdded"];
-$Attruibute->Add();
-header ("Location: CreateApplication.php");
+$SQLRETURNED = $Attruibute->Add();
+ 	header ("Location: CreateApplication.php");
 
 }
 if (isset($_POST["addpagesrole"])){
@@ -107,7 +107,7 @@ header ("Location: CreateApplication.php");
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php
-			include("Navigationbar2.php"); 
+			include("Navigationbar2.php");
 			?>
     </div>
 
@@ -125,7 +125,9 @@ header ("Location: CreateApplication.php");
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
 						<div class="form-title">
-							<h4>New Role</h4>
+							<h4>New Role
+						</h4>
+
 						</div>
 						<div class="form-body">
 							<form method="post" >

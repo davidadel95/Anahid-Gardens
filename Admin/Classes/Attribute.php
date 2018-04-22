@@ -43,15 +43,14 @@ class Attribute implements CRUD
     {
       $db = dbconnect::getInstance();
     $mysqli = $db->getConnection();
-    $sql_query = "Select ID from optionstypes where Type='$this->AttributeType";
-    $result = $mysqli->query($sql_query);
+    $sql_query = "Select ID from optionstypes where Type= '$this->AttributeType'" ;
 
+    $result = $mysqli->query($sql_query);
       while($row =mysqli_fetch_array($result)){
         $ID=$row["ID"];
       }
 
-      $sql_query= "INSERT INTO ApplicationOptions(ID,Name,OptionTypeID)    VALUES ('','$this->Type',$ID)";
-      echo   $sql_query;
+      $sql_query= "INSERT INTO ApplicationOptions(ID,Name,OptionTypeID)    VALUES ('','$this->Type','$ID')";
         $result = $mysqli->query($sql_query);
     }
 
