@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 22, 2018 at 07:39 PM
+-- Generation Time: Mar 11, 2018 at 11:39 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -58,11 +58,7 @@ CREATE TABLE `application` (
 INSERT INTO `application` (`ID`, `RoleID`, `ApplicationOptionID`, `isVisible`) VALUES
 (1, 1, 1, 0),
 (2, 1, 2, 0),
-(3, 1, 3, 0),
-(5, 2, 1, 1),
-(6, 2, 2, 0),
-(7, 2, 3, 0),
-(8, 3, 1, 1);
+(3, 1, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -83,8 +79,7 @@ CREATE TABLE `applicationoptions` (
 INSERT INTO `applicationoptions` (`ID`, `Name`, `OptionTypeID`) VALUES
 (1, 'name', 2),
 (2, 'username', 2),
-(3, 'password', 3),
-(4, 'Salary', 1);
+(3, 'password', 3);
 
 -- --------------------------------------------------------
 
@@ -106,9 +101,7 @@ CREATE TABLE `applicationvalue` (
 INSERT INTO `applicationvalue` (`ID`, `ApplicationID`, `UserID`, `Value`) VALUES
 (1, 1, 1, 'Anahid'),
 (2, 2, 1, 'anahid'),
-(3, 3, 1, '123'),
-(5, 5, 6, 'Luka'),
-(8, 8, 7, 'David');
+(3, 3, 1, '123');
 
 -- --------------------------------------------------------
 
@@ -916,7 +909,7 @@ CREATE TABLE `pageshtml` (
 --
 
 INSERT INTO `pageshtml` (`ID`, `PagesID`, `HTML`) VALUES
-(2, 9, '<h1 style=\"text-align: left;\"><em><strong>anahid nursery</strong></em></h1>');
+(2, 9, '<p style=\"text-align: center;\"><em><strong>Shaf3y el gamed</strong></em></p>\r\n<p>&nbsp;</p>');
 
 -- --------------------------------------------------------
 
@@ -1087,19 +1080,15 @@ INSERT INTO `reportsvalue` (`ID`, `UserID`, `ReportID`, `Value`) VALUES
 
 CREATE TABLE `role` (
   `ID` int(11) NOT NULL,
-  `Name` varchar(200) NOT NULL,
-  `LoginUrl` text NOT NULL
+  `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `role`
 --
 
-INSERT INTO `role` (`ID`, `Name`, `LoginUrl`) VALUES
-(1, 'Admin', '../php/Dashboard.php'),
-(2, 'Child', '../php/Dashboard.php'),
-(3, 'Driver', '../php/Dashboard.php'),
-(4, 'Teacher', '');
+INSERT INTO `role` (`ID`, `Name`) VALUES
+(1, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -1290,9 +1279,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `RoleID`, `UID`, `DateAdded`, `StatusID`) VALUES
-(1, 1, NULL, '2018-03-11 17:00:00', 1),
-(6, 2, 1, '2018-03-11 00:00:00', 1),
-(7, 3, 1, '2018-03-11 05:00:00', 1);
+(1, 1, NULL, '2018-03-11 17:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -2040,17 +2027,17 @@ ALTER TABLE `activities`
 -- AUTO_INCREMENT for table `application`
 --
 ALTER TABLE `application`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `applicationoptions`
 --
 ALTER TABLE `applicationoptions`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `applicationvalue`
 --
 ALTER TABLE `applicationvalue`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `attendance`
 --
@@ -2235,7 +2222,7 @@ ALTER TABLE `medicinedisease`
 -- AUTO_INCREMENT for table `messagesanderros`
 --
 ALTER TABLE `messagesanderros`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `nulls`
 --
@@ -2305,12 +2292,12 @@ ALTER TABLE `reportsvalue`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `rolepages`
 --
 ALTER TABLE `rolepages`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `salariespayment`
 --
@@ -2355,7 +2342,7 @@ ALTER TABLE `transactionlog`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `useractivities`
 --
