@@ -79,10 +79,10 @@ class User implements CRUD
             $this->RoleEav= new RoleEav;
 
 
-          
+
 
             $row = mysqli_fetch_array($result);
-              $$sql_query="SELECT * FROM role where id = '".$x."'";
+              $sql_query="SELECT * FROM role where id = '".$x."'";
               $result=$mysqli->query($sql_query);
               $qrow = mysqli_fetch_array($result);
              header("location:".$qrow['LoginUrl']);
