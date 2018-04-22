@@ -32,7 +32,7 @@
 
 // To make a connection to the database and make a query
 //
-// $db = Database::getInstance();
+// $db = dbconnect::getInstance();
 // $mysqli = $db->getConnection();
 // $sql_query = "SELECT foo FROM .....";
 // $result = $mysqli->query($sql_query);
