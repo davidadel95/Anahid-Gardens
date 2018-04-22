@@ -76,27 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <h4>New Application
         </h4>
 				<label>Role Name </label>
-			<form method="post">
-				<select name="InFiledRoleName"  class="form-control" >
-					<?php
-					include_once "../Classes/RoleNameEAV.php";
-					$RoleNameEAV = new RoleNameEAV;
-			   	$NumberOfValuesOfRoles= $RoleNameEAV->View();
 
-					for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
-					{
-
-						echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
-
-
-					}
-//Dh code l ajaxxxxx
-					// $RoleName = $_POST["InFiledRoleName"];
-					// $RoleID=$RoleNameEAV->GetID($RoleName);
-
-		?>
-		</select>
-	</form>
 
 
 
@@ -105,6 +85,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="form-body">
           <form method="post" >
             <div class="form-group">
+
+											<select name="InFiledRoleName"  class="form-control" >
+												<?php
+												include_once "../Classes/RoleNameEAV.php";
+												$RoleNameEAV = new RoleNameEAV;
+										   	$NumberOfValuesOfRoles= $RoleNameEAV->View();
+
+												for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+												{
+
+													echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
+
+
+												}
+							//Dh code l ajaxxxxx
+												// $RoleName = $_POST["InFiledRoleName"];
+												// $RoleID=$RoleNameEAV->GetID($RoleName);
+
+									?>
+									</select>
+								
 						<?php
              $Names;
              $Types;
