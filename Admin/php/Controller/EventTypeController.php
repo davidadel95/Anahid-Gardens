@@ -16,7 +16,7 @@
         $this->$eventTypeView = new EventTypeView();
     }
     public function showAllEvents(){
-      $this->$eventTypeView->showAllEvents();
+        $this->$eventTypeView->showAllEvents();
     }
 
   }
