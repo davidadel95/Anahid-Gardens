@@ -298,7 +298,7 @@ header ("Location: CreateApplication.php");
 						</form>
 				</div>
 
-					<div class="form-title">
+					<!-- <div class="form-title">
 						<h4>Pages For this role</h4>
 					</div>
 
@@ -338,7 +338,7 @@ header ("Location: CreateApplication.php");
 								<input type="submit">
 							</div>
 						</form>
-				</div>
+				</div> -->
 
 
 

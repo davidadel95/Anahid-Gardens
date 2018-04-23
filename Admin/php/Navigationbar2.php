@@ -259,7 +259,7 @@
                     </a>
                   </li>
                   <!-- Show all kids menu -->
-                   <li class="treeview">
+                   <!-- <li class="treeview">
                     <a href="#">
                      <i class="fa fa-list-ul"></i>
                      <span>Show All Kids</span>
@@ -270,14 +270,28 @@
                      <li><a href="ShowAllClasses.php"><i class="fa fa-angle-right"></i>Show all classes </a></li>
                      <li><a href="ChildrenInformation.php"><i class="fa fa-angle-right"></i>Show Specific report </a></li>
                     </ul>
-                   </li>
+                   </li> -->
                    <!-- Create Application menu -->
-                  <li class="treeview">
-                    <a href="CreateApplication.php">
-                      <i class="fa fa-dashboard"></i>
-                      <span>Create Application</span>
+                   <li class="treeview">
+                    <a href="#">
+                     <i class="fa fa-list-ul"></i>
+                     <span>Classes</span>
+                     <i class="fa fa-angle-left pull-right"></i>
                     </a>
-                  </li>
+                    <ul class="treeview-menu">
+                     <li><a href="AddNewClass.php"><i class="fa fa-angle-right"></i>Add New Class </a></li>
+                     <li><a href="ViewClasses.php"><i class="fa fa-angle-right"></i>Show all classes </a></li>
+
+                    </ul>
+                   </li>
+
+                  <!-- Create Application menu -->
+                 <li class="treeview">
+                   <a href="AddNewClass.php">
+                     <i class="fa fa-dashboard"></i>
+                     <span>Add New Class</span>
+                   </a>
+                 </li>
 
                   <!-- Settings menu -->
                    <li class="treeview">

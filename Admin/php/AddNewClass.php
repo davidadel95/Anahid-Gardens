@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Show Applications</title>
+<title>Add New Class</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -69,69 +69,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
     <script  src="js/index1.js"></script>
-    <div class="forms">
-      <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
-        <div class="form-title">
-          <h4>New Application
-        </h4>
-
-
-
-
-
-
-
-        </div>
-        <div class="form-body">
-					<label>Role Name </label>
-								<select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
-
-                                    <?php
-									include_once "../Classes/RoleNameEAV.php";
-									$RoleNameEAV = new RoleNameEAV;
-							   	$NumberOfValuesOfRoles= $RoleNameEAV->View();
-
-									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
-									{
-
-										echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
-
-
-									}
-				?>
-						</select>
-
-          <form method="post" >
-            <div class="form-group">
-                <div id="ajax">
-                    <?php
-
-
-
-             $Names;
-             $Types;
-             $db = dbconnect::getInstance();
-             $mysqli = $db->getConnection();
-             $sql_query = "      SELECT * FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '1' And isVisible = 1 order by application.ID" ;
-            $result = $mysqli->query($sql_query);
-            $i=-1;
-            while($row =mysqli_fetch_array($result)){
-            $i++;
-            echo "<br />";
-            $Names[$i]=$row["Name"];
-           $Types[$i]=$row["Type"];
-              echo "<label>". $Names[$i]. "</label>";
-              echo "<input type='".$Types[$i]."' class='form-control' placeholder='".$Types[$i]." '>";
-
- }
-            ?>
-
-          </div>
-          </div>
-        </form>
-            </div>
+		<div class="charts">
+			<div class="mid-content-top charts-grids">
+				<div class="middle-content">
+						<form name="NewClass">
+								Class Name
+								  <input type="text" class="form-control" placeholder="eg: Smith">
+									<br>
+									<input type="submit">
+          </form>
 				</div>
 					<!--//sreen-gallery-cursual---->
 			</div>
@@ -169,22 +116,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
-
-    function shaf3y(x) {
-
-        //var x = document.getElementById("mySelect").value;
-
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("ajax").innerHTML = this.responseText;
-         }
-        };
-        xmlhttp.open("GET", "ajax.php?q=" + x, true);
-        xmlhttp.send();
-    }
-</script>
+		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->
