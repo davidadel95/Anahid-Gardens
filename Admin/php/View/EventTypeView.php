@@ -6,10 +6,12 @@
 
       }
       public function showAllEvents(){
-          $result = EventTypeModel::View();
 
-          for ($i=0; $i<count($result) ; $i++) {
-              echo "<a href=StudentController.php?id=".$result[$i]->ID.">".$result[$i]->Name. "</a><br>";
+          $EventTypeModel = new EventTypeModel;
+          $eventTypes= $EventTypeModel->View();
+
+          for ($i=0;$i<=$eventTypes;$i++){
+            echo "<option value='".$EventTypeModel->Name[$i]."'> ".$EventTypeModel->Name[$i]."</option>";
           }
       }
   }

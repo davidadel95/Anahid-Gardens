@@ -36,8 +36,13 @@
                 FROM `eventtype`
                 ";
         $result = $mysqli->query($sql);
+        $i=-1;
 
-        return $result;
+        while($row =mysqli_fetch_array($result)){
+          $i++;
+          $this->Name[$i]=$row["Name"];
+        }
+        return $i;
       }
 
 
