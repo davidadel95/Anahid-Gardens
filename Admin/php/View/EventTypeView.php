@@ -12,7 +12,7 @@
 
           echo "<select name=\"InFiledRoleName\" id=\"mySelect\" onchange=\"shaf3y(this.value)\" class=\"form-control\" >";
               for ($i=0;$i<=$eventTypes;$i++){
-                echo "<option value='".$EventTypeModel->Name[$i]."'> ".$EventTypeModel->Name[$i]."</option>";
+                echo "<option value='".$EventTypeModel->ID[$i]."'> ".$EventTypeModel->Name[$i]."</option>";
               }
           echo "</select";
       }

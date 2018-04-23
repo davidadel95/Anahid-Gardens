@@ -40,7 +40,8 @@
 
         while($row =mysqli_fetch_array($result)){
           $i++;
-          $this->Name[$i]=$row["Name"];
+          $this->ID[$i]=$row['ID'];
+          $this->Name[$i]=$row['Name'];
         }
         return $i;
       }
