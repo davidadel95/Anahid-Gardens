@@ -1,13 +1,15 @@
 <?php
-include_once "DBconnect.php";
+
+include_once "../Classes/RoleNameEAV.php";
 			$q = $_REQUEST["q"];
-			echo $q;		
+			$RoleNameEAV= new RoleNameEAV;
+				$x=$RoleID = $RoleNameEAV->GetID($q);
              $Names;
              $Types;
              $db = dbconnect::getInstance();
              $mysqli = $db->getConnection();
              $sql_query = "      SELECT * FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$q."' And isVisible = 1" ;
+			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$x."' And isVisible = 0" ;
             $result = $mysqli->query($sql_query);
             $i=-1;
             while($row =mysqli_fetch_array($result)){
