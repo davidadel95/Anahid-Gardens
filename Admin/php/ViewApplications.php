@@ -114,7 +114,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
              $db = dbconnect::getInstance();
              $mysqli = $db->getConnection();
              $sql_query = "      SELECT * FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '1' And isVisible = 0" ;
+			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '1' And isVisible = 1" ;
             $result = $mysqli->query($sql_query);
             $i=-1;
             while($row =mysqli_fetch_array($result)){
