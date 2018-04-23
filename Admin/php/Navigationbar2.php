@@ -285,13 +285,7 @@
                     </ul>
                    </li>
 
-                  <!-- Create Application menu -->
-                 <li class="treeview">
-                   <a href="AddNewClass.php">
-                     <i class="fa fa-dashboard"></i>
-                     <span>Add New Class</span>
-                   </a>
-                 </li>
+
 
                   <!-- Settings menu -->
                    <li class="treeview">

@@ -53,9 +53,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar2.php"); ?>
-    </div>
+      <?php
+			include("Navigationbar2.php");
 
+			?>
+    </div>
 		<!--left-fixed -navigation-->
 
 		<!-- header-starts -->
@@ -73,9 +75,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="charts">
 			<div class="mid-content-top charts-grids">
 				<div class="middle-content">
-						<form name="NewClass">
+						<form name="NewClass" method="post">
 								Class Name
-								  <input type="text" class="form-control" placeholder="eg: Smith">
+								  <input name="ClassName" type="text" class="form-control" placeholder="eg: Smith">
 									<br>
 									<input type="submit">
           </form>
@@ -83,6 +85,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<!--//sreen-gallery-cursual---->
 			</div>
 		</div>
+
+		<?php
+		if($_POST){
+		include_once "../Classes/Classes.php";
+		 $ClassName=$_POST["ClassName"];
+		 $Class = new Classes;
+		 $Class->Name = $ClassName;
+		 $Class->Add();
+
+
+		}
+
+		 ?>
 
 
 			</div>

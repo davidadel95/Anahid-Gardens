@@ -66,17 +66,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-
+				Classes
+					<br>
 
     <script  src="js/index1.js"></script>
 
 		<div class="charts">
 			<div class="mid-content-top charts-grids">
 				<div class="middle-content">
-						<form name="NewClass">
-								Classes
-								 	<br>
-          </form>
+					<?php
+					  include_once "../Classes/Classes.php";
+						$Classes = new Classes;
+						$result= $Classes->View();
+
+						while($row =mysqli_fetch_array($result)){
+
+						echo $row["Name"];
+						echo "<br>";
+
+						}
+
+					?>
 				</div>
 					<!--//sreen-gallery-cursual---->
 			</div>
