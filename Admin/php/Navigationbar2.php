@@ -221,18 +221,21 @@
                    </ul>
                  </li>
 
+
                  <!-- Applications menu -->
                   <li class="treeview">
                    <a href="#">
-                    <i class="fa fa-wpforms"></i>
-                    <span>Applications</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                   </a>
-                   <ul class="treeview-menu">
-                    <li><a href="ChildrenApplication.php"><i class="fa fa-angle-right"></i>New Child Application </a></li>
-                    <li><a href="ChildrenInformation.php"><i class="fa fa-angle-right"></i>Show Submitted Applications </a></li>
-                   </ul>
+                  <i class="fa fa-child"></i>
+                  <sp an>Applications</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+                  <li><a href="CreateApplication.php"><i class="fa fa-angle-right"></i>Create New Application</a></li>
+                  <li><a href="ViewApplications.php"><i class="fa fa-angle-right"></i>Show Applications </a></li>
+                  </ul>
                   </li>
+
+
 
                   <!-- Edit Contact Us menu -->
                   <li class="treeview">
@@ -241,6 +244,19 @@
                       <span>Edit Static Pages</span>
                     </a>
                   </li>
+
+                  <!-- Nannys menu -->
+                   <li class="treeview">
+                    <a href="#">
+                   <i class="fa fa-child"></i>
+                   <sp an>Courses</span>
+                   <i class="fa fa-angle-left pull-right"></i>
+                   </a>
+                   <ul class="treeview-menu">
+                   <li><a href="AddNewCourse.php"><i class="fa fa-angle-right"></i>Add New Course</a></li>
+                   <li><a href="ShowNanny.php"><i class="fa fa-angle-right"></i>Show Course </a></li>
+                   </ul>
+                   </li>
 
 <!-- View Applications -->
                   <li class="treeview">
