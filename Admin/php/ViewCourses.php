@@ -70,10 +70,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <h4>Courses </h4>
     <script  src="js/index1.js"></script>
 
-		<div class="charts">
+		<div class="forms">
 			<div class="mid-content-top charts-grids">
-				<div class="middle-content">
-
+				<div class="form-group">
+                    <label>Course</label>
 						<?php
 							include_once "../Classes/Course.php";
 							$Course = new Course;
@@ -86,6 +86,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         echo "</select>"
 						?>
 				</div>
+                <div class="form-group">
+                    <label>Lesson Name</label>
+                    <br>
+                    <select class="form-control">
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Lesson Details</label>
+                    <br><br>
+                    <h4>Details</h4>
+                </div>
 					<!--//sreen-gallery-cursual---->
 			</div>
 		</div>
