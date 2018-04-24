@@ -239,6 +239,21 @@
 
 
 
+                  <li class="treeview">
+                   <a href="#">
+                  <i class="fa fa-child"></i>
+                  <sp an>TimeTable</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                  </a>
+                  <ul class="treeview-menu">
+
+                  <li><a href="AddCourseTimetable.php"><i class="fa fa-angle-right"></i>Add Class TimeTable</a></li>
+                  <li><a href="#.php"><i class="fa fa-angle-right"></i>View TimeTable </a></li>
+                  </ul>
+                  </li>
+
+
+
                   <!-- Edit Contact Us menu -->
                   <li class="treeview">
                     <a href="getdata.php">
@@ -247,7 +262,7 @@
                     </a>
                   </li>
 
-                  <!-- Nannys menu -->
+                  <!-- Courses menu -->
                    <li class="treeview">
                     <a href="#">
                    <i class="fa fa-child"></i>
@@ -255,18 +270,12 @@
                    <i class="fa fa-angle-left pull-right"></i>
                    </a>
                    <ul class="treeview-menu">
+
                    <li><a href="AddNewCourse.php"><i class="fa fa-angle-right"></i>Add New Course</a></li>
-                   <li><a href="ShowNanny.php"><i class="fa fa-angle-right"></i>Show Course </a></li>
+                   <li><a href="ViewCourses.php"><i class="fa fa-angle-right"></i>Show Course </a></li>
                    </ul>
                    </li>
 
-<!-- View Applications -->
-                  <li class="treeview">
-                    <a href="ViewApplications.php">
-                      <i class="fa fa-dashboard"></i>
-                      <span>View Applications</span>
-                    </a>
-                  </li>
 
 
 
@@ -276,19 +285,7 @@
                       <span>Edit Data</span>
                     </a>
                   </li>
-                  <!-- Show all kids menu -->
-                   <!-- <li class="treeview">
-                    <a href="#">
-                     <i class="fa fa-list-ul"></i>
-                     <span>Show All Kids</span>
-                     <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                     <li><a href="ShowAllKids.php"><i class="fa fa-angle-right"></i>Show all kids </a></li>
-                     <li><a href="ShowAllClasses.php"><i class="fa fa-angle-right"></i>Show all classes </a></li>
-                     <li><a href="ChildrenInformation.php"><i class="fa fa-angle-right"></i>Show Specific report </a></li>
-                    </ul>
-                   </li> -->
+
                    <!-- Create Application menu -->
                    <li class="treeview">
                     <a href="#">

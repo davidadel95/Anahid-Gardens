@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Add New Course</title>
+<title>View Courses</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -67,29 +67,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div id="page-wrapper">
 			<div class="main-page">
 
-		<?php
-		include_once "../Classes/Course.php";
-			if($_POST){
-					$CourseName = $_POST["CourseName"];
-					$Course = new Course;
-					$Course->Name = $CourseName;
-					$Course->Add();
-
-			}
-
-		?>
-
+<h4>Courses </h4>
     <script  src="js/index1.js"></script>
 
 		<div class="charts">
 			<div class="mid-content-top charts-grids">
 				<div class="middle-content">
-    			<form method='POST' name="CourseSubmit">
-							Course Name
-					   <input name="CourseName" type="text" class="form-control" placeholder="eg: Art">
-					   <br>
-						<input type="submit">
-					</form>
+
+						<?php
+
+							include_once "../Classes/Course.php";
+							$Course = new Course;
+							$result= $Course->View();
+							while($row =mysqli_fetch_array($result)){
+									echo $row["Name"] ;
+									echo "<br>";
+
+							 }
+
+
+
+						?>
 				</div>
 					<!--//sreen-gallery-cursual---->
 			</div>
