@@ -59,33 +59,55 @@
 		<!-- //header-ends -->
 		<!-- main content start-->
     <div id="page-wrapper">
-			<div class="main-page">
-        <div class="forms">
-          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-						<div class="form-title">
-							<h2>New Song</h2>
-						</div>
-						<div class="form-body">
-							<form method="POST" action="">
-                <div class="form-group">
-                    <label>Song Name</label>
-                    <input type="text" class="form-control" placeholder="eg: Frere Jacques">
+        <div class="main-page">
+            <div class="forms">
+              <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                  <div class="form-title">
+                      <h2>New Lesson</h2>
+                  </div>
+                  <div class="form-body">
+                      <form method="POST" action="">
+                          <div class="form-group">
+                              <label>Course </label>
+                              <?php
+                              include_once "../Classes/Course.php";
+                              $Course= new Course;
+                              $result = $Course->View();
+                              echo "<select name='courseID' class='form-control'>";
+                              while($row =mysqli_fetch_array($result)){
+                                  echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
-                </div>
-                <div class="form-group">
+                              }
+                              echo "</select>"
+                              ?>
+                          </div>
 
-                  <label>Song Lyrics</label>
-
-                  <input type="text" class="form-control" placeholder="State the lyrics">
-                </div>
-
-                <button type="submit" class="btn btn-success">Confirm</button>
-              </form>
-						</div>
-					</div>
+                          <div class="form-group">
+                            <label>Lesson Name</label>
+                            <input name="lessonName" type="text" class="form-control" placeholder="eg: Frere Jacques">
+                        </div>
+                        <div class="form-group">
+                          <label>Lesson Details</label>
+                          <input name="lessonDetails" type="text" class="form-control" placeholder="Details">
+                        </div>
+                        <button type="submit" class="btn btn-success">Confirm</button>
+                      </form>
+                  </div>
+              </div>
+                <?php
+                if($_POST){
+//                          print_r($_POST);
+                    require_once "Model/CurriculumModel.php";
+                    $curriculum = new CurriculumModel();
+                    $curriculum->CourseID = $_POST["courseID"];
+                    $curriculum->LessonName = $_POST["lessonName"];
+                    $curriculum->LessonDetails = $_POST["lessonDetails"];
+                    $curriculum->Add();
+                }
+                ?>
+            </div>
         </div>
-			</div>
-		</div>
+    </div>
   	<!--footer-->
   	<div class="footer">
   	   <?php include("Footer.php"); ?>

@@ -242,7 +242,7 @@
                   <li class="treeview">
                    <a href="#">
                   <i class="fa fa-child"></i>
-                  <sp an>TimeTable</span>
+                  <span an>TimeTable</span>
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
@@ -270,9 +270,9 @@
                    <i class="fa fa-angle-left pull-right"></i>
                    </a>
                    <ul class="treeview-menu">
-
-                   <li><a href="AddNewCourse.php"><i class="fa fa-angle-right"></i>Add New Course</a></li>
-                   <li><a href="ViewCourses.php"><i class="fa fa-angle-right"></i>Show Course </a></li>
+                       <li><a href="AddNewCourse.php"><i class="fa fa-angle-right"></i>Add New Course</a></li>
+                       <li><a href="AddCourseDetails.php"><i class="fa fa-angle-right"></i>Add Course Details</a></li>
+                       <li><a href="ViewCourses.php"><i class="fa fa-angle-right"></i>Show Course </a></li>
                    </ul>
                    </li>
 

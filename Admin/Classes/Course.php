@@ -8,27 +8,11 @@ include_once "CRUD.php";
  */
 class Course implements CRUD
 {
-    /**
-     *
-     */
-    public function __construct()
-    {
-    }
 
-    /**
-     * @var void
-     */
     public $ID;
-
-    /**
-     * @var void
-     */
     public $Name;
 
 
-    /**
-     * @inheritDoc
-     */
     public function Add()
     {
       $db = dbconnect::getInstance();
@@ -49,7 +33,8 @@ class Course implements CRUD
      * @inheritDoc
      */
     public function View()
-    {      $db = dbconnect::getInstance();
+    {
+        $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
         $sql_query = "SELECT * FROM Course";
 

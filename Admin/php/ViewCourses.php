@@ -75,18 +75,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="middle-content">
 
 						<?php
-
 							include_once "../Classes/Course.php";
 							$Course = new Course;
 							$result= $Course->View();
-							while($row =mysqli_fetch_array($result)){
-									echo $row["Name"] ;
-									echo "<br>";
+                            echo "<select name='courseID' class='form-control'>";
+                            while($row =mysqli_fetch_array($result)){
+                                echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
-							 }
-
-
-
+                            }
+                        echo "</select>"
 						?>
 				</div>
 					<!--//sreen-gallery-cursual---->
