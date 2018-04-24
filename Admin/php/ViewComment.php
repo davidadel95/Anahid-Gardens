@@ -35,27 +35,28 @@
                   <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
                     <div class="form-title">
-                      <h4>New Event Type</h4>
+                      <h4>Add Comment</h4>
                     </div>
                     <div class="form-body">
-                        <label>Available Event Types </label>
-                            <select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
+                        <label>Available Events </label>
+                        <form method="post">
+                            <select name="eventID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-																		require_once "dbconnect.php";
-                                    require_once "Model/EventTypeModel.php";
-                                    $eventTypeModel = new EventTypeModel;
-                                    $eventTypes= $eventTypeModel->View();
+                                    require_once "dbconnect.php";
+                                    require_once "Model/EventModel.php";
+                                    $eventModel = new EventModel();
+                                    $eventTypes= $eventModel->View();
                                     for ($i=0;$i<=$eventTypes;$i++){
-                                        echo "<option value='".$eventTypeModel->ID[$i]."'> ".$eventTypeModel->Name[$i]."</option>";
+                                        echo "<option value='".$eventModel->ID[$i]."'> ".$eventModel->Name[$i]."</option>";
                                         }
                                         ?>
                             </select>
                         <br>
                         <div class="form-group">
-                            <form method="post">
-                                <label>New Event Type</label>
+
+                                <label>Event Name</label>
                                 <br>
-                                <input name="eventType" type="text" class="form-control" placeholder="eg: Trip, Subscription..">
+                                <input name="commentValue" type="text" class="form-control" placeholder="eg: Comment..">
                                 <br>
                                 <input type="submit" class="btn btn-success" value="Confirm">
                             </form>
@@ -63,12 +64,13 @@
                         </div>
                       <?php
                       if($_POST){
-                          include_once "Model/EventTypeModel.php";
-                          $eventTypeName=$_POST["eventType"];
-                          $event = new EventTypeModel();
-                          $event->Name = $eventTypeName;
-                          $event->Add();
-                          echo "<meta http-equiv='refresh' content='0'>";
+//                          print_r($_POST);
+                          require_once "dbconnect.php";
+                          require_once "Model/CommentsModel.php";
+                          $comment = new CommentsModel();
+                          $comment->Value = $_POST["commentValue"];
+                          $comment->EventDetailsID = $_POST["eventID"];
+                          $comment->Add();
                       }
                       ?>
                   </div>

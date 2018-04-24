@@ -161,12 +161,14 @@
                  <li class="treeview">
                   <a href="#">
                  <i class="fa fa-bus"></i>
-                 <span>Trips</span>
+                 <span>Events</span>
                  <i class="fa fa-angle-left pull-right"></i>
                  </a>
                  <ul class="treeview-menu">
-                 <li><a href="AddTrips.php"><i class="fa fa-angle-right"></i>Add New Trip </a></li>
-                 <li><a href="ShowTrips.php"><i class="fa fa-angle-right"></i>Show Trips </a></li>
+                     <li><a href="ViewEventType.php"><i class="fa fa-angle-right"></i>Add New Event Type </a></li>
+                     <li><a href="ViewEventDetails.php"><i class="fa fa-angle-right"></i>Add New Event </a></li>
+                     <li><a href="ViewEvents.php"><i class="fa fa-angle-right"></i>Show Events </a></li>
+                     <li><a href="ViewComment.php"><i class="fa fa-angle-right"></i>Add new comment </a></li>
                  </ul>
                  </li>
 
@@ -226,7 +228,7 @@
                   <li class="treeview">
                    <a href="#">
                   <i class="fa fa-child"></i>
-                  <sp an>Applications</span>
+                  <span an>Applications</span>
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
@@ -249,7 +251,7 @@
                    <li class="treeview">
                     <a href="#">
                    <i class="fa fa-child"></i>
-                   <sp an>Courses</span>
+                   <span an>Courses</span>
                    <i class="fa fa-angle-left pull-right"></i>
                    </a>
                    <ul class="treeview-menu">

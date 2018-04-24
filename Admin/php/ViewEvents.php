@@ -30,55 +30,58 @@
 		<!-- main content start-->
 		<div id="page-wrapper">
 			<div class="main-page">
-                <script  src="../js/index1.js"></script>
-                <div class="forms">
-                  <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-
-                    <div class="form-title">
-                      <h4>New Event Type</h4>
-                    </div>
-                    <div class="form-body">
-                        <label>Available Event Types </label>
-                            <select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
-                                <?php
-																		require_once "dbconnect.php";
-                                    require_once "Model/EventTypeModel.php";
-                                    $eventTypeModel = new EventTypeModel;
-                                    $eventTypes= $eventTypeModel->View();
+                <div class="tables">
+                    <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
+                        <h4>Events:</h4>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Event Type</th>
+                                    <th>Event Name</th>
+                                    <th>Price</th>
+                                    <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <?php
+                                    require_once "dbconnect.php";
+                                    require_once "Model/EventModel.php";
+                                    require_once "Model/CommentsModel.php";
+                                    $eventModel = new EventModel();
+                                    $eventTypes= $eventModel->View();
+                                    $commentModel = new CommentsModel();
+                                    $j = 1;
                                     for ($i=0;$i<=$eventTypes;$i++){
-                                        echo "<option value='".$eventTypeModel->ID[$i]."'> ".$eventTypeModel->Name[$i]."</option>";
+                                        $commentModel->viewSpecificComment($eventModel->ID[$i]);
+
+                                        echo "<tr>";
+                                        echo "<th>".$j."</th>";
+                                        echo "<td>".$eventModel->EventTypeID[$i]."</td>";
+                                        echo "<td>".$eventModel->Name[$i]."</td>";
+                                        echo "<td>".$eventModel->Price[$i]."</td>";
+
+                                        if (isset($commentModel->Value[$i])){
+                                            echo "<td>".$commentModel->Value[$i]."</td>";
+                                        }else{
+                                            echo "<td></td>";
                                         }
-                                        ?>
-                            </select>
-                        <br>
-                        <div class="form-group">
-                            <form method="post">
-                                <label>New Event Type</label>
-                                <br>
-                                <input name="eventType" type="text" class="form-control" placeholder="eg: Trip, Subscription..">
-                                <br>
-                                <input type="submit" class="btn btn-success" value="Confirm">
-                            </form>
-                        </div>
-                        </div>
-                      <?php
-                      if($_POST){
-                          include_once "Model/EventTypeModel.php";
-                          $eventTypeName=$_POST["eventType"];
-                          $event = new EventTypeModel();
-                          $event->Name = $eventTypeName;
-                          $event->Add();
-                          echo "<meta http-equiv='refresh' content='0'>";
-                      }
-                      ?>
-                  </div>
+
+                                        echo "</tr>";
+                                        $j++;
+                                    }
+                                    ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <script  src="../js/index1.js"></script>
+
                                 <!--//sreen-gallery-cursual---->
                 </div>
 		    </div>
         </div>
-		</div>
-	<!--footer-->
-	<div class="footer">
+    <div class="footer">
 	   <?php include("Footer.php"); ?>
 	</div>
     <!--//footer-->

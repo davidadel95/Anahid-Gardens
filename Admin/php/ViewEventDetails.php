@@ -35,13 +35,14 @@
                   <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
                     <div class="form-title">
-                      <h4>New Event Type</h4>
+                      <h4>New Event Detail</h4>
                     </div>
                     <div class="form-body">
                         <label>Available Event Types </label>
-                            <select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
+                        <form method="post">
+                            <select name="eventTypeID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-																		require_once "dbconnect.php";
+                                    require_once "dbconnect.php";
                                     require_once "Model/EventTypeModel.php";
                                     $eventTypeModel = new EventTypeModel;
                                     $eventTypes= $eventTypeModel->View();
@@ -52,10 +53,13 @@
                             </select>
                         <br>
                         <div class="form-group">
-                            <form method="post">
-                                <label>New Event Type</label>
+
+                                <label>Event Name</label>
                                 <br>
-                                <input name="eventType" type="text" class="form-control" placeholder="eg: Trip, Subscription..">
+                                <input name="eventName" type="text" class="form-control" placeholder="eg: Luxor Trip">
+                                <br>
+                                <label>Price</label>
+                                <input name="eventPrice" type="text" class="form-control" placeholder="eg: 1500">
                                 <br>
                                 <input type="submit" class="btn btn-success" value="Confirm">
                             </form>
@@ -63,12 +67,14 @@
                         </div>
                       <?php
                       if($_POST){
-                          include_once "Model/EventTypeModel.php";
-                          $eventTypeName=$_POST["eventType"];
-                          $event = new EventTypeModel();
-                          $event->Name = $eventTypeName;
+//                          print_r($_POST);
+                          require_once "dbconnect.php";
+                          require_once "Model/EventModel.php";
+                          $event = new EventModel();
+                          $event->Name = $_POST["eventName"];
+                          $event->EventTypeID = $_POST['eventTypeID'];
+                          $event->Price = $_POST["eventPrice"];
                           $event->Add();
-                          echo "<meta http-equiv='refresh' content='0'>";
                       }
                       ?>
                   </div>

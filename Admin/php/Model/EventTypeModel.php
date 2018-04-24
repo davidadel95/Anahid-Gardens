@@ -1,5 +1,4 @@
 <?php
-  require_once "../dbconnect.php";
   require_once "CRUD.php";
   class EventTypeModel implements CRUD{
 
@@ -13,7 +12,7 @@
         $mysqli = $db->getConnection();
 
         $sql = "INSERT INTO `eventtype` (`ID`, `Name`)
-                VALUES (NULL, '$this->Name')
+                VALUES ('', '$this->Name')
                 ";
         $result = $mysqli->query($sql);
 
