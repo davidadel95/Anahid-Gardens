@@ -110,7 +110,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
 								<div class="form-group">
 									<label>End Time</label>
-									<input type="text" class="form-control" placeholder="eg: Smith">
+									<input type="time" class="form-control" placeholder="eg: Smith">
 								</div>
                 <div class="form-group">
                   <label>Days</label>
