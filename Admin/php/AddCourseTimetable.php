@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Add New Course</title>
+<title>Add Coures Timetable</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -42,6 +42,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Metis Menu -->
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
+<script  src="../js/index1.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 <style>
@@ -64,47 +65,83 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
-		<div id="page-wrapper">
+    <div id="page-wrapper">
 			<div class="main-page">
+        <div class="forms">
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+						<div class="form-title">
+							<h4>Add Course Timetable</h4>
+						</div>
+						<div class="form-body">
+							<form method="post">
+								<div class="form-group">
+                  <label>Course </label>
+                  <?php
+										include_once "../Classes/Course.php";
+										$Course= new Course;
+										$result = $Course->View();
+										echo "<select class='form-control'>";
+										while($row =mysqli_fetch_array($result)){
+															echo "<option value='".$row["Name"]."'>" .$row["Name"]."</option>" ;
 
-		<?php
-		include_once "../Classes/Course.php";
-			if($_POST){
-					$CourseName = $_POST["CourseName"];
-					$Course = new Course;
-					$Course->Name = $CourseName;
-					$Course->Add();
+										 }
+										 echo "</select>"
 
-			}
+									?>
+                </div>
 
-		?>
+								<div class="form-group">
+                  <label>Class</label>
+									<?php
+										include_once "../Classes/Classes.php";
+										$Classes= new Classes;
+										$result = $Classes->View();
+										echo "<select class='form-control'>";
+										while($row =mysqli_fetch_array($result)){
+											 echo "<option value='".$row["Name"]."'>" .$row["Name"]."</option>" ;
+										 }
+										 echo "</select>"
 
-    <script  src="js/index1.js"></script>
+									?>
+									</div>
+	                <div class="form-group">
+                  <label>Start Time</label>
+                  <input type="time" class="form-control" placeholder="eg: John" >
+                </div>
+								<div class="form-group">
+									<label>End Time</label>
+									<input type="text" class="form-control" placeholder="eg: Smith">
+								</div>
+                <div class="form-group">
+                  <label>Days</label>
+             				<?php
 
-		<div class="charts">
-			<div class="mid-content-top charts-grids">
-				<div class="middle-content">
-    			<form method='POST' name="CourseSubmit">
-							Course Name
-					   <input name="CourseName" type="text" class="form-control" placeholder="eg: Art">
-					   <br>
-						<input type="submit">
-					</form>
-				</div>
-					<!--//sreen-gallery-cursual---->
+										include_once "../Classes/Days.php";
+										$Days= new Days;
+										$result = $Days->View();
+										echo "<select class='form-control'>";
+										while($row =mysqli_fetch_array($result)){
+												echo "<option value='".$row["Name"]. "'>" .$row["Name"]."</option>" ;
+
+										 }
+										 echo "</select>"
+
+						  			?>
+                </div>
+                <input type="submit" class="btn btn-success">
+
+              </form>
+						</div>
+					</div>
+        </div>
 			</div>
 		</div>
-
-
-			</div>
-		</div>
-	<!--footer-->
-	<div class="footer">
-	   <?php include("Footer.php"); ?>
-	</div>
+  	<!--footer-->
+  	<div class="footer">
+  	   <?php include("Footer.php"); ?>
+  	</div>
     <!--//footer-->
 	</div>
-
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->

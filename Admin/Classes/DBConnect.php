@@ -14,7 +14,8 @@
   		return self::$instance;
   	}
   	private function __construct() {
-  		$this->connection = new mysqli($this->host, $this->username,$this->password, $this->database);
+
+  		  $this->connection = new mysqli($this->host, $this->username,$this->password, $this->database);
 
   		if(mysqli_connect_error()) {
   			trigger_error("Failed to conencto to MySQL: " . mysql_connect_error(),E_USER_ERROR);

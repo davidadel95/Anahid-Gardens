@@ -6,7 +6,7 @@ include_once "CRUD.php";
 /**
  *
  */
-class Course implements CRUD
+class Days implements CRUD
 {
     /**
      *
@@ -31,10 +31,7 @@ class Course implements CRUD
      */
     public function Add()
     {
-      $db = dbconnect::getInstance();
-    $mysqli = $db->getConnection();
-    $sql_query = "INSERT INTO course(ID,Name)    VALUES ('','$this->Name')";
-    $result = $mysqli->query($sql_query);
+
     }
 
     /**
@@ -51,7 +48,7 @@ class Course implements CRUD
     public function View()
     {      $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
-        $sql_query = "SELECT * FROM Course";
+        $sql_query = "SELECT * FROM days";
 
         $result = $mysqli->query($sql_query);
         return $result;
