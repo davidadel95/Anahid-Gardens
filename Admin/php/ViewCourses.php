@@ -67,12 +67,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div id="page-wrapper">
 			<div class="main-page">
 
-
+<h4>Courses </h4>
     <script  src="js/index1.js"></script>
 
 		<div class="charts">
 			<div class="mid-content-top charts-grids">
 				<div class="middle-content">
+
 						<?php
 
 							include_once "../Classes/Course.php";

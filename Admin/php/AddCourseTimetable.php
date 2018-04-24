@@ -70,7 +70,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 						<div class="form-title">
-							<h4>Add Course Timetable</h4>
+							<h4>Add Class Timetable</h4>
 						</div>
 						<div class="form-body">
 							<form method="post">
@@ -104,30 +104,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 									?>
 									</div>
+
+									<div class="form-group">
+		                  <label>Days</label>
+		             				<?php
+
+												include_once "../Classes/Days.php";
+												$Days= new Days;
+												$result = $Days->View();
+												echo "<select class='form-control'>";
+												while($row =mysqli_fetch_array($result)){
+														echo "<option value='".$row["Name"]. "'>" .$row["Name"]."</option>" ;
+
+												 }
+												 echo "</select>"
+
+								  			?>
+											</div>
 	                <div class="form-group">
-                  <label>Start Time</label>
-                  <input type="time" class="form-control" placeholder="eg: John" >
+                  <label>Time Slot</label>
+
+									<?php
+
+									include_once "../Classes/TimeSlots.php";
+									$TimeSlots= new TimeSlots;
+									$result = $TimeSlots->View();
+									echo "<select class='form-control'>";
+									while($row =mysqli_fetch_array($result)){
+											echo "<option value='".$row["ID"]. "'>" .$row["Begin"]. " ~ " . $row["End"] ."</option>" ;
+
+									 }
+									 echo "</select>"
+									 	?>
                 </div>
-								<div class="form-group">
-									<label>End Time</label>
-									<input type="time" class="form-control" placeholder="eg: Smith">
-								</div>
-                <div class="form-group">
-                  <label>Days</label>
-             				<?php
 
-										include_once "../Classes/Days.php";
-										$Days= new Days;
-										$result = $Days->View();
-										echo "<select class='form-control'>";
-										while($row =mysqli_fetch_array($result)){
-												echo "<option value='".$row["Name"]. "'>" .$row["Name"]."</option>" ;
 
-										 }
-										 echo "</select>"
 
-						  			?>
-                </div>
                 <input type="submit" class="btn btn-success">
 
               </form>
