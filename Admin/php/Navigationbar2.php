@@ -133,29 +133,29 @@
                   </ul>
 
 
-                <li class="treeview">
-                  <a href="#">
-                  <i class="fa fa-user-md"></i>
-                  <span>Doctors</span>
-                  <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Add new doctor info</a></li>
-                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>Show Doctors</a></li>
-                  </ul>
-                </li>
+<!--                <li class="treeview">-->
+<!--                  <a href="#">-->
+<!--                  <i class="fa fa-user-md"></i>-->
+<!--                  <span>Doctors</span>-->
+<!--                  <i class="fa fa-angle-left pull-right"></i>-->
+<!--                  </a>-->
+<!--                  <ul class="treeview-menu">-->
+<!--                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Add new doctor info</a></li>-->
+<!--                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>Show Doctors</a></li>-->
+<!--                  </ul>-->
+<!--                </li>-->
 
-                <li class="treeview">
-                  <a href="#">
-                  <i class="fa fa-wrench"></i>
-                  <span>Services</span>
-                  <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="AddNewService.php"><i class="fa fa-angle-right"></i>Add new service info</a></li>
-                    <li><a href="ShowServices.php"><i class="fa fa-angle-right"></i>Show Services</a></li>
-                  </ul>
-                </li>
+<!--                <li class="treeview">-->
+<!--                  <a href="#">-->
+<!--                  <i class="fa fa-wrench"></i>-->
+<!--                  <span>Services</span>-->
+<!--                  <i class="fa fa-angle-left pull-right"></i>-->
+<!--                  </a>-->
+<!--                  <ul class="treeview-menu">-->
+<!--                    <li><a href="AddNewService.php"><i class="fa fa-angle-right"></i>Add new service info</a></li>-->
+<!--                    <li><a href="ShowServices.php"><i class="fa fa-angle-right"></i>Show Services</a></li>-->
+<!--                  </ul>-->
+<!--                </li>-->
 
                 <!-- Trip menu -->
                  <li class="treeview">
@@ -189,25 +189,25 @@
 
 
                 <!-- Forms menu -->
-                <li class="treeview">
-                  <a href="EditForm.php">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Forms</span>
-                  </a>
-                </li>
+<!--                <li class="treeview">-->
+<!--                  <a href="EditForm.php">-->
+<!--                    <i class="fa fa-dashboard"></i>-->
+<!--                    <span>Forms</span>-->
+<!--                  </a>-->
+<!--                </li>-->
 
                <!-- Nannys menu -->
-                <li class="treeview">
-                 <a href="#">
-                <i class="fa fa-child"></i>
-                <span>Nannys</span>
-                <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                <li><a href="AddNanny.php"><i class="fa fa-angle-right"></i>Add Nanny </a></li>
-                <li><a href="ShowNanny.php"><i class="fa fa-angle-right"></i>Show Nannys </a></li>
-                </ul>
-                </li>
+<!--                <li class="treeview">-->
+<!--                 <a href="#">-->
+<!--                <i class="fa fa-child"></i>-->
+<!--                <span>Nannys</span>-->
+<!--                <i class="fa fa-angle-left pull-right"></i>-->
+<!--                </a>-->
+<!--                <ul class="treeview-menu">-->
+<!--                <li><a href="AddNanny.php"><i class="fa fa-angle-right"></i>Add Nanny </a></li>-->
+<!--                <li><a href="ShowNanny.php"><i class="fa fa-angle-right"></i>Show Nannys </a></li>-->
+<!--                </ul>-->
+<!--                </li>-->
 
 
                 <!-- Drivers menu -->
@@ -253,15 +253,6 @@
                   </li>
 
 
-
-                  <!-- Edit Contact Us menu -->
-                  <li class="treeview">
-                    <a href="getdata.php">
-                      <i class="fa fa-dashboard"></i>
-                      <span>Edit Static Pages</span>
-                    </a>
-                  </li>
-
                   <!-- Courses menu -->
                    <li class="treeview">
                     <a href="#">
@@ -276,15 +267,13 @@
                    </ul>
                    </li>
 
-
-
-
-                  <li class="treeview">
-                    <a href="Classification.php">
-                      <i class="fa fa-dashboard"></i>
-                      <span>Edit Data</span>
-                    </a>
-                  </li>
+<!---->
+<!--                  <li class="treeview">-->
+<!--                    <a href="Classification.php">-->
+<!--                      <i class="fa fa-dashboard"></i>-->
+<!--                      <span>Edit Data</span>-->
+<!--                    </a>-->
+<!--                  </li>-->
 
                    <!-- Create Application menu -->
                    <li class="treeview">
@@ -301,7 +290,6 @@
                    </li>
 
 
-
                   <!-- Settings menu -->
                    <li class="treeview">
                     <a href="#">
@@ -314,6 +302,14 @@
                      <li><a href="AddNewChecklistItem.php"><i class="fa fa-angle-right"></i>Add New Checklist Category</a></li>
                     </ul>
                    </li>
+
+                  <!-- Edit Contact Us menu -->
+                  <li class="treeview">
+                      <a href="getdata.php">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Edit Static Pages</span>
+                      </a>
+                  </li>
 
                 </ul>
             </div>
