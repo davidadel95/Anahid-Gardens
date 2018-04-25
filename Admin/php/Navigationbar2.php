@@ -214,12 +214,12 @@
                  <li class="treeview">
                   <a href="#">
                      <i class="fa fa-car"></i>
-                     <span>Drivers</span>
+                     <span>Cars</span>
                      <i class="fa fa-angle-left pull-right"></i>
                    </a>
                    <ul class="treeview-menu">
-                     <li><a href="AddDriver.php"><i class="fa fa-angle-right"></i>Add Driver </a></li>
-                     <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i>Show Drivers </a></li>
+                     <li><a href="ViewCarType.php"><i class="fa fa-angle-right"></i>Add Car Type </a></li>
+                     <li><a href="ViewCarColors.php"><i class="fa fa-angle-right"></i>Add Car Color </a></li>
                    </ul>
                  </li>
 
