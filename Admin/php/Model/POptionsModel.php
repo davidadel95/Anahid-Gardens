@@ -17,9 +17,13 @@ class POptionsModel implements CRUD
       $sql_query = "INSERT INTO `poptions`(ID,Name,TypeID) VALUES ('','$this->POption','$this->TypeID')";
       $result = $mysqli->query($sql_query);
     }
-
-    public function Edit($OldID){
-          $db = dbconnect::getInstance();
+    public function Edit()
+    {
+        
+    }
+    public function Change($OldID)
+    {
+        $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
           $sql_query = "UPDATE `poptions` SET `Name` = '".$this->POption."' WHERE `ID` = '".$OldID."'";
           $result = $mysqli->query($sql_query);

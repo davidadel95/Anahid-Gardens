@@ -10,7 +10,7 @@ interface CRUD
     /**
      *
      */
-    public function Edit($NewData);
+    public function Edit();
 
     /**
      *

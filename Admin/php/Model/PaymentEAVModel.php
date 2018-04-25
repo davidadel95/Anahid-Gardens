@@ -14,8 +14,11 @@ class PaymentEAVModel implements CRUD
       $sql_query = "INSERT INTO `paymentmethods`(ID,PName)    VALUES ('','$this->PMethod')";
       $result = $mysqli->query($sql_query);
     }
-
-    public function Edit($Method){
+    public function Edit()
+    {
+        
+    }
+    public function Change($Method){
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
           $sql_query = "UPDATE `paymentmethods` SET `PName` = '".$Method."' WHERE `PName` = '".$this->PMethod."'";

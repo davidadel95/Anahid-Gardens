@@ -63,13 +63,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     $OptionsTypeModel = new OptionsTypeModel;
     if (isset($_POST["PaymentNameChanged"])) {
         $PaymentEAVModel->PMethod = $_POST["PaymentNamesSelector"];
-        $PaymentEAVModel->Edit($_POST['PaymentName']);
+        $PaymentEAVModel->Change($_POST['PaymentName']);
     }
 
     if (isset($_POST["FieldNameChanged"]))
     {
         $POptionsModel->POption = $_POST['NewFieldName'];
-        $POptionsModel->Edit($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
+        $POptionsModel->Change($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
         header ("Location: EditPayment.php");
         
     }
