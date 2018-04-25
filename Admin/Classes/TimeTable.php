@@ -86,8 +86,53 @@ class TimeTable implements CRUD
 
     }
 
-    public function ShowAvailableTimeSlots(){
-          
+
+
+    public function ShowAvailableSlots($ClassID,$DaysID){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "Select * from coursetimetable where ClassID = $ClassID and DaysID=$DaysID";
+        $result = $mysqli->query($sql_query);
+        $UsedTimeSlotsID;
+        $AvailabeSlots;
+        $AllTimeSlots;
+        $isUsed =False;
+        $i=-1;
+        $x=-1;
+        //Used Time Slots
+		    while($row =mysqli_fetch_array($result)){
+          $i++;
+          $UsedTimeSlotsID[$i]=$row['TimeslotsID'];
+        }
+        $sql = "Select * from timeslots";
+        $result= $mysqli->query($sql);
+        //all time slots
+        while($row =mysqli_fetch_array($result)){
+          $x++;
+          $AllTimeSlots[$x]=$row['ID'];
+        }
+        for($Counter1=0;$Counter1<=$x;$Counter1++)
+        {
+          $isUsed=False;
+          for ($Counter2=0;$Counter2<=$i;$Counter2++){
+            {
+            if($AllTimeSlots[$Counter1]==$UsedTimeSlots[$Counter2])
+            {
+              $isUsed=True;
+              break;
+            }
+
+            }
+            if(isUsed==False)
+            {
+              $AvailabeSlots[$Count]=$AllTimeSlots[$Counter1];
+            }
+      }
+      }
+      return $AvailabeSlots;
+
+
+
 
     }
 

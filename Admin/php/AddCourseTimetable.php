@@ -131,12 +131,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									include_once "../Classes/TimeSlots.php";
 									$TimeSlots= new TimeSlots;
 									$result = $TimeSlots->View();
-									echo "<select name='TimeSlotsID' class='form-control'>";
-									while($row =mysqli_fetch_array($result)){
-											echo "<option value='".$row["ID"]. "'>" .$row["Begin"]. " ~ " . $row["End"] ."</option>" ;
 
-									 }
-									 echo "</select>"
+									include "../Classes/TimeTable.php";
+									$TimeTable = new TimeTable;
+									$AvailableSlots = $TimeTable->AvailabeSlots($_POST['ClassID'],$ClassID,$_POST['DaysID'])
+									$Counter = count($AvailabeSlots);
+
+
+									// echo "<select name='TimeSlotsID' class='form-control'>";
+									// while($row =mysqli_fetch_array($result)){
+									// 		echo "<option value='".$row["ID"]. "'>" .$row["Begin"]. " ~ " . $row["End"] ."</option>" ;
+									//
+									//  }
+									//  echo "</select>"
+
+									 echo "<select name='TimeSlotsID' class='form-control'>";
+									 for ($i=0;$i<$Counter;$i++)
+									 	{
+											 echo "<option value='".$AvailableSlots[$i]. "'>" .$AvailableSlots[$i]."</option>" ;
+
+										}
+										echo "</select>"
 									 	?>
                 </div>
 
@@ -148,14 +163,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 							<?php
 								if($_POST){
-									include "../Classes/TimeTable.php";
 
-									$TimeTable = new TimeTable;
 									$TimeTable->CourseID= $_POST['CourseID'];
 									$TimeTable->ClassID= $_POST['ClassID'];
 									$TimeTable->DaysID= $_POST['DaysID'];
 									$TimeTable->TimeslotsID= $_POST['TimeSlotsID'];
-
 									$TimeTable->Add();
 
 
