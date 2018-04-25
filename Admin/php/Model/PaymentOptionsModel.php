@@ -1,5 +1,5 @@
 <?php
-require_once "../dbconnect.php";
+// require_once "../dbconnect.php";
 require_once "CRUD.php";
 
 class PaymentOptionsModel implements CRUD
@@ -8,7 +8,7 @@ class PaymentOptionsModel implements CRUD
     public $PMID;
     public $db;
     public $POID;
-    
+
     public function Add(){
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
@@ -33,7 +33,7 @@ class PaymentOptionsModel implements CRUD
       $mysqli = $db->getConnection();
       $sql_query= "SELECT `ID` FROM `paymentoptions` WHERE PaymentMethodID = '$name'";
       $result = $mysqli->query($sql_query);
-      $ID= $row =mysqli_fetch_array($result);     
+      $ID= $row =mysqli_fetch_array($result);
       return $ID;
     }
 

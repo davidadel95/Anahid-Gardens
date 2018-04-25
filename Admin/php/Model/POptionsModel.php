@@ -1,5 +1,5 @@
 <?php
-require_once "../dbconnect.php";
+    // require_once "../dbconnect.php";
 require_once "CRUD.php";
 
 class POptionsModel implements CRUD
@@ -26,7 +26,7 @@ class POptionsModel implements CRUD
       $sql_query = "SELECT * FROM `poptions`";
       $result = $mysqli->query($sql_query);
 
-      $i=-1;    
+      $i=-1;
       while($row =mysqli_fetch_array($result)){
         $i++;
         $this->POptionsArr[$i]=$row["Name"];
@@ -39,7 +39,7 @@ class POptionsModel implements CRUD
       $mysqli = $db->getConnection();
       $sql_query= "SELECT `ID` FROM `poptions` WHERE Name = '$name'";
       $result = $mysqli->query($sql_query);
-      $ID= $row =mysqli_fetch_array($result);     
+      $ID= $row =mysqli_fetch_array($result);
       return $ID;
     }
 

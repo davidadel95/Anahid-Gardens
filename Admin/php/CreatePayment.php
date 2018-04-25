@@ -50,12 +50,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </style>
 
 <?php
+    include_once "dbconnect.php";
     include_once "Model/POptionsModel.php";
     include_once "Model/PaymentOptionVal.php";
     include_once "Model/PaymentOptionsModel.php";
     include_once "Model/OptionsTypeModel.php";
     include_once "Model/PaymentEAVModel.php";
-    
+
     $PaymentEAVModel = new PaymentEAVModel;
     $POptionsModel = new POptionsModel;
     $OptionsTypeModel = new OptionsTypeModel;
@@ -70,12 +71,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     if (isset($_POST["NewPaymentOption"]))
     {
-        
-        
+
+
         $POptionsModel->POption = $_POST['NewFieldName'];
         $POptionsModel->TypeID = $OptionsTypeModel->GetID($_POST['TypeOfFieldSelected'])[0];
         $POptionsModel->Add();
-    }   
+    }
 
     if (isset($_POST["attach"]))
     {
@@ -98,7 +99,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php
-			include("../Navigationbar2.php");
+			include("Navigationbar2.php");
 			?>
     </div>
 
@@ -114,7 +115,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-                        <br>    
+                        <br>
                         <br>
 						<div class="form-title">
 											<h4>New Payment</h4>
@@ -125,7 +126,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<label> Payment Name</label>
 										<input name="PaymentName"type="text" class="form-control" placeholder="eg: Mastercard ">
 										<br>
-										
+
 
 										<input type="submit" name="PaymentNameAdded">
                                 </div>
@@ -162,7 +163,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<select name="TypeOfFieldSelected"  class="form-control" >
 
 										<?php
-                                        
+
 										for ($x=0; $x<sizeof($OptionsTypeModel->View());$x++)
 										{
 											echo "<option value=".$OptionsTypeModel->View()[$x]."> ".$OptionsTypeModel->View()[$x]."</option>";
@@ -215,7 +216,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</select>
 									<br>
 
-									
+
 									<input name="attach" type="submit">
 								</div>
 							</form>
@@ -226,22 +227,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 
-					
 
-					
+
+
 
 						</div>
 					</div>
         </div>
 			</div>
-		
+
 	</div>
   	<!--footer-->
   	<div class="footer">
   	   <?php include("Footer.php"); ?>
   	</div>
     <!--//footer-->
-	
+
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
