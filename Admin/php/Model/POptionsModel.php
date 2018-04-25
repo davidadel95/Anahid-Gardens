@@ -49,10 +49,10 @@ class POptionsModel implements CRUD
     
     public function EditType($Option,$Type)
     {
-        $OptionsTypeModels = new OptionsTypeModel;
+        $OptionsTypeModel = new OptionsTypeModel;
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
-        $sql_query = "UPDATE `poptions` SET `TypeID` = ".$OptionsTypeModels->GetID($Type)[0]." WHERE `Name` = ".$Option;
+        $sql_query = "UPDATE `poptions` SET `TypeID` = ".$OptionsTypeModel->GetID($Type)[0]." WHERE `Name` = '$Option'";
         $result = $mysqli->query($sql_query);
     }
     

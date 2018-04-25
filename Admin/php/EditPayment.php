@@ -74,9 +74,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         
     }
 
-    if (isset($_POST["changetype"]))
+    if (isset($_POST['changetype']))
     {
         $POptionsModel->EditType($_POST['PaymentOptionsSelector'],$_POST['TypeOfFieldSelected']);
+        header ("Location: EditPayment.php");
     }
     
 
@@ -193,6 +194,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                                     
 										}
+                                        
 										?>
 
 									</select>
