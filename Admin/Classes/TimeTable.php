@@ -96,6 +96,7 @@ class TimeTable implements CRUD
         $UsedTimeSlotsID;
         $AvailabeSlots;
         $AllTimeSlots;
+        $Count;
         $isUsed =False;
         $i=-1;
         $x=-1;
@@ -115,6 +116,7 @@ class TimeTable implements CRUD
         {
           $isUsed=False;
           for ($Counter2=0;$Counter2<=$i;$Counter2++){
+
             {
             if($AllTimeSlots[$Counter1]==$UsedTimeSlots[$Counter2])
             {
@@ -126,6 +128,7 @@ class TimeTable implements CRUD
             if(isUsed==False)
             {
               $AvailabeSlots[$Count]=$AllTimeSlots[$Counter1];
+              $Count++;
             }
       }
       }
