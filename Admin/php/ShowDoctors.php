@@ -5,6 +5,9 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
+<?php
+session_start();
+    ?>
 <html>
 <head>
 <title>Dashboard</title>
@@ -69,6 +72,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
             <h4>Users:</h4>
+              <form>
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -108,7 +112,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <td>".$row['Name']."</td>
                 <td>".$row['DateAdded']."</td>";
                 if(strcmp($row['Status'],"Missing Login")== 0)
-                    echo "<td><input class='btn btn-success' type='submit' value='".$row['Status']."'>";
+                    echo "<td><input type='hidden' id='ajax'><button class='btn btn-success' type='button' onclick='shaf3y(".$row['id'].")' name='Formbtn'>".$row['Status'].
+                    "</button>";
                     else echo "<td>".$row['Status']."</td>";
                 echo "<td>".$row['Value']."</td>
                 ";
@@ -120,6 +125,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                   
                   
                   ?>
+                  
                <!-- <tr>
                   <th scope="row">1</th>
                   <td>Mark</td>
@@ -130,6 +136,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </tr> --->
               </tbody>
             </table>
+                  </form>
           </div>
         </div>
 			</div>
@@ -163,6 +170,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
+            function shaf3y(x) {
+
+        //var x = document.getElementById("mySelect").value;
+
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("ajax").innerHTML = this.responseText;
+                    document.location.href = 'CompleteUser.php';
+         }
+        };
+        xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
+        xmlhttp.send();}
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
