@@ -61,36 +61,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     $POptionsModel = new POptionsModel;
     list($POptionArr,$OptionNames) = $POptionsModel->View();
     $OptionsTypeModel = new OptionsTypeModel;
-    if (isset($_POST["PaymentNameAdded"])) {
-        $PaymentEAVModel->PMethod = $_POST["PaymentName"];
-        $PaymentEAVModel->Add();
-    }
-    if (isset($_POST["FieldTypeAdded"])) {
-        $OptionsTypeModel->Type = $_POST["NewFieldType"];
-        $OptionsTypeModel->Add();
+    if (isset($_POST["PaymentNameChanged"])) {
+        $PaymentEAVModel->PMethod = $_POST["PaymentNamesSelector"];
+        $PaymentEAVModel->Edit($_POST['PaymentName']);
     }
 
-    if (isset($_POST["NewPaymentOption"]))
+    if (isset($_POST["FieldNameChanged"]))
     {
-
-
         $POptionsModel->POption = $_POST['NewFieldName'];
-        $POptionsModel->TypeID = $OptionsTypeModel->GetID($_POST['TypeOfFieldSelected'])[0];
-        $POptionsModel->Add();
+        $POptionsModel->Edit($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
+        header ("Location: EditPayment.php");
+        
     }
 
-    if (isset($_POST["attach"]))
+    if (isset($_POST["changetype"]))
     {
-        $movie = $_POST['FieldNames'];
-        foreach ($movie as $selectedOption)
-        {
-            $PaymentOptionsModel = new PaymentOptionsModel;
-            $PaymentOptionsModel->PMID = $PaymentEAVModel->GetID($_POST['PaymentNamesSelector'])[0];
-            $PaymentOptionsModel->POID = $POptionsModel->GetID($selectedOption)[0];
-            $PaymentOptionsModel->Add();
-        }
+        $POptionsModel->EditType($_POST['PaymentOptionsSelector'],$_POST['TypeOfFieldSelected']);
     }
-
+    
 
 
 ?>
@@ -117,45 +105,81 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 						<div class="form-title">
-											<h4>New Payment</h4>
+											<h4>Change Payment</h4>
 										</div>
 						<div class="form-body">
 							<form method="post" >
 								<div class="form-group">
-										<label> Payment Name</label>
-										<input name="PaymentName"type="text" class="form-control" placeholder="eg: Mastercard ">
+										<label>Choose Payment Name</label>
+										<select name="PaymentNamesSelector"  class="form-control" >
+										<?php
+										for ($x=0;$x<sizeof($PaymentEAVModel->View());$x++)
+										{
+
+											echo "<option value='".$PaymentEAVModel->View()[$x]."'> ".$PaymentEAVModel->View()[$x]."</option>";
+
+
+										}
+										?>
+									</select>
 										<br>
+                                        <label>New Payment Name</label>
+										<input name="PaymentName"type="text" class="form-control" placeholder="eg: Mastercard ">
+                                        <br/>
 
 
-										<input type="submit" name="PaymentNameAdded">
+										<input type="submit" name="PaymentNameChanged">
                                 </div>
 															</form>
 															</div>
 
 
 									<div class="form-title">
-											<h4>New Field Type</h4>
+											<h4>Change Field Name</h4>
 										</div>
 						    	<div class="form-body">
 									<form method="post" >
 									<div class="form-group">
-									<label> Field Type </label>
-									<input name="NewFieldType" type="text" class="form-control" placeholder="eg: int ">
+									<label> Field </label>
+									<select name="PaymentOptionSelector"  class="form-control" >
+										<?php
+										for ($x=0;$x<sizeof($POptionArr);$x++)
+										{
+
+											echo "<option value='".$POptionArr[$x]."'> ".$POptionArr[$x]."</option>";
+                                            
+
+										}
+										?>
+									</select>
 									<br>
-									<input type="submit" name="FieldTypeAdded">
+                                    <label>New Field Name </label>
+									<input name="NewFieldName" type="text" class="form-control" placeholder="eg: Expiration Date ">
+                                    <br/>
+									<input type="submit" name="FieldNameChanged">
 									</div>
 									</form>
 									</div>
 
 
 									<div class="form-title">
-											<h4>New Field Name</h4>
+											<h4>Change Field Type</h4>
 										</div>
 						    	<div class="form-body">
 									<form method="post" >
 									<div class="form-group">
-									<label> Field Name </label>
-									<input name="NewFieldName" type="text" class="form-control" placeholder="eg: Expiration Date ">
+									<label>Field Name </label>
+									<select name="PaymentOptionsSelector"  class="form-control" >
+										<?php
+										for ($x=0;$x<sizeof($POptionArr);$x++)
+										{
+
+											echo "<option value='".$POptionArr[$x]."'> ".$POptionArr[$x]." , Type: ".$OptionNames[$x]." </option>";
+
+
+										}
+										?>
+									</select>
                                         <br/>
 									<label>Field Type </label>
 
@@ -167,64 +191,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										{
 											echo "<option value=".$OptionsTypeModel->View()[$x]."> ".$OptionsTypeModel->View()[$x]."</option>";
 
-
+                                                    
 										}
 										?>
 
 									</select>
 									<br>
-									<input name="NewPaymentOption" type="submit">
+									<input name="changetype" type="submit">
 									</div>
 									</form>
 									</div>
 
-						<div class="form-title">
-							<h4>Attach Fields</h4>
-						</div>
-
-							<div class="form-body">
-
-							<form name="InField" method="post">
-								<div class="form-group">
-                                    <label>Payment Name </label>
-									<select name="PaymentNamesSelector"  class="form-control" >
-										<?php
-										for ($x=0;$x<sizeof($PaymentEAVModel->View());$x++)
-										{
-
-											echo "<option value='".$PaymentEAVModel->View()[$x]."'> ".$PaymentEAVModel->View()[$x]."</option>";
-
-
-										}
-										?>
-									</select>
-                                    <br/>
-									<label>Field Name</label>
-
-										<select name="FieldNames[]"  class="form-control" multiple>
-
-										<?php
-										for ($x=0;$x<sizeof($POptionArr);$x++)
-										{
-
-											echo "<option value='".$POptionArr[$x]."'> ".$POptionArr[$x]."</option>";
-
-
-										}
-										?>
-									</select>
-									<br>
-
-
-									<input name="attach" type="submit">
-								</div>
-							</form>
-					</div>
-
-
-
-
-
+						
 
 
 

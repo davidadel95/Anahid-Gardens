@@ -17,7 +17,7 @@ class PaymentOptionVal implements CRUD
       $result = $mysqli->query($sql_query);
     }
 
-    public function Edit(){
+    public function Edit($NewData){
 
     }
     public function View(){

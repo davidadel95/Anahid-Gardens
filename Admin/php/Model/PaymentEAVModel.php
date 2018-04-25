@@ -15,7 +15,11 @@ class PaymentEAVModel implements CRUD
       $result = $mysqli->query($sql_query);
     }
 
-    public function Edit(){
+    public function Edit($Method){
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query = "UPDATE `paymentmethods` SET `PName` = '".$Method."' WHERE `PName` = '".$this->PMethod."'";
+          $result = $mysqli->query($sql_query);
 
     }
     public function View(){

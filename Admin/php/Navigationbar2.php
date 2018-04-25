@@ -231,10 +231,10 @@
                    </a>
                    <ul class="treeview-menu">
                      <li><a href="ViewTransactions.php"><i class="fa fa-angle-right"></i>View Transactions</a></li>
-                     <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i>Manipulate Payments</a>
+                     <li><a href=""><i class="fa fa-angle-right"></i>Manipulate Payments</a>
                        <ul class="treeview-menu">
                         <li><a href="CreatePayment.php"><i class="fa fa-angle-right"></i>Add new Payment</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Edit Payment</a></li>
+                        <li><a href="EditPayment.php"><i class="fa fa-angle-right"></i>Edit Payment</a></li>
                         <li><a href=""><i class="fa fa-angle-right"></i>Delete Payment</a></li>
                       </ul></li>
                    </ul>
