@@ -1,5 +1,5 @@
 <?php
-require_once "../dbconnect.php";
+// require_once "../dbconnect.php";
 require_once "CRUD.php";
 
 class PaymentOptionVal implements CRUD

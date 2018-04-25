@@ -1,8 +1,8 @@
 <?php
-require_once "../dbconnect.php";
+// require_once "../dbconnect.php";
 require_once "CRUD.php";
 
-class PaymentEAVModel implements CRUD 
+class PaymentEAVModel implements CRUD
 {
     public $ID;
     public $PMethod;
@@ -25,7 +25,7 @@ class PaymentEAVModel implements CRUD
       $sql_query = "SELECT * FROM `paymentmethods`";
       $result = $mysqli->query($sql_query);
 
-      $i=-1;    
+      $i=-1;
       while($row =mysqli_fetch_array($result)){
         $i++;
         $this->PMethodsArr[$i]=$row["PName"];
@@ -38,7 +38,7 @@ class PaymentEAVModel implements CRUD
       $mysqli = $db->getConnection();
       $sql_query= "SELECT `ID` FROM `paymentmethods` WHERE PName = '$name'";
       $result = $mysqli->query($sql_query);
-      $ID= $row =mysqli_fetch_array($result);     
+      $ID= $row =mysqli_fetch_array($result);
       return $ID;
     }
 
