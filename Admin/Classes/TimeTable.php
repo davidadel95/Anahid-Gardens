@@ -5,7 +5,7 @@ include_once("CRUD.php");
 /**
  *
  */
-class Classes implements CRUD
+class TimeTable implements CRUD
 {
     /**
      *
@@ -22,7 +22,28 @@ class Classes implements CRUD
     /**
      * @var void
      */
-    public $Name;
+    public $CourseID;
+
+    /**
+     * @var void
+     */
+    public $ClassID;
+
+    /**
+     * @var void
+     */
+    public $DaysID;
+
+    /**
+     * @var void
+     */
+    public $TimeslotsID;
+
+
+
+
+
+
 
 
     /**
@@ -32,7 +53,7 @@ class Classes implements CRUD
     {
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-      $sql_query = "Insert into Class (ID,Name) Values ('','$this->Name')";
+      $sql_query = "Insert into coursetimetable (ID,CourseID,ClassID,DaysID,TimeslotsID) Values ('','$this->CourseID','$this->ClassID','$this->DaysID','$this->TimeslotsID')";
       $result = $mysqli->query($sql_query);
 
     }
@@ -52,7 +73,7 @@ class Classes implements CRUD
     {
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
-          $sql_query = "Select * from Class";
+          $sql_query = "Select * from coursetimetable";
           $result = $mysqli->query($sql_query);
           return $result;
     }
@@ -65,17 +86,9 @@ class Classes implements CRUD
 
     }
 
+    public function ShowAvailableTimeSlots(){
+          
 
-    // public function GetID($name){
-    //
-    //   $db = dbconnect::getInstance();
-    //   $mysqli = $db->getConnection();
-    //   $sql_query = "SELECT ID FROM Class where Name = '$name'";
-    //   $result = $mysqli->query($sql_query);
-    //   while($row =mysqli_fetch_array($result))
-    //   {
-    //     return $row["ID"];
-    //   }
-    // }
+    }
 
 }
