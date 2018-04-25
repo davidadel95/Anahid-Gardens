@@ -37,12 +37,17 @@ class TimeTable implements CRUD
     /**
      * @var void
      */
-    public $TimeslotsID;
-    
-    public $AvailabeSlots;
+
+
+       public $TimeslotsID;
+       public $UsedTimeSlotsID;
+       public $AvailabeSlots;
        public $AllTimeSlots;
        public $Count;
-       public $isUsed =False;
+       public $isUsed;
+
+          public     $i=-1;
+            public   $x=-1;
 
 
 
@@ -97,48 +102,48 @@ class TimeTable implements CRUD
         $mysqli = $db->getConnection();
         $sql_query = "Select * from coursetimetable where ClassID = $ClassID and DaysID=$DaysID";
         $result = $mysqli->query($sql_query);
-        $UsedTimeSlotsID;
-        
+        $this->Count=-1;
 
-        $i=-1;
-        $x=-1;
+
+
         //Used Time Slots
 		    while($row =mysqli_fetch_array($result)){
-          $i++;
-          $UsedTimeSlotsID[$i]=$row['TimeslotsID'];
+          $this->i++;
+          $this->UsedTimeSlotsID[$this->i]=$row['TimeslotsID'];
+
         }
         $sql = "Select * from timeslots";
         $result= $mysqli->query($sql);
         //all time slots
         while($row =mysqli_fetch_array($result)){
-          $x++;
-          $AllTimeSlots[$x]=$row['ID'];
+          $this->x++;
+          $this->AllTimeSlots[$this->x]=$row['ID'];
+
         }
-        for($Counter1=0;$Counter1<=$x;$Counter1++)
+
+        for($Counter1=0;$Counter1<=$this->x;$Counter1++)
         {
-          $isUsed=False;
-          for ($Counter2=0;$Counter2<=$i;$Counter2++){
 
+          $this->isUsed=False;
+          for ($Counter2=0;$Counter2<=$this->i;$Counter2++){
+
+            if($this->AllTimeSlots[$Counter1]==$this->UsedTimeSlotsID[$Counter2])
             {
-            if($AllTimeSlots[$Counter1]==$UsedTimeSlots[$Counter2])
-            {
-              $isUsed=True;
-              break;
+
+            //  echo $Counter2;
+              $this->isUsed=True;
             }
 
             }
-            if($isUsed==False)
+            if($this->isUsed==False)
             {
-              $AvailabeSlots[$Count]=$AllTimeSlots[$Counter1];
-              $Count++;
+              $this->Count+=1;
+              $this->AvailabeSlots[$this->Count]=$this->AllTimeSlots[$Counter1];
+               
+
+
             }
+        }
+
       }
-      }
-      
-
-
-
-
     }
-
-}
