@@ -108,9 +108,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <td>".$row['Name']."</td>
                 <td>".$row['DateAdded']."</td>";
                 if(strcmp($row['Status'],"Missing Login")== 0)
-                  //  echo "<td><input type";
-             echo "<td>".$row['Status']."</td>
-                <td>".$row['Value']."</td>
+                    echo "<td><input class='btn btn-success' type='submit' value='".$row['Status']."'>";
+                    else echo "<td>".$row['Status']."</td>";
+                echo "<td>".$row['Value']."</td>
                 ";
                 
             }
