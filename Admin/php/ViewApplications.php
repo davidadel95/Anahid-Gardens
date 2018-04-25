@@ -84,13 +84,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
         <div class="form-body">
-					<label>Role Name </label>
-								<select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
+				<!--	<label>Role Name </label>
+								<select name="InFiledRoleName" id="mySelect" onchange="" class="form-control" >
 
                                     <?php
 									include_once "../Classes/RoleNameEAV.php";
 									$RoleNameEAV = new RoleNameEAV;
-							   	$NumberOfValuesOfRoles= $RoleNameEAV->View();
+							  /* 	$NumberOfValuesOfRoles= $RoleNameEAV->View();
 
 									for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
 									{
@@ -98,34 +98,57 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
 
 
-									}
+									}*/
 				?>
-						</select>
+						</select>-->
 
           <form method="post" >
             <div class="form-group">
                 <div id="ajax">
                     <?php
 
-
+                    echo "<form name = 'EAV' method ='post'>";
 
              $Names;
              $Types;
+             $i=-1;
              $db = dbconnect::getInstance();
              $mysqli = $db->getConnection();
-             $sql_query = "      SELECT * FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '1' And isVisible = 1 order by application.ID" ;
+             $sql_query = "SELECT application.ID,RoleID,ApplicationOptionID,isVisible,applicationoptions.Name,applicationoptions.OptionTypeID,optionstypes.Type FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
+			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '2' And isVisible = 1 order by application.ID" ;
             $result = $mysqli->query($sql_query);
-            $i=-1;
+          
             while($row =mysqli_fetch_array($result)){
             $i++;
+               // echo $row["ID"];
             echo "<br />";
             $Names[$i]=$row["Name"];
            $Types[$i]=$row["Type"];
               echo "<label>". $Names[$i]. "</label>";
-              echo "<input type='".$Types[$i]."' class='form-control' placeholder='".$Types[$i]." '>";
+             
+              echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";    
+              echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]." '>";
 
  }
+                    echo "<br/>
+                    <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>
+                    </form>";
+                    if(isset($_POST['EAVbtn'])){
+                        $mysqli = $db->getConnection();
+             $sql_query = "INSERT INTO user (RoleID,UID,DateAdded,StatusID)
+                            VALUES (2,1,NOW(),5)" ;
+            $result = $mysqli->query($sql_query);
+              $sql_querys = "SELECT * FROM user ORDER BY ID DESC LIMIT 1" ;
+            $results = $mysqli->query($sql_querys);
+                $rows=mysqli_fetch_array($results); 
+                $j=-1;
+            while($j<$i){
+                $j++;
+                $sql_query = "INSERT INTO applicationvalue (ApplicationID,UserID,value)
+                 VALUES ('".$_POST['ApplicationID'.$j]."','".$rows['ID']."','".$_POST['value'.$j]."')" ;
+                $result = $mysqli->query($sql_query);    
+                 } 
+                 }
             ?>
 
           </div>
@@ -170,7 +193,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				}
 			}
 
-    function shaf3y(x) {
+   /* function shaf3y(x) {
 
         //var x = document.getElementById("mySelect").value;
 
@@ -183,7 +206,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         };
         xmlhttp.open("GET", "ajax.php?q=" + x, true);
         xmlhttp.send();
-    }
+    }*/
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

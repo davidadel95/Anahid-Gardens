@@ -97,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										include_once "../Classes/Classes.php";
 										$Classes= new Classes;
 										$result = $Classes->View();
-										echo "<select name='ClassID' class='form-control'>";
+										echo "<select name='ClassID' id='ClassID' class='form-control'>";
 										while($row =mysqli_fetch_array($result)){
 											echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
@@ -114,7 +114,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												include_once "../Classes/Days.php";
 												$Days= new Days;
 												$result = $Days->View();
-												echo "<select name='DaysID' class='form-control'>";
+												echo "<select name='DaysID' onchange='shaf3y(this.value,document.getElementById('ClassID').value)' class='form-control'>";
 												while($row =mysqli_fetch_array($result)){
 														echo "<option value='".$row["ID"]. "'>" .$row["Name"]."</option>" ;
 
@@ -134,7 +134,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 									include "../Classes/TimeTable.php";
 									$TimeTable = new TimeTable;
-									$AvailableSlots = $TimeTable->AvailabeSlots($_POST['ClassID'],$ClassID,$_POST['DaysID'])
+									$AvailableSlots = $TimeTable->ShowAvailabeSlots($_POST['ClassID'],$_POST['DaysID']);
 									$Counter = count($AvailabeSlots);
 
 
@@ -144,14 +144,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									//
 									//  }
 									//  echo "</select>"
-
+                                           echo "<div id='ajax'>" ;
 									 echo "<select name='TimeSlotsID' class='form-control'>";
 									 for ($i=0;$i<$Counter;$i++)
 									 	{
 											 echo "<option value='".$AvailableSlots[$i]. "'>" .$AvailableSlots[$i]."</option>" ;
 
 										}
-										echo "</select>"
+										echo "</select>
+                                        </div>"
 									 	?>
                 </div>
 
@@ -207,6 +208,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
+            function shaf3y(x,y) {
+
+        //var x = document.getElementById("mySelect").value;
+
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("ajax").innerHTML = this.responseText;
+         }
+        };
+        xmlhttp.open("GET", "TimeTableAjax.php?q=" + x +"&w=" + y, true);
+        xmlhttp.send();
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

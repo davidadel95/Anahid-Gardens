@@ -63,61 +63,71 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
-		<!-- //header-ends -->
-		<!-- main content start-->
+		
 		<div id="page-wrapper">
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Doctors:</h4>
+            <h4>Users:</h4>
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Mobile</th>
-                  <th>Description</th>
-                  <th>Faculty</th>
-                  <th>Salary</th>
-                  <th>Address</th>
-                  <th>Start Date</th>
+                  <th>First Name</th> 
+                  <th>Role</th>
+                  <th>Date Added</th>
+                  <th>Status</th>
+                  <th>Edit</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                  <?php
+                  include_once "../Classes/RoleNameEAV.php";
+                  $RoleNameEAV = new RoleNameEAV;
+                  $db = dbconnect::getInstance();
+                  $mysqli = $db->getConnection();
+                   $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`                                                                                          INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name'
+                                ORDER BY UserID,OptionTypeID" ;
+            $result = $mysqli->query($sql_query);
+            $i=-1;
+            while($row =mysqli_fetch_array($result)){
+                $i++;
+                $i++;
+                echo "<tr>
+                <th scope='row'>".$i."</th>";
+                $i--;
+                echo "<td>".$row['Value']."</td>
+                <td>".$row['Name']."</td>
+                <td>".$row['DateAdded']."</td>";
+                if(strcmp($row['Status'],"Missing Login")== 0)
+                  //  echo "<td><input type";
+             echo "<td>".$row['Status']."</td>
+                <td>".$row['Value']."</td>
+                ";
+                
+            }
+                  
+                  
+                  
+                  
+                  
+                  ?>
+               <!-- <tr>
                   <th scope="row">1</th>
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>0122222222</td>
                   <td>Kids Doctor</td>
                   <td>Medicine</td>
-                  <td>123.45</td>
-                  <td>1 St. dsa</td>
-                  <td>12-2-2018</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>0122222222</td>
-                  <td>Kids Doctor</td>
-                  <td>Medicine</td>
-                  <td>123.45</td>
-                  <td>1 St. dsa</td>
-                  <td>12-2-2018</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>0122222222</td>
-                  <td>Kids Doctor</td>
-                  <td>Medicine</td>
-                  <td>123.45</td>
-                  <td>1 St. dsa</td>
-                  <td>12-2-2018</td>
-                </tr>
+                </tr> --->
               </tbody>
             </table>
           </div>
