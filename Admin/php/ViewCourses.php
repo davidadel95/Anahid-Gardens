@@ -43,7 +43,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
-<!--//Metis Menu -->
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="../js/jquery.min.js"></script>
+
+    <!--//Metis Menu -->
 <style>
 
 </style>
@@ -78,7 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							include_once "../Classes/Course.php";
 							$Course = new Course;
 							$result= $Course->View();
-                            echo "<select name='courseID' class='form-control'>";
+                            echo "<select name='courseID' class='form-control' id='courseSelector'>";
                             while($row =mysqli_fetch_array($result)){
                                 echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
@@ -89,7 +94,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="form-group">
                     <label>Lesson Name</label>
                     <br>
-                    <select class="form-control">
+                    <select class="form-control" id="lessonSelector">
 
                     </select>
                 </div>
@@ -135,7 +140,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
-		</script>
+
+            $(document).ready(function(){
+                $('#courseSelector').on('change',function(){
+                    var courseID = $(this).val();
+                    if(courseID){
+                        $.ajax({
+                            type:'POST',
+                            url:'ajaxData.php',
+                            data:'courseID='+courseID,
+                            success:function(html){
+                                $('#state').html(html);
+                                $('#lessonSelector').html('<option value="">Select state first</option>');
+                            }
+                        });
+                    }else{
+                        $('#lessonSelector').html('<option value="">Select state first</option>');
+                    }
+                });
+
+        </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->

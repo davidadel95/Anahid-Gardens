@@ -22,7 +22,7 @@
           $result = $mysqli->query($sql);
       }
 
-      public function Edit(){
+      public function Edit($NewData){
 
       }
 
