@@ -218,8 +218,9 @@
                      <i class="fa fa-angle-left pull-right"></i>
                    </a>
                    <ul class="treeview-menu">
-                     <li><a href="ViewCarType.php"><i class="fa fa-angle-right"></i>Add Car Type </a></li>
-                     <li><a href="ViewCarColors.php"><i class="fa fa-angle-right"></i>Add Car Color </a></li>
+                       <li><a href="ViewCarType.php"><i class="fa fa-angle-right"></i>Add Car Type </a></li>
+                       <li><a href="ViewCarColors.php"><i class="fa fa-angle-right"></i>Add Car Color </a></li>
+                       <li><a href="ViewCarData.php"><i class="fa fa-angle-right"></i>Add Car Data </a></li>
                    </ul>
                  </li>
                    <li class="treeview">

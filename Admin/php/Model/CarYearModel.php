@@ -29,8 +29,7 @@
         while($row =mysqli_fetch_array($result)){
           $i++;
           $this->ID[$i]=$row['ID'];
-          $this->Name[$i]=$row['Name'];
-          $this->CarTypeID[$i]=$row['CarTypeID'];
+          $this->Year[$i]=$row['Year'];
         }
         return $i;
       }

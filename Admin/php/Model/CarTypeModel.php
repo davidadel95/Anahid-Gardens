@@ -62,6 +62,26 @@
         return $i;
       }
 
+      public function viewCarModels(){
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT * FROM `cartype`
+                  WHERE `CarTypeID` 
+                  = 2
+                ";
+          $result = $mysqli->query($sql);
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              $this->ID[$i]=$row['ID'];
+              $this->Name[$i]=$row['Name'];
+              $this->CarTypeID[$i]=$row['CarTypeID'];
+          }
+          return $i;
+      }
+
 
       public function Delete(){
           // TODO: implement here
