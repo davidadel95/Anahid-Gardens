@@ -38,7 +38,11 @@ class TimeTable implements CRUD
      * @var void
      */
     public $TimeslotsID;
-
+    
+    public $AvailabeSlots;
+       public $AllTimeSlots;
+       public $Count;
+       public $isUsed =False;
 
 
 
@@ -94,10 +98,8 @@ class TimeTable implements CRUD
         $sql_query = "Select * from coursetimetable where ClassID = $ClassID and DaysID=$DaysID";
         $result = $mysqli->query($sql_query);
         $UsedTimeSlotsID;
-        $AvailabeSlots;
-        $AllTimeSlots;
-        $Count;
-        $isUsed =False;
+        
+
         $i=-1;
         $x=-1;
         //Used Time Slots
@@ -132,7 +134,7 @@ class TimeTable implements CRUD
             }
       }
       }
-      return $AvailabeSlots;
+      
 
 
 

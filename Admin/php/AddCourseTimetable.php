@@ -134,8 +134,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 									include "../Classes/TimeTable.php";
 									$TimeTable = new TimeTable;
-									$AvailableSlots = $TimeTable->ShowAvailabeSlots($_POST['ClassID'],$_POST['DaysID']);
-									$Counter = count($AvailabeSlots);
+									$TimeTable->AvailableSlots = $TimeTable->ShowAvailableSlots(1,1);
+									$Counter = count($TimeTable->AvailableSlots);
 
 
 									// echo "<select name='TimeSlotsID' class='form-control'>";
@@ -148,7 +148,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									 echo "<select name='TimeSlotsID' class='form-control'>";
 									 for ($i=0;$i<$Counter;$i++)
 									 	{
-											 echo "<option value='".$AvailableSlots[$i]. "'>" .$AvailableSlots[$i]."</option>" ;
+											 echo "<option value='".$TimeTable->AvailableSlots[$i]. "'>" .$TimeTable->AvailableSlots[$i]."</option>" ;
 
 										}
 										echo "</select>
