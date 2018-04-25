@@ -178,7 +178,7 @@ session_start();
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("ajax").innerHTML = this.responseText;
+                // document.getElementById("ajax").innerHTML = this.responseText;
                     document.location.href = 'CompleteUser.php';
          }
         };

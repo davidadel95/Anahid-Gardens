@@ -104,54 +104,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
           <form method="post" >
             <div class="form-group">
-                <div id="ajax">
+                
                     <?php
-
+                    include_once("../Classes/RoleEav.php");
                     echo "<form name = 'EAV' method ='post'>";
-
-             $Names;
-             $Types;
-             $i=-1;
-             $db = dbconnect::getInstance();
-             $mysqli = $db->getConnection();
-             $sql_query = "SELECT application.ID,RoleID,ApplicationOptionID,isVisible,applicationoptions.Name,applicationoptions.OptionTypeID,optionstypes.Type FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '2' And isVisible = 1 order by application.ID" ;
-            $result = $mysqli->query($sql_query);
-          
-            while($row =mysqli_fetch_array($result)){
-            $i++;
-               // echo $row["ID"];
-            echo "<br />";
-            $Names[$i]=$row["Name"];
-           $Types[$i]=$row["Type"];
-              echo "<label>". $Names[$i]. "</label>";
-             
-              echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";    
-              echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]." '>";
-
- }
+                    $RoleEav = new RoleEav;
+                    $RoleEav->RoleID = 2;
+                    $Names;
+                    $Types;
+                    $i=-1;
+                    $result = $RoleEav->View();
+                    while($row =mysqli_fetch_array($result)){
+                    $i++;
+                    echo "<br />";
+                    $Names[$i]=$row["Name"];
+                    $Types[$i]=$row["Type"];
+                    echo "<label>". $Names[$i]. "</label>";
+                    echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";    
+                    echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]." '>";
+                    }
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>
                     </form>";
                     if(isset($_POST['EAVbtn'])){
-                        $mysqli = $db->getConnection();
-             $sql_query = "INSERT INTO user (RoleID,UID,DateAdded,StatusID)
-                            VALUES (2,1,NOW(),5)" ;
-            $result = $mysqli->query($sql_query);
-              $sql_querys = "SELECT * FROM user ORDER BY ID DESC LIMIT 1" ;
-            $results = $mysqli->query($sql_querys);
-                $rows=mysqli_fetch_array($results); 
-                $j=-1;
-            while($j<$i){
-                $j++;
-                $sql_query = "INSERT INTO applicationvalue (ApplicationID,UserID,value)
-                 VALUES ('".$_POST['ApplicationID'.$j]."','".$rows['ID']."','".$_POST['value'.$j]."')" ;
-                $result = $mysqli->query($sql_query);    
-                 } 
-                 }
+                    $db = dbconnect::getInstance();
+                    $mysqli = $db->getConnection();
+                    $j=-1;
+                    while($j<$i){
+                    $j++;
+                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j]);   
+                    } 
+                    }
             ?>
 
-          </div>
+         
           </div>
         </form>
             </div>
