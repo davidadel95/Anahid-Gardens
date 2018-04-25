@@ -186,7 +186,7 @@
                 <li><a href="EarlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
                </ul>
                </li>
-
+                
 
                 <!-- Forms menu -->
 <!--                <li class="treeview">-->
@@ -222,7 +222,23 @@
                      <li><a href="ViewCarColors.php"><i class="fa fa-angle-right"></i>Add Car Color </a></li>
                    </ul>
                  </li>
-
+                   <li class="treeview">
+                  <a href="#">
+                     <i class="fa fa-money"></i>
+                     <span>Payments</span>
+                     <i class="fa fa-angle-left pull-right"></i>
+                   </a>
+                   <ul class="treeview-menu">
+                     <li><a href="ViewTransactions.php"><i class="fa fa-angle-right"></i>View Transactions</a></li>
+                     <li><a href="ShowDrivers.php"><i class="fa fa-angle-right"></i>Manipulate Payments</a>
+                       <ul class="treeview-menu">
+                        <li><a href="CreatePayment.php"><i class="fa fa-angle-right"></i>Add new Payment</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Edit Payment</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Payment</a></li>
+                      </ul></li>
+                   </ul>
+                 </li>
+                  
 
                  <!-- Applications menu -->
                   <li class="treeview">

@@ -72,6 +72,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="form-title">
 							<h4>Add Class Timetable</h4>
 						</div>
+
 						<div class="form-body">
 							<form method="post">
 								<div class="form-group">
@@ -80,9 +81,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										include_once "../Classes/Course.php";
 										$Course= new Course;
 										$result = $Course->View();
-										echo "<select class='form-control'>";
+										echo "<select name='CourseID' class='form-control'>";
 										while($row =mysqli_fetch_array($result)){
-															echo "<option value='".$row["Name"]."'>" .$row["Name"]."</option>" ;
+															echo "<option  value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
 										 }
 										 echo "</select>"
@@ -96,9 +97,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										include_once "../Classes/Classes.php";
 										$Classes= new Classes;
 										$result = $Classes->View();
-										echo "<select class='form-control'>";
+										echo "<select name='ClassID' class='form-control'>";
 										while($row =mysqli_fetch_array($result)){
-											 echo "<option value='".$row["Name"]."'>" .$row["Name"]."</option>" ;
+											echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
+
 										 }
 										 echo "</select>"
 
@@ -112,9 +114,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												include_once "../Classes/Days.php";
 												$Days= new Days;
 												$result = $Days->View();
-												echo "<select class='form-control'>";
+												echo "<select name='DaysID' class='form-control'>";
 												while($row =mysqli_fetch_array($result)){
-														echo "<option value='".$row["Name"]. "'>" .$row["Name"]."</option>" ;
+														echo "<option value='".$row["ID"]. "'>" .$row["Name"]."</option>" ;
 
 												 }
 												 echo "</select>"
@@ -129,7 +131,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									include_once "../Classes/TimeSlots.php";
 									$TimeSlots= new TimeSlots;
 									$result = $TimeSlots->View();
-									echo "<select class='form-control'>";
+									echo "<select name='TimeSlotsID' class='form-control'>";
 									while($row =mysqli_fetch_array($result)){
 											echo "<option value='".$row["ID"]. "'>" .$row["Begin"]. " ~ " . $row["End"] ."</option>" ;
 
@@ -143,6 +145,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <input type="submit" class="btn btn-success">
 
               </form>
+
+							<?php
+								if($_POST){
+									include "../Classes/TimeTable.php";
+
+									$TimeTable = new TimeTable;
+									$TimeTable->CourseID= $_POST['CourseID'];
+									$TimeTable->ClassID= $_POST['ClassID'];
+									$TimeTable->DaysID= $_POST['DaysID'];
+									$TimeTable->TimeslotsID= $_POST['TimeSlotsID'];
+
+									$TimeTable->Add();
+
+
+								}
+							?>
+
 						</div>
 					</div>
         </div>
