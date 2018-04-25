@@ -70,28 +70,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
             <h4>Classes:</h4>
-
 	         <table class="table table-hover">
-						 <tr>
-					 <td> <a href="AttendanceKids.php"> 1A </a> </td>
-				 </tr>
-				 <tr>
-					 <td><a href="AttendanceKids.php"> 1B </a></td>
-				 </tr>
-				 <tr>
-					 <td><a href="AttendanceKids.php"> 2A </a></td>
-				 </tr>
-				 <tr>
-					 <td><a href="AttendanceKids.php"> 2B </a></td>
-				 </tr>
-				 <tr>
-					 <td><a href="AttendanceKids.php"> 3A </a></td>
-				 </tr>
-				 <tr>
-					 <td><a href="AttendanceKids.php"> 3B </a></td>
-				 </tr>
+                 <?php
+                 include_once "../Classes/Classes.php";
+                 $Classes = new Classes;
+                 $result= $Classes->View();
+
+                 while($row =mysqli_fetch_array($result)){
+                     echo "<tr>";
+                     echo "<td> <a href=\"AttendanceKids.php?id=".$row["ID"]."\"> ".$row["Name"]." </a> </td>";
+                     echo "</tr>";
+                 }
+                 ?>
 			 </table>
-        
           </div>
         </div>
 			</div>
@@ -100,7 +91,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="footer">
 	   <?php include("Footer.php"); ?>
 	</div>
-
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
