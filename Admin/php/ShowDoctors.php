@@ -91,7 +91,8 @@ session_start();
                   $db = dbconnect::getInstance();
                   $mysqli = $db->getConnection();
                    $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
-                                FROM `applicationoptions`                                                                                          INNER JOIN `application`
+                                FROM `applicationoptions`                                                                                          
+                                INNER JOIN `application`
                                 ON applicationoptions.ID = application.ApplicationOptionID
                                 INNER JOIN `applicationvalue`
                                 ON application.ID= applicationvalue.ApplicationID

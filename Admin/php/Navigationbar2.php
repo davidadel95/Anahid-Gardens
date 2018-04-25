@@ -182,7 +182,7 @@
                </a>
                <ul class="treeview-menu">
                <li><a href="AttendanceTeachers.php"><i class="fa fa-angle-right"></i>Teachers </a></li>
-               <li><a href="ClassesKids.php"><i class="fa fa-angle-right"></i>Students </a></li>
+               <li><a href="ViewClassesAttendance.php"><i class="fa fa-angle-right"></i>Students </a></li>
                 <li><a href="EarlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
                </ul>
                </li>
