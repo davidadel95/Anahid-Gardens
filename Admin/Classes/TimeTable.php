@@ -125,7 +125,7 @@ class TimeTable implements CRUD
             }
 
             }
-            if(isUsed==False)
+            if($isUsed==False)
             {
               $AvailabeSlots[$Count]=$AllTimeSlots[$Counter1];
               $Count++;
