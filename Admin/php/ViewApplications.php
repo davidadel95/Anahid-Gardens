@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     include_once("../Classes/RoleEav.php");
                     echo "<form name = 'EAV' method ='post'>";
                     $RoleEav = new RoleEav;
-                    $RoleEav->RoleID = $RoleEav->GetRoleByName("Driver");
+                    $RoleEav->RoleID = $RoleEav->GetRoleByName("Child");
 ?>
 <html>
 <head>
