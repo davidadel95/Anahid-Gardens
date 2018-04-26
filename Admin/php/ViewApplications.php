@@ -5,6 +5,12 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
+<?php
+                    include_once("../Classes/RoleEav.php");
+                    echo "<form name = 'EAV' method ='post'>";
+                    $RoleEav = new RoleEav;
+                    $RoleEav->RoleID = $RoleEav->GetRoleByName("Driver");
+?>
 <html>
 <head>
 <title>Show Applications</title>
@@ -106,10 +112,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="form-group">
                 
                     <?php
-                    include_once("../Classes/RoleEav.php");
-                    echo "<form name = 'EAV' method ='post'>";
-                    $RoleEav = new RoleEav;
-                    $RoleEav->RoleID = 2;
+                    
                     $Names;
                     $Types;
                     $i=-1;
