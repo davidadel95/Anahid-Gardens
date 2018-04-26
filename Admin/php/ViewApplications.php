@@ -103,7 +103,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $Types[$i]=$row["Type"];
                     echo "<label>". $Names[$i]. "</label>";
                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";    
-                    echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]." '>";
+                    echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]."' required>";
                     }
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>

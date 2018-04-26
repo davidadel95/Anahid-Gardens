@@ -73,7 +73,7 @@ session_start();
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
             <h4>Users:</h4>
               <input type="text" class="form-control" style="height: 30px;width: 100px;margin-left:900px;" placeholder="Search..."
-                     onchange="Search(this.value)">
+                     id="SearchBar" onkeyup="Search()">
               <form>
                   
             <table class="table table-hover">
@@ -87,11 +87,11 @@ session_start();
                   <th>Edit</th>
                 </tr>
               </thead>
-                <tbody>
+                <tbody id="SearchAjax">
                 
               
                   <?php
-                    echo "<div id='SearchAjax'>";
+                    echo "<div>";
                   include_once "../Classes/User.php";
                   $User = new User;
                 $result = $User->View();
@@ -191,12 +191,11 @@ session_start();
         };
         xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
         xmlhttp.send();}
-            function Search(x) {
+            function Search() {
 
-       if (x.length == 0) { 
-        return;
-    } else {
-
+        var x = document.getElementById("SearchBar").value;
+        var n = x.includes("\'");
+        if(!n){
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {

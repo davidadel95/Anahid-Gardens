@@ -215,7 +215,7 @@ class User implements CRUD
                                 where applicationoptions.Name ='name' 
                                 AND (userstatus.Status LIKE '%".$Query."%' 
                                 OR role.Name LIKE '%".$Query."%' 
-                                OR applicationvalue.Value LIKE '".$Query."')
+                                OR applicationvalue.Value LIKE '%".$Query."%')
                                 ORDER BY UserID,OptionTypeID";
                             $result = $mysqli->query($sql_query);
                                 return $result;
