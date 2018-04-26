@@ -86,24 +86,11 @@ session_start();
               </thead>
               <tbody>
                   <?php
-                  include_once "../Classes/RoleNameEAV.php";
-                  $RoleNameEAV = new RoleNameEAV;
-                  $db = dbconnect::getInstance();
-                  $mysqli = $db->getConnection();
-                   $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
-                                FROM `applicationoptions`                                                                                          
-                                INNER JOIN `application`
-                                ON applicationoptions.ID = application.ApplicationOptionID
-                                INNER JOIN `applicationvalue`
-                                ON application.ID= applicationvalue.ApplicationID
-                                INNER JOIN user ON user.ID = applicationvalue.UserID
-                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
-                                INNER JOIN role ON user.RoleID = role.ID
-                                where applicationoptions.Name ='name'
-                                ORDER BY UserID,OptionTypeID" ;
-            $result = $mysqli->query($sql_query);
-            $i=-1;
-            while($row =mysqli_fetch_array($result)){
+                  include_once "../Classes/User.php";
+                  $User = new User;
+                $result = $User->View();
+                $i=-1;
+                while($row =mysqli_fetch_array($result)){
                 $i++;
                 $i++;
                 echo "<tr>
@@ -113,11 +100,10 @@ session_start();
                 <td>".$row['Name']."</td>
                 <td>".$row['DateAdded']."</td>";
                 if(strcmp($row['Status'],"Missing Login")== 0)
-                    echo "<td><input type='hidden' id='ajax'><button class='btn btn-success' type='button' onclick='shaf3y(".$row['id'].")' name='Formbtn'>".$row['Status'].
+                    echo "<td><button class='btn btn-dark' type='button' onclick='shaf3y(".$row['id'].")' name='Formbtn'>".$row['Status'].
                     "</button>";
                     else echo "<td>".$row['Status']."</td>";
-                echo "<td>".$row['Value']."</td>
-                ";
+                echo "<td><button class='btn btn-success' type='button' onclick='shaf3y2(".$row['id'].")' name='Formbtn'>Edit User</button>";
                 
             }
                   
@@ -181,6 +167,20 @@ session_start();
             if (this.readyState == 4 && this.status == 200) {
                 // document.getElementById("ajax").innerHTML = this.responseText;
                     document.location.href = 'CompleteUser.php';
+         }
+        };
+        xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
+        xmlhttp.send();}
+               function shaf3y2(x) {
+
+        //var x = document.getElementById("mySelect").value;
+
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("ajax").innerHTML = this.responseText;
+                    document.location.href = 'EditUser.php';
          }
         };
         xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);

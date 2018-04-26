@@ -127,12 +127,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>
                     </form>";
                     if(isset($_POST['EAVbtn'])){
-                    $db = dbconnect::getInstance();
-                    $mysqli = $db->getConnection();
+                    $UID = $RoleEav->Add();
                     $j=-1;
                     while($j<$i){
                     $j++;
-                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j]);   
+                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);   
                     } 
                     }
             ?>

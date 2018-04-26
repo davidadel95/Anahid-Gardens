@@ -3156,7 +3156,7 @@ h3.w3_inner_tittle.two {
 }
 .btn-dark {
     color: #fff;
-    background-color: #2a3342;
+    background-color: #ff0000;
 }
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     cursor: not-allowed;

@@ -1,5 +1,5 @@
 <?php
-include("dbconnect.php");
+
 include("RoleEav.php");
 class User implements CRUD
 {
@@ -30,6 +30,16 @@ class User implements CRUD
      * @param void $$User
      * @param void $$Car
      */
+    
+    public function GetRoleID($UserID){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query = "select * from user where id=".$UserID;
+       $result = $mysqli->query($sql_query);
+        $row=mysqli_fetch_array($result);
+        return $row['RoleID'];
+    }
+
     public function addDriverCar($User, $Car)
     {
         // TODO: implement here
@@ -111,9 +121,12 @@ class User implements CRUD
     /**
      * @param void $$User
      */
-    public function changeStatus($User)
-    {
-        // TODO: implement here
+     public function ChangeStatus($UserID){
+         
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query = "UPDATE `user` SET `StatusID` = '".$this->Status."' WHERE `user`.`ID` = '".$UserID."'";
+        $result = $mysqli->query($sql_query);
     }
 
     /**
@@ -161,7 +174,22 @@ class User implements CRUD
      */
     public function View()
     {
-        // TODO: implement here
+        $db = dbconnect::getInstance();
+                  $mysqli = $db->getConnection();
+                   $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`                                                                                          
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name'
+                                ORDER BY UserID,OptionTypeID" ;
+                                $result = $mysqli->query($sql_query);
+                                return $result;
+                                
     }
 
     /**
