@@ -48,15 +48,7 @@ class RoleEav implements CRUD
     /**
      * @inheritDoc
      */
-    public function GetRoleByName($RoleName){
-        $db = dbconnect::getInstance();
-        $mysqli = $db->getConnection(); 
-        $sql_querys = "SELECT * FROM role where Name = '".$RoleName."'" ;
-      $results = $mysqli->query($sql_querys);
-        $rows=mysqli_fetch_array($results);
-          return $rows['ID'];
-        
-    }
+
     public function Add()
     {       $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
