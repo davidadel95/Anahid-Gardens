@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     include_once "../Classes/RoleNameEAV.php";
                     $RoleNameEAV = new RoleNameEAV;
                     $RoleEav = new RoleEav;
-                    $RoleEav->RoleID = $RoleNameEav->GetID("Child");
+                    $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 ?>
 <html>
 <head>
