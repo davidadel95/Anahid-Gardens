@@ -61,7 +61,7 @@ session_start();
     </div>
 
 		<!--left-fixed -navigation-->
-
+        
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
@@ -72,7 +72,10 @@ session_start();
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
             <h4>Users:</h4>
+              <input type="text" class="form-control" style="height: 30px;width: 100px;margin-left:900px;" placeholder="Search..."
+                     onchange="Search(this.value)">
               <form>
+                  
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -84,8 +87,11 @@ session_start();
                   <th>Edit</th>
                 </tr>
               </thead>
-              <tbody>
+                <tbody>
+                
+              
                   <?php
+                    echo "<div id='SearchAjax'>";
                   include_once "../Classes/User.php";
                   $User = new User;
                 $result = $User->View();
@@ -106,10 +112,8 @@ session_start();
                 echo "<td><button class='btn btn-success' type='button' onclick='shaf3y2(".$row['id'].")' name='Formbtn'>Edit User</button>";
                 
             }
-                  
-                  
-                  
-                  
+                echo "</div>";  
+ 
                   
                   ?>
                   
@@ -121,7 +125,9 @@ session_start();
                   <td>Kids Doctor</td>
                   <td>Medicine</td>
                 </tr> --->
-              </tbody>
+              
+                    
+                    </tbody>
             </table>
                   </form>
           </div>
@@ -185,6 +191,21 @@ session_start();
         };
         xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
         xmlhttp.send();}
+            function Search(x) {
+
+       if (x.length == 0) { 
+        return;
+    } else {
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("SearchAjax").innerHTML = this.responseText;
+                   
+         }
+        };
+        xmlhttp.open("GET", "ShowUserAjax.php?q=" + x, true);
+        xmlhttp.send();}}
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
