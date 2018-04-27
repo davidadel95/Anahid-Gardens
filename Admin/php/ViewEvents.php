@@ -1,3 +1,4 @@
+<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -45,9 +46,6 @@
                             </thead>
                             <tbody>
                                     <?php
-                                    require_once "dbconnect.php";
-                                    require_once "Model/EventModel.php";
-                                    require_once "Model/CommentsModel.php";
                                     $eventModel = new EventModel();
                                     $eventTypes= $eventModel->View();
                                     $commentModel = new CommentsModel();

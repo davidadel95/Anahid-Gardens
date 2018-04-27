@@ -1,5 +1,4 @@
 <?php
-  require_once "CRUD.php";
   class CarColorModel implements CRUD{
 
       public $ID;

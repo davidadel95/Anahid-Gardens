@@ -1,3 +1,4 @@
+<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -42,7 +43,6 @@
                             <select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
 																		require_once "dbconnect.php";
-                                    require_once "Model/EventTypeModel.php";
                                     $eventTypeModel = new EventTypeModel;
                                     $eventTypes= $eventTypeModel->View();
                                     for ($i=0;$i<=$eventTypes;$i++){
@@ -63,7 +63,6 @@
                         </div>
                       <?php
                       if($_POST){
-                          include_once "Model/EventTypeModel.php";
                           $eventTypeName=$_POST["eventType"];
                           $event = new EventTypeModel();
                           $event->Name = $eventTypeName;

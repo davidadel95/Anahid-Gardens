@@ -1,9 +1,5 @@
 <?php
 
-include_once("Values.php");
-//include_once("CRUD.php");
-
-//include_once("DBconnect.php");
 class RoleEav implements CRUD
 {
  

@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -80,7 +81,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="form-group">
                     <label>Course</label>
 						<?php
-							include_once "../Classes/Course.php";
 							$Course = new Course;
 							$result= $Course->View();
                             echo "<select name='courseID' class='form-control' id='courseSelector'>";

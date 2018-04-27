@@ -174,9 +174,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									$TimeTable->ClassID= $_POST['ClassID'];
 									$TimeTable->DaysID= $_POST['DaysID'];
 									$TimeTable->TimeslotsID= $_POST['TimeSlotsID'];
-									echo $_POST['TimeSlotsID'];
 									$TimeTable->Add();
-									echo "<meta http-equiv'refresh' content='0'>";
+                                    echo "<meta http-equiv='refresh' content='0'>";
 
 
 								}

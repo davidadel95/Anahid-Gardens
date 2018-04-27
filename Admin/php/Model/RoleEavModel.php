@@ -1,6 +1,4 @@
 <?php
-  require_once "../dbconnect.php";
-  require_once "CRUD.php";
   class RoleEavModel implements CRUD
   {
       public $ID;

@@ -1,3 +1,4 @@
+<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -42,8 +43,6 @@
                         <form method="post">
                             <select name="eventID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-                                    require_once "dbconnect.php";
-                                    require_once "Model/EventModel.php";
                                     $eventModel = new EventModel();
                                     $eventTypes= $eventModel->View();
                                     for ($i=0;$i<=$eventTypes;$i++){
@@ -65,8 +64,6 @@
                       <?php
                       if($_POST){
 //                          print_r($_POST);
-                          require_once "dbconnect.php";
-                          require_once "Model/CommentsModel.php";
                           $comment = new CommentsModel();
                           $comment->Value = $_POST["commentValue"];
                           $comment->EventDetailsID = $_POST["eventID"];

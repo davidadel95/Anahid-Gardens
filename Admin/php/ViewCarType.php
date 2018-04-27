@@ -1,3 +1,4 @@
+<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -41,8 +42,6 @@
                         <label>Available Car Types </label>
                             <select name="carTypeID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-                                    require_once "dbconnect.php";
-                                    require_once "Model/CarTypeModel.php";
                                     $carTypeModel = new CarTypeModel();
                                     $carTypes= $carTypeModel->View();
                                     for ($i=0; $i<=$carTypes; $i++){
@@ -77,8 +76,6 @@
                             <form method="post" name="modelForm">
                             <select name="typeID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-                                require_once "dbconnect.php";
-                                require_once "Model/CarTypeModel.php";
                                 $carTypeModel = new CarTypeModel();
                                 $carTypes= $carTypeModel->View();
                                 for ($i=0; $i<=$carTypes; $i++){
@@ -102,7 +99,6 @@
                             switch ($_POST['form']) {
                                 case "typeForm":
 //                                    echo "submitted A";
-                                    include_once "Model/CarTypeModel.php";
                                     $carTypeName=$_POST["carType"];
                                     $car = new CarTypeModel();
                                     $car->Name = $carTypeName;
@@ -112,7 +108,6 @@
 
                                 case "modelForm":
 //                                    echo "submitted B";
-                                    include_once "Model/CarTypeModel.php";
                                     $car = new CarTypeModel();
                                     $car->Name = $_POST["model"];
                                     $car->CarTypeID = $_POST["typeID"];

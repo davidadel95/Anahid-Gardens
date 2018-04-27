@@ -1,3 +1,4 @@
+<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -11,7 +12,6 @@
 <style>
 
 </style>
-
 
 </head>
 <body class="cbp-spmenu-push">
@@ -41,8 +41,6 @@
                         <label>Available Colors </label>
                             <select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-                                    require_once "dbconnect.php";
-                                    require_once "Model/CarColorModel.php";
                                     $carColorModel = new CarColorModel();
                                     $eventTypes= $carColorModel->View();
                                     for ($i=0;$i<=$eventTypes;$i++){
@@ -63,7 +61,6 @@
                         </div>
                       <?php
                       if($_POST){
-                          include_once "Model/CarColorModel.php";
                           $carColorName=$_POST["colorName"];
                           $color = new CarColorModel();
                           $color->Color = $carColorName;

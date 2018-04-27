@@ -1,7 +1,4 @@
 <?php
-    // require_once "../dbconnect.php";
-require_once "CRUD.php";
-require_once "OptionsTypeModel.php";
 class POptionsModel implements CRUD
 {
     public $ID;

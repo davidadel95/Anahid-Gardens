@@ -1,5 +1,4 @@
 <?php
-  require_once "CRUD.php";
   class CarDataModel implements CRUD{
 
       public $ID;

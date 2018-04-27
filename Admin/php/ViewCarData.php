@@ -1,3 +1,4 @@
+<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -11,7 +12,6 @@
 <style>
 
 </style>
-
 
 </head>
 <body class="cbp-spmenu-push">
@@ -43,8 +43,6 @@
                               <label>Available Car Types </label>
                               <select name="carTypeID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                   <?php
-                                  require_once "dbconnect.php";
-                                  require_once "Model/CarTypeModel.php";
                                   $carTypeModel = new CarTypeModel();
                                   $carTypes= $carTypeModel->View();
                                   for ($i=0; $i<=$carTypes; $i++){
@@ -57,8 +55,6 @@
                               <label>Available Models </label>
                               <select name="modelID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                   <?php
-                                  require_once "dbconnect.php";
-                                  require_once "Model/CarTypeModel.php";
                                   $carTypeModel = new CarTypeModel();
                                   $carTypes= $carTypeModel->viewCarModels();
                                   for ($i=0;$i<=$carTypes;$i++){
@@ -71,8 +67,6 @@
                               <label>Available Colors </label>
                               <select name="colorID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                   <?php
-                                  require_once "dbconnect.php";
-                                  require_once "Model/CarColorModel.php";
                                   $carYearModel = new CarColorModel();
                                   $eventTypes= $carYearModel->View();
                                   for ($i=0;$i<=$eventTypes;$i++){
@@ -85,8 +79,6 @@
                               <label>Model Year </label>
                               <select name="yearID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                   <?php
-                                  require_once "dbconnect.php";
-                                  require_once "Model/CarYearModel.php";
                                   $carYearModel = new CarYearModel();
                                   $carYear= $carYearModel->View();
                                   for ($i=0;$i<=$carYear;$i++){
@@ -96,17 +88,22 @@
                               </select>
                               <br>
                               <label>Driver Name </label>
-                              <select name="driverID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
+<!--                              <select name="driverID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >-->
                                   <?php
-                                  require_once "dbconnect.php";
-                                  require_once "Model/CarYearModel.php";
-                                  $carYearModel = new CarYearModel();
-                                  $carYear= $carYearModel->View();
-                                  for ($i=0;$i<=$carYear;$i++){
-                                      echo "<option value='".$carYearModel->ID[$i]."'> ".$carYearModel->Year[$i]."</option>";
+
+                                  $user = new User();
+                                  $result = $user->ViewDriver();
+
+                                  echo "<select name=\"driverID\" id=\"mySelect\" onchange=\"shaf3y(this.value)\" class=\"form-control\" >";
+                                  while($row =mysqli_fetch_array($result)){
+
+
+                                    echo "<option value='".$row['id']."'> ".$row['Value']."</option>";
                                   }
+
+                                  echo "</select>";
                                   ?>
-                              </select>
+<!--                              </select>-->
                               <br>
                               <label>Plate Nb</label>
                               <br>
@@ -118,7 +115,6 @@
                         </div>
                       <?php
                       if($_POST){
-                          include_once "Model/CarDataModel.php.php";
                           $carData = new CarDataModel();
                           $carData->TypeID = $_POST["modelID"];
                           $carData->ColorID = $_POST["colorID"];

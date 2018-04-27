@@ -1,5 +1,4 @@
 <?php
-  require_once "CRUD.php";
   class CommentsModel implements CRUD{
 
       public $ID;

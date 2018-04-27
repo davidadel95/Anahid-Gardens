@@ -26,3 +26,4 @@ interface CRUD
      */
     public function Delete();
 }
+?>
