@@ -11,9 +11,9 @@ $result = $TimeSlots->View();
 $TimeTable = new TimeTable;
 $TimeTable->ShowAvailableSlots($w,$q);
 $Names;
-
+if($TimeTable->Count>= 0){
  echo "<select name='TimeSlotsID' class='form-control'>";
- echo $TimeTable->Count;
+
  for ($i=0;$i<=$TimeTable->Count;$i++)
 	{
 		$Result= $TimeSlots->GetBeginEnd($TimeTable->AvailabeSlots[$i]);
@@ -24,7 +24,14 @@ $Names;
 	 echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
 
 	}
-	echo "</select>
+										echo "</select>
 											</div>";
+}
+else{
+				echo "<br>";
+				echo "No Available Slots";
+				echo "<br>";
+				echo "<br>";
+									}
 
     ?>

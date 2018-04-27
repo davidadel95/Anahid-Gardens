@@ -147,7 +147,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								 	$TimeTable->ShowAvailableSlots($ClassIDs[0],$DaysIds[0]);
 									$Names;
 
-									 echo "<select name='TimeSlotsID' class='form-control'>";
+									if($TimeTable->Count>=0){
+
+									echo "<select name='TimeSlotsID' class='form-control'>";
 
 									 for ($i=0;$i<=$TimeTable->Count;$i++)
 									 	{
@@ -157,11 +159,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												$Ends[$i]=$row["End"];
 											}
 
+
 											 echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
 
 										}
 										echo "</select>
                                         </div>";
+										}
+										else {
+											echo "<br>";
+											echo "No Available Slots";
+											echo "<br>";
+											echo "<br>";
+										}
 									 	?>
                 </div>
 
