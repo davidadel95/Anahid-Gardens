@@ -62,6 +62,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
             <h2>Arts</h2>
             <br/>
+            <?php
+            require_once "includes.php";
+             ?>
             <form action="" method="POST">
                 <table class="table table-hover">
                   <thead>

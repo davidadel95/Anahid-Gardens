@@ -59,12 +59,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+		<?php
+		require_once "includes.php";
+		 ?>
 		<div id="page-wrapper">
 			<div class="main-page">
 				<div class="tables">
 				<div class="table-responsive bs-example widget-shadow">
 						<h4>Children Extra Clothes:</h4>
-						<table class="table table-bordered"> 
+						<table class="table table-bordered">
 							<thead>
 								<tr>
 									<th>#</th>
@@ -73,14 +76,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<th>Big towel</th>
 									<th>Underwear</th>
 									<th>T-shirt</th>
-									<th>pantlon</th> 
+									<th>pantlon</th>
 									<th>pampers</th>
 								</tr>
-							</thead> 
+							</thead>
 							<tbody>
-								<tr> 
+								<tr>
 									<th scope="row">1</th>
-									<td>Mahmoud ElShafey</td> 
+									<td>Mahmoud ElShafey</td>
 									 <td><div class="checkboxes"><input type="checkbox"/></div></td>
 									 <td><div class="checkboxes"><input type="checkbox"/></div></td>
 									 <td><div class="checkboxes"><input type="checkbox"/></div></td>
@@ -94,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 
       	<div class="footer">
   	   <?php include("Footer.php"); ?>

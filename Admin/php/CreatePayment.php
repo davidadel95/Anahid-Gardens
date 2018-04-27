@@ -50,13 +50,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </style>
 
 <?php
-    include_once "dbconnect.php";
-    include_once "Model/POptionsModel.php";
-    include_once "Model/PaymentOptionVal.php";
-    include_once "Model/PaymentOptionsModel.php";
-    include_once "Model/OptionsTypeModel.php";
-    include_once "Model/PaymentEAVModel.php";
 
+require_once "includes.php";
+ 
     $PaymentEAVModel = new PaymentEAVModel;
     $POptionsModel = new POptionsModel;
     list($POptionArr,$OptionNames) = $POptionsModel->View();

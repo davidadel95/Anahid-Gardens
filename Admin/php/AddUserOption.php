@@ -70,7 +70,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
-						
+						<?php
+						require_once "includes.php";
+						 ?>
 
 
 
@@ -105,7 +107,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 
-				
+
         </div>
 			</div>
 		</div>

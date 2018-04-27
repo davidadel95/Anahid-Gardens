@@ -63,6 +63,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+
+		<?php
+		require_once "includes.php";
+		 ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
     <div id="page-wrapper">
@@ -78,7 +82,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="form-group">
                   <label>Course </label>
                   <?php
-										include_once "../Classes/Course.php";
+
 										$Course= new Course;
 										$result = $Course->View();
 										echo "<select name='CourseID' class='form-control'>";
@@ -94,7 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="form-group">
                   <label>Class</label>
 									<?php
-										include_once "../Classes/Classes.php";
+
 										$Classes= new Classes;
 										$result = $Classes->View();
 										echo "<select name='ClassID' id='ClassID' onchange='shaf3y2(this.value)' class='form-control'>";
@@ -114,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		                  <label>Days</label>
 		             				<?php
 
-												include_once "../Classes/Days.php";
+
 												$Days= new Days;
 												$result = $Days->View();
 												echo "<select name='DaysID' id='DayID' onchange='shaf3y(this.value)' class='form-control'>";
@@ -134,11 +138,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 									<?php
 
-									include_once "../Classes/TimeSlots.php";
+
 									$TimeSlots= new TimeSlots;
 									$result = $TimeSlots->View();
                                     echo "<div id='ajax'>" ;
-									include "../Classes/TimeTable.php";
+
 									$TimeTable = new TimeTable;
 								 	$TimeTable->ShowAvailableSlots($ClassIDs[0],$DaysIds[0]);
 									$Names;
@@ -152,7 +156,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												$Begins[$i]=$row["Begin"];
 												$Ends[$i]=$row["End"];
 											}
-											
+
 											 echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
 
 										}

@@ -45,7 +45,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script  src="../js/index1.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
 <?php
-	include "dbconnect.php";
+
+require_once "includes.php";
+
 		$db = dbconnect::getInstance();
 		$mysqli = $db->getConnection();
 	$sql_query = "SELECT * FROM Pages INNER JOIN PagesHTML ON Pages.ID = PagesHTML.PagesID WHERE Pages.Name='Contact Us' ";

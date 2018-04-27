@@ -54,6 +54,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+    <?php
+    require_once "includes.php";
+     ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -78,7 +81,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                     <tr>
                       <th scope="row">1</th>
                         <td>Youssef Alaa Eldin</td>
-                        <td>|</td>                     
+                        <td>|</td>
                       <td><div class="uriCheckbox"><input type="checkbox"/></div></td>
                       <td><div class="stoCheckbox"><input type="checkbox"/></div></td>
                       <td><div class="abnCheckbox"><input type="checkbox"/></div></td>

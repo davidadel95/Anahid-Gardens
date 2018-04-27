@@ -50,12 +50,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </style>
 
 <?php
-    include_once "dbconnect.php";
-    include_once "Model/POptionsModel.php";
-    include_once "Model/PaymentOptionVal.php";
-    include_once "Model/PaymentOptionsModel.php";
-    include_once "Model/OptionsTypeModel.php";
-    include_once "Model/PaymentEAVModel.php";
+
+require_once "includes.php";
+
 
     $PaymentEAVModel = new PaymentEAVModel;
     $POptionsModel = new POptionsModel;
@@ -71,7 +68,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         $POptionsModel->POption = $_POST['NewFieldName'];
         $POptionsModel->Change($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
         header ("Location: EditPayment.php");
-        
+
     }
 
     if (isset($_POST['changetype']))
@@ -79,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         $POptionsModel->EditType($_POST['PaymentOptionsSelector'],$_POST['TypeOfFieldSelected']);
         header ("Location: EditPayment.php");
     }
-    
+
 
 
 ?>
@@ -148,7 +145,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										{
 
 											echo "<option value='".$POptionArr[$x]."'> ".$POptionArr[$x]."</option>";
-                                            
+
 
 										}
 										?>
@@ -192,9 +189,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										{
 											echo "<option value=".$OptionsTypeModel->View()[$x]."> ".$OptionsTypeModel->View()[$x]."</option>";
 
-                                                    
+
 										}
-                                        
+
 										?>
 
 									</select>
@@ -204,7 +201,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</form>
 									</div>
 
-						
+
 
 
 

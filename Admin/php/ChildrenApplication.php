@@ -62,6 +62,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="sticky-header header-section ">
 			<?php include("Header.php"); ?>
 		</div>
+
+		<?php
+		require_once "includes.php";
+		 ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -73,10 +77,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<h4>Child information:</h4>
 						</div>
 						<div class="form-body">
-							<form> 
+							<form>
 							<div class="form-group"> <label for="exampleInputEmail1">Child's name</label> <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name"> </div>
-							<div class="form-group"> <label for="exampleInputEmail1">Last name</label> <input type="text" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>	
-							<div class="form-group"> <label for="exampleInputPassword1">Date of Birth</label> <input type="date" class="form-control" id="exampleInputPassword1" placeholder="DOB"> </div> 
+							<div class="form-group"> <label for="exampleInputEmail1">Last name</label> <input type="text" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>
+							<div class="form-group"> <label for="exampleInputPassword1">Date of Birth</label> <input type="date" class="form-control" id="exampleInputPassword1" placeholder="DOB"> </div>
 							<div class="form-group"> <label for="exampleInputEmail1">Address</label> <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Address"> </div>
 							<div class="form-group"> <label for="exampleInputFile">Child's photo</label> <input type="file" id="exampleInputFile"> </div>
 							</form>
@@ -89,14 +93,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="form-body" data-example-id="simple-form-inline">
 							<form class="form-inline">
 							<div class="form-group"> <label for="exampleInputName2">Father's Name</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Your name"> </div>
-							<div class="form-group"> <label for="exampleInputEmail2">Last name</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>														
-							<div class="form-group"> <label for="exampleInputName2">Father's Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div> 
+							<div class="form-group"> <label for="exampleInputEmail2">Last name</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>
+							<div class="form-group"> <label for="exampleInputName2">Father's Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div>
 
 							<br>
 							<br>
-							<div class="form-group"> <label for="exampleInputEmail2">profession</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="profession"> </div>							
-							<div class="form-group"> <label for="exampleInputEmail2">educational degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div> 
-							<div class="form-group"> <label for="exampleInputEmail2">Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div> 
+							<div class="form-group"> <label for="exampleInputEmail2">profession</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="profession"> </div>
+							<div class="form-group"> <label for="exampleInputEmail2">educational degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div>
+							<div class="form-group"> <label for="exampleInputEmail2">Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div>
 							</form>
 						</div>
 					</div>
@@ -107,14 +111,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="form-body" data-example-id="simple-form-inline">
 							<form class="form-inline">
 							<div class="form-group"> <label for="exampleInputName2">Mother's Name</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Your name"> </div>
-							<div class="form-group"> <label for="exampleInputEmail2">Last name</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>							
-							<div class="form-group"> <label for="exampleInputName2">Mother's Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div> 
+							<div class="form-group"> <label for="exampleInputEmail2">Last name</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>
+							<div class="form-group"> <label for="exampleInputName2">Mother's Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div>
 
 							<br>
 							<br>
-							<div class="form-group"> <label for="exampleInputEmail2">profession</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="profession"> </div>							
-							<div class="form-group"> <label for="exampleInputEmail2">educational degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div> 
-							<div class="form-group"> <label for="exampleInputEmail2">Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div> 
+							<div class="form-group"> <label for="exampleInputEmail2">profession</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="profession"> </div>
+							<div class="form-group"> <label for="exampleInputEmail2">educational degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div>
+							<div class="form-group"> <label for="exampleInputEmail2">Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div>
 							</form>
 						</div>
 						</div>
@@ -124,15 +128,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="form-body" data-example-id="simple-form-inline">
 							<form class="form-inline">
-							<div class="form-group"> <label for="exampleInputName2">Picker's Name</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Your name"> </div> 
+							<div class="form-group"> <label for="exampleInputName2">Picker's Name</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Your name"> </div>
 							<div class="form-group"> <label for="exampleInputEmail2">Last name</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>
-							<div class="form-group"> <label for="exampleInputName2">Picker's Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div> 
+							<div class="form-group"> <label for="exampleInputName2">Picker's Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div>
 
 							<br>
 							<br>
 							<div class="form-group"> <label for="exampleInputEmail2">Picker's  ID no</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="ID Number"> </div>
-							<div class="form-group"> <label for="exampleInputEmail2">Picker's relation degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div> 
-							<div class="form-group"> <label for="exampleInputEmail2">Picker's Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div> 
+							<div class="form-group"> <label for="exampleInputEmail2">Picker's relation degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div>
+							<div class="form-group"> <label for="exampleInputEmail2">Picker's Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div>
 							</form>
 						</div>
 						</div>
@@ -143,27 +147,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="form-body" data-example-id="simple-form-inline">
 							<form class="form-inline">
-						
+
 							<div class="form-group"><label for="exampleInputName2">Name</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Your name"> </div>
 							<div class="form-group"> <label for="exampleInputEmail2">Last name</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="name"> </div>
-							<div class="form-group"> <label for="exampleInputName2">Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div> 
+							<div class="form-group"> <label for="exampleInputName2">Mob.:</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Mobile number"> </div>
 
 							<br>
 							<br>
 							<div class="form-group"> <label for="exampleInputEmail2">ID no</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="ID Number"> </div>
-							<div class="form-group"> <label for="exampleInputEmail2">Relation degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div> 
-							<div class="form-group"> <label for="exampleInputEmail2">Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div> 
+							<div class="form-group"> <label for="exampleInputEmail2">Relation degree:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Degree"> </div>
+							<div class="form-group"> <label for="exampleInputEmail2">Tel.:</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="telephone"> </div>
 							</form>
 						</div>
 						</div>
 							<div class="form-two widget-shadow">
 						<div class="form-title">
-							<h4>Extra information:</h4>	
+							<h4>Extra information:</h4>
 
 						</div>
 						<div class="form-body" data-example-id="simple-form-inline">
 							<form class="form-inline">
-						
+
 							<div class="form-group"><label for="exampleInputName2">Is your child suffering from any disease?</label> <input type="text" class="form-control" id="exampleInputName2" placeholder="Name it"> </div> <br>
 							<br>
 							<div class="form-group"> <label for="exampleInputEmail2">Is your child take specific kind of medicine on daily basis?</label> <input type="email" class="form-control" id="exampleInputEmail2" placeholder="State any"> </div> <br>
@@ -180,11 +184,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</form>
 						</div>
 						</div>
-						
+
 					</div>
 					</div>
 					</div>
-					
+
 					     <div class="footer">
   	   <?php include("Footer.php"); ?>
   	</div>
@@ -223,6 +227,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Bootstrap Core JavaScript -->
    <!-- <script src="js/bootstrap.js"> </script> -->
 	<!-- //Bootstrap Core JavaScript -->
-   
+
 		</body>
 		</html>

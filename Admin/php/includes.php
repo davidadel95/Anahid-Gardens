@@ -16,6 +16,7 @@
     include_once "Model/CarYearModel.php";
     include_once "Model/Classes.php";
     include_once "Model/CommentsModel.php";
+    include_once "Model/Course.php";
     include_once "Model/CourseTimeTable.php";
     include_once "Model/CurriculumModel.php";
     include_once "Model/Days.php";

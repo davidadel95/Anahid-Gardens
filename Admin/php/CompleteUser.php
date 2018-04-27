@@ -66,6 +66,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
+				<?php
+				require_once "includes.php";
+				 ?>
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -84,8 +87,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="form-body">
             <?php
-            
-            include_once("../Classes/User.php");
+
+        
              echo "<form name = 'EAV' method ='post'>";
             $RoleEav = new RoleEav;
             $User = new User;
@@ -100,33 +103,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $Names[$i]=$row["Name"];
                     $Types[$i]=$row["Type"];
                     echo "<label>". $Names[$i]. "</label>";
-                    echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";    
+                    echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
                     echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]." '>";
                     }
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>
                     </form>";
                     if(isset($_POST['EAVbtn'])){
-                   
+
                     $j=-1;
                     while($j<$i){
                     $j++;
-                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UserID);   
+                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UserID);
                     }
                     $User->Status=1;
                     $User->ChangeStatus($UserID);
-                    
+
                     }
-            
+
             ?>
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
              </div>
-        
+
             </div>
 				</div>
 					<!--//sreen-gallery-cursual---->
@@ -135,13 +138,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
 			</div>
-		
+
 	<!--footer-->
 	<div class="footer">
 	   <?php include("Footer.php"); ?>
 	</div>
     <!--//footer-->
-	
+
 
 
 

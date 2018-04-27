@@ -59,12 +59,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+		<?php
+		require_once "includes.php";
+		 ?>
 		<div id="page-wrapper">
 			<div class="main-page">
 				<div class="tables">
 				<div class="table-responsive bs-example widget-shadow">
 						<h4>Teacher Information:</h4>
-						<table class="table table-bordered"> 
+						<table class="table table-bordered">
 							<thead>
 								<tr>
 									<th>#</th>
@@ -72,33 +75,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<th>Date Of Birth</th>
 									<th>Address</th>
 									<th> Mob</th>
-									<th>Faculty</th> 
+									<th>Faculty</th>
 									<th>Language</th>
 									<th>Expected Salary</th>
 									<th>Experience</th>
 									<th>know us</th>
 								</tr>
-							</thead> 
+							</thead>
 							<tbody>
-								<tr> 
+								<tr>
 									<th scope="row">1</th>
-									<td>Mahmoud ElShafey</td> 
+									<td>Mahmoud ElShafey</td>
 									<td>14/01</td>
-									<td>Nasr City</td> 
-									<td>***********</td> 
-									<td>Vet</td> 
+									<td>Nasr City</td>
+									<td>***********</td>
+									<td>Vet</td>
 									<td>DR</td>
 									<td>*********</td>
 									<td>Anahid Gardens</td>
 									<td>**********</td>
-									
+
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 
       	<div class="footer">
   	   <?php include("Footer.php"); ?>

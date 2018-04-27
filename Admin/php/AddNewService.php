@@ -63,6 +63,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+
+		<?php
+		require_once "includes.php";
+		 ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
     <div id="page-wrapper">

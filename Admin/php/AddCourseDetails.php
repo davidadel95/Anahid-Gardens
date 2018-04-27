@@ -51,11 +51,14 @@
     </div>
 
 		<!--left-fixed -navigation-->
-
+<?php
+require_once "includes.php";
+ ?>
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+
 		<!-- //header-ends -->
 		<!-- main content start-->
     <div id="page-wrapper">
@@ -70,8 +73,8 @@
                           <div class="form-group">
                               <label>Course </label>
                               <?php
-                              include_once "../Classes/Course.php";
-                              $Course= new Course;
+
+															$Course= new Course;
                               $result = $Course->View();
                               echo "<select name='courseID' class='form-control'>";
                               while($row =mysqli_fetch_array($result)){

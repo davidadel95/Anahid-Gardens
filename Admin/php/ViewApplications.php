@@ -6,11 +6,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
 <?php
-                    include_once("../Classes/RoleEav.php");   
-                    include_once "../Classes/RoleNameEAV.php";
-                    $RoleNameEAV = new RoleNameEAV;
-                    $RoleEav = new RoleEav;
-                    $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
+require_once "includes.php";
+$RoleNameEAV = new RoleNameEAV;
+$RoleEav = new RoleEav;
+$RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 ?>
 <html>
 <head>
@@ -85,11 +84,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
         <div class="form-body">
-			
+
 
           <form method="post" >
             <div class="form-group">
-                
+
                     <?php
                     echo "<form name = 'EAV' method ='post'>";
                     $Names;
@@ -102,7 +101,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $Names[$i]=$row["Name"];
                     $Types[$i]=$row["Type"];
                     echo "<label>". $Names[$i]. "</label>";
-                    echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";    
+                    echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
                     echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]."' required>";
                     }
                     echo "<br/>
@@ -113,12 +112,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $j=-1;
                     while($j<$i){
                     $j++;
-                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);   
-                    } 
+                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);
+                    }
                     }
             ?>
 
-         
+
           </div>
         </form>
             </div>

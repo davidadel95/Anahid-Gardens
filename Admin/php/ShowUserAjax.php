@@ -1,7 +1,9 @@
 
    <?php
                 $q = $_REQUEST["q"];
-                  include_once "../Classes/User.php";
+
+                require_once "includes.php";
+                 
              $User = new User;
                 $result = $User->Search($q);
                 $i=-1;
@@ -19,7 +21,7 @@
                     "</button>";
                     else echo "<td>".$row['Status']."</td>";
                 echo "<td><button class='btn btn-success' type='button' onclick='shaf3y2(".$row['id'].")' name='Formbtn'>Edit User</button>";
-                
+
             }
 
                   ?>

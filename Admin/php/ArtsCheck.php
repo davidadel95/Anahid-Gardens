@@ -48,6 +48,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
       <?php include("Navigationbar2.php"); ?>
     </div>
 
+    <?php
+    require_once "includes.php";
+     ?>
+
 		<!--left-fixed -navigation-->
 
 		<!-- header-starts -->

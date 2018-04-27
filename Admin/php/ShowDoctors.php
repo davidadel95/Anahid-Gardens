@@ -62,12 +62,15 @@ require_once "includes.php";
     </div>
 
 		<!--left-fixed -navigation-->
-        
+
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
-		
+    <?php
+    require_once "includes.php";
+     ?>
+
 		<div id="page-wrapper">
 			<div class="main-page">
         <div class="tables">
@@ -76,12 +79,12 @@ require_once "includes.php";
               <input type="text" class="form-control" style="height: 30px;width: 100px;margin-left:900px;" placeholder="Search..."
                      id="SearchBar" onkeyup="Search()">
               <form>
-                  
+
             <table class="table table-hover">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>First Name</th> 
+                  <th>First Name</th>
                   <th>Role</th>
                   <th>Date Added</th>
                   <th>Status</th>
@@ -89,8 +92,8 @@ require_once "includes.php";
                 </tr>
               </thead>
                 <tbody id="SearchAjax">
-                
-              
+
+
                   <?php
                     echo "<div>";
                   $User = new User;
@@ -110,13 +113,13 @@ require_once "includes.php";
                     "</button>";
                     else echo "<td>".$row['Status']."</td>";
                 echo "<td><button class='btn btn-success' type='button' onclick='shaf3y2(".$row['id'].")' name='Formbtn'>Edit User</button>";
-                
+
             }
-                echo "</div>";  
- 
-                  
+                echo "</div>";
+
+
                   ?>
-                  
+
                <!-- <tr>
                   <th scope="row">1</th>
                   <td>Mark</td>
@@ -125,8 +128,8 @@ require_once "includes.php";
                   <td>Kids Doctor</td>
                   <td>Medicine</td>
                 </tr> --->
-              
-                    
+
+
                     </tbody>
             </table>
                   </form>
@@ -200,7 +203,7 @@ require_once "includes.php";
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                  document.getElementById("SearchAjax").innerHTML = this.responseText;
-                   
+
          }
         };
         xmlhttp.open("GET", "ShowUserAjax.php?q=" + x, true);

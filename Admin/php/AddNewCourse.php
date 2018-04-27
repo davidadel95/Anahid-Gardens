@@ -55,6 +55,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php include("Navigationbar2.php"); ?>
     </div>
+		<?php
+		require_once "includes.php";
+		 ?>
 
 		<!--left-fixed -navigation-->
 
@@ -68,7 +71,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
 
 		<?php
-		include_once "../Classes/Course.php";
+		
 			if($_POST){
 					$CourseName = $_POST["CourseName"];
 					$Course = new Course;

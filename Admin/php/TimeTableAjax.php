@@ -2,11 +2,12 @@
 $q = $_REQUEST["q"];
 $w = $_REQUEST["w"];
 
-include_once "../Classes/TimeSlots.php";
+require_once "includes.php";
+
 $TimeSlots= new TimeSlots;
 $result = $TimeSlots->View();
 									echo "<div id='ajax'>" ;
-include "../Classes/TimeTable.php";
+
 $TimeTable = new TimeTable;
 $TimeTable->ShowAvailableSlots($w,$q);
 $Names;

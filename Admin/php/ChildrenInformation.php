@@ -59,12 +59,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         	<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+		<?php
+		require_once "includes.php";
+		 ?>
 		<div id="page-wrapper">
 			<div class="main-page">
 				<div class="tables">
 				<div class="table-responsive bs-example widget-shadow">
 						<h4>Children Information:</h4>
-						<table class="table table-bordered"> 
+						<table class="table table-bordered">
 							<thead>
 								<tr>
 									<th>#</th>
@@ -73,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<th>Address</th>
 									<th>Father's Name</th>
 									<th>Father's Mob</th>
-									<th>Father's profession</th> 
+									<th>Father's profession</th>
 									<th>Father's educational degree</th>
 									<th>Father's Tel.</th>
 									<th>Mother's Name</th>
@@ -97,16 +100,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<th>Date of starting</th>
 									<th>know us</th>
 								</tr>
-							</thead> 
+							</thead>
 							<tbody>
-								<tr> 
+								<tr>
 									<th scope="row">1</th>
-									<td>Mahmoud ElShafey</td> 
+									<td>Mahmoud ElShafey</td>
 									<td>14/01</td>
-									<td>Nasr City</td> 
+									<td>Nasr City</td>
 									<td>Ahmed ElShafey</td>
-									<td>***********</td> 
-									<td>Vet</td> 
+									<td>***********</td>
+									<td>Vet</td>
 									<td>DR</td>
 									<td>*********</td>
 									<td>Anahid Gardens</td>
@@ -135,7 +138,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 		<div class="footer">
   	   <?php include("Footer.php"); ?>
   	</div>

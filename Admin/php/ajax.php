@@ -1,6 +1,7 @@
 <?php
 
-include_once "../Classes/RoleNameEAV.php";
+require_once "includes.php";
+
 			$q = $_REQUEST["q"];
 			$RoleNameEAV= new RoleNameEAV;
 				$x=$RoleID = $RoleNameEAV->GetID($q);
