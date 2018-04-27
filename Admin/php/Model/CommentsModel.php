@@ -37,14 +37,15 @@
                   WHERE `EventDetailsID` = '$id'
                 ";
           $result = $mysqli->query($sql);
-          $i=-1;
 
-          while($row =mysqli_fetch_array($result)){
-              $i++;
-              $this->Value[$i]=$row['Value'];
+
+         $row =mysqli_fetch_array($result);
+
+
+                 $this->Value=$row['Value'];
           }
-          return $i;
-      }
+
+
 
       public function Delete(){
 

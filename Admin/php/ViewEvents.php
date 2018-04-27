@@ -58,12 +58,13 @@
                                         echo "<td>".$eventModel->EventTypeID[$i]."</td>";
                                         echo "<td>".$eventModel->Name[$i]."</td>";
                                         echo "<td>".$eventModel->Price[$i]."</td>";
+                                        echo "<td>".$commentModel->Value."</td>";
 
-                                        if (isset($commentModel->Value[$i])){
-                                            echo "<td>".$commentModel->Value[$i]."</td>";
-                                        }else{
-                                            echo "<td></td>";
-                                        }
+//                                        if (isset($commentModel->Value[$i])){
+//                                            echo "<td>".$commentModel->Value[$i]."</td>";
+//                                        }else{
+//                                            echo "<td></td>";
+//                                        }
 
                                         echo "</tr>";
                                         $j++;

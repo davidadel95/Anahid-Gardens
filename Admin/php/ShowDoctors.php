@@ -7,6 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <?php
 session_start();
+require_once "includes.php";
     ?>
 <html>
 <head>
@@ -92,7 +93,6 @@ session_start();
               
                   <?php
                     echo "<div>";
-                  include_once "../Classes/User.php";
                   $User = new User;
                 $result = $User->View();
                 $i=-1;

@@ -1,3 +1,4 @@
+<?php require_once "includes.php" ?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -76,7 +77,6 @@
 </html>
 
 <?php
-	include_once("../Classes/User.php");
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$username = $_POST['username'];
