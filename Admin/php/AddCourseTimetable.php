@@ -98,7 +98,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										$Classes= new Classes;
 										$result = $Classes->View();
 										echo "<select name='ClassID' id='ClassID' onchange='shaf3y2(this.value)' class='form-control'>";
+										$x=-1;
 										while($row =mysqli_fetch_array($result)){
+											$x++;
+											$ClassIDs[$x]=$row["ID"];
 											echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
 										 }
@@ -115,7 +118,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												$Days= new Days;
 												$result = $Days->View();
 												echo "<select name='DaysID' id='DayID' onchange='shaf3y(this.value)' class='form-control'>";
+												$x=-1;
 												while($row =mysqli_fetch_array($result)){
+														$x++;
+														$DaysIds[$x]=$row["ID"];
 														echo "<option value='".$row["ID"]. "'>" .$row["Name"]."</option>" ;
 
 												 }
@@ -134,23 +140,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     echo "<div id='ajax'>" ;
 									include "../Classes/TimeTable.php";
 									$TimeTable = new TimeTable;
-								 	$TimeTable->ShowAvailableSlots(1,1);
+								 	$TimeTable->ShowAvailableSlots($ClassIDs[0],$DaysIds[0]);
+									$Names;
 
-
-
-									// echo "<select name='TimeSlotsID' class='form-control'>";
-									// while($row =mysqli_fetch_array($result)){
-									// 		echo "<option value='".$row["ID"]. "'>" .$row["Begin"]. " ~ " . $row["End"] ."</option>" ;
-									//
-									//  }
-									//  echo "</select>"
-                                           
 									 echo "<select name='TimeSlotsID' class='form-control'>";
 									 echo $TimeTable->Count;
 									 for ($i=0;$i<=$TimeTable->Count;$i++)
 									 	{
-
-											 echo "<option>" .$TimeTable->AvailabeSlots[$i]."</option>" ;
+											$Result= $TimeSlots->GetBeginEnd($TimeTable->AvailabeSlots[$i]);
+											while ($row =mysqli_fetch_array($Result)){
+												$Begins[$i]=$row["Begin"];
+												$Ends[$i]=$row["End"];
+											}
+											 echo "<option>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
 
 										}
 										echo "</select>
