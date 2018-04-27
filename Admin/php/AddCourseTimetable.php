@@ -152,7 +152,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												$Begins[$i]=$row["Begin"];
 												$Ends[$i]=$row["End"];
 											}
-											 echo "<option>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
+											 echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
 
 										}
 										echo "</select>
@@ -173,7 +173,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									$TimeTable->ClassID= $_POST['ClassID'];
 									$TimeTable->DaysID= $_POST['DaysID'];
 									$TimeTable->TimeslotsID= $_POST['TimeSlotsID'];
+									echo $_POST['TimeSlotsID'];
 									$TimeTable->Add();
+									header ('Location: AddCourseTimetable.php');
 
 
 								}
