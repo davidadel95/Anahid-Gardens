@@ -191,7 +191,25 @@ class User implements CRUD
                                 return $result;
                                 
     }
+    public function ViewDriver()
+    {
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`                                                                                          
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name' And role.Name='Driver'
+                                ORDER BY UserID,OptionTypeID" ;
+        $result = $mysqli->query($sql_query);
+        return $result;
 
+    }
     /**
      * @inheritDoc
      */
