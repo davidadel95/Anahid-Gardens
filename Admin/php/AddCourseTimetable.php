@@ -144,7 +144,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									$Names;
 
 									 echo "<select name='TimeSlotsID' class='form-control'>";
-									 echo $TimeTable->Count;
+
 									 for ($i=0;$i<=$TimeTable->Count;$i++)
 									 	{
 											$Result= $TimeSlots->GetBeginEnd($TimeTable->AvailabeSlots[$i]);
@@ -152,6 +152,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												$Begins[$i]=$row["Begin"];
 												$Ends[$i]=$row["End"];
 											}
+											
 											 echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
 
 										}
@@ -175,7 +176,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									$TimeTable->TimeslotsID= $_POST['TimeSlotsID'];
 									echo $_POST['TimeSlotsID'];
 									$TimeTable->Add();
-									header ('Location: AddCourseTimetable.php');
+									echo "<meta http-equiv'refresh' content='0'>";
 
 
 								}
