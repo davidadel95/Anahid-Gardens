@@ -20,7 +20,7 @@ $Names;
 			$Begins[$i]=$row["Begin"];
 			$Ends[$i]=$row["End"];
 		}
-		 echo "<option>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
+	 echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
 
 	}
 	echo "</select>
