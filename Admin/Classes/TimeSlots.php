@@ -69,5 +69,13 @@ class TimeSlots implements CRUD
     {
 
     }
+    public function GetBeginEnd($ID){
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "Select * from timeslots where ID = $ID";
+      $result = $mysqli->query($sql_query);
+      return $result;
+
+    }
 
 }
