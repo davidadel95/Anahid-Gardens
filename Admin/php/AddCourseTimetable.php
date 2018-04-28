@@ -240,7 +240,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
          }
         };
         xmlhttp.open("GET", "TimeTableAjax.php?q=" + x +"&w=" + y, true);
-        xmlhttp.send();}
+        xmlhttp.send();
+			}
              function shaf3y2(y) {
 
         var x = document.getElementById("DayID").value;

@@ -61,7 +61,7 @@
         return $i;
       }
 
-      public function viewCarModels(){
+      public function viewCarModels($idParent){
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
 
@@ -70,15 +70,15 @@
                   = 2
                 ";
           $result = $mysqli->query($sql);
-          $i=-1;
-
-          while($row =mysqli_fetch_array($result)){
-              $i++;
-              $this->ID[$i]=$row['ID'];
-              $this->Name[$i]=$row['Name'];
-              $this->CarTypeID[$i]=$row['CarTypeID'];
-          }
-          return $i;
+//          $i=-1;
+//
+//          while($row =mysqli_fetch_array($result)){
+//              $i++;
+//              $this->ID[$i]=$row['ID'];
+//              $this->Name[$i]=$row['Name'];
+//              $this->CarTypeID[$i]=$row['CarTypeID'];
+//          }
+          return $result;
       }
 
 

@@ -15,7 +15,7 @@
         $mysqli = $db->getConnection();
 
         $sql = "INSERT INTO `cardata` (`ID`, `TypeID`, `ColorID`, `YearID`, `DriverID`, `PlateNb`) 
-                VALUES (NULL, '$this->TypeID', '$this->ColorID', '$this->YearID', '', '$this->PlateNb')
+                VALUES (NULL, '$this->TypeID', '$this->ColorID', '$this->YearID', '$this->DriverID', '$this->PlateNb')
                 ";
         $result = $mysqli->query($sql);
 
@@ -45,6 +45,23 @@
           $this->Color[$i]=$row['Color'];
         }
         return $i;
+      }
+
+      public function viewCarDetails(){
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "  SELECT `caryear`.`Year`, `carcolor`.`Color`, `cartype`.`Name`, `cartype`.`CarTypeID`, `applicationvalue`.`Value`, `cardata`.`PlateNb`
+                    FROM `cardata`,`cartype` , `carcolor`, `caryear`, `applicationvalue`
+                    WHERE `cardata`.`TypeID` = `cartype`.`ID`
+                    AND `cardata`.`ColorID` = `carcolor`.`ID`
+                    AND `cardata`.`YearID` = `caryear`.`ID`
+                    AND `cardata`.`DriverID` = `applicationvalue`.`UserID`
+                    ";
+
+          $result = $mysqli->query($sql);
+
+          return $result;
       }
 
 
