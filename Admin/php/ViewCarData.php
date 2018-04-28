@@ -54,19 +54,40 @@
                                   ?>
                               </select>
                               <br>
+                              <div id="ajax">
+                                <label>Available Models </label>
+                                 <?php
+                                    $carType = new CarTypeModel();
+//                                    echo "$carTypeModel->ID[0]";
+                                    $result = $carType->viewCarModels($carTypeModel->CarTypeID[0]);
+                                    $i = 0;
+                                    if ($result){
+                                        echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
+                                        while ($row =mysqli_fetch_array($result)){
+                                            echo "<option value='".$row['ID']."'>".$row['Name']."</option>" ;
+                                            $i++;
+                                        }
+                                        echo "</select>";
+                                    }else{
+                                        echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
+                                        echo "<option>No Available Models, please add one</option>" ;
+                                        echo "</select>";
+                                    }
 
-                              <label>Available Models </label>
-                              <select name="modelID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
-                                  <?php
+                                    echo "<br>";
+                                 ?>
+<!--                              <select name="modelID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >-->
+<!--                                  -->
+<!--
                                   $carTypeModel = new CarTypeModel();
-                                  $carTypes= $carTypeModel->viewCarModels();
-                                  for ($i=0;$i<=$carTypes;$i++){
-                                      echo "<option value='".$carTypeModel->ID[$i]."'> ".$carTypeModel->Name[$i]."</option>";
-                                  }
-                                  ?>
-                              </select>
-                              <br>
+//                                  $carTypes= $carTypeModel->viewCarModels();
+//                                  for ($i=0;$i<=$carTypes;$i++){
+//                                      echo "<option value='".$carTypeModel->ID[$i]."'> ".$carTypeModel->Name[$i]."</option>";
+//                                  }
 
+<!--                              </select>-->
+<!--                              <br>-->
+                                </div>
                               <label>Available Colors </label>
                               <select name="colorID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                   <?php
@@ -123,6 +144,7 @@
                           $carData->ColorID = $_POST["colorID"];
                           $carData->YearID = $_POST["yearID"];
                           $carData->PlateNb = $_POST["PlateNB"];
+                          $carData->DriverID = $_POST["driverID"];
                           $carData->Add();
                           echo "<meta http-equiv='refresh' content='0'>";
                       }
@@ -153,6 +175,20 @@
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
 				disableOther( 'showLeftPush' );
 			};
+			function David(x) {
+
+                var carTypeID = document.getElementById("carTypeID").value;
+
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajax").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "AjaxViewCarData.php?typeID=" + x, true);
+                xmlhttp.send();
+            }
+
 
 
 			function disableOther( button ) {
@@ -160,20 +196,7 @@
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
-
-    function shaf3y(x) {
-
-        //var x = document.getElementById("mySelect").value;
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("ajax").innerHTML = this.responseText;
-         }
-        };
-        xmlhttp.open("GET", "ajax.php?q=" + x, true);
-        xmlhttp.send();
-    }
+            
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
