@@ -36,7 +36,7 @@ class TimeSlots implements CRUD
     {
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-      $sql_query = "Insert into Class (ID,Begin,End) Values ('','$this->Begin','$this->End')";
+      $sql_query = "Insert into timeslots (ID,Begin,End) Values ('','$this->Begin','$this->End')";
       $result = $mysqli->query($sql_query);
 
     }
@@ -74,6 +74,12 @@ class TimeSlots implements CRUD
       $sql_query = "Select * from timeslots where ID = $ID";
       $result = $mysqli->query($sql_query);
       return $result;
+
+    }
+
+    public function AvailabeSlot()
+    {
+
 
     }
 
