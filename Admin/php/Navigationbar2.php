@@ -186,7 +186,7 @@
                 <li><a href="EarlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>
                </ul>
                </li>
-                
+
 
                 <!-- Forms menu -->
 <!--                <li class="treeview">-->
@@ -239,7 +239,7 @@
                       </ul></li>
                    </ul>
                  </li>
-                  
+
 
                  <!-- Applications menu -->
                   <li class="treeview">
@@ -266,6 +266,8 @@
 
                   <li><a href="AddCourseTimetable.php"><i class="fa fa-angle-right"></i>Add Class TimeTable</a></li>
                   <li><a href="#.php"><i class="fa fa-angle-right"></i>View TimeTable </a></li>
+                  <li><a href="AddTimeSlots.php"><i class="fa fa-angle-right"></i>Add Time Slots</a></li>
+                  <li><a href="DeleteTimeSlot.php"><i class="fa fa-angle-right"></i>Delete Time Slot</a></li>
                   </ul>
                   </li>
 

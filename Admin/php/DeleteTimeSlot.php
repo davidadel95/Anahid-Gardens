@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Add New Time Slot</title>
+<title>Delete Time Slot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -60,6 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<?php
 		require_once "includes.php";
 		 ?>
+
 		<!--left-fixed -navigation-->
 
 		<!-- header-starts -->
@@ -77,12 +78,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="charts">
 			<div class="mid-content-top charts-grids">
 				<div class="middle-content">
-						<form name="NewClass" method="post">
-								Begin Time
-								  <input name="BeginTime" type="time" class="form-control" placeholder="eg: Smith">
-									<br>
-									End Time
-										<input name="EndTime" type="time" class="form-control" placeholder="eg: Smith">
+						<form name="DeleteTimeSlot" method="post">
+								Time Slots
+
+							<?
+							  $TimeSlots = new TimeSlots;
+							  $result = $TimeSlots->View();
+								if($result){
+								$x=-1;
+								echo '<select name="TimeSlotId" class="form-control">';
+								while ($row=mysqli_fetch_array($result)){
+											echo "<option  value='".$row["ID"]."'>" .$row["Begin"] ."~". $row["End"] ."</option>" ;
+
+									}
+									echo '</select>';
+								}
+								?>
 										<br>
 									<input type="submit">
           </form>
@@ -92,24 +103,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 
 		<?php
-		if($_POST){
-			$TimeSlots = new TimeSlots;
-			$TimeSlots->Begin =$_POST["BeginTime"];
-			$TimeSlots->End=$_POST["EndTime"];
-			$Diffrence= strtotime($TimeSlots->End)-strtotime($TimeSlots->Begin);
-			if($Diffrence<=0){
-				echo "<label style='color : RED;'> End Time is smaller than Begin Time </label> ";
+			if($_POST){
+
+				$TimeSlots->DeletedID=$_POST["TimeSlotId"];
+				$TimeSlots->Delete();
+				echo "<meta http-equiv='refresh' content='0'>";
 			}
-			else{
-				$TimeSlots->Add();
-			}
-			// $Diffrence= $Diffrence/60;
-			// echo $Diffrence
-
-
-
-		}
-
 		 ?>
 
 

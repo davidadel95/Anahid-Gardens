@@ -81,4 +81,12 @@ class CourseTimeTable implements CRUD
 
     }
 
+    public function GetSpecificTimeSlot($id)
+    {$db = dbconnect::getInstance();
+    $mysqli = $db->getConnection();
+    $sql_query = "Select * from coursetimetable where TimeslotsID =$id";
+    $result = $mysqli->query($sql_query);
+    return $result;
+    }
+
 }
