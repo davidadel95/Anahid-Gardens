@@ -53,9 +53,12 @@ class RoleEav implements CRUD
      */
     public function Edit()
     {
-        // TODO: implement here
+        
     }
-
+    public function EditRecord($Record)
+    {
+        
+    }
     /**
      * @inheritDoc
      */

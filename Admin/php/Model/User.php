@@ -104,8 +104,21 @@ class User implements CRUD
      * @param void $$User
      */
     public function viewAnotherUserInfo($User)
-    {
-        // TODO: implement here
+    {   $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+       $sql_query = " SELECT role.Name,applicationoptions.name,applicationvalue.Value,user.RoleID
+                                FROM `applicationoptions`
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where user.id = ".$User."
+                                ORDER BY UserID,OptionTypeID";
+                            $result = $mysqli->query($sql_query);
+                                return $result;
     }
 
     /**
