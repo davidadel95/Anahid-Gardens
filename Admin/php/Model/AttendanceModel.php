@@ -27,6 +27,15 @@
 
         }
 
+        public function showAttendanceByDate($date){
+            $db = dbconnect::getInstance();
+            $mysqli = $db->getConnection();
+            $sql_query = "SELECT * FROM `attendance`
+                          WHERE `attendance`.`Date` LIKE \"%$date%\"
+                          ";
+            $result = $mysqli->query($sql_query);
+            return $result;
+        }
         public function Delete(){
 
         }
