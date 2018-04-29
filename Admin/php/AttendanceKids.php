@@ -72,7 +72,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Name of the class:</h4>
+              <?php
+                $classID = $_REQUEST['id'];
+                $class = new Classes();
+                $className = $class->getClassName($classID);
+              ?>
+            <h4>Name of the class: <?php echo "$className"; ?></h4>
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -84,29 +89,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               </thead>
               <tbody>
                 <form name ="Attendence" method="Post">
-                  <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td><input type="checkbox"></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td><input type="checkbox"></td>
-                </tr>
+                    <?php
+                    $students = new StudentClass();
+                    $result = $students->ViewSpecificClass($classID);
+                    $i=1;
+                    $user = new User;
 
+                    while($row =mysqli_fetch_array($result)){
+                        $userResult = $user->ViewChildForClass($row['UserID']);
+                        while($userRow =mysqli_fetch_array($userResult)){
+                            echo "<tr>";
+                            echo "<th>$i</th>";
+                            echo "<td>".$userRow['Value']."</td>";
+                            echo "<td></td>";
+                            echo "<td><input type=\"checkbox\"></td>";
+                            echo "</tr>";
+                            $i++;
+                        }
+                    }
+                    ?>
+                </form>
               </tbody>
             </table>
-        <button type="submit" class="btn btn-success">Submit</button>
-          </form>
+            <button type="submit" class="btn btn-success" form="Attendance">Submit</button>
           </div>
         </div>
 			</div>

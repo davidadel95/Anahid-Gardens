@@ -63,6 +63,24 @@ class Classes implements CRUD
 
     }
 
+    public function getClassName($classID){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql = "SELECT *
+                      FROM `class`
+                      WHERE `ID` = $classID
+                      ";
+        $result = $mysqli->query($sql);
+        $i=-1;
+
+        while($row =mysqli_fetch_array($result)){
+            $i++;
+            $this->ID[$i]=$row['ID'];
+            $this->Name[$i]=$row['Name'];
+        }
+        return $this->Name[0];
+    }
+
 
     // public function GetID($name){
     //
