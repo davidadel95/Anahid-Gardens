@@ -98,11 +98,32 @@ $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
                     while($row =mysqli_fetch_array($result)){
                     $i++;
                     echo "<br />";
-                    $Names[$i]=$row["Name"];
-                    $Types[$i]=$row["Type"];
-                    echo "<label>". $Names[$i]. "</label>";
+
+                    if(!strcmp($row["Type"],"radio")){
+                        echo "<label>". $row["Name"]. "</label><br/>";
+                        echo "<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
+                       
+                        $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
+                        $Name =mysqli_fetch_array($NameResult);
+                        $SizeResult = $RoleEav->SizeOfRadio($row['Name']);
+                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";
+                        $Size=mysqli_num_rows($SizeResult);
+                        
+                        for($x=1;$x<$Size;$x++){
+                        $row = mysqli_fetch_array($result);
+                        $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
+                        $Name =mysqli_fetch_array($NameResult);
+                        $SizeResult = $RoleEav->SizeOfRadio($row['Type']);
+                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";}
+                    }
+                        elseif(!strcmp($row["Type"],"select")){
+                            
+                        }
+                        else{
+                    echo "<label>". $row["Name"]. "</label>";
                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                    echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]."' required>";
+                    echo "<input type='".$row["Type"]."' name='value".$i."' class='form-control' placeholder='".$row["Type"]."' required>";
+                    }
                     }
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>

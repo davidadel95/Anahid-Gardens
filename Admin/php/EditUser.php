@@ -84,7 +84,7 @@ header ('Location: EditUser.php');
       <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
         <div class="form-title">
-          <h4>New Application
+          <h4>Edit User
         </h4>
 
         </div>

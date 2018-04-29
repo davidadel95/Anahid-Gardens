@@ -71,8 +71,25 @@ class RoleEav implements CRUD
     {
          $db = dbconnect::getInstance();
              $mysqli = $db->getConnection();
-             $sql_query = "SELECT application.ID,RoleID,ApplicationOptionID,isVisible,applicationoptions.Name,applicationoptions.OptionTypeID,optionstypes.Type FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
+             $sql_query = "SELECT application.ID,RoleID,ApplicationOptionID,isVisible,applicationoptions.Name,applicationoptions.OptionTypeID,optionstypes.Type,application.GroupID FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
 			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$this->RoleID."' And isVisible = 1 order by application.ID" ;
+            $result = $mysqli->query($sql_query);
+          return $result;
+    }
+    
+     public function ShowGroupName($GroupID){
+         $db = dbconnect::getInstance();
+             $mysqli = $db->getConnection();
+             $sql_query = "SELECT * FROM applicationgroup where ApplicationGroupID = ".$GroupID ;
+            $result = $mysqli->query($sql_query);
+          return $result;
+         
+     }
+    public function SizeOfRadio($RadioName){
+        $db = dbconnect::getInstance();
+             $mysqli = $db->getConnection();
+             $sql_query = "SELECT application.ID,RoleID,ApplicationOptionID,isVisible,applicationoptions.Name,applicationoptions.OptionTypeID,optionstypes.Type,application.GroupID FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
+			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$this->RoleID."' And isVisible = 1 AND applicationoptions.Name = '".$RadioName."' order by application.ID" ;
             $result = $mysqli->query($sql_query);
           return $result;
     }
@@ -85,6 +102,7 @@ class RoleEav implements CRUD
             $result = $mysqli->query($sql_query);
           return $result;
     }
+    
 
     /**
      * @inheritDoc
