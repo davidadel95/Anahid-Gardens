@@ -100,7 +100,7 @@ $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
                     echo "<br />";
 
                     if(!strcmp($row["Type"],"radio")){
-                        echo "<label>". $row["Name"]. "</label><br/>";
+                        echo "<label>". $row["Name"]. " :</label><br/>";
                         echo "<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
                        
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
@@ -113,10 +113,26 @@ $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
                         $row = mysqli_fetch_array($result);
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
                         $Name =mysqli_fetch_array($NameResult);
-                        $SizeResult = $RoleEav->SizeOfRadio($row['Type']);
                         echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";}
                     }
                         elseif(!strcmp($row["Type"],"select")){
+                             echo "<label>". $row["Name"]. " :</label><br/>";
+                            echo "<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
+                            $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
+                            $Name =mysqli_fetch_array($NameResult);
+                            $SizeResult = $RoleEav->SizeOfRadio($row['Name']);
+                            $Size=mysqli_num_rows($SizeResult);
+                            echo"<select name='value".$i."'>";
+                            echo"<option value=".$Name['ApplicationGroupName'].">".$Name['ApplicationGroupName']."</option>";
+                            for($x=1;$x<$Size;$x++){
+                        $row = mysqli_fetch_array($result);
+                        $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
+                        $Name =mysqli_fetch_array($NameResult);
+                        echo"<option value=".$Name['ApplicationGroupName'].">".$Name['ApplicationGroupName']."</option>";
+                       }
+                    
+                            echo"</select>
+                            <br/>";
                             
                         }
                         else{
