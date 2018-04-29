@@ -7,9 +7,10 @@ $Roles = new RoleNameEAV;
 $Role = new RoleEAV;
 
 if(isset($_POST['Valuebtn'])){
+    if($_POST['Value']){
 $Role->EditRecord($_POST['Value'],$_POST['ApplicationID'],$UserID);
 header ('Location: EditUser.php');                        
-}
+}}
 /*if(isset($_POST['Rolebtn'])){
 $User->ChangeRole($_POST['RoleID'],$UserID);
 header ('Location: EditUser.php');                        
@@ -109,7 +110,11 @@ header ('Location: EditUser.php');
                     echo "<label>". $Names[$i]. "</label>";
                     echo "<br />";
                     echo"<input type='hidden' name='ApplicationID' value='".$row["ApplicationID"]."'>";
-                    echo "<input style='display: inline;width: 200px;' type='text' name='Value' class='form-control' value=".$row['Value']." required>";
+                    if(strcmp($Names[$i],'password')){
+                    echo "<input style='display: inline;width: 200px;' type='text' name='Value' class='form-control' value=".$row['Value']." required>";}
+                        else{
+                          echo  "<input style='display: inline;width: 200px;' type='text' name='Value' class='form-control' placeholder='Enter new password' required>";
+                        }
                         echo "
                     <input style='display: inline;' type='submit' class='btn btn-success'value='Edit' name='Valuebtn'>
                     </form>";
