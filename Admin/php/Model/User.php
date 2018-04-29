@@ -99,6 +99,13 @@ class User implements CRUD
      $sql_query = "UPDATE `user` SET `StatusID` = '".$this->Status."' WHERE `user`.`ID` = '".$UserID."'";
         $result = $mysqli->query($sql_query);
     }
+     public function ChangeRole($RoleID,$UserID){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+         
+     $sql_query = "UPDATE user SET RoleID = '".$RoleID."' WHERE ID = '".$UserID."'";
+        $result = $mysqli->query($sql_query);
+    }
 
     /**
      * @param void $$User
@@ -106,7 +113,7 @@ class User implements CRUD
     public function viewAnotherUserInfo($User)
     {   $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-       $sql_query = " SELECT role.Name,applicationoptions.name,applicationvalue.Value,user.RoleID
+       $sql_query = " SELECT role.Name,applicationoptions.name,applicationvalue.Value,user.RoleID,applicationvalue.ApplicationID
                                 FROM `applicationoptions`
                                 INNER JOIN `application`
                                 ON applicationoptions.ID = application.ApplicationOptionID

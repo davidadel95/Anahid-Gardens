@@ -4,7 +4,16 @@ require_once "includes.php";
 $UserID = $_SESSION['CompleteID'];
 $User = new User;
 $Roles = new RoleNameEAV;
+$Role = new RoleEAV;
 
+if(isset($_POST['Valuebtn'])){
+$Role->EditRecord($_POST['Value'],$_POST['ApplicationID'],$UserID);
+header ('Location: EditUser.php');                        
+}
+/*if(isset($_POST['Rolebtn'])){
+$User->ChangeRole($_POST['RoleID'],$UserID);
+header ('Location: EditUser.php');                        
+}*/
 ?>
 <html>
 <head>
@@ -99,33 +108,29 @@ $Roles = new RoleNameEAV;
                     echo "<form name = 'EAV' method ='post'>";
                     echo "<label>". $Names[$i]. "</label>";
                     echo "<br />";
-                    echo "<input style='display: inline;width: 200px;' type='text' name='value' class='form-control' value=".$row['Value']." required>";
+                    echo"<input type='hidden' name='ApplicationID' value='".$row["ApplicationID"]."'>";
+                    echo "<input style='display: inline;width: 200px;' type='text' name='Value' class='form-control' value=".$row['Value']." required>";
                         echo "
                     <input style='display: inline;' type='submit' class='btn btn-success'value='Edit' name='Valuebtn'>
                     </form>";
                     }
-                    $result = $User->viewAnotherUserInfo($UserID);
-                    $row =mysqli_fetch_array($result);
-                    echo"<select style='width: 200px;' name='value'>
-                        <option value='".$row['RoleID']."'>".$row['Name']."</option>";
-               
-                    $result= $Roles->ViewMinusRole($row['Name']);
-                while($row =mysqli_fetch_array($result))
-                    echo "<option value='".$row['RoleID']."'>".$row['Name']."</option>";
+                   /* $UserRoleID = $User->GetRoleID($UserID);
+                    $RoleName = $Roles->GetRoleName($UserRoleID);
+                    
+                    echo"<select style='width: 200px;' name='RoleID'>
+                        <option value='".$UserRoleID."'>".$RoleName."</option>";
+                            $result= $Roles->ViewMinusRole($RoleName);
                 
-                    echo"</select>";
-                echo "
-                    <input style='display: inline;' type='submit' class='btn btn-success'value='Edit' name='Rolebtn'>
-                    </form>";
-                   
-                    if(isset($_POST['Valuebtn'])){
-                   
-                    $j=-1;
-                    while($j<$i){
-                    $j++;
-                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);
-                    }
-                    }
+                     while($row =mysqli_fetch_array($result))
+                         echo "<option value='".$row['ID']."'>".$row['Name']."</option>";
+                
+                    echo"</select>
+                        <input style='display: inline;' type='submit' class='btn btn-success'value='Edit' name='Rolebtn'>
+                        </form>";*/
+                
+ 
+                    
+                    
             ?>
 
 
