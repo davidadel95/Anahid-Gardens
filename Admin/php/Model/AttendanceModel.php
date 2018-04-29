@@ -37,11 +37,13 @@
             $row =mysqli_fetch_array($result);
             $childRoleID =$row['ID'];
 
-            $sql_query = "SELECT * FROM `attendance`, `user`
-                          WHERE `attendance`.`Date` LIKE \"%$date%\"
-                          AND `attendance`.`UserID` = user.ID
-                          AND `user`.`RoleID` = $childRoleID
-                          AND `Attended` = 1
+            $sql_query = "SELECT `attendance`.`Date`, `attendance`.`Attended`, `applicationvalue`.`Value`, `attendance`.`ID` 
+                            FROM `attendance`, `user`, `applicationvalue`
+                            WHERE `attendance`.`Date` LIKE '%$date%'
+                            AND `attendance`.`UserID` = user.ID
+                            AND `user`.`RoleID` = 2
+                            AND `Attended` = 1
+                            AND `applicationvalue`.`UserID` = `attendance`.`UserID`
                           ";
             $result = $mysqli->query($sql_query);
             $i=-1;
@@ -49,7 +51,7 @@
             while($row =mysqli_fetch_array($result)){
                 $i++;
                 $this->ID[$i]=$row['ID'];
-                $this->UserID[$i]=$row['UserID'];
+                $this->UserID[$i]=$row['Value'];
                 $this->Date[$i]=$row['Date'];
                 $this->Attended[$i]=$row['Attended'];
             }
