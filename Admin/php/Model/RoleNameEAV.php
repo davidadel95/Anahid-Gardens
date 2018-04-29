@@ -47,10 +47,26 @@ class RoleNameEAV implements CRUD
     {
         // TODO: implement here
     }
-
-    /**
-     * @inheritDoc
-     */
+    
+    public function ViewMinusRole($RoleName)
+    {
+        $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query = "SELECT * FROM Role
+          Where Name <>'".$RoleName."'";
+        $result = $mysqli->query($sql_query);
+        return $result;
+    }
+   public function GetRoleName($RoleID){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query = "select * from Role where ID=".$RoleID;
+       $result = $mysqli->query($sql_query);
+        $row=mysqli_fetch_array($result);
+        return $row['Name'];
+    }
+    
+    
     public function View()
     {
 

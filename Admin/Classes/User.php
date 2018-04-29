@@ -19,6 +19,7 @@ class User implements CRUD
         $row=mysqli_fetch_array($result);
         return $row['RoleID'];
     }
+    
 
     public function addDriverCar($User, $Car)
     {
@@ -100,6 +101,7 @@ class User implements CRUD
      $sql_query = "UPDATE `user` SET `StatusID` = '".$this->Status."' WHERE `user`.`ID` = '".$UserID."'";
         $result = $mysqli->query($sql_query);
     }
+   
 
     /**
      * @param void $$User

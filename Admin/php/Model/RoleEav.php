@@ -53,9 +53,17 @@ class RoleEav implements CRUD
      */
     public function Edit()
     {
-        // TODO: implement here
+        
     }
-
+    public function EditRecord($Record,$ApplicationID,$UserID)
+    {
+       $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+         $sql_query = " UPDATE applicationvalue
+            SET value = '".$Record."'
+            WHERE applicationvalue.ApplicationID = '".$ApplicationID."' AND applicationvalue.UserID = '".$UserID."' ";
+            $result = $mysqli->query($sql_query);
+    }
     /**
      * @inheritDoc
      */
