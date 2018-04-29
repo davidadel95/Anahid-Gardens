@@ -54,18 +54,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body class="cbp-spmenu-push">
 <?php
-<<<<<<< HEAD
+
 include_once "../Classes/AttributeType.php";
 include_once "../Classes/Attribute.php";
 include_once "../Classes/RoleAttributes.php";
 include_once "../Classes/Page.php";
 include_once "../Classes/RoleNameEAV.php";
     
-=======
+
 
 require_once "includes.php";
 
->>>>>>> 9462966331ee39c95199f6eb37ffd689b9ea43c6
 
 $AttributeType=new AttributeType;
 $RoleNameEAV= new RoleNameEAV;
