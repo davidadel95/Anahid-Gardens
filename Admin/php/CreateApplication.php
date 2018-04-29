@@ -50,9 +50,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </style>
 
 <?php
-
-require_once "includes.php";
- 
+include_once "../Classes/AttributeType.php";
+include_once "../Classes/Attribute.php";
+include_once "../Classes/RoleAttributes.php";
+include_once "../Classes/Page.php";
+include_once "../Classes/RoleNameEAV.php";
+    
 
 $AttributeType=new AttributeType;
 $RoleNameEAV= new RoleNameEAV;
