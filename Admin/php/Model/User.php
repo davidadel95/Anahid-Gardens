@@ -47,7 +47,7 @@ class User implements CRUD
 
 
         while($rows= mysqli_fetch_array($result)){
-            array_push($login,$rows['Value']);   
+            array_push($login,$rows['Value']);
         }
 
         for($i=0;$i<sizeof($login);$i=$i+2){
@@ -93,7 +93,7 @@ class User implements CRUD
      * @param void $$User
      */
      public function ChangeStatus($UserID){
-         
+
         $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
      $sql_query = "UPDATE `user` SET `StatusID` = '".$this->Status."' WHERE `user`.`ID` = '".$UserID."'";
@@ -148,7 +148,7 @@ class User implements CRUD
         $db = dbconnect::getInstance();
                   $mysqli = $db->getConnection();
                    $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
-                                FROM `applicationoptions`                                                                                          
+                                FROM `applicationoptions`
                                 INNER JOIN `application`
                                 ON applicationoptions.ID = application.ApplicationOptionID
                                 INNER JOIN `applicationvalue`
@@ -160,14 +160,14 @@ class User implements CRUD
                                 ORDER BY UserID,OptionTypeID" ;
                                 $result = $mysqli->query($sql_query);
                                 return $result;
-                                
+
     }
     public function ViewDriver()
     {
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
         $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
-                                FROM `applicationoptions`                                                                                          
+                                FROM `applicationoptions`
                                 INNER JOIN `application`
                                 ON applicationoptions.ID = application.ApplicationOptionID
                                 INNER JOIN `applicationvalue`
@@ -181,6 +181,31 @@ class User implements CRUD
         return $result;
 
     }
+
+    public function ViewChild()
+    {
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT * from role where Name = 'Child'" ;
+        $result = $mysqli->query($sql_query);
+        $row =mysqli_fetch_array($result);
+        $RoleID =$row['ID'];
+
+        $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name' And role.ID=$RoleID
+                                ORDER BY UserID,OptionTypeID " ;
+        $result = $mysqli->query($sql_query);
+        return $result;
+
+    }
     /**
      * @inheritDoc
      */
@@ -189,11 +214,11 @@ class User implements CRUD
         // TODO: implement here
     }
      public function Search($Query)
-    {   
+    {
         $db = dbconnect::getInstance();
                   $mysqli = $db->getConnection();
                    $sql_query = " SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
-                                FROM `applicationoptions`                                                                                          
+                                FROM `applicationoptions`
                                 INNER JOIN `application`
                                 ON applicationoptions.ID = application.ApplicationOptionID
                                 INNER JOIN `applicationvalue`
@@ -201,12 +226,31 @@ class User implements CRUD
                                 INNER JOIN user ON user.ID = applicationvalue.UserID
                                 INNER JOIN userstatus ON userstatus.ID = user.StatusID
                                 INNER JOIN role ON user.RoleID = role.ID
-                                where applicationoptions.Name ='name' 
-                                AND (userstatus.Status LIKE '%".$Query."%' 
-                                OR role.Name LIKE '%".$Query."%' 
+                                where applicationoptions.Name ='name'
+                                AND (userstatus.Status LIKE '%".$Query."%'
+                                OR role.Name LIKE '%".$Query."%'
                                 OR applicationvalue.Value LIKE '%".$Query."%')
                                 ORDER BY UserID,OptionTypeID";
                                 $result = $mysqli->query($sql_query);
                                 return $result;
+    }
+
+
+    public function GetNameOfChild($ID){
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "  SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name' And user.ID=$ID
+                                ORDER BY UserID,OptionTypeID";
+      $result = $mysqli->query($sql_query);
+      return $result;
     }
 }

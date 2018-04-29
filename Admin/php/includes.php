@@ -34,6 +34,7 @@
     include_once "Model/RoleEav.php";
     include_once "Model/RoleEavModel.php";
     include_once "Model/RoleNameEAV.php";
+    include_once "Model/StudentClass.php";
     include_once "Model/TimeSlots.php";
     include_once "Model/TimeTable.php";
     include_once "Model/User.php";
