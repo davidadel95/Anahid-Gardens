@@ -2,7 +2,7 @@
 $q = $_REQUEST["q"];
 $w = $_REQUEST["w"];
 
-// require_once "includes.php";
+
 require_once "Model/CRUD.php";
 require_once "Model/TimeSlots.php";
 require_once "Model/TimeTable.php";

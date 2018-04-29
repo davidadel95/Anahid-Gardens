@@ -258,6 +258,7 @@
 
 
 
+
                   <li class="treeview">
                    <a href="#">
                   <i class="fa fa-child"></i>
@@ -267,7 +268,7 @@
                   <ul class="treeview-menu">
 
                   <li><a href="AddCourseTimetable.php"><i class="fa fa-angle-right"></i>Add Class TimeTable</a></li>
-                  <li><a href="#.php"><i class="fa fa-angle-right"></i>View TimeTable </a></li>
+                  <li><a href="ViewClassesSchedules.php"><i class="fa fa-angle-right"></i>View TimeTable </a></li>
                   <li><a href="AddTimeSlots.php"><i class="fa fa-angle-right"></i>Add Time Slots</a></li>
                   <li><a href="DeleteTimeSlot.php"><i class="fa fa-angle-right"></i>Delete Time Slot</a></li>
                   </ul>
