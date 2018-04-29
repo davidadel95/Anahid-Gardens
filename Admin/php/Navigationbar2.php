@@ -283,6 +283,7 @@
                    <ul class="treeview-menu">
                        <li><a href="AddNewCourse.php"><i class="fa fa-angle-right"></i>Add New Course</a></li>
                        <li><a href="AddCourseDetails.php"><i class="fa fa-angle-right"></i>Add Course Details</a></li>
+                       <li><a href="AddStudentClass.php"><i class="fa fa-angle-right"></i>Add student to class </a></li>
                        <li><a href="ViewCourses.php"><i class="fa fa-angle-right"></i>Show Course </a></li>
                    </ul>
                    </li>
