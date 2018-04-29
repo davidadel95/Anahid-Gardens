@@ -8,6 +8,7 @@
 
     include_once "dbconnect.php";
     include_once "Model/CRUD.php";
+    include_once "Model/AttendanceModel.php";
     include_once "Model/Attribute.php";
     include_once "Model/AttributeType.php";
     include_once "Model/CarColorModel.php";

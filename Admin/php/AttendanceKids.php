@@ -76,7 +76,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $classID = $_REQUEST['id'];
                 $class = new Classes();
                 $className = $class->getClassName($classID);
+//                date_default_timezone_set('Africa/Cairo');
+                $date = date('Y/m/d H:i:s', time())
               ?>
+              <h4>Date: <strong><?php echo $date; ?></strong></h4>
             <h4>Name of the class: <?php echo "$className"; ?></h4>
             <table class="table table-hover">
               <thead>
@@ -88,7 +91,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </tr>
               </thead>
               <tbody>
-                <form name ="Attendence" method="Post">
+                <form name ="Attendence" method="post">
                     <?php
                     $students = new StudentClass();
                     $result = $students->ViewSpecificClass($classID);
@@ -102,16 +105,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             echo "<th>$i</th>";
                             echo "<td>".$userRow['Value']."</td>";
                             echo "<td></td>";
-                            echo "<td><input type=\"checkbox\"></td>";
+                            echo "<td><input type=\"checkbox\" name=\"attendee[]\" id='attendee' value=".$userRow['id']."></td>";
                             echo "</tr>";
                             $i++;
                         }
                     }
                     ?>
-                </form>
+
               </tbody>
             </table>
-            <button type="submit" class="btn btn-success" form="Attendance">Submit</button>
+              <input type="submit" class="btn btn-success">
+              </form>
+              <?php
+                  if (isset($_POST['attendee'])) {
+                      $student = $_POST['attendee'];
+                      $attendance = new AttendanceModel();
+//                      echo "The following users attended <br>";
+                      foreach ($student as $attended){
+//                          echo $attended."<br />";
+                          $attendance->UserID = $attended;
+                          $attendance->Date = $date;
+                          $attendance->Attended = 1;
+                          $attendance->Add();
+                      }
+                  }
+              ?>
           </div>
         </div>
 			</div>

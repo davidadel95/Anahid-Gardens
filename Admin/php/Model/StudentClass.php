@@ -132,7 +132,9 @@ class StudentClass implements CRUD
     {
        $db = dbconnect::getInstance();
      $mysqli = $db->getConnection();
-     $sql_query = "SELECT * FROM userclasscourse WHERE ClassID=$ClassID";
+     $sql_query = "SELECT * 
+                    FROM userclasscourse 
+                    WHERE ClassID=$ClassID";
      $result = $mysqli->query($sql_query);
      return $result;
     }
