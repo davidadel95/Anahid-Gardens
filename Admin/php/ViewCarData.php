@@ -1,4 +1,3 @@
-<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -15,6 +14,7 @@
 
 </head>
 <body class="cbp-spmenu-push">
+    <?php require_once "includes.php"; ?>
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php include("Navigationbar2.php"); ?>
