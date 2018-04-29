@@ -90,20 +90,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                  <tbody>
                      <?php
                      if (isset($_POST['dateChosen'])){
-//                         echo $_POST['dateChosen'];
-                         $attendance = new AttendanceModel();
-                         $result = $attendance->showAttendanceByDate($_POST['dateChosen']);
-                         $i=1;
+                         if ($_POST['dateChosen'] != null){
+                             $attendance = new AttendanceModel();
+                             $result = $attendance->showAttendanceByDate($_POST['dateChosen']);
+                             //number of students returned from db
+//                             $row =mysqli_fetch_array($result);
+                             $j = 1;
 
-                         while($row =mysqli_fetch_array($result)){
-                                 echo "<tr>";
-                                 echo "<th>$i</th>";
-                                 echo "<td>".$row['UserID']."</td>";
-                                 echo "<td>".$row['Date']."</td>";
-                                 echo "<td>".$row['Attended']."</td>";
-                                 echo "</tr>";
-                                 $i++;
+                             if ($result == 0){
+                                 echo "<tr><h4 style='color: red'><strong>No students in this date</strong></h4></tr>";
+                             }else{
+                                 $i=1;
+                                 for ($i=0;$i<=$result;$i++){
+                                     echo "<tr>";
+                                     echo "<th>".$j."</th>";
+                                     echo "<td>".$attendance->UserID[$i]."</td>";
+                                     echo "<td>".$attendance->Date[$i]."</td>";
+                                     echo "<td>".$attendance->Attended[$i]."</td>";
+                                     echo "</tr>";
+                                     $j++;
+                                 }
+                             }
+                         }else{
+                             echo "<h4 style='color: red'><strong>Please enter the date</strong></h4>";
                          }
+                     }else{
+                         echo "<h4 style='color: red'><strong>Please enter the date</strong></h4>";
                      }
                      ?>
                  </tbody>
