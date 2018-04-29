@@ -44,37 +44,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="../js/custom.js"></script>
 <script  src="../js/index1.js"></script>
 <link href="../css/custom.css" rel="stylesheet">
-<?php
-
-require_once "includes.php";
-
-		$db = dbconnect::getInstance();
-		$mysqli = $db->getConnection();
-	$sql_query = "SELECT * FROM Pages INNER JOIN PagesHTML ON Pages.ID = PagesHTML.PagesID WHERE Pages.Name='Contact Us' ";
-	$result = $mysqli->query($sql_query);
-	if($row=mysqli_fetch_array($result)){
-		$html = $row["HTML"];
-		$id=$row["PagesID"];
-	}
-	if($_POST)
-	{
-			$NewHtml=$_POST["newhtml"];
-			// $NewHtml = trim($NewHtml);
-			// $NewHtml = stripslashes($NewHtml);
-			// $NewHtml = htmlspecialchars($NewHtml);
-			$sql_query = "UPDATE PagesHTML
-			SET HTML = '$NewHtml'
-			WHERE PagesID='$id';";
-			$result = $mysqli->query($sql_query);
-			header('Location: Dashboard.php');
-			exit();
-	}
-
-?>
 
 
 </head>
 <body class="cbp-spmenu-push">
+<?php require_once "includes.php"; ?>
+<?php
+
+
+$db = dbconnect::getInstance();
+$mysqli = $db->getConnection();
+$sql_query = "SELECT * FROM Pages INNER JOIN PagesHTML ON Pages.ID = PagesHTML.PagesID WHERE Pages.Name='Contact Us' ";
+$result = $mysqli->query($sql_query);
+if($row=mysqli_fetch_array($result)){
+    $html = $row["HTML"];
+    $id=$row["PagesID"];
+}
+if($_POST)
+{
+    $NewHtml=$_POST["newhtml"];
+    // $NewHtml = trim($NewHtml);
+    // $NewHtml = stripslashes($NewHtml);
+    // $NewHtml = htmlspecialchars($NewHtml);
+    $sql_query = "UPDATE PagesHTML
+			SET HTML = '$NewHtml'
+			WHERE PagesID='$id';";
+    $result = $mysqli->query($sql_query);
+    header('Location: Dashboard.php');
+    exit();
+}
+
+?>
+
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php include("Navigationbar2.php"); ?>
