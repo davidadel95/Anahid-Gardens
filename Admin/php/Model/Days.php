@@ -61,5 +61,13 @@ class Days implements CRUD
     {
         // TODO: implement here
     }
+      public function ViewSpecificDay($id){
+        $db = dbconnect::getInstance();
+           $mysqli = $db->getConnection();
+           $sql_query = "SELECT * FROM days where ID=$id";
+           $result = $mysqli->query($sql_query);
+           return $result;
+
+      }
 
 }

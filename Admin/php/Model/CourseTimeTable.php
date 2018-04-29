@@ -89,4 +89,13 @@ class CourseTimeTable implements CRUD
     return $result;
     }
 
+    public function GetSpecificClass($ID){
+
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "Select * from coursetimetable where ClassID =$ID";
+      $result = $mysqli->query($sql_query);
+      return $result;
+    }
+
 }
