@@ -124,16 +124,17 @@ class StudentClass implements CRUD
     {
        $db = dbconnect::getInstance();
      $mysqli = $db->getConnection();
-     $sql_query = "SELECT * FROM optionstypes";
+     $sql_query = "SELECT * FROM userclasscourse";
      $result = $mysqli->query($sql_query);
-
-
-        $i=-1;
-      while($row =mysqli_fetch_array($result)){
-        $i++;
-        $this->Types[$i]=$row["Type"];
-      }
-      return $i;
+     return $result;
+    }
+    public function ViewSpecificClass($ClassID)
+    {
+       $db = dbconnect::getInstance();
+     $mysqli = $db->getConnection();
+     $sql_query = "SELECT * FROM userclasscourse WHERE ClassID=$ClassID";
+     $result = $mysqli->query($sql_query);
+     return $result;
     }
 
 

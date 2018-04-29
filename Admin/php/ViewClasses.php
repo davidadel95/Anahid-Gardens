@@ -78,26 +78,56 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="charts">
 			<div class="mid-content-top charts-grids">
 				<div class="middle-content">
+					<form method='post'>
 					<?php
 						$Classes = new Classes;
 						$result= $Classes->View();
+						if($row =mysqli_fetch_array($result)){
+								$result= $Classes->View();
+							echo "<select name='ClassID' class='form-control' id='courseSelector'>";
+							while($row =mysqli_fetch_array($result)){
+									echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
-						while($row =mysqli_fetch_array($result)){
-
-						echo $row["Name"];
-						echo "<br>";
-
+							}
+					echo "</select>";
+					echo '</br>'	;
+	 				echo '<button type="submit" class="btn btn-success">Confirm</button>';
+				}
+						else {
+							echo "No Available Classes";
 						}
 
-					?>
+						?>
+
+					</form>
 				</div>
 					<!--//sreen-gallery-cursual---->
+					<?php
+						if($_POST){
+							$UsersName;
+							$StudentClass = new StudentClass;
+							$result=$StudentClass->ViewSpecificClass($_POST['ClassID']);
+							$user = new User;
+								while($row =mysqli_fetch_array($result)){
+										$result1=$user->ViewChildForClass($row['UserID']);
+
+										while($row1 =mysqli_fetch_array($result1)){
+											echo $row1["Value"];
+										}
+								}
+					}
+
+
+					 ?>
 			</div>
+
 		</div>
 
 
 			</div>
+
 		</div>
+
 	<!--footer-->
 	<div class="footer">
 	   <?php include("Footer.php"); ?>
