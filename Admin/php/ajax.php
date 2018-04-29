@@ -1,6 +1,7 @@
 <?php
-
-require_once "includes.php";
+require_once "Model/DBconnect.php";
+require_once "Model/CRUD.php";
+require_once "model/RoleNameEAV.php";
 
 			$q = $_REQUEST["q"];
 			$RoleNameEAV= new RoleNameEAV;

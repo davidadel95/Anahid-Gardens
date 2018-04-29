@@ -1,8 +1,9 @@
 
    <?php
                 $q = $_REQUEST["q"];
-
-                require_once "includes.php";
+                require_once "Model/DBconnect.php";
+                require_once "Model/CRUD.php";
+                require_once "Model/User.php";
                  
              $User = new User;
                 $result = $User->Search($q);
