@@ -49,40 +49,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </style>
 
+
+
+</head>
+<body class="cbp-spmenu-push">
 <?php
 
 require_once "includes.php";
 
 
-    $PaymentEAVModel = new PaymentEAVModel;
-    $POptionsModel = new POptionsModel;
-    list($POptionArr,$OptionNames) = $POptionsModel->View();
-    $OptionsTypeModel = new OptionsTypeModel;
-    if (isset($_POST["PaymentNameChanged"])) {
-        $PaymentEAVModel->PMethod = $_POST["PaymentNamesSelector"];
-        $PaymentEAVModel->Change($_POST['PaymentName']);
-    }
+$PaymentEAVModel = new PaymentEAVModel;
+$POptionsModel = new POptionsModel;
+list($POptionArr,$OptionNames) = $POptionsModel->View();
+$OptionsTypeModel = new OptionsTypeModel;
+if (isset($_POST["PaymentNameChanged"])) {
+    $PaymentEAVModel->PMethod = $_POST["PaymentNamesSelector"];
+    $PaymentEAVModel->Change($_POST['PaymentName']);
+}
 
-    if (isset($_POST["FieldNameChanged"]))
-    {
-        $POptionsModel->POption = $_POST['NewFieldName'];
-        $POptionsModel->Change($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
-        header ("Location: EditPayment.php");
+if (isset($_POST["FieldNameChanged"]))
+{
+    $POptionsModel->POption = $_POST['NewFieldName'];
+    $POptionsModel->Change($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
+    header ("Location: EditPayment.php");
 
-    }
+}
 
-    if (isset($_POST['changetype']))
-    {
-        $POptionsModel->EditType($_POST['PaymentOptionsSelector'],$_POST['TypeOfFieldSelected']);
-        header ("Location: EditPayment.php");
-    }
+if (isset($_POST['changetype']))
+{
+    $POptionsModel->EditType($_POST['PaymentOptionsSelector'],$_POST['TypeOfFieldSelected']);
+    header ("Location: EditPayment.php");
+}
 
 
 
 ?>
-
-</head>
-<body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php

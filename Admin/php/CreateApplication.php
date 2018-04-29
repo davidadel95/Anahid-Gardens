@@ -49,10 +49,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </style>
 
+
+
+</head>
+<body class="cbp-spmenu-push">
 <?php
 
 require_once "includes.php";
- 
+
 
 $AttributeType=new AttributeType;
 $RoleNameEAV= new RoleNameEAV;
@@ -66,50 +70,50 @@ $NumberOfValuesOfRoles= $RoleNameEAV->view();
 $NumberOfAttruibutes=$Attruibute->view();
 if (isset($_POST["RoleNameAdded"])) {
 
-$RoleNameEAV->Name= $_POST["RoleName"];
-$RoleNameEAV->URL="../php/" .$_POST["Page"]. '.php';
-$RoleNameEAV->Add();
-header ("Location: CreateApplication.php");
+    $RoleNameEAV->Name= $_POST["RoleName"];
+    $RoleNameEAV->URL="../php/" .$_POST["Page"]. '.php';
+    $RoleNameEAV->Add();
+    header ("Location: CreateApplication.php");
 }
 if (isset($_POST["FieldTypeAdded"])) {
 
-$AttributeType->Type=$_POST["NewField"];
-$AttributeType->Add();
-header ("Location: CreateApplication.php");
+    $AttributeType->Type=$_POST["NewField"];
+    $AttributeType->Add();
+    header ("Location: CreateApplication.php");
 }
 
 if (isset($_POST["NewApplicationOption"])){
 
-$Attruibute->AttributeType=$_POST["TypeOfFieldSelected"];
-$Attruibute->Type=$_POST["FieldNameAdded"];
-$SQLRETURNED = $Attruibute->Add();
- 	header ("Location: CreateApplication.php");
+    $Attruibute->AttributeType=$_POST["TypeOfFieldSelected"];
+    $Attruibute->Type=$_POST["FieldNameAdded"];
+    $SQLRETURNED = $Attruibute->Add();
+    header ("Location: CreateApplication.php");
 
 }
 
 if (isset($_POST["NewInField"])){
 
-$FieldName =$_POST["InFiledFieldName"];
-$RoleName =$_POST["InFiledRoleName"];
-$RoleID = $RoleNameEAV->GetID($RoleName);
-$FieldID = $Attruibute->GetID($FieldName);
-$Visibility->RoleID = $RoleID;
-$Visibility->FieldID = $FieldID;
-$Visibility->IsVisible=1;
-$Visibility->Add();
-header ("Location: CreateApplication.php");
+    $FieldName =$_POST["InFiledFieldName"];
+    $RoleName =$_POST["InFiledRoleName"];
+    $RoleID = $RoleNameEAV->GetID($RoleName);
+    $FieldID = $Attruibute->GetID($FieldName);
+    $Visibility->RoleID = $RoleID;
+    $Visibility->FieldID = $FieldID;
+    $Visibility->IsVisible=1;
+    $Visibility->Add();
+    header ("Location: CreateApplication.php");
 }
 if (isset($_POST["NewOutField"])){
 
-	$FieldName =$_POST["OutFiledFieldName"];
-	$RoleName =$_POST["RoleTypeOfField"];
-	$RoleID = $RoleNameEAV->GetID($RoleName);
-	$FieldID = $Attruibute->GetID($FieldName);
-	$Visibility->RoleID = $RoleID;
-	$Visibility->FieldID = $FieldID;
-	$Visibility->IsVisible=0;
-	$Visibility->Add();
-header ("Location: CreateApplication.php");
+    $FieldName =$_POST["OutFiledFieldName"];
+    $RoleName =$_POST["RoleTypeOfField"];
+    $RoleID = $RoleNameEAV->GetID($RoleName);
+    $FieldID = $Attruibute->GetID($FieldName);
+    $Visibility->RoleID = $RoleID;
+    $Visibility->FieldID = $FieldID;
+    $Visibility->IsVisible=0;
+    $Visibility->Add();
+    header ("Location: CreateApplication.php");
 
 
 }
@@ -117,9 +121,6 @@ header ("Location: CreateApplication.php");
 
 
 ?>
-
-</head>
-<body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php

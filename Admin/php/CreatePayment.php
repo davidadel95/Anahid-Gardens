@@ -49,50 +49,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </style>
 
-<?php
-
-require_once "includes.php";
- 
-    $PaymentEAVModel = new PaymentEAVModel;
-    $POptionsModel = new POptionsModel;
-    list($POptionArr,$OptionNames) = $POptionsModel->View();
-    $OptionsTypeModel = new OptionsTypeModel;
-    if (isset($_POST["PaymentNameAdded"])) {
-        $PaymentEAVModel->PMethod = $_POST["PaymentName"];
-        $PaymentEAVModel->Add();
-    }
-    if (isset($_POST["FieldTypeAdded"])) {
-        $OptionsTypeModel->Type = $_POST["NewFieldType"];
-        $OptionsTypeModel->Add();
-    }
-
-    if (isset($_POST["NewPaymentOption"]))
-    {
-
-
-        $POptionsModel->POption = $_POST['NewFieldName'];
-        $POptionsModel->TypeID = $OptionsTypeModel->GetID($_POST['TypeOfFieldSelected'])[0];
-        $POptionsModel->Add();
-    }
-
-    if (isset($_POST["attach"]))
-    {
-        $movie = $_POST['FieldNames'];
-        foreach ($movie as $selectedOption)
-        {
-            $PaymentOptionsModel = new PaymentOptionsModel;
-            $PaymentOptionsModel->PMID = $PaymentEAVModel->GetID($_POST['PaymentNamesSelector'])[0];
-            $PaymentOptionsModel->POID = $POptionsModel->GetID($selectedOption)[0];
-            $PaymentOptionsModel->Add();
-        }
-    }
-
-
-
-?>
-
 </head>
 <body class="cbp-spmenu-push">
+  <?php
+
+  require_once "includes.php";
+
+      $PaymentEAVModel = new PaymentEAVModel;
+      $POptionsModel = new POptionsModel;
+      list($POptionArr,$OptionNames) = $POptionsModel->View();
+      $OptionsTypeModel = new OptionsTypeModel;
+      if (isset($_POST["PaymentNameAdded"])) {
+          $PaymentEAVModel->PMethod = $_POST["PaymentName"];
+          $PaymentEAVModel->Add();
+      }
+      if (isset($_POST["FieldTypeAdded"])) {
+          $OptionsTypeModel->Type = $_POST["NewFieldType"];
+          $OptionsTypeModel->Add();
+      }
+
+      if (isset($_POST["NewPaymentOption"]))
+      {
+
+
+          $POptionsModel->POption = $_POST['NewFieldName'];
+          $POptionsModel->TypeID = $OptionsTypeModel->GetID($_POST['TypeOfFieldSelected'])[0];
+          $POptionsModel->Add();
+      }
+
+      if (isset($_POST["attach"]))
+      {
+          $movie = $_POST['FieldNames'];
+          foreach ($movie as $selectedOption)
+          {
+              $PaymentOptionsModel = new PaymentOptionsModel;
+              $PaymentOptionsModel->PMID = $PaymentEAVModel->GetID($_POST['PaymentNamesSelector'])[0];
+              $PaymentOptionsModel->POID = $POptionsModel->GetID($selectedOption)[0];
+              $PaymentOptionsModel->Add();
+          }
+      }
+
+
+
+  ?>
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php
