@@ -2,8 +2,11 @@
 $q = $_REQUEST["q"];
 $w = $_REQUEST["w"];
 
-require_once "includes.php";
-
+// require_once "includes.php";
+require_once "Model/CRUD.php";
+require_once "Model/TimeSlots.php";
+require_once "Model/TimeTable.php";
+require_once "dbconnect.php";
 $TimeSlots= new TimeSlots;
 $result = $TimeSlots->View();
 									echo "<div id='ajax'>" ;
@@ -25,7 +28,8 @@ if($TimeTable->Count>= 0){
 
 	}
 										echo "</select>
-											</div>";
+											</div>
+											</br>";
 }
 else{
 				echo "<br>";

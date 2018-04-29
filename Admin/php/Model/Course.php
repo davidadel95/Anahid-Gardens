@@ -42,6 +42,19 @@ class Course implements CRUD
 
     }
 
+    public function ViewSpecificCourse($id)
+    {
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT * FROM Course where ID=$id";
+
+        $result = $mysqli->query($sql_query);
+        return $result;
+
+
+    }
+
+
     /**
      * @inheritDoc
      */

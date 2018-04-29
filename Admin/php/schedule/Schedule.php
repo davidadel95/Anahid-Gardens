@@ -11,8 +11,76 @@
 </head>
 <body>
 	<?php
-	require_once "../includes.php";
-	 ?>
+				require_once "../Model/CRUD.php";
+				require_once "../Model/CourseTimeTable.php";
+				require_once "../Model/TimeSlots.php";
+				require_once "../Model/Days.php";
+				require_once "../Model/Course.php";
+				require_once "../dbconnect.php";
+
+				$x=-1;
+				$x1=-1;
+				$x2=-1;
+
+				$classID = $_REQUEST['id'];
+				$CourseTimeTable = new CourseTimeTable;
+				$TimeSlot = new TimeSlots;
+				$Days = new Days;
+				$Course = new Course;
+				$AllDaysResult = $Days->View();
+					while ($row=mysqli_fetch_array($AllDaysResult)){
+							$x2++;
+							$AllDays[$x2]=$row['Name'];
+							$AllDaysID[$x2]=$row["ID"];
+					}
+
+				$result = $CourseTimeTable->GetSpecificClass($classID);
+				while($row =mysqli_fetch_array($result)){
+					$x++;
+					$CourseID[$x]=$row["CourseID"];
+					$DaysID[$x]=$row["DaysID"];
+					$TimeSlotID[$x]=$row["TimeslotsID"];
+
+				}
+
+				if($x>-1){
+					for($Counter=0;$Counter<=$x;$Counter++){
+					$TimeSlotResults[$Counter]=$TimeSlot->GetBeginEnd($TimeSlotID[$Counter]);
+					$DaysResults[$Counter]=$Days->ViewSpecificDay($DaysID[$Counter]);
+					$CoursesResults[$Counter]=$Course->ViewSpecificCourse($CourseID[$Counter]);
+				}
+				$DaysUsed;
+				$Begins;
+				$Ends;
+				$Courses;
+
+
+
+
+				for($Counter=0;$Counter<=$x;$Counter++){
+					while ($row1=mysqli_fetch_array($DaysResults[$Counter])){
+						$x1++;
+						$DaysUsed[$Counter]=$row1["ID"];
+
+					}
+
+					while ($row2=mysqli_fetch_array($TimeSlotResults[$Counter])){
+						$x1++;
+						$Begins[$Counter]=$row2["Begin"];
+						$Ends[$Counter]=$row2["End"];
+					}
+					$x1=-1;
+					while ($row3=mysqli_fetch_array($CoursesResults[$Counter]))
+					{
+							$x1++;
+							$Courses[$Counter]=$row3["Name"];
+
+					}
+				}
+
+}
+
+	?>
 
 <div class="cd-schedule loading">
 	<div class="timeline">
@@ -43,30 +111,62 @@
 
 	<div class="events">
 		<ul>
-			<li class="events-group">
-				<div class="top-info"><span>Saturday</span></div>
+
+			<!-- <li class="events-group">
+				<div class="top-info"><span>Sunday</span></div>
 
 				<ul>
-					<li class="single-event" data-start="08:00" data-end="09:00"  data-content="event-rowing-workout" data-event="event-1">
+					<li class="single-event" data-start="08:00" data-end="09:00" data-content="event-restorative-yoga" data-event="event-4">
 						<a href="#0">
 							<em class="event-name">Breakfast</em>
 						</a>
 					</li>
 
-					<li class="single-event" data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1">
+					<li class="single-event" data-start="10:45" data-end="11:45" data-content="event-yoga-1" data-event="event-3">
 						<a href="#0">
-							<em class="event-name">French</em>
+							<em class="event-name">Yoga Level 1</em>
 						</a>
 					</li>
 
-					<li class="single-event" data-start="12:00" data-end="14:00"  data-content="event-yoga-1" data-event="event-3">
+					<li class="single-event" data-start="12:00" data-end="13:45"  data-content="event-rowing-workout" data-event="event-2">
 						<a href="#0">
-							<em class="event-name">English</em>
+							<em class="event-name">Rowing Workout</em>
+						</a>
+					</li>
+
+					<li class="single-event" data-start="13:45" data-end="15:00" data-content="event-yoga-1" data-event="event-3">
+						<a href="#0">
+							<em class="event-name">Yoga Level 1</em>
 						</a>
 					</li>
 				</ul>
-			</li>
-			<li class="events-group">
+			</li> -->
+
+			<?php
+
+			for($Counter=0;$Counter<=$x2;$Counter++){
+
+				echo '<li class="events-group">';
+			echo '<div class="top-info"><span>'.$AllDays[$Counter].'</span></div>';
+			echo "<ul>";
+			for ($Counter1=0;$Counter1<=$x;$Counter1++){
+
+				if($AllDaysID[$Counter]==$DaysUsed[$Counter1]){
+				echo '<li class="single-event" data-start="'.$Begins[$Counter1].'" data-end="'.$Ends[$Counter1].'" data-event="event-1">';
+				echo	'<a href="#0">';
+				echo	'	<em class="event-name">'.$Courses[$Counter1].'</em>';
+			 	echo	'</a>';
+			 	echo '</li>';
+			}
+			}
+
+			echo "</ul>";
+				echo '</li>';
+
+}
+			 ?>
+
+			<!-- <li class="events-group">
 				<div class="top-info"><span>Monday</span></div>
 
 				<ul>
@@ -94,13 +194,13 @@
 				<div class="top-info"><span>Tuesday</span></div>
 
 				<ul>
-					<li class="single-event" data-start="08:00" data-end="09:00"  data-content="event-rowing-workout" data-event="event-3">
+					<li class="single-event" data-start="08:00" data-end="09:00" data-event="event-3">
 						<a href="#0">
 							<em class="event-name">Breakfast</em>
 						</a>
 					</li>
 
-					<li class="single-event" data-start="11:30" data-end="13:00"  data-content="event-restorative-yoga" data-event="event-4">
+					<li class="single-event" data-start="11:30" data-end="13:00"  data-content="event-restorative-yoga" data-event="event-2">
 						<a href="#0">
 							<em class="event-name">Restorative Yoga</em>
 						</a>
@@ -119,6 +219,7 @@
 					</li>
 				</ul>
 			</li>
+
 
 			<li class="events-group">
 				<div class="top-info"><span>Wednesday</span></div>
@@ -178,7 +279,7 @@
 						</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 
 		</ul>
 	</div>
