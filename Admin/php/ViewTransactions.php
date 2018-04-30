@@ -1,4 +1,3 @@
-<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>

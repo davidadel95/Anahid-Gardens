@@ -121,8 +121,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="../js/jsPDF-master/plugins/split_text_to_size.js"></script>
     <script src="../js/jsPDF-master/plugins/standard_fonts_metrics.js"></script>
 	<!-- Classie --><!-- for toggle left push menu script -->
-            <script src="../js/classie.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
         $("#print_one").live("click", function () {
             var divContents = $("#print_me").html();

@@ -1,6 +1,8 @@
 <?php
 
-    include_once "includes.php";
+//    include_once "includes.php";
+//    include_once "Model/POptionsModel.php";
+//    include_once "Model/PaymentEAVModel.php";
     $q = $_REQUEST["q"];
     if($q != "-Select Payment Type-")
     {
