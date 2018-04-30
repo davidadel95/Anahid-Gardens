@@ -1,4 +1,5 @@
 <?php
+echo $_SERVER['DOCUMENT_ROOT']. "/Anahid-Gardens/Admin/php/Model/Attribute.php";
 
     class AttendanceModel implements CRUD{
 
