@@ -53,13 +53,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<?php
+			// require_once "includes.php";
+			require_once "Model/CRUD.php";
+			require_once "Model/TimeSlots.php";
+			require_once "dbconnect.php";
+
+			 ?>
       <?php
 			include("Navigationbar2.php");
 			?>
     </div>
-		<?php
-		require_once "includes.php";
-		 ?>
+
 		<!--left-fixed -navigation-->
 
 		<!-- header-starts -->
@@ -101,7 +106,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				echo "<label style='color : RED;'> End Time is smaller than Begin Time </label> ";
 			}
 			else{
+				$Flag=$TimeSlots->Availability();
+				if($Flag == True)
+				{
 				$TimeSlots->Add();
+				}
+				else {
+					echo "<label style='color : RED;'> Time Slot Cannot Be Added Because It Interrupts Another Slot </label> ";
+				}
 			}
 			// $Diffrence= $Diffrence/60;
 			// echo $Diffrence

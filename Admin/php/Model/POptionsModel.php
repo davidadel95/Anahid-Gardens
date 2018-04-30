@@ -8,6 +8,8 @@ class POptionsModel implements CRUD
     public $POptionsArr;
     public $POptionsID;
     public $POptionsNames;
+    public $options;
+    public $NotThereArr;
     public function Add(){
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
@@ -62,10 +64,48 @@ class POptionsModel implements CRUD
       $mysqli = $db->getConnection();
       $sql_query= "SELECT `ID` FROM `poptions` WHERE Name = '$name'";
       $result = $mysqli->query($sql_query);
-      $ID= $row =mysqli_fetch_array($result);
+      $ID =mysqli_fetch_array($result);
       return $ID;
     }
-
+    
+    public function GetOptionsNames($ID)
+    {
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query= "SELECT poptions.Name FROM paymentmethods INNER JOIN paymentoptions ON paymentoptions.PaymentMethodID = paymentmethods.ID INNER JOIN poptions ON poptions.ID = paymentoptions.POptionID WHERE paymentmethods.ID = ".$ID;
+      $result = $mysqli->query($sql_query);
+      $i=-1;
+      while($row =mysqli_fetch_array($result)){
+          $i++;
+          $this->options[$i] = $row["Name"];
+      }
+      return $this->options;
+    }
+    
+    public function GetNotOptionsNames($ID)
+    {
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+          $sql_query= "SELECT poptions.Name FROM poptions  WHERE ";
+       for($x = 0 ; $x<sizeof($this->GetOptionsNames($ID));$x++)
+       {
+           if($x == sizeof($this->GetOptionsNames($ID))-1)
+           {
+               $sql_query.= "Name <> '".$this->GetOptionsNames($ID)[$x]."'";
+               break;
+           }
+           $sql_query.= "Name <> '".$this->GetOptionsNames($ID)[$x]."' AND";
+       }
+        $result = $mysqli->query($sql_query);
+        $i = 0;
+        while($row =mysqli_fetch_array($result)){
+        $this->NotThereArr[$i] = $row["Name"];
+            $i++;
+      }
+          
+      return $this->NotThereArr;
+    }
+    
     public function Delete(){
 
     }

@@ -28,16 +28,6 @@ class TimeSlots implements CRUD
      */
     public $End;
 
-    public $Begins;
-
-    public $Ends;
-
-    public $Counter;
-
-    public $Counter2;
-
-    public $Flag;
-
     public $DeletedID;
 
 
@@ -88,7 +78,7 @@ class TimeSlots implements CRUD
       }
 
 
-    
+
     public function GetBeginEnd($ID){
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
@@ -98,33 +88,78 @@ class TimeSlots implements CRUD
 
     }
 
-    // public function Availability(){
-    //   $this->Flag = True;
-    //   $this->Counter=-1;
-    //   $this->Counter2=0;
-    //   $db = dbconnect::getInstance();
-    //   $mysqli = $db->getConnection();
-    //   $sql_query = "Select * from timeslots Order By Begin ASC";
-    //   $result = $mysqli->query($sql_query);
-    //   if($result){
-    //   while ($row=mysqli_fetch_array($result)){
-    //       $this->Counter++;
-    //       $this->Begins[$this->Counter] = $row["Begin"];
-    //       $this->Ends[$this->Counter] = $row["End"];
-    //
-    //   }
-    //   if ($this->Counter>0){
-    //     while($this->Flag ==True){
-    //       if($this->Begin>)
-    //
-    //     }
-    //   }
-    //   else{}
-    // }
-    //   else {
-    //     return True;
-    //   }
+    public function Availability(){
+      $Flag =False;
+      $Place=0;
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $x=-1;
+      $sql_query = "Select * from timeslots";
+      $result = $mysqli->query($sql_query);
+      while($row=mysqli_fetch_array($result)){
+        $x++;
+        $Begins[$x]= $row["Begin"];
+        $Ends[$x]= $row["End"];
+      }
+      if($x==-1)
+      {
+        $Flag = True;
+        return $Flag;
+      }
+      //Sorting
+      for ($Counter=0;$Counter<=$x;$Counter++){
+        if($this->Begin==$Begins[$Counter])
+        {
+          $Flag = False;
+          return $Flag;
+        }
+        else if($this->Begin>$Begins[$Counter]){
+          $Place++;
+        }
+      }
+        //Comapare
+        if($Place>$x){
+            $Diffrence= strtotime($this->Begin)-strtotime($Ends[$x]);
+            if ($Diffrence>=0)
+            {
+              $Flag = True;
+              return $Flag;
+            }
+            else {
+              $Flag = False;
+              return $Flag;
+            }
+        }
 
-    // }
+        if($Place==0){
+          $Diffrence= strtotime($Begins[0])-strtotime($this->End);
+          if ($Diffrence>=0)
+          {
+            $Flag = True;
+            return $Flag;
+          }
+          else {
+            $Flag = False;
+            return $Flag;
+          }
+        }
+        else {
+          
+            $Diffrence= strtotime($Begins[$Place+1])-strtotime($this->End);
+            $Diffrence2=strtotime($this->Begin)-strtotime($Ends[$Place-1]);
+            if ($Diffrence && $Diffrence2>=0)
+            {
+              $Flag = True;
+              return $Flag;
+            }
+            else {
+              $Flag = False;
+              return $Flag;
+            }
 
-}
+        }
+
+
+        }
+
+  }

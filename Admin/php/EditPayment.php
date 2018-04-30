@@ -53,34 +53,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body class="cbp-spmenu-push">
-<?php
+    <?php
+    include_once "includes.php";
 
-require_once "includes.php";
+    $PaymentEAVModel = new PaymentEAVModel;
+    $POptionsModel = new POptionsModel;
+    list($POptionArr,$OptionNames) = $POptionsModel->View();
+    $OptionsTypeModel = new OptionsTypeModel;
+    if (isset($_POST["PaymentNameChanged"])) {
+        $PaymentEAVModel->PMethod = $_POST["PaymentNamesSelector"];
+        $PaymentEAVModel->Change($_POST['PaymentName']);
+    }
 
+    if (isset($_POST["FieldNameChanged"]))
+    {
+        $POptionsModel->POption = $_POST['NewFieldName'];
+        $POptionsModel->Change($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
+        header ("Location: EditPayment.php");
+        
+    }
 
-$PaymentEAVModel = new PaymentEAVModel;
-$POptionsModel = new POptionsModel;
-list($POptionArr,$OptionNames) = $POptionsModel->View();
-$OptionsTypeModel = new OptionsTypeModel;
-if (isset($_POST["PaymentNameChanged"])) {
-    $PaymentEAVModel->PMethod = $_POST["PaymentNamesSelector"];
-    $PaymentEAVModel->Change($_POST['PaymentName']);
-}
-
-if (isset($_POST["FieldNameChanged"]))
-{
-    $POptionsModel->POption = $_POST['NewFieldName'];
-    $POptionsModel->Change($POptionsModel->GetID($_POST['PaymentOptionSelector'])[0]);
-    header ("Location: EditPayment.php");
-
-}
-
-if (isset($_POST['changetype']))
-{
-    $POptionsModel->EditType($_POST['PaymentOptionsSelector'],$_POST['TypeOfFieldSelected']);
-    header ("Location: EditPayment.php");
-}
-
+    if (isset($_POST['changetype']))
+    {
+        $POptionsModel->EditType($_POST['PaymentOptionsSelector'],$_POST['TypeOfFieldSelected']);
+        header ("Location: EditPayment.php");
+    }
+    
 
 
 ?>
@@ -127,7 +125,7 @@ if (isset($_POST['changetype']))
                                         <br/>
 
 
-										<input type="submit" name="PaymentNameChanged">
+										<input type="submit" value="Confirm" class="btn btn-success" name="PaymentNameChanged">
                                 </div>
 															</form>
 															</div>
@@ -146,7 +144,7 @@ if (isset($_POST['changetype']))
 										{
 
 											echo "<option value='".$POptionArr[$x]."'> ".$POptionArr[$x]."</option>";
-
+                                            
 
 										}
 										?>
@@ -155,7 +153,7 @@ if (isset($_POST['changetype']))
                                     <label>New Field Name </label>
 									<input name="NewFieldName" type="text" class="form-control" placeholder="eg: Expiration Date ">
                                     <br/>
-									<input type="submit" name="FieldNameChanged">
+									<input type="submit" class="btn btn-success" value="Confirm" name="FieldNameChanged">
 									</div>
 									</form>
 									</div>
@@ -190,19 +188,19 @@ if (isset($_POST['changetype']))
 										{
 											echo "<option value=".$OptionsTypeModel->View()[$x]."> ".$OptionsTypeModel->View()[$x]."</option>";
 
-
+                                                    
 										}
-
+                                        
 										?>
 
 									</select>
 									<br>
-									<input name="changetype" type="submit">
+									<input name="changetype" class="btn btn-success" value="Confirm" type="submit">
 									</div>
 									</form>
 									</div>
 
-
+						
 
 
 

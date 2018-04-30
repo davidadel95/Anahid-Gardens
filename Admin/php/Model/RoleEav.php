@@ -47,10 +47,19 @@ class RoleEav implements CRUD
                 $result = $mysqli->query($sql_query);  
         
     }
-
-    /**
-     * @inheritDoc
-     */
+    public function GetRadio(){
+       
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+         $sql_query = "SELECT applicationoptions.Name, optionstypes.Type FROM
+applicationoptions
+INNER JOIN optionstypes on optionstypes.ID = applicationoptions.OptionTypeID
+Where optionstypes.Type = 'radio' OR optionstypes.Type ='select'";
+                $result = $mysqli->query($sql_query);  
+        return $result;
+        
+    }
+    
     public function Edit()
     {
         
@@ -72,7 +81,7 @@ class RoleEav implements CRUD
          $db = dbconnect::getInstance();
              $mysqli = $db->getConnection();
              $sql_query = "SELECT application.ID,RoleID,ApplicationOptionID,isVisible,applicationoptions.Name,applicationoptions.OptionTypeID,optionstypes.Type,application.GroupID FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$this->RoleID."' And isVisible = 1 order by application.ID" ;
+			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$this->RoleID."' And isVisible = 1 order by application.ApplicationOptionID, application.ID" ;
             $result = $mysqli->query($sql_query);
           return $result;
     }
