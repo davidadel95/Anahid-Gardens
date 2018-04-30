@@ -232,7 +232,11 @@
                      <i class="fa fa-angle-left pull-right"></i>
                    </a>
                    <ul class="treeview-menu">
-                     <li><a href="ViewTransactions.php"><i class="fa fa-angle-right"></i>View Transactions</a></li>
+                     <li><a href="ViewTransactions.php"><i class="fa fa-angle-right"></i>Transactions</a>
+                       <ul class="treeview-menu">
+                        <li><a href="MakePayment.php"><i class="fa fa-angle-right"></i>Make a Transaction</a></li>
+                        <li><a href="ViewTransactions.php"><i class="fa fa-angle-right"></i>View Transactions</a></li>
+                      </ul></li>
                      <li><a href=""><i class="fa fa-angle-right"></i>Manipulate Payments</a>
                        <ul class="treeview-menu">
                         <li><a href="CreatePayment.php"><i class="fa fa-angle-right"></i>Add new Payment</a></li>

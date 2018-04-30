@@ -298,4 +298,20 @@ class User implements CRUD
       $result = $mysqli->query($sql_query);
       return $result;
     }
+    
+    public function GetIDByMail($Email)
+    {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query= "SELECT applicationvalue.UserID FROM `applicationoptions`
+                INNER JOIN `application`
+                ON applicationoptions.ID = application.ApplicationOptionID
+                INNER JOIN `applicationvalue`
+                ON application.ID= applicationvalue.ApplicationID
+                where Name ='Email'
+                AND applicationvalue.Value = '$Email'";
+          $result = $mysqli->query($sql_query);
+          $ID = mysqli_fetch_array($result);
+          return $ID["UserID"];
+    }
 }

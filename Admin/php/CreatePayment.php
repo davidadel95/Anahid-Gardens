@@ -14,30 +14,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <!-- Bootstrap Core CSS -->
-<link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
-
-<!-- Custom CSS -->
-<link href="../css/style.css" rel='stylesheet' type='text/css' />
-
-<!-- font-awesome icons CSS -->
-<link href="../css/font-awesome.css" rel="stylesheet">
-<!-- //font-awesome icons CSS-->
-
-<!-- side nav css file -->
-<link href='../css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
-<!-- //side nav css file -->
-
- <!-- js-->
-<script src="../js/jquery-1.11.1.min.js"></script>
-<script src="../js/modernizr.custom.js"></script>
-
-<!--webfonts-->
-<!-- <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet"> -->
-<!--//webfonts-->
-
-<!-- chart -->
-<script src="../js/Chart.js"></script>
-<!-- //chart -->
 
 <!-- Metis Menu -->
 <script src="../js/metisMenu.min.js"></script>
@@ -49,53 +25,75 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </style>
 
+
+
 </head>
 <body class="cbp-spmenu-push">
-  <?php
+    <?php
+    include_once "includes.php";
 
-  require_once "includes.php";
+    $PaymentEAVModel = new PaymentEAVModel;
+    $POptionsModel = new POptionsModel;
+    $OptionsTypeModel = new OptionsTypeModel;
+    list($POptionsArr,$Options) = $POptionsModel->View();
+    if (isset($_POST["PaymentNameAdded"])) {
+        if($_POST["PaymentNameAdded"] == '')
+        {
+            alert("Please Select A Name");
+            return;
+        }
+        else{
+           $PaymentEAVModel->PMethod = $_POST["PaymentName"];
+        $PaymentEAVModel->Add();
+        header ("Location: CreatePayment.php"); 
+        }
+        
+    }
+    if (isset($_POST["FieldTypeAdded"])) {
+        $OptionsTypeModel->Type = $_POST["NewFieldType"];
+        $OptionsTypeModel->Add();
+        header ("Location: CreatePayment.php");
+    }
 
-      $PaymentEAVModel = new PaymentEAVModel;
-      $POptionsModel = new POptionsModel;
-      list($POptionArr,$OptionNames) = $POptionsModel->View();
-      $OptionsTypeModel = new OptionsTypeModel;
-      if (isset($_POST["PaymentNameAdded"])) {
-          $PaymentEAVModel->PMethod = $_POST["PaymentName"];
-          $PaymentEAVModel->Add();
-      }
-      if (isset($_POST["FieldTypeAdded"])) {
-          $OptionsTypeModel->Type = $_POST["NewFieldType"];
-          $OptionsTypeModel->Add();
-      }
-
-      if (isset($_POST["NewPaymentOption"]))
-      {
-
-
-          $POptionsModel->POption = $_POST['NewFieldName'];
-          $POptionsModel->TypeID = $OptionsTypeModel->GetID($_POST['TypeOfFieldSelected'])[0];
-          $POptionsModel->Add();
-      }
-
-      if (isset($_POST["attach"]))
-      {
-          $movie = $_POST['FieldNames'];
-          foreach ($movie as $selectedOption)
-          {
-              $PaymentOptionsModel = new PaymentOptionsModel;
-              $PaymentOptionsModel->PMID = $PaymentEAVModel->GetID($_POST['PaymentNamesSelector'])[0];
-              $PaymentOptionsModel->POID = $POptionsModel->GetID($selectedOption)[0];
-              $PaymentOptionsModel->Add();
-          }
-      }
+    if (isset($_POST["NewPaymentOption"]))
+    {
 
 
+        $POptionsModel->POption = $_POST['NewFieldName'];
+        $POptionsModel->TypeID = $OptionsTypeModel->GetID($_POST['TypeOfFieldSelected'])[0];
+        $POptionsModel->Add();
+        header ("Location: CreatePayment.php");
+    }
 
-  ?>
+    if (isset($_POST["attach"]))
+    {   
+        if($_POST['PaymentNamesSelector'] == "-Select Payment Type-")
+        {
+            alert("Please Select a Payment Type");
+        }
+        else{
+            
+        
+        $movie = $_POST['FieldNames'];
+        foreach ($movie as $selectedOption)
+        {
+            $PaymentOptionsModel = new PaymentOptionsModel;
+            $PaymentOptionsModel->PMID = $PaymentEAVModel->GetID($_POST['PaymentNamesSelector'])[0];
+            $PaymentOptionsModel->POID = $POptionsModel->GetID($selectedOption)[0];
+            $PaymentOptionsModel->Add();
+            
+        }
+        header ("Location: CreatePayment.php");
+        }
+    }
+
+
+
+?>
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php
-			include("Navigationbar2.php");
+        include("Navigationbar2.php");
 			?>
     </div>
 
@@ -103,7 +101,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
-				<?php include("Header.php"); ?>
+            <?php include("Header.php"); ?>
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -122,7 +120,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<br>
 
 
-										<input type="submit" name="PaymentNameAdded">
+										<input type="submit" class="btn btn-success" name="PaymentNameAdded" value="Add">
                                 </div>
 															</form>
 															</div>
@@ -137,7 +135,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<label> Field Type </label>
 									<input name="NewFieldType" type="text" class="form-control" placeholder="eg: int ">
 									<br>
-									<input type="submit" name="FieldTypeAdded">
+									<input type="submit" class="btn btn-success" value="Add    " name="FieldTypeAdded">
 									</div>
 									</form>
 									</div>
@@ -168,7 +166,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 									</select>
 									<br>
-									<input name="NewPaymentOption" type="submit">
+									<input name="NewPaymentOption" class="btn btn-success" value="Add" type="submit">
 									</div>
 									</form>
 									</div>
@@ -183,52 +181,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<div class="form-group">
                                     <label>Payment Name </label>
 									<select name="PaymentNamesSelector"  class="form-control" >
+                                        <option value="-Select Payment Type-">-Select Payment Type-</option>
 										<?php
 										for ($x=0;$x<sizeof($PaymentEAVModel->View());$x++)
 										{
 
 											echo "<option value='".$PaymentEAVModel->View()[$x]."'> ".$PaymentEAVModel->View()[$x]."</option>";
 
-
 										}
 										?>
 									</select>
                                     <br/>
-									<label>Field Name</label>
+									<div id="notThere">
+                                        <label>Field Name</label>';
+                                        <select name="FieldNames[]"  class="form-control" multiple>
+                                            <?php
+                                            for ($x=0;$x<sizeof($POptionsArr);$x++)
+                                            {
 
-										<select name="FieldNames[]"  class="form-control" multiple>
-
-										<?php
-										for ($x=0;$x<sizeof($POptionArr);$x++)
-										{
-
-											echo "<option value='".$POptionArr[$x]."'> ".$POptionArr[$x]."</option>";
-
-
-										}
-										?>
-									</select>
-									<br>
-
-
-									<input name="attach" type="submit">
+                                                echo "<option value='".$POptionsArr[$x]."'> ".$POptionsArr[$x]."</option>";
+                                            }
+                                            ?>
+                                            </select>
+                                        <br/>
+                                        <input type="submit" class="btn btn-success" name="PaymentNameAdded" value="Attach">
+                                    </div>
 								</div>
 							</form>
-					</div>
-
-
-
-
-
-
-
-
-
-
-						</div>
-					</div>
+					   </div>
+                    </div>
+                </div>
+            </div>
         </div>
-			</div>
 
 	</div>
   	<!--footer-->
@@ -259,6 +243,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
+            
+            function BelongingFields(x)
+            {
+                
+                var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("notThere").innerHTML = this.responseText;
+                }
+              };
+              xhttp.open("GET", "ajaxBelongingFields.php?q=" + x, true);
+              xhttp.send();
+            }
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

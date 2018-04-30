@@ -26,13 +26,17 @@ class PaymentOptionsModel implements CRUD
 
       return $row =mysqli_fetch_array($result);
     }
-    public function GetID($name){
-      $db = dbconnect::getInstance();
-      $mysqli = $db->getConnection();
-      $sql_query= "SELECT `ID` FROM `paymentoptions` WHERE PaymentMethodID = '$name'";
-      $result = $mysqli->query($sql_query);
-      $ID= $row =mysqli_fetch_array($result);
-      return $ID;
+    public function GetID($PMID,$POID){
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_querys= "SELECT paymentoptions.ID FROM paymentoptions
+          INNER JOIN optionstypes ON paymentoptions.POptionID = optionstypes.ID
+          INNER JOIN paymentmethods ON paymentoptions.PaymentMethodID = paymentmethods.ID
+          WHERE paymentoptions.PaymentMethodID = ".$PMID."
+          AND paymentoptions.POptionID = ".$POID;
+          $results = $mysqli->query($sql_querys);
+          $ID = mysqli_fetch_array($results);
+          return $ID['ID'];
     }
 
     public function Delete(){
