@@ -19,5 +19,11 @@ while($row=mysqli_fetch_array($result)){
         echo "</div>";
     }
 }
+                                    echo"<br>
+                                    
+
+									<input  id='calcAjax' name='calcAjax'>
+									<br> <br>
+									<input name='GroupField' type='submit'>";
 
 ?>

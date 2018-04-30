@@ -57,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 require_once "includes.php";
 
-
+$counter=1;
 $AttributeType=new AttributeType;
 $RoleNameEAV= new RoleNameEAV;
 $Attruibute = new Attribute;
@@ -103,6 +103,10 @@ if (isset($_POST["NewInField"])){
     $Visibility->Add();
     header ("Location: CreateApplication.php");
 }
+if (isset($_POST["GroupField"])){
+    
+   
+}    
 if (isset($_POST["NewOutField"])){
 
     $FieldName =$_POST["OutFiledFieldName"];
@@ -219,6 +223,19 @@ if (isset($_POST["NewOutField"])){
 							<div class="form-body">
 
 							<form name="InField" method="post">
+                                <label>Role Name </label>
+									<select name="InFiledRoleName"  class="form-control" >
+										<?php
+										
+                                        for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+										{
+
+											echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
+
+
+										}
+										?>
+									</select>
 								<div class="form-group" id="GroupAjax">
 									<label>Field Name</label>
                                     
@@ -233,32 +250,20 @@ if (isset($_POST["NewOutField"])){
 
 
 										}
-                                         /*   $result=$RoleNameEAV->GetRadio();
-                                            while($row=mysqli_fetch_array($result)){
-                                            if(!strcmp($Attruibute->Types[$x],$row['Name']))
-                                            echo "<input type='hidden' value='".$row["Type"]."'>";}*/
+                                       
 										?>
 									</select>
-                                    </div>
+                                    
+                                
                                     <br>
                                     
 
-									<label>Role Name </label>
-									<select name="InFiledRoleName"  class="form-control" >
-										<?php
-										
-                                        for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
-										{
-
-											echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
-
-
-										}
-										?>
-									</select>
+									
 									<br> <br>
 									<input name="NewInField" type="submit">
+                                    
 								</div>
+                                
 							</form>
 					</div>
 
@@ -406,7 +411,20 @@ if (isset($_POST["NewOutField"])){
 
   document.getElementById('Shaf3yy').innerHTML += '<input name='+counter+'> <br>' ;
   counter++;
-}
+    calc(counter);
+    }
+        function calc(counter) {
+            
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("calcAjax").innerHTML = this.responseText;
+         }
+        };
+        xmlhttp.open("GET", "calcAjax.php?q=" + counter, true);
+        xmlhttp.send();
+    }
+
 </script>
 
 	<!-- //Classie --><!-- //for toggle left push menu script -->
