@@ -1,6 +1,6 @@
 <?php
 
-    include_once "includes.php";
+include_once "dbconnect.php";
     $q = $_REQUEST["q"];
     $db = dbconnect::getInstance();
     $mysqli = $db->getConnection();
