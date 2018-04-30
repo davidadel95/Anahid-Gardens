@@ -41,7 +41,27 @@ class Visibilty implements CRUD
         $result = $mysqli->query($sql_query);
     }
 
-    
+    public function AddAppGroup($GroupName){
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query="INSERT INTO applicationgroup (ApplicationGroupName)
+      VALUES ('".$GroupName."')";
+      $result = $mysqli->query($sql_query);
+      return $result;
+    }
+    public function AddGroup()
+    {
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query="SELECT max(ApplicationGroupID) FROM applicationgroup";
+        $result = $mysqli->query($sql_query);
+        $row=mysqli_fetch_array($result);
+        $x=$row['max(ApplicationGroupID)'];
+        $sql_query= "INSERT INTO Application(RoleID,ApplicationOptionID,isVisible,GroupID)
+        VALUES ('$this->RoleID','$this->FieldID','$this->IsVisible','$x')";
+        $result = $mysqli->query($sql_query);
+    }
+
 
 
 

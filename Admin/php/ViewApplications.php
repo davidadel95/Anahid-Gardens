@@ -102,13 +102,13 @@ $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
                     if(!strcmp($row["Type"],"radio")){
                         echo "<label>". $row["Name"]. " :</label><br/>";
                         echo "<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                       
+
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
                         $Name =mysqli_fetch_array($NameResult);
                         $SizeResult = $RoleEav->SizeOfRadio($row['Name']);
                         echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";
                         $Size=mysqli_num_rows($SizeResult);
-                        
+
                         for($x=1;$x<$Size;$x++){
                         $row = mysqli_fetch_array($result);
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
@@ -130,10 +130,10 @@ $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
                         $Name =mysqli_fetch_array($NameResult);
                         echo"<option value=".$Name['ApplicationGroupName'].">".$Name['ApplicationGroupName']."</option>";
                        }
-                    
+
                             echo"</select>
                             <br/>";
-                            
+
                         }
                         else{
                     echo "<label>". $row["Name"]. "</label>";

@@ -12,7 +12,7 @@
             $db = dbconnect::getInstance();
             $mysqli = $db->getConnection();
 
-            $sql = "INSERT INTO `attendance` (`ID`, `UserID`, `Date`, `Attended`) 
+            $sql = "INSERT INTO `attendance` (`ID`, `UserID`, `Date`, `Attended`)
                     VALUES (NULL, '$this->UserID', '$this->Date', '$this->Attended')
                     ";
 
@@ -37,7 +37,7 @@
             $row =mysqli_fetch_array($result);
             $childRoleID =$row['ID'];
 
-            $sql_query = "SELECT `attendance`.`Date`, `attendance`.`Attended`, `applicationvalue`.`Value`, `attendance`.`ID` 
+            $sql_query = "SELECT `attendance`.`Date`, `attendance`.`Attended`, `applicationvalue`.`Value`, `attendance`.`ID`
                             FROM `attendance`, `user`, `applicationvalue`
                             WHERE `attendance`.`Date` LIKE '%$date%'
                             AND `attendance`.`UserID` = user.ID

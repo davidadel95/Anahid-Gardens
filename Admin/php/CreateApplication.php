@@ -55,8 +55,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body class="cbp-spmenu-push">
 <?php
 
-require_once "includes.php";
-
+// require_once "includes.php";
+require_once "Model/CRUD.php";
+require_once "Model/AttributeType.php";
+require_once "Model/RoleNameEAV.php";
+require_once "Model/Attribute.php";
+require_once "Model/RoleAttributes.php";
+require_once "Model/Page.php";
+require_once "Model/Visibilty.php";
+require_once "dbconnect.php";
 $counter=1;
 $AttributeType=new AttributeType;
 $RoleNameEAV= new RoleNameEAV;
@@ -104,9 +111,24 @@ if (isset($_POST["NewInField"])){
     header ("Location: CreateApplication.php");
 }
 if (isset($_POST["GroupField"])){
-    
-   
-}    
+  $FieldName =$_POST["Field1"];
+  $RoleName =$_POST["InFiledRoleName"];
+  $RoleID = $RoleNameEAV->GetID($RoleName);
+  $FieldID = $Attruibute->GetID($FieldName);
+  $Visibility->RoleID = $RoleID;
+  $Visibility->FieldID = $FieldID;
+  $Visibility->IsVisible=1;
+for($i=0;;$i++){
+  if(!$_POST[$i]){
+    break;
+  }
+  else{
+    $Visibility->AddAppGroup($_POST[$i]);
+    $Visibility->AddGroup();
+  }
+}
+
+}
 if (isset($_POST["NewOutField"])){
 
     $FieldName =$_POST["OutFiledFieldName"];
@@ -226,7 +248,7 @@ if (isset($_POST["NewOutField"])){
                                 <label>Role Name </label>
 									<select name="InFiledRoleName"  class="form-control" >
 										<?php
-										
+
                                         for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
 										{
 
@@ -238,32 +260,32 @@ if (isset($_POST["NewOutField"])){
 									</select>
 								<div class="form-group" id="GroupAjax">
 									<label>Field Name</label>
-                                    
+
 										<select name="InFiledFieldName"  onchange="GroupAjax(this.value)" class="form-control" >
-                                            
+
 										<?php
-                                            
+
 										for ($x=0;$x<=$NumberOfAttruibutes;$x++)
 										{
-                                            
+
 											echo "<option value='".$Attruibute->Types[$x]."'> ".$Attruibute->Types[$x]."</option>";
 
 
 										}
-                                       
+
 										?>
 									</select>
-                                    
-                                
-                                    <br>
-                                    
 
-									
+
+                                    <br>
+
+
+
 									<br> <br>
 									<input name="NewInField" type="submit">
-                                    
+
 								</div>
-                                
+
 							</form>
 					</div>
 
@@ -390,7 +412,8 @@ if (isset($_POST["NewOutField"])){
 			}
             function GroupAjax(x) {
 
-        
+
+if(x=="Gender" || x== "prof"){
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
@@ -400,8 +423,8 @@ if (isset($_POST["NewOutField"])){
         };
         xmlhttp.open("GET", "GroupAjax.php?q=" + x, true);
         xmlhttp.send();
-    }
-                
+    }}
+
 		</script>
 <script>
     var counter=1;
@@ -411,19 +434,19 @@ if (isset($_POST["NewOutField"])){
 
   document.getElementById('Shaf3yy').innerHTML += '<input name='+counter+'> <br>' ;
   counter++;
-    calc(counter);
+  //  calc(counter);
     }
-        function calc(counter) {
-            
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("calcAjax").innerHTML = this.responseText;
-         }
-        };
-        xmlhttp.open("GET", "calcAjax.php?q=" + counter, true);
-        xmlhttp.send();
-    }
+    //     function calc(counter) {
+    //
+    //     var xmlhttp = new XMLHttpRequest();
+    //     xmlhttp.onreadystatechange = function() {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             document.getElementById("calcAjax").innerHTML = this.responseText;
+    //      }
+    //     };
+    //     xmlhttp.open("GET", "calcAjax.php?q=" + counter, true);
+    //     xmlhttp.send();
+    // }
 
 </script>
 
