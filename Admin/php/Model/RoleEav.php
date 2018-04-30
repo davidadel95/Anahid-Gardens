@@ -47,10 +47,19 @@ class RoleEav implements CRUD
                 $result = $mysqli->query($sql_query);  
         
     }
-
-    /**
-     * @inheritDoc
-     */
+    public function GetRadio(){
+       
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+         $sql_query = "SELECT applicationoptions.Name, optionstypes.Type FROM
+applicationoptions
+INNER JOIN optionstypes on optionstypes.ID = applicationoptions.OptionTypeID
+Where optionstypes.Type = 'radio' OR optionstypes.Type ='select'";
+                $result = $mysqli->query($sql_query);  
+        return $result;
+        
+    }
+    
     public function Edit()
     {
         

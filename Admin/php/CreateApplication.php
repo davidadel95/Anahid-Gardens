@@ -219,27 +219,35 @@ if (isset($_POST["NewOutField"])){
 							<div class="form-body">
 
 							<form name="InField" method="post">
-								<div class="form-group">
+								<div class="form-group" id="GroupAjax">
 									<label>Field Name</label>
-
-										<select name="InFiledFieldName"  class="form-control" >
-
+                                    
+										<select name="InFiledFieldName"  onchange="GroupAjax(this.value)" class="form-control" >
+                                            
 										<?php
+                                            
 										for ($x=0;$x<=$NumberOfAttruibutes;$x++)
 										{
-
+                                            
 											echo "<option value='".$Attruibute->Types[$x]."'> ".$Attruibute->Types[$x]."</option>";
 
 
 										}
+                                         /*   $result=$RoleNameEAV->GetRadio();
+                                            while($row=mysqli_fetch_array($result)){
+                                            if(!strcmp($Attruibute->Types[$x],$row['Name']))
+                                            echo "<input type='hidden' value='".$row["Type"]."'>";}*/
 										?>
 									</select>
-									<br>
+                                    </div>
+                                    <br>
+                                    
 
 									<label>Role Name </label>
 									<select name="InFiledRoleName"  class="form-control" >
 										<?php
-										for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
+										
+                                        for ($x=0;$x<=$NumberOfValuesOfRoles;$x++)
 										{
 
 											echo "<option value='".$RoleNameEAV->Names[$x]."'> ".$RoleNameEAV->Names[$x]."</option>";
@@ -375,7 +383,32 @@ if (isset($_POST["NewOutField"])){
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
+            function GroupAjax(x) {
+
+        
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("GroupAjax").innerHTML = this.responseText;
+         }
+        };
+        xmlhttp.open("GET", "GroupAjax.php?q=" + x, true);
+        xmlhttp.send();
+    }
+                
 		</script>
+<script>
+    var counter=1;
+    function AddAnotherButton(){
+
+//document.getElementById("Shaf3y").addEventListener("click", Shaf3y);
+
+  document.getElementById('Shaf3yy').innerHTML += '<input name='+counter+'> <br>' ;
+  counter++;
+}
+</script>
+
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
 	<!--scrolling js-->
