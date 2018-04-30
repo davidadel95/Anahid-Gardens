@@ -144,7 +144,8 @@ class TimeSlots implements CRUD
           }
         }
         else {
-          $Place = $Place-1;
+          // $Place = $Place-1;
+          echo $Place;
             $Diffrence= strtotime($Begins[$Place+1])-strtotime($this->End);
             $Diffrence2=strtotime($this->Begin)-strtotime($Ends[$Place-1]);
             if ($Diffrence && $Diffrence2>=0)
