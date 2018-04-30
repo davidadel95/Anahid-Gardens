@@ -42,5 +42,18 @@ class OptionsTypeModel implements CRUD
     public function Delete(){
 
     }
+    public function GetOptionName($Type)
+    {
+        $PaymentEAVModel = new PaymentEAVModel;
+             $db = dbconnect::getInstance();
+             $mysqli = $db->getConnection();
+             $sql_query = "SELECT optionstypes.Type FROM optionstypes WHERE optionstypes.ID  = ".$Type;
+            $result = $mysqli->query($sql_query);
+            
+           $row =mysqli_fetch_array($result);
+           
+    
+        return $row["Type"];
+    }
 }
 ?>

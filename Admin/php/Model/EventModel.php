@@ -1,12 +1,15 @@
 <?php
+
   class EventModel implements CRUD{
 
       public $ID;
       public $Name;
       public $Price;
       public $EventTypeID;
-
-
+      public $EventTypeArr;
+      public $EventNamesArr;
+      
+      
       public function __construct(){
 
       }
@@ -48,6 +51,74 @@
 
       public function Delete(){
 
+      }
+      public function getEventName($ID)
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT * FROM `eventdetails` WHERE ID = ".$ID;
+          $result = $mysqli->query($sql);
+          $i=-1;
+
+          $row =mysqli_fetch_array($result);
+           return $row["EventName"];
+      }
+       public function ShowEvents()
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT * FROM `eventtype`";
+          $result = $mysqli->query($sql);
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              $this->EventTypeArr[$i]=$row["Name"];
+          }
+           return $this->EventTypeArr;
+      }
+      
+      public function showEventNames($x)
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT eventdetails.EventName
+                  FROM `eventdetails`
+                  INNER JOIN `eventtype` ON eventdetails.EventTypeID = eventtype.ID
+                  WHERE eventtype.Name = '$x'";
+          $result = $mysqli->query($sql);
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              $this->EventNamesArr[$i]=$row["EventName"];
+          }
+           return $this->EventNamesArr;
+      }
+      
+      public function getEventPrice($x)
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql="SELECT eventdetails.Price FROM eventdetails
+                WHERE eventdetails.EventName = '$x'";
+          $result = $mysqli->query($sql);
+          $row = mysqli_fetch_array($result);
+          return $row["Price"];
+      }
+      
+      public function getEventID($x)
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql="SELECT eventdetails.ID FROM eventdetails
+                WHERE eventdetails.EventName = '$x'";
+          $result = $mysqli->query($sql);
+          $row = mysqli_fetch_array($result);
+          return $row["ID"];
       }
 
   }
