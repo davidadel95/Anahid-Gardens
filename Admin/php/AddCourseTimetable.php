@@ -70,134 +70,111 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- //header-ends -->
 		<!-- main content start-->
     <div id="page-wrapper">
-			<div class="main-page">
-        <div class="forms">
-          <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+        <div class="main-page">
+            <div class="forms">
+                <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 						<div class="form-title">
 							<h4>Add Class Timetable</h4>
 						</div>
 
 						<div class="form-body">
 							<form method="post">
-								<div class="form-group">
-                  <label>Course </label>
-                  <?php
+                                    <div class="form-group">
+                                        <label>Course </label>
+                                        <?php
+                                            $Course= new Course;
+                                            $result = $Course->View();
+                                            echo "<select name='CourseID' class='form-control'>";
+                                            while($row =mysqli_fetch_array($result)){
+                                                echo "<option  value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
+                                            }
+                                            echo "</select>"
+                                        ?>
+                                    </div>
 
-										$Course= new Course;
-										$result = $Course->View();
-										echo "<select name='CourseID' class='form-control'>";
-										while($row =mysqli_fetch_array($result)){
-															echo "<option  value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
+								    <div class="form-group">
+                                        <label>Class</label>
+                                        <?php
 
-										 }
-										 echo "</select>"
+                                            $Classes= new Classes;
+                                            $result = $Classes->View();
+                                            echo "<select name='ClassID' id='ClassID' onchange='shaf3y2(this.value)' class='form-control'>";
+                                            $x=-1;
+                                            while($row =mysqli_fetch_array($result)){
+                                                $x++;
+                                                $ClassIDs[$x]=$row["ID"];
+                                                echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
 
-									?>
-                </div>
+                                             }
+                                             echo "</select>"
 
-								<div class="form-group">
-                  <label>Class</label>
-									<?php
-
-										$Classes= new Classes;
-										$result = $Classes->View();
-										echo "<select name='ClassID' id='ClassID' onchange='shaf3y2(this.value)' class='form-control'>";
-										$x=-1;
-										while($row =mysqli_fetch_array($result)){
-											$x++;
-											$ClassIDs[$x]=$row["ID"];
-											echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
-
-										 }
-										 echo "</select>"
-
-									?>
+                                        ?>
 									</div>
 
 									<div class="form-group">
-		                  <label>Days</label>
-		             				<?php
+                                        <label>Days</label>
+                                        <?php
+                                            $Days= new Days;
+                                            $result = $Days->View();
+                                            echo "<select name='DaysID' id='DayID' onchange='shaf3y(this.value)' class='form-control'>";
+                                            $x=-1;
+                                            while($row =mysqli_fetch_array($result)){
+                                                $x++;
+                                                $DaysIds[$x]=$row["ID"];
+                                                echo "<option value='".$row["ID"]. "'>" .$row["Name"]."</option>" ;
+                                                }
+                                                echo "</select>"
+                                        ?>
+                                    </div>
 
+	                                <div class="form-group">
+                                        <label>Time Slot</label>
+                                        <?php
+                                        $TimeSlots= new TimeSlots;
+                                        $result = $TimeSlots->View();
+                                        echo "<div id='ajax'>" ;
 
-												$Days= new Days;
-												$result = $Days->View();
-												echo "<select name='DaysID' id='DayID' onchange='shaf3y(this.value)' class='form-control'>";
-												$x=-1;
-												while($row =mysqli_fetch_array($result)){
-														$x++;
-														$DaysIds[$x]=$row["ID"];
-														echo "<option value='".$row["ID"]. "'>" .$row["Name"]."</option>" ;
+                                        $TimeTable = new TimeTable;
+                                        $TimeTable->ShowAvailableSlots($ClassIDs[0],$DaysIds[0]);
+                                        $Names;
 
-												 }
-												 echo "</select>"
+                                        if($TimeTable->Count>=0){
 
-								  			?>
-											</div>
-	                <div class="form-group">
-                  <label>Time Slot</label>
+                                        echo "<select name='TimeSlotsID' class='form-control'>";
 
-									<?php
-
-
-									$TimeSlots= new TimeSlots;
-									$result = $TimeSlots->View();
-                                    echo "<div id='ajax'>" ;
-
-									$TimeTable = new TimeTable;
-								 	$TimeTable->ShowAvailableSlots($ClassIDs[0],$DaysIds[0]);
-									$Names;
-
-									if($TimeTable->Count>=0){
-
-									echo "<select name='TimeSlotsID' class='form-control'>";
-
-									 for ($i=0;$i<=$TimeTable->Count;$i++)
-									 	{
-											$Result= $TimeSlots->GetBeginEnd($TimeTable->AvailabeSlots[$i]);
-											while ($row =mysqli_fetch_array($Result)){
-												$Begins[$i]=$row["Begin"];
-												$Ends[$i]=$row["End"];
-											}
-
-
-											 echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
-
-										}
-										echo "</select>
+                                         for ($i=0;$i<=$TimeTable->Count;$i++) {
+                                             $Result= $TimeSlots->GetBeginEnd($TimeTable->AvailabeSlots[$i]);
+                                             while ($row =mysqli_fetch_array($Result)){
+                                                 $Begins[$i]=$row["Begin"];
+                                                 $Ends[$i]=$row["End"];
+                                             }
+                                             echo "<option value='".$TimeTable->AvailabeSlots[$i]."'>" .$Begins[$i]."~".$Ends[$i]."</option>" ;
+                                         }
+                                            echo "</select>
                                         </div>";
-										}
-										else {
-											echo "<br>";
-											echo "No Available Slots";
-											echo "<br>";
-											echo "<br>";
-										}
-									 	?>
-                </div>
-
-
-
-                <input type="submit" value="Submit" class="btn btn-success">
-
-              </form>
-
+                                        } else {
+                                            echo "<br>";
+                                            echo "No Available Slots";
+                                            echo "<br>";
+                                            echo "<br>";
+                                        }
+                                        ?>
+                                    </div>
+                            <input type="submit" value="Submit" class="btn btn-success">
+                            </form>
 							<?php
 								if($_POST){
-
 									$TimeTable->CourseID= $_POST['CourseID'];
 									$TimeTable->ClassID= $_POST['ClassID'];
 									$TimeTable->DaysID= $_POST['DaysID'];
 									$TimeTable->TimeslotsID= $_POST['TimeSlotsID'];
 									$TimeTable->Add();
                                     echo "<meta http-equiv='refresh' content='0'>";
-
-
 								}
 							?>
-
 						</div>
 					</div>
-        </div>
+                </div>
 			</div>
 		</div>
   	<!--footer-->
