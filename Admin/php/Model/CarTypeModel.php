@@ -67,18 +67,18 @@
 
           $sql = "SELECT * FROM `cartype`
                   WHERE `CarTypeID` 
-                  = 2
+                  = $idParent
                 ";
           $result = $mysqli->query($sql);
-//          $i=-1;
-//
-//          while($row =mysqli_fetch_array($result)){
-//              $i++;
-//              $this->ID[$i]=$row['ID'];
-//              $this->Name[$i]=$row['Name'];
-//              $this->CarTypeID[$i]=$row['CarTypeID'];
-//          }
-          return $result;
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              $this->ID[$i]=$row['ID'];
+              $this->Name[$i]=$row['Name'];
+              $this->CarTypeID[$i]=$row['CarTypeID'];
+          }
+          return $i;
       }
 
 

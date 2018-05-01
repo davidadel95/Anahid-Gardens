@@ -1,24 +1,25 @@
 <?php
-require_once "includes.php";
 
-$modelID = $_REQUEST['typeID'];
+    $modelID = $_REQUEST['typeID'];
+//    echo $modelID;
+    require_once "dbconnect.php";
+    require_once "Model/CRUD.php";
+    require_once "Model/CarTypeModel.php";
+
+    echo "<label>Available Models </label>";
+    $carType = new CarTypeModel();
+    $numberOfModels = $carType->viewCarModels($modelID);
 
 
-$carType = new CarTypeModel();
-$result = $carType->viewCarModels($modelID);
-$i = 0;
-if ($result){
-    echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
-    while ($row =mysqli_fetch_array($result)){
-        echo "<option value='".$row['ID']."'>".$row['Name']."</option>" ;
-        $i++;
+    if ($numberOfModels < 0){
+        echo "</br>";
+        echo "<label style='color: red'><strong>No available model, please add one first</strong></label>";
+    }else{
+        echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
+        for ($i =0; $i<=$numberOfModels; $i++){
+            echo "<option value='".$carType->ID[$i]."'> ".$carType->Name[$i]."</option>";
+        }
+        echo "</select>";
     }
-    echo "</select>";
-}else{
-    echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
-    echo "<option>No Available Models, please add one</option>" ;
-    echo "</select>";
-}
-
-echo "<br>";
+    echo "<br>";
 ?>

@@ -44,7 +44,7 @@
                       <div class="form-body">
                           <form method="post">
                               <label>Available Car Types </label>
-                              <select name="carTypeID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
+                              <select name="carTypeID" id="carTypeID" onchange="David(this.value)" class="form-control" >
                                   <?php
                                   $carTypeModel = new CarTypeModel();
                                   $carTypes= $carTypeModel->View();
@@ -55,38 +55,17 @@
                               </select>
                               <br>
                               <div id="ajax">
-                                <label>Available Models </label>
-                                 <?php
-                                    $carType = new CarTypeModel();
-//                                    echo "$carTypeModel->ID[0]";
-                                    $result = $carType->viewCarModels($carTypeModel->CarTypeID[0]);
-                                    $i = 0;
-                                    if ($result){
-                                        echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
-                                        while ($row =mysqli_fetch_array($result)){
-                                            echo "<option value='".$row['ID']."'>".$row['Name']."</option>" ;
-                                            $i++;
-                                        }
-                                        echo "</select>";
-                                    }else{
-                                        echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
-                                        echo "<option>No Available Models, please add one</option>" ;
-                                        echo "</select>";
-                                    }
-
-                                    echo "<br>";
-                                 ?>
-<!--                              <select name="modelID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >-->
-<!--                                  -->
-<!--
-                                  $carTypeModel = new CarTypeModel();
-//                                  $carTypes= $carTypeModel->viewCarModels();
-//                                  for ($i=0;$i<=$carTypes;$i++){
-//                                      echo "<option value='".$carTypeModel->ID[$i]."'> ".$carTypeModel->Name[$i]."</option>";
-//                                  }
-
-<!--                              </select>-->
-<!--                              <br>-->
+                                  <label>Available Models </label>
+                                  <?php
+                                  $carType = new CarTypeModel();
+                                  $numberOfModels = $carType->viewCarModels(2);
+                                  echo "<select name=\"modelID\" id=\"mySelect\" class=\"form-control\" >";
+                                  for ($i =0; $i<=$numberOfModels; $i++){
+                                      echo "<option value='".$carType->ID[$i]."'> ".$carType->Name[$i]."</option>";
+                                  }
+                                  echo "</select>";
+                                  ?>
+                                  <br>
                                 </div>
                               <label>Available Colors </label>
                               <select name="colorID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >

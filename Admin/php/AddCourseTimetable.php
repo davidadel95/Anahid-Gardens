@@ -207,31 +207,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			}
             function shaf3y(x) {
 
-        var y = document.getElementById("ClassID").value;
+                var y = document.getElementById("ClassID").value;
 
 
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("ajax").innerHTML = this.responseText;
-         }
-        };
-        xmlhttp.open("GET", "TimeTableAjax.php?q=" + x +"&w=" + y, true);
-        xmlhttp.send();
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajax").innerHTML = this.responseText;
+                 }
+                };
+                xmlhttp.open("GET", "TimeTableAjax.php?q=" + x +"&w=" + y, true);
+                xmlhttp.send();
 			}
+
              function shaf3y2(y) {
 
-        var x = document.getElementById("DayID").value;
+                var x = document.getElementById("DayID").value;
 
 
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("ajax").innerHTML = this.responseText;
-         }
-        };
-        xmlhttp.open("GET", "TimeTableAjax.php?q=" + x +"&w=" + y, true);
-        xmlhttp.send();}
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajax").innerHTML = this.responseText;
+                 }
+                };
+                xmlhttp.open("GET", "TimeTableAjax.php?q=" + x +"&w=" + y, true);
+                xmlhttp.send();
+			}
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
