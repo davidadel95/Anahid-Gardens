@@ -15,7 +15,7 @@
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
 
-          $sql = "INSERT INTO `curriculum` (`ID`, `CourseID`, `LessonName`, `LessonDetails`) 
+          $sql = "INSERT INTO `curriculum` (`ID`, `CourseID`, `LessonName`, `LessonDetails`)
                   VALUES (NULL, '$this->CourseID', '$this->LessonName', '$this->LessonDetails')
                   ";
 
@@ -30,9 +30,9 @@
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
 
-          $sql = "SELECT eventdetails.ID, eventdetails.EventName, eventdetails.Price, eventtype.Name 
-                  FROM `eventdetails`,`eventtype`
-                  WHERE eventdetails.EventTypeID = eventtype.ID
+          $sql = "SELECT *
+                  FROM curriculum
+
                 ";
           $result = $mysqli->query($sql);
           $i=-1;
@@ -40,9 +40,9 @@
           while($row =mysqli_fetch_array($result)){
               $i++;
               $this->ID[$i]=$row['ID'];
-              $this->Name[$i]=$row['EventName'];
-              $this->Price[$i]=$row['Price'];
-              $this->EventTypeID[$i]=$row['Name'];
+              $this->CourseID[$i]=$row['CourseID'];
+              $this->LessonName[$i]=$row['LessonName'];
+              $this->LessonDetails[$i]=$row['LessonDetails'];
           }
           return $i;
       }
