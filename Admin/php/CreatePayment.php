@@ -204,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             ?>
                                             </select>
                                         <br/>
-                                        <input type="submit" class="btn btn-success" name="PaymentNameAdded" value="Attach">
+                                        <input type="submit" class="btn btn-success" name="attach" value="Attach">
                                     </div>
 								</div>
 							</form>
