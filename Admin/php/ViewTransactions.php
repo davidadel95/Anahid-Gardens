@@ -15,7 +15,14 @@
 
 </head>
 <body class="cbp-spmenu-push">
-    <?php require_once "includes.php"; ?>
+    <?php
+    $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TransactionModel.php";
+    ?>
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php include("Navigationbar2.php"); ?>

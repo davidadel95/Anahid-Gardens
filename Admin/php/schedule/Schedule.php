@@ -11,12 +11,15 @@
 </head>
 <body>
 	<?php
-				require_once "../Model/CRUD.php";
-				require_once "../Model/CourseTimeTable.php";
-				require_once "../Model/TimeSlots.php";
-				require_once "../Model/Days.php";
-				require_once "../Model/Course.php";
-				require_once "../dbconnect.php";
+                $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CourseTimeTable.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeSlots.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Days.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
 
 				$x=-1;
 				$x1=-1;

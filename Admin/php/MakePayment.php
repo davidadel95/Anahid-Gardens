@@ -32,7 +32,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body class="cbp-spmenu-push">
     <?php
-    require_once "includes.php";
+    $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/POptionsModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/PaymentEAVModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/OptionsTypeModel.php";
+
     $EventModel = new EventModel;
     $User = new User;
     $OptionsTypeModel = new OptionsTypeModel;
@@ -52,9 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         for($i = 0 ; $i<sizeof($Options) ; $i++)
         {
             $PaymentOptionVal = new PaymentOptionVal($PaymentOptionsModel->GetID($MethodID,$POptionsModel->GetID($Options[$i])[0])[0]
-                                                 
                                                                             ,$_POST[$Options[$i]]
-                                                 
                                                                             ,$TransactionModel->getLastTransaction()[0]);
             $PaymentOptionVal->Add();
         }

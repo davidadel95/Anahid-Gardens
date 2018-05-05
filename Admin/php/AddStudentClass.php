@@ -68,8 +68,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 
 		<?php
-		 require_once "includes.php";
-		 ?>
+        $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentClass.php";
+
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentClass.php";
+
+
+        ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
     <div id="page-wrapper">

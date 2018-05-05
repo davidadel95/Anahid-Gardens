@@ -54,10 +54,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
 			<?php
-			// require_once "includes.php";
-			require_once "Model/CRUD.php";
-			require_once "Model/TimeSlots.php";
-			require_once "dbconnect.php";
+            $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeSlots.php";
 
 			 ?>
       <?php

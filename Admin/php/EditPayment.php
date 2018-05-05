@@ -54,7 +54,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body class="cbp-spmenu-push">
     <?php
-    include_once "includes.php";
+    $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/PaymentEAVModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/OptionsTypeModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/POptionsModel.php";
+
 
     $PaymentEAVModel = new PaymentEAVModel;
     $POptionsModel = new POptionsModel;

@@ -65,7 +65,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 
 		<?php
-		require_once "includes.php";
+            $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/POptionsModel.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/PaymentEAVModel.php";
+            require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/OptionsTypeModel.php";
 		 ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -89,11 +97,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 									$db = new dbconnect();
 									$sql = "SELECT * FROM `applicationoptions`
-                INNER JOIN `application`
-                ON applicationoptions.ID = application.ApplicationOptionID
-                INNER JOIN `applicationvalue`
-                ON application.ID= applicationvalue.ApplicationID
-                where Name ='name'";
+                                    INNER JOIN `application`
+                                    ON applicationoptions.ID = application.ApplicationOptionID
+                                    INNER JOIN `applicationvalue`
+                                    ON application.ID= applicationvalue.ApplicationID
+                                    where Name ='name'";
 								$result = $db->executesql($sql);
 								$i=0;
 									While($rows= mysqli_fetch_array($result)){

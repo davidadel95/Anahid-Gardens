@@ -6,7 +6,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
 <?php
-require_once "includes.php";
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
+
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
 $RoleEav->RoleID = $RoleNameEAV->GetID("Child");

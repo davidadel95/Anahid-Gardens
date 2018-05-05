@@ -1,11 +1,13 @@
 
    <?php
                 $q = $_REQUEST["q"];
-                require_once "Model/DBconnect.php";
-                require_once "Model/CRUD.php";
-                require_once "Model/User.php";
-                 
-             $User = new User;
+               $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+               require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+               require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+               require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+
+                $User = new User;
                 $result = $User->Search($q);
                 $i=-1;
                 while($row =mysqli_fetch_array($result)){

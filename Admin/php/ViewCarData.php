@@ -27,7 +27,14 @@
 				<?php include("Header.php"); ?>
 		</div>
 		<?php
-		require_once "includes.php";
+        $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarTypeModel.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarColorModel.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarYearModel.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 		 ?>
 		<!-- //header-ends -->
 		<!-- main content start-->

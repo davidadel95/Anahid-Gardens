@@ -52,7 +52,13 @@
 
 		<!--left-fixed -navigation-->
 <?php
-require_once "includes.php";
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
+
  ?>
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
@@ -74,7 +80,7 @@ require_once "includes.php";
                               <label>Course </label>
                               <?php
 
-															$Course= new Course;
+                              $Course= new Course;
                               $result = $Course->View();
                               echo "<select name='courseID' class='form-control'>";
                               while($row =mysqli_fetch_array($result)){

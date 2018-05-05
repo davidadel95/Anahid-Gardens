@@ -1,7 +1,9 @@
 <?php
-    $path = $_SERVER['DOCUMENT_ROOT']. "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 
-    require_once $path;
+    $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 
     class AttendanceModel implements CRUD{
 

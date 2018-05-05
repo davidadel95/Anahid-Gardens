@@ -1,10 +1,10 @@
 <?php
-                $q = $_REQUEST["q"];
-                require_once "Model/DBconnect.php";
-                require_once "Model/CRUD.php";
-                require_once "Model/RoleEav.php";
-                $RoleEAV= new RoleEav;
-$result=$RoleEAV->GetRadio();
+    $q = $_REQUEST["q"];
+    require_once "Model/DBconnect.php";
+    require_once "Model/CRUD.php";
+    require_once "Model/RoleEav.php";
+    $RoleEAV= new RoleEav;
+    $result=$RoleEAV->GetRadio();
 
 while($row=mysqli_fetch_array($result)){
     if(!strcmp($row['Name'],$q)){
@@ -20,11 +20,9 @@ while($row=mysqli_fetch_array($result)){
     }
 }
 
-                                    echo"<br>
-
-
-									<input type='hidden' id='calcAjax' name='Field1' value='".$q."'>
-									<br> <br>
-									<input name='GroupField' type='submit'>";
+    echo"<br>
+	<input type='hidden' id='calcAjax' name='Field1' value='".$q."'>
+	<br> <br>
+	<input name='GroupField' type='submit'>";
 
 ?>

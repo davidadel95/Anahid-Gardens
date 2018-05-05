@@ -67,7 +67,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 				<?php
-				require_once "includes.php";
+                $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 				 ?>
 		</div>
 		<!-- //header-ends -->

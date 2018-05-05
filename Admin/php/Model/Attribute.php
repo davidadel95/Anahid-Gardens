@@ -1,42 +1,21 @@
 <?php
 
-/**
- *
- */
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+
 class Attribute implements CRUD
 {
-    /**
-     *
-     */
-    public function __construct()
-    {
-    }
 
-    /**
-     * @var void
-     */
+
+
     public $ID;
-
-    /**
-     * @var void
-     */
     public $Type;
-
-    /**
-     * @var void
-     */
     public $AttributeType;
-
     public $Types;
-
     public $AttributeTypes;
 
-
-
-
-    /**
-     * @inheritDoc
-     */
     public function Add()
     {
       $db = dbconnect::getInstance();
@@ -66,17 +45,11 @@ class Attribute implements CRUD
 
     }
 
-    /**
-     * @inheritDoc
-     */
     public function Edit()
     {
         // TODO: implement here
     }
 
-    /**
-     * @inheritDoc
-     */
     public function View()
     {  $db = dbconnect::getInstance();
      $mysqli = $db->getConnection();
@@ -94,9 +67,7 @@ class Attribute implements CRUD
       return $i;
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function Delete()
     {
         // TODO: implement here

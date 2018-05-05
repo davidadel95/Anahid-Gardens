@@ -1,4 +1,10 @@
-<?php require_once "includes.php" ?>
+<?php
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -41,7 +47,6 @@
 		<link href="../css/custom.css" rel="stylesheet">
 	</head>
 	<body class="">
-
 				<div id="page-wrapper">
 					<div class="main-page login-page ">
 						<h2 class="title1">Login</h2>
