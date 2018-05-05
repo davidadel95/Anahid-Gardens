@@ -1,5 +1,7 @@
 <?php
-//echo $_SERVER['DOCUMENT_ROOT']. "/Anahid-Gardens/Admin/php/Model/Attribute.php";
+    $path = $_SERVER['DOCUMENT_ROOT']. "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+
+    require_once $path;
 
     class AttendanceModel implements CRUD{
 
