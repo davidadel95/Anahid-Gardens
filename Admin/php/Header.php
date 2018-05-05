@@ -1,3 +1,7 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,14 +52,31 @@
       </div><!--//end-search-box-->
 
       <div class="profile_details">
+          <?php
+
+          $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+          require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+          require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+          require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+
+          $user = new User();
+          $result = $user->viewUserName($_SESSION['userID']);
+
+          while ($row = mysqli_fetch_array($result)){
+              $name = $row['Value'];
+              $role = $row['Name'];
+          }
+
+          ?>
         <ul>
           <li class="dropdown profile_details_drop">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               <div class="profile_img">
-                <span class="prfil-img"><img src="images/2.jpg" alt=""> </span>
+                <span class="prfil-img"><img src="../images/a.png" alt=""> </span>
                 <div class="user-name">
-                  <p>Admin Name</p>
-                  <span>Administrator</span>
+                  <p><?php echo $name; ?></p>
+                  <span><?php echo $role; ?></span>
                 </div>
                 <i class="fa fa-angle-down lnr"></i>
                 <i class="fa fa-angle-up lnr"></i>
@@ -63,10 +84,10 @@
               </div>
             </a>
             <ul class="dropdown-menu drp-mnu">
-              <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
-              <li> <a href="#"><i class="fa fa-user"></i> My Account</a> </li>
-              <li> <a href="#"><i class="fa fa-suitcase"></i> Profile</a> </li>
-              <li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+<!--              <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>-->
+<!--              <li> <a href="#"><i class="fa fa-user"></i> My Account</a> </li>-->
+<!--              <li> <a href="#"><i class="fa fa-suitcase"></i> Profile</a> </li>-->
+              <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
             </ul>
           </li>
         </ul>

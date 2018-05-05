@@ -1,9 +1,3 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <?php
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
 
@@ -80,7 +74,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
 			<div class="main-page">
 
 <h4>Courses </h4>
-    <script  src="js/index1.js"></script>
+    <script  src="../js/index1.js"></script>
 
 		<div class="forms">
 			<div class="mid-content-top charts-grids">

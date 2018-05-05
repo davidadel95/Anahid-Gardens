@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -68,12 +69,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
 
 
-    <script  src="js/index1.js"></script>
+    <script  src="../js/index1.js"></script>
+                <?php
+                    $rootPath = $_SERVER['DOCUMENT_ROOT'];
 
+                    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+                    require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+                    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+
+                    $user = new User();
+                    $result = $user->viewUserName($_SESSION['userID']);
+
+                    while ($row = mysqli_fetch_array($result)){
+                        $name = $row['Value'];
+                    }
+
+                ?>
 		<div class="charts">
 			<div class="mid-content-top charts-grids">
 				<div class="middle-content">
-						<h4 class="title">Welcome Admin, --- </h4>
+						<h2 class="title">Welcome <?php echo $name; ?></h2>
 				</div>
 					<!--//sreen-gallery-cursual---->
 			</div>

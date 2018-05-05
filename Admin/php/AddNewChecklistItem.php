@@ -57,9 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <?php include("Navigationbar2.php"); ?>
     </div>
 		
-		<?php
-		require_once "includes.php";
-		 ?>
+
 
 		<!--left-fixed -navigation-->
 

@@ -4,7 +4,6 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php require_once "includes.php"; ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -57,14 +56,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php include("Navigationbar2.php"); ?>
     </div>
-		<?php
+
+        <?php
         $rootPath = $_SERVER['DOCUMENT_ROOT'];
 
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
-		 ?>
-
+        ?>
 		<!--left-fixed -navigation-->
 
 		<!-- header-starts -->
