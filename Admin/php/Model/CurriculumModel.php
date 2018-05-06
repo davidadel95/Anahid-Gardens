@@ -51,6 +51,47 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
           return $i;
       }
 
+      public function ViewSpecificLesson($courseID){
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT *
+                  FROM curriculum
+                  WHERE `CourseID` = $courseID
+                ";
+          $result = $mysqli->query($sql);
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              $this->ID[$i]=$row['ID'];
+              $this->CourseID[$i]=$row['CourseID'];
+              $this->LessonName[$i]=$row['LessonName'];
+              $this->LessonDetails[$i]=$row['LessonDetails'];
+          }
+          return $i;
+      }
+
+      public function viewLessonDetails($lessonID){
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT *
+                  FROM curriculum
+                  WHERE `ID` = $lessonID
+                ";
+          $result = $mysqli->query($sql);
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              $this->ID[$i]=$row['ID'];
+              $this->CourseID[$i]=$row['CourseID'];
+              $this->LessonName[$i]=$row['LessonName'];
+              $this->LessonDetails[$i]=$row['LessonDetails'];
+          }
+          return $i;
+      }
       public function Delete(){
 
       }

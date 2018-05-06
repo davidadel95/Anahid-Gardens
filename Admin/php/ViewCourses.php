@@ -18,6 +18,7 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -95,29 +96,24 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
 				<div class="form-group">
                     <label>Course</label>
 						<?php
-							$Course = new Course;
-							$result= $Course->View();
-                            echo "<select name='courseID' class='form-control' id='courseSelector'>";
-                            while($row =mysqli_fetch_array($result)){
-                                echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
+							$course = new Course;
+							$noOfCourses= $course->View();
 
+                            echo "<select name='courseID' class='form-control' onchange='David(this.value)' id='courseID'>";
+                            for ($i=0; $i<=$carTypes + 1; $i++){
+                                echo "<option value='".$course->ID[$i]."'> ".$course->Name[$i]."</option>";
                             }
-                        echo "</select>"
+                            echo "</select>"
 						?>
-				</div>
-                <div class="form-group">
-                    <label>Lesson Name</label>
-                    <br>
-                    <select class="form-control" id="lessonSelector">
+				    </div>
+                    <div class="form-group" id="ajax">
 
-                    </select>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label>Lesson Details</label>
-                    <br><br>
-                    <h4>Details</h4>
-                </div>
+                    <div class="form-group" id="ajax2">
+
+                    </div>
+
 					<!--//sreen-gallery-cursual---->
 			</div>
 		</div>
@@ -155,23 +151,33 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
 				}
 			}
 
-            $(document).ready(function(){
-                $('#courseSelector').on('change',function(){
-                    var courseID = $(this).val();
-                    if(courseID){
-                        $.ajax({
-                            type:'POST',
-                            url:'ajaxData.php',
-                            data:'courseID='+courseID,
-                            success:function(html){
-                                $('#state').html(html);
-                                $('#lessonSelector').html('<option value="">Select state first</option>');
-                            }
-                        });
-                    }else{
-                        $('#lessonSelector').html('<option value="">Select state first</option>');
+                function David(x) {
+
+                    var courseID = document.getElementById("courseID").value;
+
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("ajax").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "AjaxViewLessonName.php?courseID=" + x, true);
+                    xmlhttp.send();
+                }
+
+            function David2(x) {
+
+                var lessonID = document.getElementById("lessonID").value;
+
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("ajax2").innerHTML = this.responseText;
                     }
-                });
+                };
+                xmlhttp.open("GET", "AjaxViewLessonDetails.php?lessonID=" + x, true);
+                xmlhttp.send();
+            }
 
         </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->

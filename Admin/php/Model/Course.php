@@ -34,10 +34,17 @@ class Course implements CRUD
     {
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
-        $sql_query = "SELECT * FROM Course";
+        $sql = "SELECT * FROM Course";
 
-        $result = $mysqli->query($sql_query);
-        return $result;
+        $result = $mysqli->query($sql);
+        $i=-1;
+
+        while($row =mysqli_fetch_array($result)){
+            $i++;
+            $this->ID[$i]=$row['ID'];
+            $this->Name[$i]=$row['Name'];
+        }
+        return $i;
 
 
     }

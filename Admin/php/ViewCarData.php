@@ -28,7 +28,6 @@ if(!isset($_SESSION['userID']))
 
 </head>
 <body class="cbp-spmenu-push">
-    <?php require_once "includes.php"; ?>
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php include("Navigationbar2.php"); ?>
@@ -48,6 +47,7 @@ if(!isset($_SESSION['userID']))
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarTypeModel.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarColorModel.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarYearModel.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarDataModel.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 		 ?>
 		<!-- //header-ends -->
@@ -131,7 +131,7 @@ if(!isset($_SESSION['userID']))
                               <br>
                               <label>Plate Nb</label>
                               <br>
-                              <input name="PlateNB" type="text" class="form-control" placeholder="eg: BSL287..">
+                              <input name="PlateNB" type="text" class="form-control" placeholder="eg: BSL287.." required>
                               <br>
                               <input type="submit" class="btn btn-success" value="Confirm">
                           </form>
