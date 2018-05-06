@@ -1,3 +1,17 @@
+<?php
+
+//if not logged in redirect to login
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['userID']))
+{
+    // not logged in
+    header('Location: Login.php');
+    exit();
+}
+
+?>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -48,7 +62,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body class="cbp-spmenu-push">
-<?php require_once "includes.php"; ?>
+<?php
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+?>
 <?php
 
 

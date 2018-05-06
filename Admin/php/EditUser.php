@@ -1,5 +1,15 @@
 <?php
-session_start();
+//if not logged in redirect to login
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['userID']))
+{
+    // not logged in
+    header('Location: Login.php');
+    exit();
+}
+
 require_once "includes.php";
 $UserID = $_SESSION['CompleteID'];
 $User = new User;
