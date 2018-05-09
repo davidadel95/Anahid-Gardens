@@ -242,7 +242,7 @@ span.nav-badge-btm {
     padding: 0em 1em;
     border-radius: 30px;
 }
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.dropdown-menus > li > a:hover, .dropdown-menus > li > a:focus {
     background: none;
     color: #337ab7;
 }
@@ -250,7 +250,7 @@ span.nav-badge-btm {
 	right: 5%;
     top: 24%;
 }
-ul.dropdown-menu{
+ul.dropdown-menus{
 	/* animation: flipInX 1s ease;
 	-moz-animation: flipInX 1s ease;
 	-webkit-animation: flipInX 1s ease;
@@ -431,7 +431,7 @@ ul.dropdown-menu{
     float: left;
     padding-left: 5px;
 }
-.dropdown-menu {
+.dropdown-menus {
     box-shadow: 2px 3px 4px rgba(0, 0, 0, .175);
 	-webkit-box-shadow: 2px 3px 4px rgba(0, 0, 0, .175);
 	-moz-box-shadow: 2px 3px 4px rgba(0, 0, 0, .175);
@@ -455,7 +455,7 @@ li.dropdown.head-dpdn a.dropdown-toggle {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-ul.dropdown-menu li {
+ul.dropdown-menus li {
     margin-left: 0;
     width: 100%;
     padding: 0;
@@ -793,16 +793,16 @@ i.icon_6{
 }
 /*--Progress bars--*/
 /********* profile details **********/
-ul.dropdown-menu.drp-mnu i.fa {
+ul.dropdown-menus.drp-mnu i.fa {
     margin-right: 0.5em;
     color: #629aa9;
 }
-ul.dropdown-menu {
+ul.dropdown-menus {
     padding: 1em;
     min-width: 280px;
     top:101%;
 }
-.dropdown-menu > li > a {
+.dropdown-menus > li > a {
     padding: 3px 15px;
 	font-size: 1em;
     letter-spacing: .5px;
@@ -851,13 +851,13 @@ span.prfil-img img,.activity-img img,.media>.pull-left img,.inbox-page img {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.profile_details ul li ul.dropdown-menu.drp-mnu {
+.profile_details ul li ul.dropdown-menus.drp-mnu {
     padding: 1em;
     min-width: 190px;
     top: 122%;
     left:0%;
 }
-ul.dropdown-menu.drp-mnu li {
+ul.dropdown-menus.drp-mnu li {
     list-style-type: none;
     padding: 3px 0;
 }
@@ -2231,7 +2231,7 @@ h4.modal-title {
     line-height: 1.8em;
     margin-bottom: 2em;
 }
-.general-grids ul.dropdown-menu{
+.general-grids ul.dropdown-menus{
     padding: 0.5em;
 }
 .general-grids h4.title2 ,.tool-tips h4.title2{
@@ -2429,17 +2429,17 @@ li.head i.fa {
     color: #555;
     line-height: 2em;
 }
-.inbox-page ul.dropdown-menu {
+.inbox-page ul.dropdown-menus {
     padding: 5px 0;
     min-width: 105px;
     top: 0;
     left: -110px;
 }
-.inbox-page .dropdown-menu > li > a {
+.inbox-page .dropdown-menus > li > a {
     padding: 4px 15px;
     font-size: 0.9em;
 }
-.inbox-page .dropdown-menu > li > a:hover, .inbox-page .dropdown-menu > li > a:focus {
+.inbox-page .dropdown-menus > li > a:hover, .inbox-page .dropdown-menus > li > a:focus {
     color: #337ab7;
 }
 .mail-icon {
@@ -7024,7 +7024,7 @@ h4.asd label {
 	.profile_details_drop a.dropdown-toggle {
 		padding: 0.8em 2em 0 1em;
 	}
-	.profile_details ul li ul.dropdown-menu.drp-mnu {
+	.profile_details ul li ul.dropdown-menus.drp-mnu {
 		padding: 0.5em;
 		min-width: 163px;
 	}
@@ -7367,10 +7367,10 @@ h4.asd label {
 		height: 7px;
 		margin-bottom: 5px;
 	}
-	ul.dropdown-menu.drp-mnu li {
+	ul.dropdown-menus.drp-mnu li {
 		padding: 6px 0;
 	}
-	.profile_details .dropdown-menu > li > a {
+	.profile_details .dropdown-menus > li > a {
 		font-size: 1em;
 	}
 	.profile_details li a i.fa.lnr {
@@ -8178,10 +8178,10 @@ h4.asd label {
 	.notification_desc p span {
 		font-size: 10px;
 	}
-	.dropdown-menu > li > a {
+	.dropdown-menus > li > a {
 		padding: 3px 8px;
 	}
-	ul.dropdown-menu {
+	ul.dropdown-menus {
 		min-width: 210px;
 	}
 	.notification_header {
@@ -8194,10 +8194,10 @@ h4.asd label {
 		height: 6px;
 		margin: 4px 0;
 	}
-	.profile_details ul li ul.dropdown-menu.drp-mnu {
+	.profile_details ul li ul.dropdown-menus.drp-mnu {
 		min-width: 140px;
 	}
-	ul.dropdown-menu.drp-mnu li {
+	ul.dropdown-menus.drp-mnu li {
 		padding: 4px 0;
 	}
 	.modal-grids {
@@ -8221,7 +8221,7 @@ h4.asd label {
 	.grids-right .nav > li > a {
 		padding: 10px 10px;
 	}
-	.grids-right ul.dropdown-menu {
+	.grids-right ul.dropdown-menus {
 		min-width: 105px;
 	}
 	.tool-tips.widget-shadow {
