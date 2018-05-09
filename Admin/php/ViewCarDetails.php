@@ -53,7 +53,7 @@ if(!isset($_SESSION['userID']))
 			<div class="main-page">
                 <div class="tables">
                     <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-                        <h4>Events:</h4>
+                        <h4>Car Details:</h4>
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -63,7 +63,6 @@ if(!isset($_SESSION['userID']))
                                     <th>Driver Name</th>
                                     <th>Color</th>
                                     <th>Plate Number</th>
-
                                 </tr>
                             </thead>
                             <tbody>
