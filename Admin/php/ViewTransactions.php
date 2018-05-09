@@ -46,7 +46,7 @@ if(!isset($_SESSION['userID']))
 
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
-				<?php include("Header.php"); ?>
+            <?php include("Header.php"); ?>
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -75,7 +75,6 @@ if(!isset($_SESSION['userID']))
                                     $TransactionModel = new TransactionModel();
                                     $TransactionModel->View();
                                     for ($i=0;$i<sizeof($TransactionModel->ID);$i++){
-                                        echo '<form method="post">';
                                         echo "<tr>";
                                         echo '<th><a href="TransactionPage.php" onclick="view('.$TransactionModel->ID[$i].')">'.$TransactionModel->ID[$i].'</a></th>';
                                         echo "<td>".$TransactionModel->UserID[$i]."</td>";
@@ -83,9 +82,8 @@ if(!isset($_SESSION['userID']))
                                         echo "<td>".$TransactionModel->Date[$i]."</td>";
                                         echo "<td>".$TransactionModel->Amount[$i]."</td>";
                                         echo "<td>".$EventModel->getEventPrice($EventModel->getEventName($TransactionModel->EventID[$i]))*$TransactionModel->Amount[$i]."</td>";
-                                        echo '<td><input type="submit" class="btn btn-success" name="Print'.$TransactionModel->ID[$i].'" Value="Print">';
+                                        echo '<td><a href="invoicePDF.php" target="_blank" onclick="view('.$TransactionModel->ID[$i].')" class="btn btn-success">Print</a>';
                                         echo "</tr>";
-                                        echo '</form>';
                                         
                                     }
                                     ?>
@@ -130,38 +128,9 @@ if(!isset($_SESSION['userID']))
 			}
             function view(ID)
             {
-                document.cookie = "cookieView="+ID;
+                document.cookie = "cookieView=" + ID;
             }
             
-            $('#print_one').click(function () {
-                printMe();
-            });
-            $('#print_two').click(function () {
-                printMe('embed');
-                $('#print_one,#print_two').attr('disabled', 'disabled');
-                $('#clearme').show();
-            });
-            $('#no_print').click(function () {
-                printMe('none');
-                $('#print_one,#print_two').attr('none');
-                $('#clearme').show();
-            });
-            $('#clearme').click(function () {
-                xepOnline.Formatter.Clear();
-                $('#print_one,#print_two').attr('disabled', null);
-                $('#clearme').hide();
-            });
-            $('#style_me_2').click(function () {
-                $('#print_me').toggleClass('style_me_2');
-            });
-
-            function printMe(render) {
-                render = (render === undefined) ? false : render;
-                xepOnline.Formatter.Format('print_me', {
-                    render: render,
-                    pageMargin: ".25in"
-                });
-             }
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

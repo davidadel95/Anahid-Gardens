@@ -10,7 +10,6 @@ if(!isset($_SESSION['userID']))
     header('Location: Login.php');
     exit();
 }
-
 ?>
 <!--
 Author: W3layouts
@@ -94,7 +93,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <label style="font-size:20px"><?php echo $TransactionModel->getTransaction($transactionID)[1]; ?></label>
                                     <br/><br/>
                                     <label style="font-size:20px">Event Name:</label>
-                                    <label style="font-size:20px"><?php echo $TransactionModel->getTransaction($transactionID)[2]; ?></label>
+                                    <label style="font-size:20px"><?php echo $EventModel->getEventName($TransactionModel->getTransaction($transactionID)[2]); ?></label>
                                     <br/>
                                     <br/>
                                     <label style="font-size:20px">Date:</label>
@@ -130,25 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--//footer-->
 
 
-    <script src="../js/jsPDF-master/jspdf.js"></script>
-    <script src="../js/jsPDF-master/plugins/from_html.js"></script>
-    <script src="../js/jsPDF-master/plugins/split_text_to_size.js"></script>
-    <script src="../js/jsPDF-master/plugins/standard_fonts_metrics.js"></script>
-	<!-- Classie --><!-- for toggle left push menu script -->
-    <script src="../js/classie.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script>
-        $("#print_one").live("click", function () {
-            var divContents = $("#print_me").html();
-            var printWindow = window.open('', '', 'height=400,width=800');
-            printWindow.document.write('<html><head><title>Transaction Details</title>');
-            printWindow.document.write('</head><body >');
-            printWindow.document.write(divContents);
-            printWindow.document.write('</body></html>');
-            printWindow.document.close();
-            printWindow.print();
-        });
-    </script>
+    
 		<script>
             
             
