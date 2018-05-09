@@ -20,6 +20,7 @@
             echo "</br>";
             echo "<label style='color: red'><strong>No available lesson detail, please add lesson detail</strong></label>";
         }else{
+            echo "<br>";
             echo "<label>Lesson Details </label>";
             for ($i =0; $i<=$numberOfLessons; $i++){
                 echo "<h2>".$curriculum->LessonDetails[$i]."</h2>";

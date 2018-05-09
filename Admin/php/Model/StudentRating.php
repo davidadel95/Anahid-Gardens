@@ -5,6 +5,7 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+
 class StudentRating implements CRUD
 {
     /**
@@ -22,6 +23,17 @@ class StudentRating implements CRUD
     /**
      * @var void
      */
+    public $UserID;
+
+    /**
+     * @var void
+     */
+    public $CurriculumID;
+
+    /**
+     * @var void
+     */
+    public $Rating;
 
 
     /**
@@ -38,7 +50,7 @@ class StudentRating implements CRUD
     {
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-      $sql_query = "";
+      $sql_query = "INSERT INTO studentrating (ID,UserID,CurriculumID,Rating) VALUES ('',$this->UserID,$this->CurriculumID,$this->Rating)";
       $result = $mysqli->query($sql_query);
 
     }

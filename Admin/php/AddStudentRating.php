@@ -3,6 +3,7 @@
 //if not logged in redirect to login
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+
 }
 if(!isset($_SESSION['userID']))
 {
@@ -217,6 +218,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
             echo "</br>";
             echo "<label style='color: red'><strong>No available lesson detail, please add lesson detail</strong></label>";
         }else{
+          echo "<br>";
             echo "<label>Lesson Details </label>";
             for ($i =0; $i<=$numberOfLessons; $i++){
                 echo "<h2>".$curriculum->LessonDetails[$i]."</h2>";
@@ -248,7 +250,10 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
               <?php
                 if($_POST){
-                    echo $_POST["star"];
+                  $StudentRating->UserID=$_REQUEST['id'];
+                  $StudentRating->CurriculumID=$_POST["lessonID"];
+                  $StudentRating->Rating=$_POST['star'];
+                  $StudentRating->Add();
 
                 }
 
