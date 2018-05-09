@@ -10,7 +10,7 @@
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
-    
+      echo " <form method='post'>";
     $curriculum = new CurriculumModel();
     $numberOfLessons = $curriculum->viewLessonDetails($lessonID);
 
@@ -25,6 +25,7 @@
             }
         }
         echo "<br>";
-       
+        echo '<button type="submit" class="btn btn-success">Submit</button>';
+                        echo "</form>";
     }
 ?>

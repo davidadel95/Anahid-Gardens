@@ -1,5 +1,5 @@
 <?php
-    
+
     $courseID = $_REQUEST['courseID'];
 //    echo $courseID;
 
@@ -10,7 +10,7 @@
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
-
+    echo " <form method='post'>";
     $curriculum = new CurriculumModel();
     $numberOfLessons = $curriculum->ViewSpecificLesson($courseID);
 
@@ -30,8 +30,8 @@
         $numberOfLessons = $curriculum->ViewSpecificLesson($courseID);
         echo '<div class="form-group" id="ajax2">';
     $numberOfLessons = $curriculum->viewLessonDetails($curriculum->ID[0]);
-    
-   
+
+
         if ($numberOfLessons < 0){
             echo "</br>";
             echo "<label style='color: red'><strong>No available lesson detail, please add lesson detail</strong></label>";
@@ -43,4 +43,6 @@
         }
         echo "<br>";
      echo '</div>';
+     echo '<button type="submit" class="btn btn-success">Submit</button>';
+     echo "</form>";
 ?>

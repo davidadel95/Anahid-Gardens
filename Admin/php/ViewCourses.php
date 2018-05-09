@@ -88,7 +88,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 		<div id="page-wrapper">
 			<div class="main-page">
 
-<h4>Courses </h4>
+    <h4>View Courses </h4>
     <script  src="../js/index1.js"></script>
 
 		<div class="forms">
@@ -100,7 +100,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 							$noOfCourses= $course->View();
 
                             echo "<select name='courseID' class='form-control' onchange='David(this.value)' id='courseID'>";
-                            for ($i=0; $i<=$carTypes + 1; $i++){
+                            for ($i=0; $i<=$noOfCourses; $i++){
                                 echo "<option value='".$course->ID[$i]."'> ".$course->Name[$i]."</option>";
                             }
                             echo "</select>"
@@ -109,7 +109,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                     <div class="form-group" id="ajax">
                           <?php
                                   $curriculum = new CurriculumModel();
-    $numberOfLessons = $curriculum->ViewSpecificLesson(1);
+                                  $curriculum->View();
+    $numberOfLessons = $curriculum->ViewSpecificLesson($course->ID[0]);
 
 
     if ($numberOfLessons < 0){
@@ -125,15 +126,13 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
         echo "</select>";
     }
                                 ?>
-                    
+
 
                     <div class="form-group" id="ajax2">
   <?php
-                       
-                           $curriculum = new CurriculumModel();
-    $numberOfLessons = $curriculum->viewLessonDetails(4);
 
-    
+
+        $numberOfLessons = $curriculum->viewLessonDetails($curriculum->ID[0]);
         if ($numberOfLessons < 0){
             echo "</br>";
             echo "<label style='color: red'><strong>No available lesson detail, please add lesson detail</strong></label>";
@@ -143,10 +142,10 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                 echo "<h2>".$curriculum->LessonDetails[$i]."</h2>";
             }
         }
-      
+
 
                         ?>
-            </div>        
+            </div>
 </div>
 					<!--//sreen-gallery-cursual---->
 			</div>
@@ -187,8 +186,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
                 function David(x) {
 
-                  
-                    
+
+
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
@@ -201,7 +200,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
             function David2(x) {
 
-          
+
 
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
