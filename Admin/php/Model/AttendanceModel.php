@@ -42,13 +42,20 @@
             $row =mysqli_fetch_array($result);
             $childRoleID =$row['ID'];
 
-            $sql_query = "SELECT `attendance`.`Date`, `attendance`.`Attended`, `applicationvalue`.`Value`, `attendance`.`ID`
-                            FROM `attendance`, `user`, `applicationvalue`
-                            WHERE `attendance`.`Date` LIKE '%$date%'
-                            AND `attendance`.`UserID` = user.ID
-                            AND `user`.`RoleID` = 2
-                            AND `Attended` = 1
-                            AND `applicationvalue`.`UserID` = `attendance`.`UserID`
+            $sql_query = "  SELECT user.id,applicationvalue.Value, attendance.Date, attendance.Attended, attendance.ID
+                                FROM `applicationoptions`
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                INNER JOIN attendance ON user.ID = attendance.UserID
+                                WHERE applicationoptions.Name ='name'
+                                AND attendance.Attended = 1
+                                AND user.RoleID = 2
+                                AND attendance.Date LIKE '%$date%'
                           ";
             $result = $mysqli->query($sql_query);
             $i=-1;

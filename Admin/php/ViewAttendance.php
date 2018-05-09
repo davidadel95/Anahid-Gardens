@@ -126,7 +126,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                      echo "<td>".$attendance->Attended[$i]."</td>";
                                      echo "</tr>";
                                      $j++;
-																		 break;
                                  }
                              }
                          }else{
