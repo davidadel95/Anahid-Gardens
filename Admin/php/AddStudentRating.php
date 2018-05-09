@@ -109,7 +109,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                             <label>Lesson Name</label>
 														<?php
 															$CurriculumModel= new CurriculumModel;
-														   $result = $CurriculumModel->View();
+														   $result = $CurriculumModel->ViewSpecficCourseID(1);
 														   echo "<select name='courseID' class='form-control'>";
 														   for($x=0;$x<=$result;$x++)
 															 {

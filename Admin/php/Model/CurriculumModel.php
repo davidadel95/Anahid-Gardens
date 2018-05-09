@@ -106,6 +106,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
                 WHERE `CourseID` = $CourseID
               ";
         $result = $mysqli->query($sql);
+        if($result){
         $i=-1;
 
         while($row =mysqli_fetch_array($result)){
@@ -117,6 +118,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
         }
         return $i;
 
+      }
       }
 
   }
