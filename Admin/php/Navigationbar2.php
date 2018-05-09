@@ -326,12 +326,12 @@ if (session_status() == PHP_SESSION_NONE) {
                    <li class="treeview">
                     <a href="#">
                      <i class="fa fa-cog"></i>
-                     <span>Settings</span>
+                     <span>Resources</span>
                      <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                     <li><a href="AddFood.php"><i class="fa fa-angle-right"></i>Add New Type of Food</a></li>
-                     <li><a href="AddNewChecklistItem.php"><i class="fa fa-angle-right"></i>Add New Checklist Category</a></li>
+                     <li><a href="ViewResources.php"><i class="fa fa-angle-right"></i>Add Resources</a></li>
+                     <li><a href="ShowResources.php"><i class="fa fa-angle-right"></i>View Resources</a></li>
                     </ul>
                    </li>
 

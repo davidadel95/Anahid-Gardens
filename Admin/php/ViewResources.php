@@ -35,6 +35,7 @@ if(!isset($_SESSION['userID']))
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarTypeModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/ResourceModel.php";
     ?>
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
@@ -47,7 +48,7 @@ if(!isset($_SESSION['userID']))
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
-
+		
 		<!-- //header-ends -->
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -57,16 +58,16 @@ if(!isset($_SESSION['userID']))
                   <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
                     <div class="form-title">
-                      <h4>New Car Type</h4>
+                      <h4>New Resource Type</h4>
                     </div>
                     <div class="form-body">
-                        <label>Available Car Types </label>
+                        <label>Available Resources </label>
                             <select name="carTypeID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-                                    $carTypeModel = new CarTypeModel();
-                                    $carTypes= $carTypeModel->View();
-                                    for ($i=0; $i<=$carTypes; $i++){
-                                        echo "<option value='".$carTypeModel->ID[$i]."'> ".$carTypeModel->Name[$i]."</option>";
+                                    $resourceModel = new ResourceModel();
+                                    $parents= $resourceModel->View();
+                                    for ($i=0; $i<=$parents; $i++){
+                                        echo "<option value='".$resourceModel->ID[$i]."'> ".$resourceModel->Name[$i]."</option>";
                                         }
                                         ?>
                             </select>
@@ -74,9 +75,9 @@ if(!isset($_SESSION['userID']))
                         <div class="form-group">
                             <form method="post" name="">
                                 <input type="hidden" name="form" value="typeForm">
-                                <label>New Car Type</label>
+                                <label>New Resource Name</label>
                                 <br>
-                                <input name="carType" type="text" class="form-control" placeholder="eg: Suzuki..">
+                                <input name="resourceName" type="text" class="form-control" placeholder="eg: Suzuki..">
                                 <br>
                                 <input type="submit" class="btn btn-success" value="Confirm">
                             </form>
@@ -90,26 +91,31 @@ if(!isset($_SESSION['userID']))
                     <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
                         <div class="form-title">
-                            <h4>New Model</h4>
+                            <h4>New Resource</h4>
                         </div>
                         <div class="form-body">
-                            <label>Please select car type </label>
+                            <label>Please select resource type </label>
                             <form method="post" name="modelForm">
-                            <select name="typeID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
-                                <?php
-                                $carTypeModel = new CarTypeModel();
-                                $carTypes= $carTypeModel->View();
-                                for ($i=0; $i<=$carTypes; $i++){
-                                    echo "<option value='".$carTypeModel->ID[$i]."'> ".$carTypeModel->Name[$i]."</option>";
-                                }
-                                ?>
+                                <select name="parentID" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
+                                    <?php
+                                    $resourceModel = new ResourceModel();
+                                    $parents= $resourceModel->View();
+                                    for ($i=0; $i<=$parents; $i++){
+                                        echo "<option value='".$resourceModel->ID[$i]."'> ".$resourceModel->Name[$i]."</option>";
+                                    }
+                                    ?>
+                                </select>
                             </select>
                             <br>
                             <div class="form-group">
                                     <input type="hidden" name="form" value="modelForm">
-                                    <label>New Model Name</label>
+                                    <label>New Resource Name</label>
                                     <br>
-                                    <input name="model" type="text" class="form-control" placeholder="eg: Carens..">
+                                    <input name="model" type="text" class="form-control" placeholder="eg: Deskjet..">
+                                    <br>
+                                    <label>Quantity</label>
+                                    <br>
+                                    <input name="quantity" type="text" class="form-control" placeholder="5">
                                     <br>
                                     <input type="submit" class="btn btn-success" value="Confirm">
                                 </form>
@@ -120,19 +126,23 @@ if(!isset($_SESSION['userID']))
                             switch ($_POST['form']) {
                                 case "typeForm":
 //                                    echo "submitted A";
-                                    $carTypeName=$_POST["carType"];
-                                    $car = new CarTypeModel();
-                                    $car->Name = $carTypeName;
-                                    $car->Add();
+                                    $resourceName=$_POST["resourceName"];
+                                    $resourceParent = new ResourceModel();
+                                    $resourceParent->Name = $resourceName;
+                                    $resourceParent->ParentID = 1;
+                                    $resourceParent->Add();
                                     echo "<meta http-equiv='refresh' content='0'>";
                                     break;
 
                                 case "modelForm":
 //                                    echo "submitted B";
-                                    $car = new CarTypeModel();
-                                    $car->Name = $_POST["model"];
-                                    $car->CarTypeID = $_POST["typeID"];
-                                    $car->addCarModel();
+
+                                    $addResource = new ResourceModel();
+                                    $addResource->Name = $_POST["model"];
+                                    $addResource->Quantity = $_POST["quantity"];
+                                    $addResource->ParentID = $_POST["parentID"];
+                                    $addResource->addChildResource($_POST['parentID']);
+
                                     echo "<meta http-equiv='refresh' content='0'>";
                                     break;
 
