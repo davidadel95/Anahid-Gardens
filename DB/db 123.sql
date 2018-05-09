@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 09, 2018 at 03:09 PM
+-- Generation Time: May 09, 2018 at 07:56 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -169,7 +169,10 @@ INSERT INTO `attendance` (`ID`, `UserID`, `Date`, `Attended`) VALUES
 (10, 1, '2018-04-29 00:00:00', 1),
 (11, 7, '2018-04-30 00:00:00', 1),
 (12, 6, '2018-04-30 00:00:00', 1),
-(13, 8, '2018-04-30 00:00:00', 1);
+(13, 8, '2018-04-30 00:00:00', 1),
+(14, 6, '2018-05-09 19:31:58', 1),
+(15, 8, '2018-05-09 19:31:58', 1),
+(16, 9, '2018-05-09 19:31:58', 1);
 
 -- --------------------------------------------------------
 
@@ -427,16 +430,17 @@ CREATE TABLE `curriculum` (
   `ID` int(11) NOT NULL,
   `CourseID` int(11) NOT NULL,
   `LessonName` varchar(100) NOT NULL,
-  `LessonDetails` text NOT NULL
+  `LessonDetails` text NOT NULL,
+  `MaxStars` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `curriculum`
 --
 
-INSERT INTO `curriculum` (`ID`, `CourseID`, `LessonName`, `LessonDetails`) VALUES
-(1, 2, 'Frere Jacques', 'Frere Jacques, Frere Jacques Dormez vous? Dormez vous? Sonnez les matines Sonnez les matines Din din don Din din don Are you sleeping? Are you sleeping? Brother John, Brother John Morning bells are ringing Morning bells are ringing Din dang dong Din dang dong'),
-(2, 2, 'Dormer Vous', 'dfsfjksdlfjsdkl');
+INSERT INTO `curriculum` (`ID`, `CourseID`, `LessonName`, `LessonDetails`, `MaxStars`) VALUES
+(1, 2, 'Frere Jacques', 'Frere Jacques, Frere Jacques Dormez vous? Dormez vous? Sonnez les matines Sonnez les matines Din din don Din din don Are you sleeping? Are you sleeping? Brother John, Brother John Morning bells are ringing Morning bells are ringing Din dang dong Din dang dong', 0),
+(2, 2, 'Dormer Vous', 'dfsfjksdlfjsdkl', 0);
 
 -- --------------------------------------------------------
 
@@ -1198,6 +1202,36 @@ INSERT INTO `reportsvalue` (`ID`, `UserID`, `ReportID`, `Value`) VALUES
 (1, 1, 1, 'AnahidChild'),
 (2, 1, 2, 'Bad'),
 (3, 1, 3, 'N/A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `resources`
+--
+
+CREATE TABLE `resources` (
+  `ID` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `ParentID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `resources`
+--
+
+INSERT INTO `resources` (`ID`, `Name`, `Quantity`, `ParentID`) VALUES
+(1, 'Parent', 0, NULL),
+(2, 'Printer', 97, 1),
+(3, 'Desks', 6, 1),
+(4, 'Tables', 0, 1),
+(5, 'Deskjet F2200', 2, 2),
+(6, 'LaserJet', 3, 2),
+(7, 'Laserr', 11, 2),
+(8, '5200F', 20, 2),
+(9, 'Lasr 2', 34, 2),
+(10, 'Manager Desk', 2, 3),
+(11, 'Home Desk', 4, 3);
 
 -- --------------------------------------------------------
 
@@ -2047,6 +2081,13 @@ ALTER TABLE `reportsvalue`
   ADD KEY `ReportsValue_fk1` (`ReportID`);
 
 --
+-- Indexes for table `resources`
+--
+ALTER TABLE `resources`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `parentIDReference` (`ParentID`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
@@ -2247,7 +2288,7 @@ ALTER TABLE `applicationvalue`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `attendancelog`
 --
@@ -2498,6 +2539,11 @@ ALTER TABLE `reportoptionstype`
 --
 ALTER TABLE `reportsvalue`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `resources`
+--
+ALTER TABLE `resources`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -2849,6 +2895,12 @@ ALTER TABLE `reportoptionstype`
 ALTER TABLE `reportsvalue`
   ADD CONSTRAINT `ReportsValue_fk0` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`),
   ADD CONSTRAINT `ReportsValue_fk1` FOREIGN KEY (`ReportID`) REFERENCES `report` (`ID`);
+
+--
+-- Constraints for table `resources`
+--
+ALTER TABLE `resources`
+  ADD CONSTRAINT `parentIDReference` FOREIGN KEY (`ParentID`) REFERENCES `resources` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rolepages`
