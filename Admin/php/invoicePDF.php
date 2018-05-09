@@ -19,15 +19,25 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
     $TransactionModel = new TransactionModel;
     $User = new User;
 
+
+
+
+
+
 $EventPrice = $EventModel->getEventPrice($EventModel->getEventName($TransactionModel->getTransaction($transactionID)[2]));
 $subTotal = $EventPrice * $TransactionModel->getTransaction($transactionID)[4];
 $tax = 10;
 $total = $tax*$subTotal/100 +$subTotal;
 
+
 $pdf = new FPDF('P','mm','A4');
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',14);
+$image="../../Logo/logoAnahid.png";
+$pdf->Cell( 40, 40, $pdf->Image($image, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0, 'L', false );
 
+
+$pdf->Cell(0,30,'',0,1);
 $pdf->Cell(120,5,'ANAHID GARDENS NURSERY',0,0);
 $pdf->Cell(59,5,'INVOICE',0,1);
 
