@@ -106,7 +106,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <br>
                                     
                                     </div>
-                                    <button class="btn btn-success" name="Print" id="print_one">Print</button>
+                                    <a class="btn btn-success" name="Print" id="print_one" href="invoicePDF.php">Print</a>
                                 </div>
                                     </div>
                             
