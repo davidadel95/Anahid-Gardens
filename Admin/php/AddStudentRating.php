@@ -18,6 +18,7 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentRating.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 ?>
 <!DOCTYPE HTML>
@@ -26,6 +27,11 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 <title>Add Student Rating</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
@@ -37,6 +43,78 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
 <!-- font-awesome icons CSS -->
 <link href="../css/font-awesome.css" rel="stylesheet">
+
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: roboto;
+    }
+
+
+    .cont {
+      width: 93%;
+      max-width: 350px;
+      text-align: center;
+      margin: 4% auto;
+      padding: 30px 0;
+      background: #111;
+      color: #EEE;
+      border-radius: 5px;
+      border: thin solid #444;
+      overflow: hidden;
+    }
+
+    hr {
+      margin: 20px;
+      border: none;
+      border-bottom: thin solid rgba(255,255,255,.1);
+    }
+
+    div.title { font-size: 2em; }
+
+    h1 span {
+      font-weight: 300;
+      color: #Fd4;
+    }
+
+    div.stars {
+
+      display: inline-block;
+    }
+
+    input.star { display: none; }
+
+    label.star {
+      float: right;
+      padding: 10px;
+      font-size: 36px;
+      color: #444;
+      transition: all .2s;
+    }
+
+    input.star:checked ~ label.star:before {
+      content: '\f005';
+      color: #FD4;
+      transition: all .25s;
+    }
+
+    input.star-5:checked ~ label.star:before {
+      color: #FE7;
+      text-shadow: 0 0 20px #952;
+    }
+
+    input.star-1:checked ~ label.star:before { color: #F62; }
+
+    label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+    label.star:before {
+      content: '\f006';
+      font-family: FontAwesome;
+    }
+</style>
 <!-- //font-awesome icons CSS-->
 
 <!-- side nav css file -->
@@ -144,10 +222,23 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                 echo "<h2>".$curriculum->LessonDetails[$i]."</h2>";
             }
         }
-        
-        echo "<input type= 'text'>";
-echo '<button type="submit" class="btn btn-success">Submit</button>';
-                echo "</form>";
+        echo "<br>";
+        echo "<label>Rating </label>";
+
+
+          echo ' <div class="form-group">';
+            echo '<div class="stars">';
+            $StudentRating = new StudentRating;
+            $numberofstars=$StudentRating->GetNumbersOfStars();
+            for ($counter=$numberofstars;$counter>=1;$counter--)
+            {
+                echo '<input class="star"  value="'.$counter .'" id="star-'. $counter.'-2" type="radio" name="star"/>';
+                echo '<label class="star" for="star-'.$counter.'-2"></label>';
+            }
+        echo '</div>';
+        echo '</div>';
+        echo '  <button type="submit" class="btn btn-success">Submit</button>';
+        echo "</form>";
                         ?>
 
             </div>
@@ -157,7 +248,7 @@ echo '<button type="submit" class="btn btn-success">Submit</button>';
 
               <?php
                 if($_POST){
-                    echo $_POST["lessonID"];
+                    echo $_POST["star"];
 
                 }
 
@@ -239,6 +330,15 @@ echo '<button type="submit" class="btn btn-success">Submit</button>';
 	<!-- Bootstrap Core JavaScript -->
    <!-- <script src="js/bootstrap.js"> </script> -->
 	<!-- //Bootstrap Core JavaScript -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-46156385-1', 'cssscript.com');
+    ga('send', 'pageview');
+
+  </script>
 </body>
 </html>

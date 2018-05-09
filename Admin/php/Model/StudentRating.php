@@ -1,0 +1,92 @@
+<?php
+
+
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+class StudentRating implements CRUD
+{
+    /**
+     *
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * @var void
+     */
+    public $ID;
+
+    /**
+     * @var void
+     */
+
+
+    /**
+     * @var void
+     */
+     public $NumberOfStars;
+
+
+
+    /**
+     * @inheritDoc
+     */
+    public function Add()
+    {
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "";
+      $result = $mysqli->query($sql_query);
+
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function Edit()
+    {
+
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function View()
+    {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query = "";
+          $result = $mysqli->query($sql_query);
+          return $result;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function Delete()
+    {
+       $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = " ";
+      $result = $mysqli->query($sql_query);
+      $sql_query = "";
+      $result = $mysqli->query($sql_query);
+
+      }
+
+      public function GetNumbersOfStars(){
+            $this->NumberOfStars=5;
+            return $this->NumberOfStars;
+
+      }
+
+
+
+
+
+
+
+        }

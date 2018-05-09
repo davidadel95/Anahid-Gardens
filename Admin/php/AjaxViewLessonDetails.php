@@ -9,6 +9,7 @@
     require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentRating.php";
 
       echo " <form method='post'>";
     $curriculum = new CurriculumModel();
@@ -25,7 +26,21 @@
             }
         }
         echo "<br>";
-        echo '<button type="submit" class="btn btn-success">Submit</button>';
-                        echo "</form>";
+        echo "<label>Rating </label>";
+
+
+          echo ' <div class="form-group">';
+            echo '<div class="stars">';
+            $StudentRating = new StudentRating;
+            $numberofstars=$StudentRating->GetNumbersOfStars();
+            for ($counter=$numberofstars;$counter>=1;$counter--)
+            {
+                echo '<input class="star"  value="'.$counter.'" id="star-'.$counter.'-2" type="radio" name="star"/>';
+                echo '<label class="star" for="star-'.$counter.'-2"></label>';
+            }
+        echo '</div>';
+        echo '</div>';
+        echo '  <button type="submit" class="btn btn-success">Submit</button>';
+        echo "</form>";
     }
 ?>

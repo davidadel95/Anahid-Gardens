@@ -42,7 +42,7 @@
     }
 
     div.stars {
-      width: 270px;
+
       display: inline-block;
     }
 
@@ -79,23 +79,35 @@
 </head>
 
 <body>
+<?php
 
-<div class="cont">
-  <div class="stars">
-    <form action="">
-      <input class="star star-5" id="star-5-2" type="radio" name="star"/>
-      <label class="star star-5" for="star-5-2"></label>
-      <input class="star star-4" id="star-4-2" type="radio" name="star"/>
-      <label class="star star-4" for="star-4-2"></label>
-      <input class="star star-3" id="star-3-2" type="radio" name="star"/>
-      <label class="star star-3" for="star-3-2"></label>
-      <input class="star star-2" id="star-2-2" type="radio" name="star"/>
-      <label class="star star-2" for="star-2-2"></label>
-      <input class="star star-1" id="star-1-2" type="radio" name="star"/>
-      <label class="star star-1" for="star-1-2"></label>
+
+  echo '<div class="stars">';
+  echo " <form method='post'>";
+  echo '<input class="star"  value="6" id="star-6-2" type="radio" name="star"/>';
+  echo '<label class="star" for="star-6-2"></label>';
+  echo '<input class="star"  value="5" id="star-5-2" type="radio" name="star"/>';
+  echo '<label class="star" for="star-5-2"></label>';
+  echo '<input class="star"  value="4" id="star-4-2" type="radio" name="star"/>';
+  echo '<label class="star" for="star-4-2"></label>';
+  echo '<input class="star"  value="3" id="star-3-2" type="radio" name="star"/>';
+  echo '<label class="star" for="star-3-2"></label>';
+  echo '<input class="star"  value="2" id="star-2-2" type="radio" name="star"/>';
+  echo '<label class="star" for="star-2-2"></label>';
+  echo '<input class="star" value="1" id="star-1-2" type="radio" name="star"/>';
+  echo '<label class="star" for="star-1-2"></label>';
+
+
+?>
     </form>
+    <?php
+          if ($_POST){
+
+          }
+      ?>
+
   </div>
-</div>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
