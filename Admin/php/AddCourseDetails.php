@@ -15,7 +15,7 @@ if(!isset($_SESSION['userID']))
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Anahid Gardens - Add Song</title>
+<title>Anahid Gardens - Add Course Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -94,12 +94,13 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
                               <?php
 
                               $Course= new Course;
-                              $result = $Course->View();
-                              echo "<select name='courseID' class='form-control'>";
-                              while($row =mysqli_fetch_array($result)){
-                                  echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
+                              $i = $Course->View();
+                               echo "<select name='courseID' class='form-control'>";
+                              for($x=0;$x<=$i;$x++){
+                                  echo "<option value='".$Course->ID[$x]."'>" .$Course->Name[$x]."</option>" ;
 
-                              }
+                                  }
+
                               echo "</select>"
                               ?>
                           </div>
