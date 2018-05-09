@@ -1,5 +1,5 @@
 <?php
-
+    
     $courseID = $_REQUEST['courseID'];
 //    echo $courseID;
 
@@ -27,4 +27,20 @@
         }
         echo "</select>";
     }
+        $numberOfLessons = $curriculum->ViewSpecificLesson($courseID);
+        echo '<div class="form-group" id="ajax2">';
+    $numberOfLessons = $curriculum->viewLessonDetails($curriculum->ID[0]);
+    
+   
+        if ($numberOfLessons < 0){
+            echo "</br>";
+            echo "<label style='color: red'><strong>No available lesson detail, please add lesson detail</strong></label>";
+        }else{
+            echo "<label>Lesson Details </label>";
+            for ($i =0; $i<=$numberOfLessons; $i++){
+                echo "<h2>".$curriculum->LessonDetails[$i]."</h2>";
+            }
+        }
+        echo "<br>";
+     echo '</div>';
 ?>

@@ -190,6 +190,7 @@ class User implements CRUD
                                 ORDER BY UserID,OptionTypeID" ;
                                 $result = $mysqli->query($sql_query);
                                 return $result;
+        
 
     }
 

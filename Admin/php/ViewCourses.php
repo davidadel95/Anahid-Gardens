@@ -107,13 +107,47 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 						?>
 				    </div>
                     <div class="form-group" id="ajax">
+                          <?php
+                                  $curriculum = new CurriculumModel();
+    $numberOfLessons = $curriculum->ViewSpecificLesson(1);
 
-                    </div>
+
+    if ($numberOfLessons < 0){
+        echo "</br>";
+        echo "<label style='color: red'><strong>No available lessons, please add one first</strong></label>";
+    }else{
+        echo "<label>Lesson Name </label>";
+        echo "<br>";
+        echo "<select name=\"lessonID\" id=\"lessonID\" class=\"form-control\" onchange='David2(this.value)' >";
+        for ($i =0; $i<=$numberOfLessons; $i++){
+            echo "<option value='".$curriculum->ID[$i]."'> ".$curriculum->LessonName[$i]."</option>";
+        }
+        echo "</select>";
+    }
+                                ?>
+                    
 
                     <div class="form-group" id="ajax2">
+  <?php
+                       
+                           $curriculum = new CurriculumModel();
+    $numberOfLessons = $curriculum->viewLessonDetails(4);
 
-                    </div>
+    
+        if ($numberOfLessons < 0){
+            echo "</br>";
+            echo "<label style='color: red'><strong>No available lesson detail, please add lesson detail</strong></label>";
+        }else{
+            echo "<label>Lesson Details </label>";
+            for ($i =0; $i<=$numberOfLessons; $i++){
+                echo "<h2>".$curriculum->LessonDetails[$i]."</h2>";
+            }
+        }
+      
 
+                        ?>
+            </div>        
+</div>
 					<!--//sreen-gallery-cursual---->
 			</div>
 		</div>
@@ -153,8 +187,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
                 function David(x) {
 
-                    var courseID = document.getElementById("courseID").value;
-
+                  
+                    
                     var xmlhttp = new XMLHttpRequest();
                     xmlhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
@@ -167,7 +201,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
             function David2(x) {
 
-                var lessonID = document.getElementById("lessonID").value;
+          
 
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {

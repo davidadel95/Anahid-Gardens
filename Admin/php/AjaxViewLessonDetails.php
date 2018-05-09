@@ -10,7 +10,7 @@
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
-
+    echo '<div class="form-group" id="ajax2">';
     $curriculum = new CurriculumModel();
     $numberOfLessons = $curriculum->viewLessonDetails($lessonID);
 
@@ -25,5 +25,6 @@
             }
         }
         echo "<br>";
+        echo '</div>';
     }
 ?>
