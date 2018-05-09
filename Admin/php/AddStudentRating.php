@@ -15,7 +15,7 @@ if(!isset($_SESSION['userID']))
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Anahid Gardens - Add Song</title>
+<title>Anahid Gardens - Add Student Rating </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -95,10 +95,10 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                               <?php
 
                               $Course= new Course;
-                              $result = $Course->View();
+                              $NumberOfCourses = $Course->View();
                               echo "<select name='courseID' class='form-control'>";
-                              while($row =mysqli_fetch_array($result)){
-                                  echo "<option value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
+                              for($i=0;$i<$NumberOfCourses;$i++){
+                                echo "<option value='".$Course->ID[$i]."'>" .$Course->Name[$i]."</option>" ;
 
                               }
                               echo "</select>"
@@ -120,7 +120,16 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                         </div>
                         <div class="form-group">
                           <label>Lesson Details</label>
-                          <input name="lessonDetails" type="text" class="form-control" placeholder="Details">
+                          <?php
+                            $CurriculumModel= new CurriculumModel;
+                             $result = $CurriculumModel->ViewSpecficCourseID(1);
+                             echo "<select name='courseID' class='form-control'>";
+                             for($x=0;$x<=$result;$x++)
+                             {
+                               echo "<option value='".$CurriculumModel->ID[$x]."'>" .$CurriculumModel->LessonDetails[$x]."</option>";
+                             }
+                               echo "</select>"
+                               ?>
                         </div>
                         <button type="submit" class="btn btn-success">Confirm</button>
                       </form>
