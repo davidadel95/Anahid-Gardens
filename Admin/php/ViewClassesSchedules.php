@@ -98,7 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                  while($row =mysqli_fetch_array($result)){
                      echo "<tr>";
-                     echo "<td> <a href=\"schedule\Schedule.php?id=".$row["ID"]."\"> ".$row["Name"]." </a> </td>";
+                     echo "<td> <a href=\"Schedule.php?id=".$row["ID"]."\"> ".$row["Name"]." </a> </td>";
                      echo "</tr>";
                  }
                  ?>

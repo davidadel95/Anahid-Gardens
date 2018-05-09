@@ -23,36 +23,35 @@ if(!isset($_SESSION['userID']))
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 
     <!-- Custom CSS -->
-    <link href="../../css/style.css" rel='stylesheet' type='text/css' />
+    <link href="../css/style.css" rel='stylesheet' type='text/css' />
 
     <!-- font-awesome icons CSS -->
-    <link href="../../css/font-awesome.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome icons CSS-->
 
     <!-- side nav css file -->
-    <link href='../../css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
+    <link href='../css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
     <!-- //side nav css file -->
 
     <!-- js-->
-    <script src="../../js/jquery-1.11.1.min.js"></script>
-    <script src="../../js/modernizr.custom.js"></script>
+    <script src="../js/jquery-1.11.1.min.js"></script>
+    <script src="../js/modernizr.custom.js"></script>
 
     <!--webfonts-->
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
     <!--//webfonts-->
 
     <!-- chart -->
-    <script src="../../js/Chart.js"></script>
+    <script src="../js/Chart.js"></script>
     <!-- //chart -->
 
     <!-- Metis Menu -->
-    <script src="../../js/metisMenu.min.js"></script>
-    <script src="../../js/custom.js"></script>
-    <script  src="../../js/index1.js"></script>
-    <link href="../../css/custom.css" rel="stylesheet">
+    <script src="../js/metisMenu.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <link href="../css/custom.css" rel="stylesheet">
 
 	<title>Showing schedule</title>
 
@@ -132,14 +131,14 @@ if(!isset($_SESSION['userID']))
     <body class="cbp-spmenu-push">
         <div class="main-content">
             <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-                <?php include("../Navigationbar2.php"); ?>
+                <?php include("Navigationbar2.php"); ?>
             </div>
 
             <!--left-fixed -navigation-->
 
             <!-- header-starts -->
             <div class="sticky-header header-section ">
-                <?php include("../Header.php"); ?>
+                <?php include("Header.php"); ?>
             </div>
             <!-- //header-ends -->
             <!-- main content start-->
@@ -179,20 +178,17 @@ if(!isset($_SESSION['userID']))
                                     echo '<li class="events-group">';
                                     echo '<div class="top-info"><span>'.$AllDays[$Counter].'</span></div>';
                                     echo "<ul>";
-                                    for ($Counter1=0;$Counter1<=$x;$Counter1++){
-
-                                        if($AllDaysID[$Counter]==$DaysUsed[$Counter1]){
-                                            echo '<li class="single-event" data-start="'.$Begins[$Counter1].'" data-end="'.$Ends[$Counter1].'" data-event="event-1">';
-                                            echo	'<a href="#0">';
-                                            echo	'	<em class="event-name">'.$Courses[$Counter1].'</em>';
-                                            echo	'</a>';
-                                            echo '</li>';
+                                        for ($Counter1=0;$Counter1<=$x;$Counter1++){
+                                            if($AllDaysID[$Counter]==$DaysUsed[$Counter1]){
+                                                echo '<li class="single-event" data-start="'.$Begins[$Counter1].'" data-end="'.$Ends[$Counter1].'" data-event="event-1">';
+                                                echo	'<a href="">';
+                                                echo	'<em class="event-name">'.$Courses[$Counter1].'</em>';
+                                                echo	'</a>';
+                                                echo '</li>';
+                                            }
                                         }
-                                    }
-
                                     echo "</ul>";
                                     echo '</li>';
-
                                 }
                                 ?>
                             </ul>
@@ -204,7 +200,6 @@ if(!isset($_SESSION['userID']))
                                     <span class="event-date"></span>
                                     <h3 class="event-name"></h3>
                                 </div>
-
                                 <div class="header-bg"></div>
                             </header>
 
@@ -221,85 +216,11 @@ if(!isset($_SESSION['userID']))
             </div>
             <!--footer-->
             <div class="footer">
-                <?php include("../Footer.php"); ?>
+                <?php include("Footer.php"); ?>
             </div>
             <!--//footer-->
         </div>
 
-
-<!--<div class="cd-schedule loading">-->
-<!--	<div class="timeline">-->
-<!--		<ul>-->
-<!--			<li><span>08:00</span></li>-->
-<!--			<li><span>08:30</span></li>-->
-<!--			<li><span>09:00</span></li>-->
-<!--			<li><span>09:30</span></li>-->
-<!--			<li><span>10:00</span></li>-->
-<!--			<li><span>10:30</span></li>-->
-<!--			<li><span>11:00</span></li>-->
-<!--			<li><span>11:30</span></li>-->
-<!--			<li><span>12:00</span></li>-->
-<!--			<li><span>12:30</span></li>-->
-<!--			<li><span>13:00</span></li>-->
-<!--			<li><span>13:30</span></li>-->
-<!--			<li><span>14:00</span></li>-->
-<!--			<li><span>14:30</span></li>-->
-<!--			<li><span>15:00</span></li>-->
-<!--			<li><span>15:30</span></li>-->
-<!--			<li><span>16:00</span></li>-->
-<!--			<li><span>16:30</span></li>-->
-<!--			<li><span>17:00</span></li>-->
-<!--		</ul>-->
-<!--	</div> <!-- .timeline -->
-<!---->
-<!--	<div class="events">-->
-<!--		<ul>-->
-<!--			--><?php
-
-//            for($Counter=0;$Counter<=$x2;$Counter++){
-//
-//				echo '<li class="events-group">';
-//			echo '<div class="top-info"><span>'.$AllDays[$Counter].'</span></div>';
-//			echo "<ul>";
-//			for ($Counter1=0;$Counter1<=$x;$Counter1++){
-//
-//				if($AllDaysID[$Counter]==$DaysUsed[$Counter1]){
-//				echo '<li class="single-event" data-start="'.$Begins[$Counter1].'" data-end="'.$Ends[$Counter1].'" data-event="event-1">';
-//				echo	'<a href="#0">';
-//				echo	'	<em class="event-name">'.$Courses[$Counter1].'</em>';
-//			 	echo	'</a>';
-//			 	echo '</li>';
-//			}
-//			}
-//
-//				echo "</ul>";
-//				echo '</li>';
-//
-//				}
-//			 ?>
-<!--		</ul>-->
-<!--	</div>-->
-<!--<!--    -->
-<!--	<div class="event-modal">-->
-<!--		<header class="header">-->
-<!--			<div class="content">-->
-<!--				<span class="event-date"></span>-->
-<!--				<h3 class="event-name"></h3>-->
-<!--			</div>-->
-<!---->
-<!--			<div class="header-bg"></div>-->
-<!--		</header>-->
-<!---->
-<!--		<div class="body">-->
-<!--			<div class="event-info"></div>-->
-<!--			<div class="body-bg"></div>-->
-<!--		</div>-->
-<!---->
-<!--		<a href="#0" class="close">Close</a>-->
-<!--	</div>-->
-<!---->
-<!--	<div class="cover-layer"></div>-->
-<!--</div> <!-- .cd-schedule -->
 
         <!-- Classie --><!-- for toggle left push menu script -->
         <script src="../../js/classie.js"></script>
@@ -325,14 +246,14 @@ if(!isset($_SESSION['userID']))
         <!-- //Classie --><!-- //for toggle left push menu script -->
 
         <!--scrolling js-->
-        <script src="../../js/jquery.nicescroll.js"></script>
-        <script src="../../js/scripts.js"></script>
+        <script src="../js/jquery.nicescroll.js"></script>
+        <script src="../js/scripts.js"></script>
         <!--//scrolling js-->
-<script src="js/modernizr.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script>
-	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
-</script>
+<!--<script src="js/modernizr.js"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>-->
+<!--<script>-->
+<!--	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');-->
+<!--</script>-->
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
