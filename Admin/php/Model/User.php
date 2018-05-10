@@ -6,7 +6,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
 
-class User implements CRUD
+class User implements CRUD, \SplObserver
 {
 
     public $UserID;
@@ -343,5 +343,8 @@ class User implements CRUD
           $result = $mysqli->query($sql_query);
           $ID = mysqli_fetch_array($result);
           return $ID["UserID"];
+    }
+    public function update(\SplSubject $event){
+        echo "Observer : " . $event->ApplicantInfo;
     }
 }

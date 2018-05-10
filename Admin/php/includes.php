@@ -43,5 +43,6 @@
     include_once "Model/Values.php";
     include_once "Model/Visibilty.php";
     include_once "Model/WorkersHoursSalaryModel.php";
-
+    include_once "Model/Applicant.php";
+    include_once "Model/Event.php";
 ?>

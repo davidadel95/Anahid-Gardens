@@ -28,6 +28,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Event.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
@@ -113,6 +115,9 @@ $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 
                     <?php
                     echo "<form name = 'EAV' method ='post'>";
+                    $Applicant = new Applicant("Someone Applied");
+                    $Applicant->attach(new User);
+                    $Applicant->notify();
                     $Names;
                     $Types;
                     $i=-1;

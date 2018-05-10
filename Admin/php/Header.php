@@ -8,7 +8,11 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta charset="utf-8">
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+ 
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Custom CSS -->
     <link href="../css/style.css" rel='stylesheet' type='text/css' />
 
@@ -30,7 +34,9 @@ if (session_status() == PHP_SESSION_NONE) {
    <script src="../js/custom.js"></script>
    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
    <link href="../css/custom.css" rel="stylesheet">
-
+      
+      
+      
   </head>
   <body>
     <div class="header-left">
@@ -40,16 +46,19 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="header-right">
 
       <!--search-box-->
-      <div class="search-box">
-        <form class="input">
-          <input class="sb-search-input input__field--madoka" placeholder="Search..." type="search" id="input-31" />
-          <label class="input__label" for="input-31">
-            <svg class="graphic" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-              <path d="m0,0l404,0l0,77l-404,0l0,-77z"/>
-            </svg>
-          </label>
-        </form>
-      </div><!--//end-search-box-->
+        
+          
+
+ 
+  
+ 
+  
+
+      
+   
+        
+        
+      <!--//end-search-box-->
 
       <div class="profile_details">
           <?php
@@ -71,28 +80,22 @@ if (session_status() == PHP_SESSION_NONE) {
           ?>
         <ul>
           <li class="dropdown profile_details_drop">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+           
               <div class="profile_img">
                 <span class="prfil-img"><img src="../images/a.png" alt=""> </span>
                 <div class="user-name">
                   <p><?php echo $name; ?></p>
                   <span><?php echo $role; ?></span>
                 </div>
-                <i class="fa fa-angle-down lnr"></i>
-                <i class="fa fa-angle-up lnr"></i>
-                <div class="clearfix"></div>
+               
               </div>
-            </a>
-            <ul class="dropdown-menu drp-mnu">
-<!--              <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>-->
-<!--              <li> <a href="#"><i class="fa fa-user"></i> My Account</a> </li>-->
-<!--              <li> <a href="#"><i class="fa fa-suitcase"></i> Profile</a> </li>-->
-              <li> <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
-            </ul>
+            
+           
           </li>
         </ul>
       </div>
       <div class="clearfix"> </div>
+     
     </div>
     <script src="../js/classie.js"></script>
     <script>
