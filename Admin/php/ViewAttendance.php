@@ -112,7 +112,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 //                             $row =mysqli_fetch_array($result);
                              $j = 1;
 
-                             if ($result == 0){
+                             if ($result == -1){
                                  echo "<tr><h4 style='color: red'><strong>No students in this date</strong></h4></tr>";
                              }else{
                                  $i=1;
