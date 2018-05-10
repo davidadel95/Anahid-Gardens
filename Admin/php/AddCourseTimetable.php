@@ -106,10 +106,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <label>Course </label>
                                         <?php
                                             $Course= new Course;
-                                            $result = $Course->View();
+                                            $i = $Course->View();
                                             echo "<select name='CourseID' class='form-control'>";
-                                            while($row =mysqli_fetch_array($result)){
-                                                echo "<option  value='".$row["ID"]."'>" .$row["Name"]."</option>" ;
+                                            for($Counter=0;$Counter<=$i;$Counter++){
+                                                echo "<option  value='".$Course->ID[$Counter]."'>" .$Course->Name[$Counter]."</option>" ;
                                             }
                                             echo "</select>"
                                         ?>
