@@ -194,7 +194,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                             document.getElementById("ajax").innerHTML = this.responseText;
                         }
                     };
-                    xmlhttp.open("GET", "AjaxViewLessonName.php?courseID=" + x, true);
+                    xmlhttp.open("GET", "AjaxViewLessonNamee.php?courseID=" + x, true);
                     xmlhttp.send();
                 }
 
@@ -208,7 +208,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                         document.getElementById("ajax2").innerHTML = this.responseText;
                     }
                 };
-                xmlhttp.open("GET", "AjaxViewLessonDetails.php?lessonID=" + x, true);
+                xmlhttp.open("GET", "AjaxViewLesson.php?lessonID=" + x, true);
                 xmlhttp.send();
             }
 

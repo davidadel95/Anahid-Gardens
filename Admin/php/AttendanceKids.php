@@ -119,17 +119,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $user = new User;
 
                     while($row =mysqli_fetch_array($result)){
-                        $userResult = $user->ViewChildForClass($row['UserID']);
-                        while($userRow =mysqli_fetch_array($userResult)){
-                            echo "<tr>";
-                            echo "<th>$i</th>";
-                            echo "<td>".$userRow['Value']."</td>";
-                            echo "<td></td>";
-                            echo "<td><input type=\"checkbox\" name=\"attendee[]\" id='attendee' value=".$userRow['id']."></td>";
-                            echo "</tr>";
-                            $i++;
+                        $userResult = $user->viewChildForClassAndAttendance($row['UserID'], $date);
+                        echo $userResult;
+                        if ($userResult) {
+                            while ($userRow = mysqli_fetch_array($userResult)) {
+                                echo "<tr>";
+                                echo "<th>$i</th>";
+                                echo "<td>" . $userRow['Value'] . "</td>";
+                                echo "<td></td>";
+                                echo "<td><input type=\"checkbox\" name=\"attendee[]\" id='attendee' value=" . $userRow['id'] . "></td>";
+                                echo "</tr>";
+                                $i++;
+                            }
                         }
+//                        }else{
+//                            break;
+//                        }
                     }
+//                    echo "<tr><h4 style='color: red'><strong>Attendance for this day is taken</strong></h4></tr>";
                     ?>
 
               </tbody>
