@@ -119,6 +119,7 @@ if (session_status() == PHP_SESSION_NONE) {
       <div class="clearfix"> </div>
      
     </div>
+      
     <script src="../js/classie.js"></script>
     <script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),

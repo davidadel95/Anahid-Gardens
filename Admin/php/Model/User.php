@@ -69,13 +69,14 @@ class User implements CRUD, \SplObserver
               $result=$mysqli->query($sql_query);
               $row = mysqli_fetch_array($result);
               $x=$row['RoleID'];
+              $y=$row['UserID'];
               $this->RoleEav= new RoleEav;
               $row = mysqli_fetch_array($result);
               $sql_query="SELECT * FROM role where id = '".$x."'";
               $result=$mysqli->query($sql_query);
               $qrow = mysqli_fetch_array($result);
               session_start();
-              $_SESSION['userID'] = $x;
+              $_SESSION['userID'] = $y;
               header("location:".$qrow['LoginUrl']);
 
           }else {
