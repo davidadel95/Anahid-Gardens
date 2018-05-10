@@ -9,8 +9,15 @@ if(!isset($_SESSION['userID']))
     header('Location: Login.php');
     exit();
 }
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
 
-require_once "includes.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
+
 $UserID = $_SESSION['CompleteID'];
 $User = new User;
 $Roles = new RoleNameEAV;
@@ -165,7 +172,7 @@ header ('Location: EditUser.php');
 	   <?php include("Footer.php"); ?>
 	</div>
     <!--//footer-->
-	</div>
+	
 
 
 
