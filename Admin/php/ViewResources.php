@@ -15,7 +15,7 @@ if(!isset($_SESSION['userID']))
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Show Car Types</title>
+<title>View Resources</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -48,7 +48,7 @@ if(!isset($_SESSION['userID']))
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
-		
+
 		<!-- //header-ends -->
 		<!-- main content start-->
 		<div id="page-wrapper">
@@ -77,7 +77,7 @@ if(!isset($_SESSION['userID']))
                                 <input type="hidden" name="form" value="typeForm">
                                 <label>New Resource Name</label>
                                 <br>
-                                <input name="resourceName" type="text" class="form-control" placeholder="eg: Suzuki..">
+                                <input name="resourceName" type="text" class="form-control" placeholder="eg: Resource">
                                 <br>
                                 <input type="submit" class="btn btn-success" value="Confirm">
                             </form>

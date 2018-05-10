@@ -6,7 +6,7 @@
     require_once "Model/CRUD.php";
     require_once "Model/ResourceModel.php";
 
-    echo "<label>Available Models </label>";
+    echo "<label>Available Resources </label>";
     $resource = new ResourceModel();
     $numberOfResources = $resource->viewSpecificResource($modelID);
 

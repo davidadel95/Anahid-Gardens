@@ -72,7 +72,49 @@ if(!isset($_SESSION['userID']))
                             </select>
                             <br>
                             <div id="ajax">
+                              <?php
+                              echo "<label>Available Resources </label>";
+                              $resource = new ResourceModel();
+                              $numberOfResources = $resource->viewSpecificResource($resourceModel->ID[0]);
 
+
+                              if ($numberOfResources < 0){
+                                  echo "</br>";
+                                  echo "<label style='color: red'><strong>No available model, please add one first</strong></label>";
+                              }else{
+                                      echo "<table class='table table-hover'>
+                                              <thead>
+                                                  <tr>
+                                                    <th>#</th>
+                                                    <th>Model Name</th>
+                                                    <th>Quantity</th>
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                              ";
+
+                                              $j = 1;
+                                              for ($i=0;$i<=$numberOfResources;$i++){
+                                                  echo "<tr>";
+                                                  echo "<th>".$j."</th>";
+                                                  echo "<td>".$resource->Name[$i]."</td>";
+                                                  echo "<td>".$resource->Quantity[$i]."</td>";
+                                                  echo "</tr>";
+                                                  $j++;
+                                                  }
+
+                                      echo "</tbody>
+                                              </table>";
+                                              $quantity = new ResourceModel();
+                                              $number = $quantity->getQuantity($resourceModel->ID[0]);
+                                              for ($i=0;$i<=$number;$i++){
+                                                  $resourceQuantity = $quantity->Quantity[$i];
+                                              }
+
+                                  echo "<h4>Total number: $resourceQuantity</h4>";
+                              }
+                              echo "<br>";
+                               ?>
                             </div>
 
                     </div>
