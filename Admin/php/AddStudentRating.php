@@ -231,6 +231,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
           echo ' <div class="form-group">';
             echo '<div class="stars">';
             $StudentRating = new StudentRating;
+            $StudentRating->UserID=$_REQUEST['id'];
+            
             $numberofstars=$StudentRating->GetNumbersOfStars();
             for ($counter=$numberofstars;$counter>=1;$counter--)
             {

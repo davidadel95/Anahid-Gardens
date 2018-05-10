@@ -33,7 +33,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
-$RoleEav->RoleID = $RoleNameEAV->GetID("Child");
+$RoleEav->RoleID = $RoleNameEAV->GetID("Teacher");
 ?>
 <html>
 <head>

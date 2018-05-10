@@ -25,6 +25,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <!-- Bootstrap Core CSS -->
@@ -113,7 +114,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         $userResult = $user->ViewChildForClass($row['UserID']);
                         while($userRow =mysqli_fetch_array($userResult)){
                             echo "<tr>";
-                            // echo "<td> <a href=\"ChildsClass.php?id=".$row["ID"]."\"> ".$row["Name"]." </a> </td>";
                             echo "<td> <a href=\"AddStudentRating.php?id=".$userRow['id']."\"> ".$userRow['Value']." </a> </td>";
                             echo "</tr>";
                             $i++;
@@ -126,7 +126,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               </tbody>
             </table>
 
-          
+
 
           </div>
         </div>
