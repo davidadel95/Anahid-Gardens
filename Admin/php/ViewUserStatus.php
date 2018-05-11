@@ -44,7 +44,7 @@ if(!isset($_SESSION['userID']))
 
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarColorModel.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/UserStatusModel.php";
 		 ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -55,25 +55,25 @@ if(!isset($_SESSION['userID']))
                   <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 
                     <div class="form-title">
-                      <h4>New Car Color</h4>
+                      <h4>New User Status</h4>
                     </div>
                     <div class="form-body">
-                        <label>Available Colors </label>
+                        <label>Available User Status </label>
                             <select name="InFiledRoleName" id="mySelect" onchange="shaf3y(this.value)" class="form-control" >
                                 <?php
-                                    $carColorModel = new CarColorModel();
-                                    $eventTypes= $carColorModel->View();
-                                    for ($i=0;$i<=$eventTypes;$i++){
-                                        echo "<option value='".$carColorModel->ID[$i]."'> ".$carColorModel->Color[$i]."</option>";
+                                    $statusModel = new UserStatusModel();
+                                    $statuses= $statusModel->View();
+                                    for ($i=0; $i<=$statuses; $i++){
+                                        echo "<option value='".$statusModel->ID[$i]."'> ".$statusModel->Status[$i]."</option>";
                                         }
                                         ?>
                             </select>
                         <br>
                         <div class="form-group">
                             <form method="post">
-                                <label>New Color</label>
+                                <label>New User Status</label>
                                 <br>
-                                <input name="colorName" type="text" class="form-control" placeholder="eg: Green, Orange..">
+                                <input name="colorName" type="text" class="form-control" placeholder="eg: new..">
                                 <br>
                                 <input type="submit" class="btn btn-success" value="Confirm">
                             </form>
@@ -82,9 +82,9 @@ if(!isset($_SESSION['userID']))
                       <?php
                       if($_POST){
                           $carColorName=$_POST["colorName"];
-                          $color = new CarColorModel();
-                          $color->Color = $carColorName;
-                          $color->Add();
+                          $status = new UserStatusModel();
+                          $status->Status = $carColorName;
+                          $status->Add();
                           echo "<meta http-equiv='refresh' content='0'>";
                       }
                       ?>

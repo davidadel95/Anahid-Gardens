@@ -87,6 +87,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Days.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeSlots.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TeacherClass.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeTable.php";
 
         ?>
@@ -114,6 +115,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             echo "</select>"
                                         ?>
                                     </div>
+
+
+                                    <div class="form-group">
+                                    <label>Teachers </label>
+                                    <?php
+                                    $TeacherClass= new TeacherClass;
+                                    $User = new User;
+                                    $TeacherClass->ShowTeachersWithoutClasses();
+
+                                    for($i=0;$i<=$TeacherClass->TeachersCounter;$i++){
+
+                                    $result=$User->GetNameOfChild($TeacherClass->AllTeachers[$i]);
+                                    $row =mysqli_fetch_array($result);
+                                    $Names[$i]= $row["Value"];
+                                    }
+
+
+                  	                 echo "<select name='TeacherID' class='form-control'>";
+                  															 for($x=0;$x<=$TeacherClass->TeachersCounter;$x++){
+                   														 	echo "<option value='".$TeacherClass->AllTeachers[$x]." '>" .$Names[$x]."</option>" ;
+                                                echo $TeacherClass->AllTeachers[$x];
+                                                echo $Names[$x];
+                                                }
+                  										  echo "</select>";
+                                                                ?>
+                                                            </div>
 
 								    <div class="form-group">
                                         <label>Class</label>
@@ -187,6 +214,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </form>
 							<?php
 								if($_POST){
+                  $TimeTable->UserID= $_POST['TeacherID'];
 									$TimeTable->CourseID= $_POST['CourseID'];
 									$TimeTable->ClassID= $_POST['ClassID'];
 									$TimeTable->DaysID= $_POST['DaysID'];

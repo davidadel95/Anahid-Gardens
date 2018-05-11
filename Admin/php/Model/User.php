@@ -221,6 +221,27 @@ class User implements CRUD, \SplObserver
         $result = $mysqli->query($sql_query);
         return $result;
     }
+    
+    public function getUsername($userID)
+    {
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name'
+                                AND user.ID = ".$userID."
+                                ORDER BY UserID,OptionTypeID" ;
+        $result = $mysqli->query($sql_query);
+        $row = mysqli_fetch_array($result);
+        return $row["Value"];
+    }
     public function ViewDriver()
     {
         $db = dbconnect::getInstance();
