@@ -38,16 +38,8 @@ $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
 if(isset($_POST['post'])){
-                    $Applicant->InsertEvent("New Applicant",$_POST["value0"]);   
-                    $UID = $RoleEav->Add();
-                    $j=-1;
-                    while($j<$i){
-                    $j++;
-                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);
-                    }
     header('location:ViewApplications.php');
-                    }
-
+}
 ?>
 <html>
 <head>
@@ -128,7 +120,7 @@ if(isset($_POST['post'])){
             <div class="form-group">
 
                     <?php
-                    echo "<form name = 'EAV' id='comment_form' method ='post'>";
+                    echo "<form  name = 'EAV' id='comment_form' method ='post'>";
                     $Applicant->notify();
                     $Names;
                     $Types;
@@ -183,7 +175,15 @@ if(isset($_POST['post'])){
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' id='post' name='post'>
                     </form>";
-                    
+                    if(isset($_POST['post'])){
+                    $Applicant->InsertEvent("New Applicant",$_POST["value0"]);   
+                    $UID = $RoleEav->Add();
+                    $j=-1;
+                    while($j<$i){
+                    $j++;
+                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);
+                    }
+                    }
             ?>
 
 
