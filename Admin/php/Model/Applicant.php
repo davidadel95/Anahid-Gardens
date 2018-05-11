@@ -7,4 +7,5 @@ class Applicant extends Event{
         parent::__construct();
         $this->ApplicantInfo = $ApplicantInfo;
     }
+  
 }
