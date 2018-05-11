@@ -48,7 +48,7 @@ class EncryptionDecrptionClass {
 
 
   public function ReadFromFile(){
-    $myfile = fopen($path.'Key.txt', "r") or die("Unable to open file!");
+    $myfile = fopen('Key.txt', "r") or die("Unable to open file!");
     fwrite($myfile, $this->key);
     fclose($myfile);
 
