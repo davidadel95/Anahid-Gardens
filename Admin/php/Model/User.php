@@ -110,6 +110,14 @@ class User implements CRUD, \SplObserver
      $sql_query = "UPDATE `user` SET `StatusID` = '".$this->Status."' WHERE `user`.`ID` = '".$UserID."'";
         $result = $mysqli->query($sql_query);
     }
+    public function GetStatusID($StatusName){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+        $sql_query="select * from userstatus where Status='".$StatusName."'";
+        $result=$mysqli->query($sql_query);
+        $row= mysqli_fetch_array($result);
+        $this->Status= $row['ID'];
+    }
      public function ChangeRole($RoleID,$UserID){
         $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
@@ -187,8 +195,8 @@ class User implements CRUD, \SplObserver
                                 INNER JOIN user ON user.ID = applicationvalue.UserID
                                 INNER JOIN userstatus ON userstatus.ID = user.StatusID
                                 INNER JOIN role ON user.RoleID = role.ID
-                                where applicationoptions.Name ='name'
-                                ORDER BY UserID,OptionTypeID" ;
+                                where applicationoptions.Name ='name' and userstatus.status <> 'Unavailable'
+                                ORDER BY UserID,OptionTypeID" ; //and userstatus.status <> 'Unavailable'
                                 $result = $mysqli->query($sql_query);
                                 return $result;
         
@@ -334,7 +342,8 @@ class User implements CRUD, \SplObserver
                                 INNER JOIN user ON user.ID = applicationvalue.UserID
                                 INNER JOIN userstatus ON userstatus.ID = user.StatusID
                                 INNER JOIN role ON user.RoleID = role.ID
-                                where applicationoptions.Name ='name'
+                                where userstatus.status <> 'Unavailable' 
+                                AND applicationoptions.Name ='name'
                                 AND (userstatus.Status LIKE '%".$Query."%'
                                 OR role.Name LIKE '%".$Query."%'
                                 OR applicationvalue.Value LIKE '%".$Query."%')

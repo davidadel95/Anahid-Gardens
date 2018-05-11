@@ -4,6 +4,8 @@
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Ncomments.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+
+
 $Notification = new ncomments;
 $counter=$Notification->GetlatestNotifications();
 echo '<li class="dropdown active open">
