@@ -13,6 +13,7 @@ class User implements CRUD, \SplObserver
     public $DateAdded;
     public $Status;
     public $RoleEav;
+    public $Value;
 
 
 
@@ -312,7 +313,7 @@ class User implements CRUD, \SplObserver
 
     }
 
-    public function viewChildForClassAndAttendance($ID, $date){
+    public function viewChildForClassAndAttendance($ID){
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
         $sql_query = "SELECT * from role where Name = 'Child'" ;
@@ -320,23 +321,35 @@ class User implements CRUD, \SplObserver
         $row =mysqli_fetch_array($result);
         $roleID =$row['ID'];
 
-        $sql_query = " SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name, attendance.Date
-                                FROM `attendance`,`applicationoptions`
+        $sql_query = " SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`
                                 INNER JOIN `application`
                                 ON applicationoptions.ID = application.ApplicationOptionID
                                 INNER JOIN `applicationvalue`
                                 ON application.ID= applicationvalue.ApplicationID
-                                INNER JOIN user ON user.ID = applicationvalue.UserID
-                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
-                                INNER JOIN role ON user.RoleID = role.ID
+                                INNER JOIN user 
+                                ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus 
+                                ON userstatus.ID = user.StatusID
+                                INNER JOIN role 
+                                ON user.RoleID = role.ID
                                 where applicationoptions.Name ='name' 
                                 AND role.ID=$roleID 
                                 AND User.id=$ID
-                                AND attendance.Date NOT LIKE '%$date%'
+                                ORDER BY UserID,OptionTypeID 
                                 " ;
         $result = $mysqli->query($sql_query);
         if ($result){
-            return $result;
+            $i = -1;
+
+            while ($row = mysqli_fetch_array($result)){
+                $i++;
+                $this->UserID[$i]=$row['id'];
+                $this->Value[$i]=$row['Value'];
+            }
+
+            return $i;
+
         }else{
             echo $mysqli->error;
         }
