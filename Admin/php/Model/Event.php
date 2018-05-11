@@ -22,10 +22,10 @@
                 $observer->update($this);
             }
         }
-        public function InsertEvent($subject,$comment){
+        public function InsertEvent($comment){
              $db = dbconnect::getInstance();
             $mysqli = $db->getConnection();
-            $sql_query = "INSERT INTO ncomments(comment_subject, comment_text)VALUES ('$subject', '$comment')";
+            $sql_query = "INSERT INTO ncomments(comment_text)VALUES ('$comment')";
             $result = $mysqli->query($sql_query);
         }
     

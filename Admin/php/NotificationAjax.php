@@ -16,10 +16,10 @@ echo '<li class="dropdown active open">
          
 
           for($i=0;$i<=$counter;$i++){
-             echo '<li><a href="ShowDoctors.php"><strong>'.$Notification->subject[$i].'</strong>
+             echo '<li><a href="ShowDoctors.php"><strong>New Applicant</strong>
              <br/>
              <small>
-             <em>'.$Notification->comment[$i].'</em>
+             <em>'.$Notification->comment[$i].' Has Applied</em>
              </small>
              </a></li>';
           }
