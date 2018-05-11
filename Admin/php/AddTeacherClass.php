@@ -12,6 +12,19 @@ if(!isset($_SESSION['userID']))
 }
 
 ?>
+<?php
+    $rootPath = $_SERVER['DOCUMENT_ROOT'];
+
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentClass.php";
+
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TeacherClass.php";
+
+
+    ?>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -72,6 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <?php
 			include("Navigationbar2.php");
 			 ?>
+
     </div>
 
 		<!--left-fixed -navigation-->
@@ -81,19 +95,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<?php include("Header.php"); ?>
 		</div>
 
-		<?php
-        $rootPath = $_SERVER['DOCUMENT_ROOT'];
 
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentClass.php";
-
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentClass.php";
-
-
-        ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
     <div id="page-wrapper">
@@ -101,30 +103,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="forms">
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 						<div class="form-title">
-							<h4>Add Student Class</h4>
+							<h4>Add Teacher Class</h4>
 						</div>
 
 						<div class="form-body">
 							<form method="post">
 								<div class="form-group">
                   <?php
-                  $StudentClass= new StudentClass;
+
+                  $TeacherClass= new TeacherClass;
                   $User = new User;
-                  $StudentClass->ShowChildWithoutClasses();
+                  $TeacherClass->ShowTeachersWithoutClasses();
 
-                  for($i=0;$i<=$StudentClass->Count;$i++){
+                  for($i=0;$i<=$TeacherClass->Count;$i++){
 
-                  $result=$User->GetNameOfChild($StudentClass->ChildrenWithoutClasses[$i]);
+                  $result=$User->GetNameOfChild($TeacherClass->TeachersWithoutClasses[$i]);
                   $row =mysqli_fetch_array($result);
                   $Names[$i]= $row["Value"];
                   }
                       if ($i>0){
-                  echo '<label>Students </label>';
+                  echo '<label>Teachers </label>';
 	                 echo "<select name='ChildID' class='form-control'>";
-
-
-															 for($x=0;$x<=$StudentClass->Count;$x++)
- 														 	echo "<option value='".$StudentClass->ChildrenWithoutClasses[$x]." '>" .$Names[$x]."</option>" ;
+															 for($x=0;$x<=$TeacherClass->Count;$x++)
+ 														 	echo "<option value='".$TeacherClass->TeachersWithoutClasses[$x]." '>" .$Names[$x]."</option>" ;
 										 echo "</select>";
                      echo '<div class="form-group">';
                      echo '<label>Class</label>';
@@ -156,10 +157,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<?php
 								if($_POST){
 
-									$StudentClass->UserID=$_POST["ChildID"];
-									$StudentClass->ClassID=$_POST["ClassID"];
-									$StudentClass->Add();
-								  echo "<meta http-equiv='refresh' content='0'>";
+									$TeacherClass->UserID=$_POST["ChildID"];
+									$TeacherClass->ClassID=$_POST["ClassID"];
+									$TeacherClass->Add();
+								  // echo "<meta http-equiv='refresh' content='0'>";
 
 
 								}
