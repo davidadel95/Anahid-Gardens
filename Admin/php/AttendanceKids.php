@@ -97,55 +97,76 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $class = new Classes();
                 $className = $class->getClassName($classID);
 //                date_default_timezone_set('Africa/Cairo');
-                $date = date('Y/m/d H:i:s', time())
+                $dateWithTime = date('Y-m-d H:i:s', time())
               ?>
-              <h4>Date: <strong><?php echo $date; ?></strong></h4>
+              <h4>Date: <strong><?php echo $dateWithTime; ?></strong></h4>
             <h4>Name of the class: <?php echo "$className"; ?></h4>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Attendance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <form name ="Attendence" method="post">
+
                     <?php
 
                     $students = new StudentClass();
                     $numberOfChildrenInClass = $students->viewClassFromClassID($classID);
                     $i=1;
                     $user = new User;
-
+                    $attended = new AttendanceModel();
+                    $date = date('Y-m-d', time());
+                    $numberOfAttended = $attended->showAttendanceByDate($date);
+                    $Count=-1;
 
                     for ($j = 0; $j<= $numberOfChildrenInClass; $j++){
                         $numberOfUsers = $user->viewChildForClassAndAttendance($students->UserID[$j]);
 //                        echo $date;
 //                        echo $userResult;
-                        for ($index = 0; $index<=$numberOfUsers; $index++){
-                            echo "<tr>";
-                            echo "<th>$i</th>";
-                            echo "<td>" . $user->Value[$index] . "</td>";
-                            echo "<td></td>";
-                            echo "<td><input type=\"checkbox\" name=\"attendee[]\" id='attendee' value=" . $user->UserID[$index] . "></td>";
-                            echo "</tr>";
-                            $i++;
+                        for($Counter1=0;$Counter1<=$numberOfUsers;$Counter1++) {
+                            $isUsed=False;
+                            for ($Counter2=0;$Counter2<=$numberOfAttended;$Counter2++){
+                                if($user->Value[$Counter1]==$attended->UserID[$Counter2]) {
+                                    //  echo $Counter2;
+                                    $isUsed=True;
+                                }
+                            }
+                            if($isUsed==False) {
+                                $Count+=1;
+                                $NotAttendedStudents[$Count]=$user->Value[$Counter1];
+                                $userIDs[$Count]=$user->UserID[$Counter1];
+
+                            }
                         }
                     }
 
-//                    }else{
-//                            break;
-//                        }
+                    if ($Count >= 0){
+                        echo "
+                            <table class=\"table table-hover\">
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>First Name</th>
+                                  <th>Last Name</th>
+                                  <th>Attendance</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <form name =\"Attendence\" method=\"post\">
+                        ";
+                        for ($index = 0; $index<=$Count; $index++){
+                            echo "<tr>";
+                            echo "<th>$i</th>";
+                            echo "<td>" . $NotAttendedStudents[$index] . "</td>";
+                            echo "<td></td>";
+                            echo "<td><input type=\"checkbox\" name=\"attendee[]\" id='attendee' value=" . $userIDs[$index] . "></td>";
+                            echo "</tr>";
+                            $i++;
+                        }
+                        echo " </tbody>
+                                </table>
+                                <input type=\"submit\" class=\"btn btn-success\">
+                                </form>
+                                ";
+                    }else{
+                        echo "<tr><h4 style='color: red'><strong>Attendance for this day is taken</strong></h4></tr>";
+                    }
 
-//                    echo "<tr><h4 style='color: red'><strong>Attendance for this day is taken</strong></h4></tr>";
                     ?>
-
-              </tbody>
-            </table>
-              <input type="submit" class="btn btn-success">
-              </form>
               <?php
                   if (isset($_POST['attendee'])) {
                       $student = $_POST['attendee'];
@@ -154,9 +175,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                       foreach ($student as $attended){
 //                          echo $attended."<br />";
                           $attendance->UserID = $attended;
-                          $attendance->Date = $date;
+                          $attendance->Date = $dateWithTime;
                           $attendance->Attended = 1;
                           $attendance->Add();
+                          echo "<meta http-equiv='refresh' content='0'>";
                       }
                   }
               ?>
