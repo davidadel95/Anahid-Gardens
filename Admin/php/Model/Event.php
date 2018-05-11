@@ -28,6 +28,7 @@
             $sql_query = "INSERT INTO ncomments(comment_subject, comment_text)VALUES ('$subject', '$comment')";
             $result = $mysqli->query($sql_query);
         }
+    
     }
 
 

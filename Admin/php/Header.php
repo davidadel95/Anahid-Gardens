@@ -1,7 +1,12 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-} ?>
+} 
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Ncomments.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+$Notification = new ncomments;
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -60,19 +65,34 @@ if (session_status() == PHP_SESSION_NONE) {
  
     
         
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" id="Notification" >
  
-     <li class="dropdown">
+     <li class="dropdown" >
  
-      <a href="#"  data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"></span> <span class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
+      <a href="#" onclick="NotificationOpenAjax()"  data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"><?php 
+          if($Notification->GetUnseenNotifications()!=0) echo $Notification->GetUnseenNotifications(); ?></span> <span  class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
  
-      <ul class="dropdown-menu"></ul>
+      <ul class="dropdown-menu">
+          <?php
+          $counter=$Notification->GetlatestNotifications();
+          for($i=0;$i<=$counter;$i++){
+              echo '<li><a><strong>'.$Notification->subject[$i].'</strong>
+             <br/>
+             <small>
+             <em>'.$Notification->comment[$i].'</em>
+             </small>
+             </a></li>';
+          }
+          
+          ?>
+         
+         </ul>
  
      </li>
  
     </ul>
        
-        
+       
  
     
 
@@ -138,7 +158,29 @@ if (session_status() == PHP_SESSION_NONE) {
 				if( button !== 'showLeftPush' ) {
 					classie.toggle( showLeftPush, 'disabled' );
 				}
-			}
+			};
+        function NotificationOpenAjax() {
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("Notification").innerHTML = this.responseText;
+         }
+        };
+        xmlhttp.open("GET", "NotificationAjax.php?q=", true);
+        xmlhttp.send();
+    };
+        function NotificationCloseAjax() {
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("Notification").innerHTML = this.responseText;
+         }
+        };
+        xmlhttp.open("GET", "NotificationAjax2.php?q=", true);
+        xmlhttp.send();
+    };
 		</script>
 
   	<!-- Bootstrap Core JavaScript -->

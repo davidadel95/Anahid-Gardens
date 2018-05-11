@@ -31,11 +31,23 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Event.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
+
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
 $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
+if(isset($_POST['post'])){
+                    $Applicant->InsertEvent("New Applicant",$_POST["value0"]);   
+                    $UID = $RoleEav->Add();
+                    $j=-1;
+                    while($j<$i){
+                    $j++;
+                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);
+                    }
+    header('location:ViewApplications.php');
+                    }
+
 ?>
 <html>
 <head>
@@ -171,15 +183,7 @@ $Applicant->attach(new User);
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' id='post' name='post'>
                     </form>";
-                    if(isset($_POST['post'])){
-                    $Applicant->InsertEvent("New Applicant",$_POST["value0"]);   
-                    $UID = $RoleEav->Add();
-                    $j=-1;
-                    while($j<$i){
-                    $j++;
-                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);
-                    }
-                    }
+                    
             ?>
 
 
@@ -206,7 +210,7 @@ $Applicant->attach(new User);
 	<!-- Classie --><!-- for toggle left push menu script -->
     <script>
  
-$(document).ready(function(){
+/*$(document).ready(function(){
  
 // updating the view with notifications using ajax
  
@@ -292,7 +296,7 @@ setInterval(function(){
  
 }, 5000);
  
-});
+});*/
  
 </script>
 		<script src="../js/classie.js"></script>
@@ -329,6 +333,7 @@ setInterval(function(){
         xmlhttp.open("GET", "ajax.php?q=" + x, true);
         xmlhttp.send();
     }*/
+          
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

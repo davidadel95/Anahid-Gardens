@@ -1,6 +1,6 @@
 <?php
-$rootPath = $_SERVER['DOCUMENT_ROOT'];
-require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+//$rootPath = $_SERVER['DOCUMENT_ROOT'];
+//require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 $db = dbconnect::getInstance();
 $mysqli = $db->getConnection();
 
@@ -38,7 +38,7 @@ else{
 
 
 
-$status_query = "SELECT * FROM comments WHERE comment_status=0";
+$status_query = "SELECT * FROM ncomments WHERE comment_status=0";
 $result_query = $mysqli->query($status_query);
 $count = mysqli_num_rows($result_query);
 $data = array(
