@@ -68,6 +68,7 @@ class TimeTable implements CRUD
       $mysqli = $db->getConnection();
       $sql_query = "Insert into coursetimetable (ID,CourseID,ClassID,DaysID,TimeslotsID,UserID) Values ('','$this->CourseID','$this->ClassID','$this->DaysID','$this->TimeslotsID','$this->UserID')";
       $result = $mysqli->query($sql_query);
+      return $result;
 
     }
 
