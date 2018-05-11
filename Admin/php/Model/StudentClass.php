@@ -34,8 +34,7 @@ class StudentClass implements CRUD
     public $ChildrenWithoutClasses;
 
 
-    public function ShowChildWithoutClasses()
-    {
+    public function ShowChildWithoutClasses(){
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
         $sql_query = "SELECT * from role where Name = 'Child'" ;
@@ -45,6 +44,7 @@ class StudentClass implements CRUD
         $this->Count=-1;
         $counterAllStudents=-1;
         $CounterClassedStudents=-1;
+
         $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
                                 FROM `applicationoptions`
                                 INNER JOIN `application`
@@ -57,53 +57,40 @@ class StudentClass implements CRUD
                                 where applicationoptions.Name ='name' And role.ID=$RoleID
                                 ORDER BY UserID,OptionTypeID " ;
         $result = $mysqli->query($sql_query);
-        while($row =mysqli_fetch_array($result))
-        {
+
+        while($row =mysqli_fetch_array($result)) {
           $counterAllStudents++;
           $this->AllStudents[$counterAllStudents]=$row["id"];
 
         }
         $sql_query = " SELECT UserID FROM `userclasscourse`" ;
         $result = $mysqli->query($sql_query);
-        while($row =mysqli_fetch_array($result))
-        {
+        while($row =mysqli_fetch_array($result)) {
           $CounterClassedStudents++;
           $this->ClassedStudents[$CounterClassedStudents]=$row["UserID"];
 
         }
 
 
-        for($Counter1=0;$Counter1<=$counterAllStudents;$Counter1++)
-        {
-
+        for($Counter1=0;$Counter1<=$counterAllStudents;$Counter1++) {
           $this->isUsed=False;
           for ($Counter2=0;$Counter2<=$CounterClassedStudents;$Counter2++){
-
-            if($this->AllStudents[$Counter1]==$this->ClassedStudents[$Counter2])
-            {
-
-            //  echo $Counter2;
-              $this->isUsed=True;
+                if($this->AllStudents[$Counter1]==$this->ClassedStudents[$Counter2]) {
+                //  echo $Counter2;
+                  $this->isUsed=True;
+                }
             }
-
-            }
-            if($this->isUsed==False)
-            {
-
+            if($this->isUsed==False) {
               $this->Count+=1;
               $this->ChildrenWithoutClasses[$this->Count]=$this->AllStudents[$Counter1];
-
-
-
             }
-
-    }
+        }
     }
     /**
      * @inheritDoc
      */
-    public function Add()
-    {      $db = dbconnect::getInstance();
+    public function Add(){
+        $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
         $sql_query = "INSERT INTO userclasscourse(ID,UserID,ClassID)    VALUES ('','$this->UserID','$this->ClassID')";
         $result = $mysqli->query($sql_query);
@@ -121,23 +108,22 @@ class StudentClass implements CRUD
     /**
      * @inheritDoc
      */
-    public function View()
-    {
-       $db = dbconnect::getInstance();
-     $mysqli = $db->getConnection();
-     $sql_query = "SELECT * FROM userclasscourse";
-     $result = $mysqli->query($sql_query);
-     return $result;
+    public function View(){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT * FROM userclasscourse";
+        $result = $mysqli->query($sql_query);
+        return $result;
     }
-    public function ViewSpecificClass($ClassID)
-    {
-       $db = dbconnect::getInstance();
-     $mysqli = $db->getConnection();
-     $sql_query = "SELECT * 
-                    FROM userclasscourse 
-                    WHERE ClassID=$ClassID";
-     $result = $mysqli->query($sql_query);
-     return $result;
+
+    public function ViewSpecificClass($ClassID){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = " SELECT * 
+                        FROM userclasscourse 
+                        WHERE ClassID=$ClassID";
+        $result = $mysqli->query($sql_query);
+        return $result;
     }
 
 

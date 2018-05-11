@@ -21,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Dashboard</title>
+<title>Childs in Class</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentClass.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/AttendanceModel.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionClass.php";
 		 ?>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -94,7 +94,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
               <?php
+                $EncryptionAndDecreption = new EncryptionDecrptionClass;
                 $classID = $_REQUEST['id'];
+                $EncryptionAndDecreption->ReadFromFile();
+                $classID=$EncryptionAndDecreption->Decrept($classID);
                 $class = new Classes();
                 $className = $class->getClassName($classID);
               ?>
@@ -114,7 +117,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         $userResult = $user->ViewChildForClass($row['UserID']);
                         while($userRow =mysqli_fetch_array($userResult)){
                             echo "<tr>";
-                            echo "<td> <a href=\"AddStudentRating.php?id=".$userRow['id']."\"> ".$userRow['Value']." </a> </td>";
+                            $newID=$EncryptionAndDecreption->Encrypt($userRow['id']);
+                            $newID = urlencode($newID);
+                            echo "<td> <a href=\"AddStudentRating.php?id=".$newID."\"> ".$userRow['Value']." </a> </td>";
                             echo "</tr>";
                             $i++;
                         }

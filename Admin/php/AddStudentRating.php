@@ -21,6 +21,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentRating.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionClass.php";
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -231,8 +232,10 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
           echo ' <div class="form-group">';
             echo '<div class="stars">';
             $StudentRating = new StudentRating;
+            $EncryptionAndDecreption = new EncryptionDecrptionClass;
             $StudentRating->UserID=$_REQUEST['id'];
-            
+            $EncryptionAndDecreption->ReadFromFile();
+            $StudentRating->UserID=$EncryptionAndDecreption->Decrept($StudentRating->UserID);
             $numberofstars=$StudentRating->GetNumbersOfStars();
             for ($counter=$numberofstars;$counter>=1;$counter--)
             {
@@ -252,7 +255,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
               <?php
                 if($_POST){
-                  $StudentRating->UserID=$_REQUEST['id'];
+
                   $StudentRating->CurriculumID=$_POST["lessonID"];
                   $StudentRating->Rating=$_POST['star'];
                   $StudentRating->Add();

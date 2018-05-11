@@ -62,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php
-         // include("Header.php");
+         include("Header.php");
          ?>
 		</div>
 		<!-- //header-ends -->
@@ -81,7 +81,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     $user = new User();
                     $result = $user->viewUserName($_SESSION['userID']);
-                    echo $_SESSION['userID'];
 
                     while ($row = mysqli_fetch_array($result)){
                       $name= $row['Value'];
