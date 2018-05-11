@@ -250,6 +250,23 @@ if (session_status() == PHP_SESSION_NONE) {
                       </ul></li>
                    </ul>
                  </li>
+                  
+                  <li class="treeview">
+                  <a href="#">
+                     <i class="fa fa-money"></i>
+                     <span>Salaries</span>
+                     <i class="fa fa-angle-left pull-right"></i>
+                   </a>
+                   <ul class="treeview-menu">
+                     <li><a href="  "><i class="fa fa-angle-right"></i>Manipulate Salary Packages</a>
+                       <ul class="treeview-menu">
+                        <li><a href="CreateSalary.php"><i class="fa fa-angle-right"></i>Add New Package</a></li>
+                        <li><a href="EditPayment.php"><i class="fa fa-angle-right"></i>Edit Package</a></li>
+                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Package</a></li>
+                      </ul></li>
+                     <li><a href="ManipulateSalary.php"><i class="fa fa-angle-right"></i>Manipulate Salaries</a></li>   
+                   </ul>
+                 </li>
 
 
                  <!-- Applications menu -->

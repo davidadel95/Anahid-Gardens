@@ -1,3 +1,19 @@
+
+function getDetails(x) {
+                var option = document.getElementById("selected").value;
+                var value = document.getElementById("methodVal").value;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("employeeDetails").innerHTML = this.responseText;
+                 }
+                };
+                xhttp.open("GET", "ajaxGetEmployeeDetails.php?q=" + x + "&y=" + value + "&z=" + option, true);
+                xhttp.send();
+            }
+
+
+
 function loadFields(x) 
         {
             

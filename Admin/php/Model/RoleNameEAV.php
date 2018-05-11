@@ -80,6 +80,7 @@ class RoleNameEAV implements CRUD
             $i=-1;
             while($row =mysqli_fetch_array($result)){
             $i++;
+            $this->ID[$i] = $row["ID"];
             $this->Names[$i]=$row["Name"];
             }
             return $i;
