@@ -36,6 +36,9 @@ $RoleEav = new RoleEav;
 $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
+if(isset($_POST['post'])){
+    header('location:ViewApplications.php');
+}
 ?>
 <html>
 <head>
@@ -204,7 +207,11 @@ $Applicant->attach(new User);
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
- 
+    <script>
+
+
+
+</script>
 		<script src="../js/classie.js"></script>
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
