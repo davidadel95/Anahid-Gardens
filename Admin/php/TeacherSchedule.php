@@ -65,7 +65,7 @@ if(!isset($_SESSION['userID']))
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeSlots.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Days.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
-
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
     $x=-1;
     $x1=-1;
     $x2=-1;
@@ -75,6 +75,8 @@ if(!isset($_SESSION['userID']))
     $TimeSlot = new TimeSlots;
     $Days = new Days;
     $Course = new Course;
+    $Classes = new Classes;
+
     $AllDaysResult = $Days->View();
     while ($row=mysqli_fetch_array($AllDaysResult)){
         $x2++;
@@ -88,7 +90,8 @@ if(!isset($_SESSION['userID']))
         $CourseID[$x]=$row["CourseID"];
         $DaysID[$x]=$row["DaysID"];
         $TimeSlotID[$x]=$row["TimeslotsID"];
-
+        $ClassesID[$x]=$row["ClassID"];
+        $ClassesName[$x]=$Classes->getClassName($ClassesID[$x]);
     }
 
     if($x>-1){
@@ -181,8 +184,9 @@ if(!isset($_SESSION['userID']))
                                         for ($Counter1=0;$Counter1<=$x;$Counter1++){
                                             if($AllDaysID[$Counter]==$DaysUsed[$Counter1]){
                                                 echo '<li class="single-event" data-start="'.$Begins[$Counter1].'" data-end="'.$Ends[$Counter1].'" data-event="event-4">';
-                                                echo	'<a href="">';
+                                                echo	'<a>';
                                                 echo	'<em class="event-name">'.$Courses[$Counter1].'</em>';
+                                                echo	'<em class="event-name">'.$ClassesName[$Counter1].'</em>';
                                                 echo	'</a>';
                                                 echo '</li>';
                                             }
