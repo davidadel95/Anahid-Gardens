@@ -5,22 +5,13 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 class StudentClass implements CRUD
 {
-    /**
-     *
-     */
+
     public function __construct()
     {
     }
 
-    /**
-     * @var void
-     */
     public $ID;
 
-
-    /**
-     * @var void
-     */
     public $UserID;
 
     public $ClassID;
@@ -32,6 +23,8 @@ class StudentClass implements CRUD
     public $Count;
 
     public $ChildrenWithoutClasses;
+
+    public $isUsed;
 
 
     public function ShowChildWithoutClasses(){
@@ -86,9 +79,7 @@ class StudentClass implements CRUD
             }
         }
     }
-    /**
-     * @inheritDoc
-     */
+
     public function Add(){
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
@@ -96,18 +87,11 @@ class StudentClass implements CRUD
         $result = $mysqli->query($sql_query);
     }
 
-
-    /**
-     * @inheritDoc
-     */
     public function Edit()
     {
         // TODO: implement here
     }
 
-    /**
-     * @inheritDoc
-     */
     public function View(){
         $db = dbconnect::getInstance();
         $mysqli = $db->getConnection();
@@ -126,11 +110,26 @@ class StudentClass implements CRUD
         return $result;
     }
 
+    public function viewClassFromClassID($classID){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = " SELECT * 
+                        FROM userclasscourse 
+                        WHERE ClassID=$classID";
+        $result = $mysqli->query($sql_query);
+        $i = -1;
+
+        while ($row = mysqli_fetch_array($result)){
+            $i++;
+            $this->ID[$i]=$row['ID'];
+            $this->UserID[$i]=$row['UserID'];
+        }
+
+        return $i;
+
+    }
 
 
-    /**
-     * @inheritDoc
-     */
     public function Delete()
     {
         // TODO: implement here

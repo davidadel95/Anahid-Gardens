@@ -113,30 +113,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <tbody>
                 <form name ="Attendence" method="post">
                     <?php
+
                     $students = new StudentClass();
-                    $result = $students->ViewSpecificClass($classID);
+                    $numberOfChildrenInClass = $students->viewClassFromClassID($classID);
                     $i=1;
                     $user = new User;
 
-                    while($row =mysqli_fetch_array($result)){
-                        $userResult = $user->ViewChildForClass($row['UserID']);
+
+                    for ($j = 0; $j<= $numberOfChildrenInClass; $j++){
+                        $numberOfUsers = $user->viewChildForClassAndAttendance($students->UserID[$j]);
 //                        echo $date;
 //                        echo $userResult;
-                        if ($userResult) {
-                            while ($userRow = mysqli_fetch_array($userResult)) {
-                                echo "<tr>";
-                                echo "<th>$i</th>";
-                                echo "<td>" . $userRow['Value'] . "</td>";
-                                echo "<td></td>";
-                                echo "<td><input type=\"checkbox\" name=\"attendee[]\" id='attendee' value=" . $userRow['id'] . "></td>";
-                                echo "</tr>";
-                                $i++;
-                            }
+                        for ($index = 0; $index<=$numberOfUsers; $index++){
+                            echo "<tr>";
+                            echo "<th>$i</th>";
+                            echo "<td>" . $user->Value[$index] . "</td>";
+                            echo "<td></td>";
+                            echo "<td><input type=\"checkbox\" name=\"attendee[]\" id='attendee' value=" . $user->UserID[$index] . "></td>";
+                            echo "</tr>";
+                            $i++;
                         }
-//                        }else{
+                    }
+
+//                    }else{
 //                            break;
 //                        }
-                    }
+
 //                    echo "<tr><h4 style='color: red'><strong>Attendance for this day is taken</strong></h4></tr>";
                     ?>
 

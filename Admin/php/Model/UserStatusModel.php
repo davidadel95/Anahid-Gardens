@@ -21,7 +21,7 @@
         $result = $mysqli->query($sql);
 
         if (!$result) {
-          die('Invalid query: ' . mysqli_error());
+          die('Invalid query: ' . $mysqli->error);
         }
       }
 
