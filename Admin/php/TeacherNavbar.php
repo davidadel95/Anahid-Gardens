@@ -52,7 +52,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                  <a href="Dashboard.php">
+                  <a href="TeacherFirst.php">
                     <i class="fa fa-dashboard"></i>
                     <span>Home</span>
                   </a>
