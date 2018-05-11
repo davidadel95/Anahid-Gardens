@@ -119,8 +119,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $user = new User;
 
                     while($row =mysqli_fetch_array($result)){
-                        $userResult = $user->viewChildForClassAndAttendance($row['UserID'], $date);
-                        echo $userResult;
+                        $userResult = $user->ViewChildForClass($row['UserID']);
+//                        echo $date;
+//                        echo $userResult;
                         if ($userResult) {
                             while ($userRow = mysqli_fetch_array($userResult)) {
                                 echo "<tr>";

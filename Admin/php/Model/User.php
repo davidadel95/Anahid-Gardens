@@ -80,7 +80,7 @@ class User implements CRUD, \SplObserver
               header("location:".$qrow['LoginUrl']);
 
           }else {
-              echo "string";
+//              echo "string";
           }
         }
     }
@@ -289,10 +289,9 @@ class User implements CRUD, \SplObserver
         $sql_query = "SELECT * from role where Name = 'Child'" ;
         $result = $mysqli->query($sql_query);
         $row =mysqli_fetch_array($result);
-        $RoleID =$row['ID'];
+        $roleID =$row['ID'];
 
-        $sql_query = "
-                      SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name, attendance.Date
+        $sql_query = " SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name, attendance.Date
                                 FROM `attendance`,`applicationoptions`
                                 INNER JOIN `application`
                                 ON applicationoptions.ID = application.ApplicationOptionID
@@ -302,13 +301,18 @@ class User implements CRUD, \SplObserver
                                 INNER JOIN userstatus ON userstatus.ID = user.StatusID
                                 INNER JOIN role ON user.RoleID = role.ID
                                 where applicationoptions.Name ='name' 
-                                AND role.ID=$RoleID 
+                                AND role.ID=$roleID 
                                 AND User.id=$ID
-                                AND attendance.Date NOT LIKE `%$date%'
-                                
+                                AND attendance.Date NOT LIKE '%$date%'
                                 " ;
         $result = $mysqli->query($sql_query);
-        return $result;
+        if ($result){
+            return $result;
+        }else{
+            echo $mysqli->error;
+        }
+
+
     }
     /**
      * @inheritDoc
