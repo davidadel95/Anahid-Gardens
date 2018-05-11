@@ -4,6 +4,8 @@
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Ncomments.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+
+
 $Notification = new ncomments;
 $counter=$Notification->GetlatestNotifications();
 echo '<li class="dropdown active open">
@@ -14,10 +16,10 @@ echo '<li class="dropdown active open">
          
 
           for($i=0;$i<=$counter;$i++){
-             echo '<li><a href="ShowDoctors.php"><strong>'.$Notification->subject[$i].'</strong>
+             echo '<li><a href="ShowDoctors.php"><strong>New Applicant</strong>
              <br/>
              <small>
-             <em>'.$Notification->comment[$i].'</em>
+             <em>'.$Notification->comment[$i].' Has Applied</em>
              </small>
              </a></li>';
           }

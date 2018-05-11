@@ -20,7 +20,7 @@ if(!isset($_SESSION['userID']))
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Create Dynamic Payment</title>
+<title>Anahid Gardens - Create Dynamic Payment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -32,6 +32,7 @@ if(!isset($_SESSION['userID']))
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/custom.js"></script>
 <script  src="../js/index1.js"></script>
+    <link href="../css/style.css" rel='stylesheet' type='text/css' />
 <!-- <link href="../css/custom.css" rel="stylesheet"> -->
 <!--//Metis Menu -->
 <style>
@@ -62,16 +63,11 @@ if(!isset($_SESSION['userID']))
             return;
         }
         else{
-           $PaymentEAVModel->PMethod = $_POST["PaymentName"];
-        $PaymentEAVModel->Add();
-        header ("Location: CreatePayment.php"); 
+            $PaymentEAVModel->PMethod = $_POST["PaymentName"];
+            $PaymentEAVModel->Add();
+            header ("Location: CreatePayment.php"); 
         }
         
-    }
-    if (isset($_POST["FieldTypeAdded"])) {
-        $OptionsTypeModel->Type = $_POST["NewFieldType"];
-        $OptionsTypeModel->Add();
-        header ("Location: CreatePayment.php");
     }
 
     if (isset($_POST["NewPaymentOption"]))
@@ -145,19 +141,8 @@ if(!isset($_SESSION['userID']))
 															</div>
 
 
-									<div class="form-title">
-											<h4>New Field Type</h4>
-										</div>
-						    	<div class="form-body">
-									<form method="post" >
-									<div class="form-group">
-									<label> Field Type </label>
-									<input name="NewFieldType" type="text" class="form-control" placeholder="eg: int ">
-									<br>
-									<input type="submit" class="btn btn-success" value="Add    " name="FieldTypeAdded">
-									</div>
-									</form>
-									</div>
+									
+						    	
 
 
 									<div class="form-title">
@@ -171,8 +156,8 @@ if(!isset($_SESSION['userID']))
                                         <br/>
 									<label>Field Type </label>
 
-									<select name="TypeOfFieldSelected"  class="form-control" >
-
+									<select name="TypeOfFieldSelected"  class="form-control" onchange="dynamicField(this.value)" >
+                                        <option value="-Select Field Type-">-Select Field Type-</option>
 										<?php
 
 										for ($x=0; $x<sizeof($OptionsTypeModel->View());$x++)
@@ -184,6 +169,11 @@ if(!isset($_SESSION['userID']))
 										?>
 
 									</select>
+                                        
+                                    <div id="showOptions">
+                                        
+                                    </div>
+                                        
 									<br>
 									<input name="NewPaymentOption" class="btn btn-success" value="Add" type="submit">
 									</div>
@@ -275,6 +265,30 @@ if(!isset($_SESSION['userID']))
               xhttp.open("GET", "ajaxBelongingFields.php?q=" + x, true);
               xhttp.send();
             }
+            
+            function dynamicField(fieldName)
+            {
+                
+                var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("showOptions").innerHTML = this.responseText;
+                }
+              };
+              xhttp.open("GET", "ajaxShowOptions.php?q=" + fieldName, true);
+              xhttp.send();
+            }
+            var i = 1;
+            function addField()
+            {
+                var element = document.getElementById("showOptions");
+                
+                var input = '<br/><br/><input  style="display:inline" type="text" name="option'+i+'" id="option'+i+'"><span id="close">x</span>';
+                element.insertAdjacentHTML('beforeend', input);
+                i++;
+                
+            }
+           
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

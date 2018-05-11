@@ -1,7 +1,7 @@
 <?php
     class ncomments
 {
-public $subject;
+
 public $comment;
 public $status;
 
@@ -14,7 +14,7 @@ public function GetlatestNotifications(){
     $counter=-1;
     while($rows=mysqli_fetch_array($result)){
         $counter++;
-        $this->subject[$counter]=$rows['comment_subject'];
+        
         $this->comment[$counter]=$rows['comment_text'];  
     }
        return $counter;

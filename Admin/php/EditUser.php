@@ -28,6 +28,11 @@ if(isset($_POST['Valuebtn'])){
 $Role->EditRecord($_POST['Value'],$_POST['ApplicationID'],$UserID);
 header ('Location: EditUser.php');                        
 }}
+if(isset($_POST['Deletebtn'])){
+                        $User->GetStatusID('Unavailable');
+                        $User->ChangeStatus($UserID);
+    header('Location: ShowDoctors.php');
+                    }
 /*if(isset($_POST['Rolebtn'])){
 $User->ChangeRole($_POST['RoleID'],$UserID);
 header ('Location: EditUser.php');                        
@@ -136,26 +141,18 @@ header ('Location: EditUser.php');
                     <input style='display: inline;' type='submit' class='btn btn-success'value='Edit' name='Valuebtn'>
                     </form>";
                     }
-                   /* $UserRoleID = $User->GetRoleID($UserID);
-                    $RoleName = $Roles->GetRoleName($UserRoleID);
-                    
-                    echo"<select style='width: 200px;' name='RoleID'>
-                        <option value='".$UserRoleID."'>".$RoleName."</option>";
-                            $result= $Roles->ViewMinusRole($RoleName);
-                
-                     while($row =mysqli_fetch_array($result))
-                         echo "<option value='".$row['ID']."'>".$row['Name']."</option>";
-                
-                    echo"</select>
-                        <input style='display: inline;' type='submit' class='btn btn-success'value='Edit' name='Rolebtn'>
-                        </form>";*/
+                   
                 
  
                     
                     
             ?>
-
-
+                <form method="post">
+                 <button class='btn btn-dark' type='submit' name='Deletebtn'>Delete</button>
+                </form>
+                    <?php
+                    
+                ?>
           </div>
         </form>
             </div>

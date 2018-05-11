@@ -58,120 +58,12 @@ if (session_status() == PHP_SESSION_NONE) {
                   </a>
                 </li>
 
-
-                <!-- User -->
                 <li class="treeview">
-                  <a href="#">
-                  <i class="fa fa-user-md"></i>
-                  <span>Users</span>
-                  <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Manipulate Users</a>
-                        <ul class="treeview-menu">
-                            <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add User</a></li>
-                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit User</a></li>
-                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete User</a></li>
-                            <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Users</a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>User Roles</a><ul class="treeview-menu">
-                        <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add Role</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Role</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Role</a></li>
-                        <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Roles</a></li>
-                    </ul></li>
-
-                    <li><a href=""><i class="fa fa-angle-right"></i>User Options</a><ul class="treeview-menu">
-                        <li><a href="AddUserOption.php"><i class="fa fa-angle-right"></i>Add Option</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Option</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Option</a></li>
-                        <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Options</a></li>
-                  </ul>
-                        </li>
-                  </ul>
+                    <a href="TeacherSchedule.php">
+                        <i class="fa fa-dashboard"></i>
+                        <span>View Schedule</span>
+                    </a>
                 </li>
-                <!-- kids checklist menu -->
-                <li class="treeview">
-                  <a href="#">
-                  <i class="fa fa-laptop"></i>
-                  <span>Kids Checklist</span>
-                  <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href=""><i class="fa fa-angle-right"></i>Academic</a>
-                      <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-angle-right"></i>French</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>English</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Arabic</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Quraan</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Arts</a>
-                            <ul class="treeview-menu">
-                                <li><a href="ArtsCheck.php"><i class="fa fa-angle-right"></i>Arts Table</a></li>
-                                <li><a href="AddArt.php"><i class="fa fa-angle-right"></i>Add New Art</a></li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>Food</a>
-                          <ul class="treeview-menu">
-                            <li><a href="Breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>
-                            <li><a href="Snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>
-                            <li><a href="Lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>Fun</a>
-                          <ul class="treeview-menu">
-                            <li><a href="FunCheck.php"><i class="fa fa-angle-right"></i>Fun Table</a></li>
-                            <li><a href="AddFun.php"><i class="fa fa-angle-right"></i>Add New Fun Event</a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>Songs</a>
-                        <ul class="treeview-menu">
-                            <li><a href="AddSong.php"><i class="fa fa-angle-right"></i>Add a New Song</a></li>
-                            <li><a href="Songs.php"><i class="fa fa-angle-right"></i>Song List</a></li>
-                        </ul>
-                      </li>
-
-                      <li><a href="ToiletCheck.php"><i class="fa fa-angle-right"></i>Toilet</a></li>
-                      <li><a href="SportsCheck.php"><i class="fa fa-angle-right"></i>Sports</a></li>
-                  </ul>
-
-
-<!--                <li class="treeview">-->
-<!--                  <a href="#">-->
-<!--                  <i class="fa fa-user-md"></i>-->
-<!--                  <span>Doctors</span>-->
-<!--                  <i class="fa fa-angle-left pull-right"></i>-->
-<!--                  </a>-->
-<!--                  <ul class="treeview-menu">-->
-<!--                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Add new doctor info</a></li>-->
-<!--                    <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>Show Doctors</a></li>-->
-<!--                  </ul>-->
-<!--                </li>-->
-
-<!--                <li class="treeview">-->
-<!--                  <a href="#">-->
-<!--                  <i class="fa fa-wrench"></i>-->
-<!--                  <span>Services</span>-->
-<!--                  <i class="fa fa-angle-left pull-right"></i>-->
-<!--                  </a>-->
-<!--                  <ul class="treeview-menu">-->
-<!--                    <li><a href="AddNewService.php"><i class="fa fa-angle-right"></i>Add new service info</a></li>-->
-<!--                    <li><a href="ShowServices.php"><i class="fa fa-angle-right"></i>Show Services</a></li>-->
-<!--                  </ul>-->
-<!--                </li>-->
-
-
-
-
-                  <!-- Edit Contact Us menu -->
-                  <!-- <li class="treeview">
-                      <a href="getdata.php">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Edit Static Pages</span>
-                      </a>
-                  </li> -->
 
                 </ul>
             </div>

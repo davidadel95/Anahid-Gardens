@@ -33,6 +33,8 @@ class TeacherClass implements CRUD
 
     public $TeachersWithoutClasses;
 
+    public $TeachersCounter;
+
 
     public function ShowTeachersWithoutClasses(){
         $db = dbconnect::getInstance();
@@ -43,7 +45,7 @@ class TeacherClass implements CRUD
         $row =mysqli_fetch_array($result);
         $RoleID =$row['ID'];
         $this->Count=-1;
-        $counterAllStudents=-1;
+        $this->TeachersCounter=-1;
         $CounterClassedStudents=-1;
 
         $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
@@ -61,35 +63,14 @@ class TeacherClass implements CRUD
         $result = $mysqli->query($sql_query);
 
         while($row =mysqli_fetch_array($result)) {
-          $counterAllStudents++;
-          $this->AllTeachers[$counterAllStudents]=$row["id"];
+          $this->TeachersCounter++;
+          $this->AllTeachers[$this->TeachersCounter]=$row["id"];
 
         }
-        $sql_query = " SELECT UserID FROM `userclasscourse`" ;
-        $result = $mysqli->query($sql_query);
-        while($row =mysqli_fetch_array($result)) {
-          $CounterClassedStudents++;
-          $RoleIDs[$CounterClassedStudents]=$User->GetRoleID($row["UserID"]);
-          if($RoleIDs[$CounterClassedStudents]==$RoleID){
-          $this->AllTeachers[$CounterClassedStudents]=$row["UserID"];
-          }
+
         }
 
 
-        for($Counter1=0;$Counter1<=$counterAllStudents;$Counter1++) {
-          $this->isUsed=False;
-          for ($Counter2=0;$Counter2<=$CounterClassedStudents;$Counter2++){
-                if($this->AllTeachers[$Counter1]==$this->ClassedTeachers[$Counter2]) {
-                //  echo $Counter2;
-                  $this->isUsed=True;
-                }
-            }
-            if($this->isUsed==False) {
-              $this->Count+=1;
-              $this->TeachersWithoutClasses[$this->Count]=$this->AllTeachers[$Counter1];
-            }
-        }
-    }
     /**
      * @inheritDoc
      */
