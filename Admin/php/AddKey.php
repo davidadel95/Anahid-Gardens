@@ -12,16 +12,10 @@ if(!isset($_SESSION['userID']))
 }
 
 ?>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Classes</title>
+<title>Anahid Gardens - Add Course Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -32,7 +26,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-
 <!-- font-awesome icons CSS -->
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons CSS-->
@@ -71,46 +64,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <?php include("Navigationbar2.php"); ?>
     </div>
 
-        <?php
-        $rootPath = $_SERVER['DOCUMENT_ROOT'];
-
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
-        ?>
 		<!--left-fixed -navigation-->
+<?php
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
 
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionClass.php";
+
+ ?>
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
 		</div>
+
 		<!-- //header-ends -->
 		<!-- main content start-->
-		<div id="page-wrapper">
-			<div class="main-page">
-        <div class="tables">
-          <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Classes:</h4>
-	         <table class="table table-hover">
-                 <?php
-                 $Classes = new Classes;
-                 $result= $Classes->View();
-
-                 while($row =mysqli_fetch_array($result)){
-                     echo "<tr>";
-
-                     echo "<td> <a href=\"ChildsClass.php?id=".$row["ID"]."\"> ".$row["Name"]." </a> </td>";
-                     echo "</tr>";
-                 }
-                 ?>
-			 </table>
-          </div>
+    <div id="page-wrapper">
+        <div class="main-page">
+            <div class="forms">
+              <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+                  <div class="form-title">
+                      <h2>New Lesson</h2>
+                  </div>
+                  <div class="form-body">
+                      <form method="POST" action="">
+                          <div class="form-group">
+                              <label>Add Key</label>
+                              <input type="text" class="form-control" name='NewKey'>
+                        </div>
+                        <button type="submit" class="btn btn-success">Confirm</button>
+                      </form>
+                  </div>
+              </div>
+                <?php
+                if($_POST){
+                    $EncryptionDecrptionClass = new EncryptionDecrptionClass();
+                    $EncryptionDecrptionClass->key = $_POST['NewKey'];
+                    $EncryptionDecrptionClass->WriteToFile();
+                }
+                ?>
+            </div>
         </div>
-			</div>
-		</div>
-	<!--footer-->
-	<div class="footer">
-	   <?php include("Footer.php"); ?>
+    </div>
+  	<!--footer-->
+  	<div class="footer">
+  	   <?php include("Footer.php"); ?>
+  	</div>
+    <!--//footer-->
 	</div>
 
 
@@ -148,3 +148,4 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </body>
 </html>
+\
