@@ -31,15 +31,11 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Event.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
-
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
 $RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
-if(isset($_POST['post'])){
-    header('location:ViewApplications.php');
-}
 ?>
 <html>
 <head>
@@ -120,7 +116,7 @@ if(isset($_POST['post'])){
             <div class="form-group">
 
                     <?php
-                    echo "<form  name = 'EAV' id='comment_form' method ='post'>";
+                    echo "<form name = 'EAV' id='comment_form' method ='post'>";
                     $Applicant->notify();
                     $Names;
                     $Types;
@@ -176,7 +172,7 @@ if(isset($_POST['post'])){
                     <input type='submit' class='btn btn-success'value='Confirm' id='post' name='post'>
                     </form>";
                     if(isset($_POST['post'])){
-                    $Applicant->InsertEvent("New Applicant",$_POST["value0"]);   
+                    $Applicant->InsertEvent("New Applicant",$_POST["value0"]);
                     $UID = $RoleEav->Add();
                     $j=-1;
                     while($j<$i){
@@ -209,95 +205,95 @@ if(isset($_POST['post'])){
 
 	<!-- Classie --><!-- for toggle left push menu script -->
     <script>
- 
-/*$(document).ready(function(){
- 
+
+$(document).ready(function(){
+
 // updating the view with notifications using ajax
- 
+
 function load_unseen_notification(view = '')
- 
+
 {
- 
+
  $.ajax({
- 
+
   url:"fetch.php",
   method:"POST",
   data:{view:view},
   dataType:"json",
   success:function(data)
- 
+
   {
- 
+
    $('.dropdown-menu').html(data.notification);
- 
+
    if(data.unseen_notification > 0)
    {
     $('.count').html(data.unseen_notification);
    }
- 
+
   }
- 
+
  });
- 
+
 }
- 
+
 load_unseen_notification();
- 
+
 // submit form and get new records
- 
+
 $('#comment_form').on('submit', function(event){
  event.preventDefault();
- 
+
  if($('#subject').val() != '' && $('#comment').val() != '')
- 
+
  {
- 
+
   var form_data = $(this).serialize();
- 
+
   $.ajax({
- 
+
    url:"insert.php",
    method:"POST",
    data:form_data,
    success:function(data)
- 
+
    {
- 
+
     $('#comment_form')[0].reset();
     load_unseen_notification();
- 
+
    }
- 
+
   });
- 
+
  }
- 
+
  else
- 
+
  {
   alert("Both Fields are Required");
  }
- 
+
 });
- 
+
 // load new notifications
- 
+
 $(document).on('click', '.dropdown-toggle', function(){
- 
+
  $('.count').html('');
- 
+
  load_unseen_notification('yes');
- 
+
 });
- 
+
 setInterval(function(){
- 
+
  load_unseen_notification();;
- 
+
 }, 5000);
- 
-});*/
- 
+
+});
+
 </script>
 		<script src="../js/classie.js"></script>
 		<script>
@@ -333,7 +329,6 @@ setInterval(function(){
         xmlhttp.open("GET", "ajax.php?q=" + x, true);
         xmlhttp.send();
     }*/
-          
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

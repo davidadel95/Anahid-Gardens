@@ -82,13 +82,15 @@ if (session_status() == PHP_SESSION_NONE) {
                         <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Roles</a></li>
                     </ul></li>
 
-                    <li><a href=""><i class="fa fa-angle-right"></i>User Options</a><ul class="treeview-menu">
-                        <li><a href="AddUserOption.php"><i class="fa fa-angle-right"></i>Add Option</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Option</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Option</a></li>
-                        <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Options</a></li>
-                  </ul>
-                        </li>
+                    <li><a href=""><i class="fa fa-angle-right"></i>User Options</a>
+                        <ul class="treeview-menu">
+                            <li><a href="AddUserOption.php"><i class="fa fa-angle-right"></i>Add Option</a></li>
+                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Option</a></li>
+                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Option</a></li>
+                            <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Options</a></li>
+                        </ul>
+                    </li>
+                      <li><a href="ViewUserStatus.php"><i class="fa fa-angle-right"></i>User Status </a></li>
                   </ul>
                 </li>
                 <!-- kids checklist menu -->

@@ -21,6 +21,11 @@ class TimeTable implements CRUD
     /**
      * @var void
      */
+     public $UserID;
+
+     /**
+      * @var void
+      */
     public $CourseID;
 
     /**
@@ -61,7 +66,7 @@ class TimeTable implements CRUD
     {
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-      $sql_query = "Insert into coursetimetable (ID,CourseID,ClassID,DaysID,TimeslotsID) Values ('','$this->CourseID','$this->ClassID','$this->DaysID','$this->TimeslotsID')";
+      $sql_query = "Insert into coursetimetable (ID,CourseID,ClassID,DaysID,TimeslotsID,UserID) Values ('','$this->CourseID','$this->ClassID','$this->DaysID','$this->TimeslotsID','$this->UserID')";
       $result = $mysqli->query($sql_query);
 
     }
@@ -138,7 +143,7 @@ class TimeTable implements CRUD
             {
               $this->Count+=1;
               $this->AvailabeSlots[$this->Count]=$this->AllTimeSlots[$Counter1];
-               
+
 
 
             }
