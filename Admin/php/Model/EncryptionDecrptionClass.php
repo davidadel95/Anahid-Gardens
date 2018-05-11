@@ -55,7 +55,7 @@ class EncryptionDecrptionClass {
   }
 
   public function WriteToFile(){
-    $myfile = fopen($path.'Key.txt', "w") or die("Unable to open file!");
+    $myfile = fopen('Key.txt', "w") or die("Unable to open file!");
     fwrite($myfile, $this->key);
     fclose($myfile);
 
