@@ -14,7 +14,8 @@ class User implements CRUD, \SplObserver
     public $Status;
     public $RoleEav;
     public $Value;
-
+    public $RoleID;
+    public $RoleName;
 
 
     public function GetRoleID($UserID){
@@ -24,6 +25,30 @@ class User implements CRUD, \SplObserver
        $result = $mysqli->query($sql_query);
         $row=mysqli_fetch_array($result);
         return $row['RoleID'];
+    }
+    public function CountRoles(){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query = "select * from role";
+    $result= $mysqli->query($sql_query); 
+    
+     $counter=-1;
+    while($row=mysqli_fetch_array($result)){
+        $counter++;
+        $this->RoleID[$counter]=$row['ID'];
+        $this->RoleName[$counter]=$row['Name'];
+    }
+        return $counter;
+    }
+    public function CountOFUserRole($RoleID){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query ="SELECT COUNT(*) from user where RoleID = ". $RoleID;
+    $result = $mysqli->query($sql_query);
+        $row= mysqli_fetch_array($result);
+        
+        return $row['COUNT(*)'];
+    
     }
 
     public function addDriverCar($User, $Car)
