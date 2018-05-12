@@ -1,18 +1,4 @@
-<?php
-
-//if not logged in redirect to login
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if(!isset($_SESSION['userID']))
-{
-    // not logged in
-    header('Location: Login.php');
-    exit();
-}
-
-?>
-<!--
+-
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported

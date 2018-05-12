@@ -1,6 +1,18 @@
 <?php
+
+//if not logged in redirect to login
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
+if(isset($_SESSION['roleID'])) {
+    if ($_SESSION['roleID'] != 1){
+        // not logged in
+        header('Location: Login.php');
+        exit();
+    }
+}else{
+    header('Location: Login.php');
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -67,29 +79,30 @@ if (session_status() == PHP_SESSION_NONE) {
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
                   <ul class="treeview-menu">
-                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Manipulate Users</a>
-                        <ul class="treeview-menu">
-                            <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add User</a></li>
-                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit User</a></li>
-                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete User</a></li>
-                            <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Users</a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>User Roles</a><ul class="treeview-menu">
-                        <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add Role</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Role</a></li>
-                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Role</a></li>
-                        <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Roles</a></li>
-                    </ul></li>
-
-                    <li><a href=""><i class="fa fa-angle-right"></i>User Options</a>
-                        <ul class="treeview-menu">
-                            <li><a href="AddUserOption.php"><i class="fa fa-angle-right"></i>Add Option</a></li>
-                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Option</a></li>
-                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Option</a></li>
-                            <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Options</a></li>
-                        </ul>
-                    </li>
+<!--                    <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Manipulate Users</a>-->
+<!--                        <ul class="treeview-menu">-->
+<!--                            <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add User</a></li>-->
+<!--                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit User</a></li>-->
+<!--                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete User</a></li>-->
+<!--                            <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Users</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li><a href=""><i class="fa fa-angle-right"></i>User Roles</a><ul class="treeview-menu">-->
+<!--                        <li><a href="AddUserRole.php"><i class="fa fa-angle-right"></i>Add Role</a></li>-->
+<!--                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Role</a></li>-->
+<!--                        <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Role</a></li>-->
+<!--                        <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Roles</a></li>-->
+<!--                    </ul></li>-->
+<!---->
+<!--                    <li><a href=""><i class="fa fa-angle-right"></i>User Options</a>-->
+<!--                        <ul class="treeview-menu">-->
+<!--                            <li><a href="AddUserOption.php"><i class="fa fa-angle-right"></i>Add Option</a></li>-->
+<!--                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Edit Option</a></li>-->
+<!--                            <li><a href="AddNewDoctor.php"><i class="fa fa-angle-right"></i>Delete Option</a></li>-->
+<!--                            <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Options</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+                      <li><a href="ShowDoctors.php"><i class="fa fa-angle-right"></i>View Users </a></li>
                       <li><a href="ViewUserStatus.php"><i class="fa fa-angle-right"></i>User Status </a></li>
                   </ul>
                 </li>
@@ -359,6 +372,14 @@ if (session_status() == PHP_SESSION_NONE) {
                       <a href="getdata.php">
                           <i class="fa fa-dashboard"></i>
                           <span>Edit Static Pages</span>
+                      </a>
+                  </li>
+
+                  <!-- Edit Contact Us menu -->
+                  <li class="treeview">
+                      <a href="AddKey.php">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Encryption</span>
                       </a>
                   </li>
 

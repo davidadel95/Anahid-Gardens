@@ -1,7 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-} 
+
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Ncomments.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";

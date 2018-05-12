@@ -1,21 +1,8 @@
-<?php
 
-//if not logged in redirect to login
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if(!isset($_SESSION['userID']))
-{
-    // not logged in
-    header('Location: Login.php');
-    exit();
-}
-
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Anahid Gardens - Add Course Details</title>
+<title>Anahid Gardens - View Encryption</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -26,32 +13,6 @@ if(!isset($_SESSION['userID']))
 
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
-<!-- font-awesome icons CSS -->
-<link href="css/font-awesome.css" rel="stylesheet">
-<!-- //font-awesome icons CSS-->
-
-<!-- side nav css file -->
-<link href='css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
-<!-- //side nav css file -->
-
- <!-- js-->
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/modernizr.custom.js"></script>
-
-<!--webfonts-->
-<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-<!--//webfonts-->
-
-<!-- chart -->
-<script src="js/Chart.js"></script>
-<!-- //chart -->
-
-<!-- Metis Menu -->
-<script src="js/metisMenu.min.js"></script>
-<script src="js/custom.js"></script>
-<script  src="js/index1.js"></script>
-<link href="css/custom.css" rel="stylesheet">
-<!--//Metis Menu -->
 <style>
 
 </style>
@@ -84,7 +45,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionCla
             <div class="forms">
               <div class="form-grids row widget-shadow" data-example-id="basic-forms">
                   <div class="form-title">
-                      <h2>New Lesson</h2>
+                      <h2>New Key</h2>
                   </div>
                   <div class="form-body">
                       <form method="POST" action="">

@@ -1,17 +1,3 @@
-<?php
-
-//if not logged in redirect to login
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if(!isset($_SESSION['userID']))
-{
-    // not logged in
-    header('Location: Login.php');
-    exit();
-}
-
-?>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -33,7 +19,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
-$RoleEav->RoleID = $RoleNameEAV->GetID("Child");
+$RoleEav->RoleID = $RoleNameEAV->GetID("Teacher");
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
 if(isset($_POST['post'])){

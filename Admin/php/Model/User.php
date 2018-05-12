@@ -78,6 +78,7 @@ class User implements CRUD, \SplObserver
               $qrow = mysqli_fetch_array($result);
               session_start();
               $_SESSION['userID'] = $y;
+              $_SESSION['roleID'] = $x;
               header("location:".$qrow['LoginUrl']);
 
           }else {
