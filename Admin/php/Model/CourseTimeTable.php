@@ -116,6 +116,7 @@ class CourseTimeTable implements CRUD
 
    //b3'd l nazr 3n l 7ss
     public function GetOneRecord($CourseIDs,$ClassIDs,$Counter){
+      if($Counter>0){
       $this->CourseIDs[0]=$CourseIDs[0];
       $this->ClassIDs[0]=$ClassIDs[0];
       $this->newCounter=0;
@@ -141,6 +142,7 @@ class CourseTimeTable implements CRUD
 
         }
 
+      }
       }
 
     }
