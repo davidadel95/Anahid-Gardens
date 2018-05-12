@@ -422,6 +422,6 @@ class User implements CRUD, \SplObserver
           return $ID["UserID"];
     }
     public function update(\SplSubject $event){
-        echo "Observer : " . $event->ApplicantInfo;
+        return "Observer : " . $event->ApplicantInfo;
     }
 }

@@ -78,7 +78,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-            <h4>Classes:</h4>
+            <h4>Courses And Classes:</h4>
 	         <table class="table table-hover">
                  <?php
                  $Classes = new Classes;
