@@ -8,6 +8,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentRating.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionClass.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -140,7 +141,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionCla
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar2.php"); ?>
+      <?php include("TeacherNavbar.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->
@@ -160,17 +161,36 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionCla
 		<div class="forms">
 			<div class="mid-content-top charts-grids">
 				<div class="form-group">
+          <label>Student Name  </label>
+          <?php
+          $StudentRating = new StudentRating;
+          $EncryptionAndDecreption = new EncryptionDecrptionClass;
+          $Course = new Course;
+          $StudentRating->UserID=$_REQUEST['id'];
+          $Course->ID = $_REQUEST['courseID'];
+          $EncryptionAndDecreption->ReadFromFile();
+          $StudentRating->UserID=$EncryptionAndDecreption->Decrept($StudentRating->UserID);
+          $Course->ID=$EncryptionAndDecreption->Decrept($Course->ID);
+          $User = new User;
+          $result = $User->GetNameOfChild($StudentRating->UserID);
+          if ($row = mysqli_fetch_array($result)){
 
+            echo '<h2>'. $row['Value'].'</h2>';
+          }
+
+          ?>
+        </div>
+          <div class='form-group'>
                     <label>Course</label>
 						<?php
-							$course = new Course;
-							$noOfCourses= $course->View();
 
-                            echo "<select name='courseID' class='form-control' onchange='David(this.value)' id='courseID'>";
-                            for ($i=0; $i<=$noOfCourses; $i++){
-                                echo "<option value='".$course->ID[$i]."'> ".$course->Name[$i]."</option>";
+							$result= $Course->ViewSpecificCourse($Course->ID);
+              echo $Course->ID;
+            while ($row=mysqli_fetch_array($result)){
+              $Course->Name= $row['Name'];
+              echo '<h2>'.$Course->Name.'</h2>';
                             }
-                            echo "</select>"
+
 						?>
 				    </div>
                     <div class="form-group" id="ajax">
@@ -178,21 +198,21 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionCla
                           echo " <form method='post'>";
                                   $curriculum = new CurriculumModel();
                                   $curriculum->View();
-    $numberOfLessons = $curriculum->ViewSpecificLesson($course->ID[0]);
+                                  $numberOfLessons = $curriculum->ViewSpecificLesson($Course->ID);
 
 
-    if ($numberOfLessons < 0){
-        echo "</br>";
-        echo "<label style='color: red'><strong>No available lessons, please add one first</strong></label>";
-    }else{
-        echo "<label>Lesson Name </label>";
-        echo "<br>";
-        echo "<select name=\"lessonID\" id=\"lessonID\" class=\"form-control\" onchange='David2(this.value)' >";
-        for ($i =0; $i<=$numberOfLessons; $i++){
-            echo "<option value='".$curriculum->ID[$i]."'> ".$curriculum->LessonName[$i]."</option>";
-        }
-        echo "</select>";
-    }
+                      if ($numberOfLessons < 0){
+                          echo "</br>";
+                          echo "<label style='color: red'><strong>No available lessons, please add one first</strong></label>";
+                      }else{
+                          echo "<label>Lesson Name </label>";
+                          echo "<br>";
+                          echo "<select name=\"lessonID\" id=\"lessonID\" class=\"form-control\" onchange='David2(this.value)' >";
+                          for ($i =0; $i<=$numberOfLessons; $i++){
+                              echo "<option value='".$curriculum->ID[$i]."'> ".$curriculum->LessonName[$i]."</option>";
+                          }
+                          echo "</select>";
+                      }
                                 ?>
 
 
@@ -217,11 +237,6 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionCla
 
           echo ' <div class="form-group">';
             echo '<div class="stars">';
-            $StudentRating = new StudentRating;
-            $EncryptionAndDecreption = new EncryptionDecrptionClass;
-            $StudentRating->UserID=$_REQUEST['id'];
-            $EncryptionAndDecreption->ReadFromFile();
-            $StudentRating->UserID=$EncryptionAndDecreption->Decrept($StudentRating->UserID);
             $numberofstars=$StudentRating->GetNumbersOfStars();
             for ($counter=$numberofstars;$counter>=1;$counter--)
             {
@@ -244,6 +259,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionCla
 
                   $StudentRating->CurriculumID=$_POST["lessonID"];
                   $StudentRating->Rating=$_POST['star'];
+                  $StudentRating->date=date("Y-m-d");
                   $StudentRating->Add();
 
                 }

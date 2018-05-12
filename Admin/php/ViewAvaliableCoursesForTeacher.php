@@ -79,6 +79,7 @@ if(!isset($_SESSION['userID']))
                             $CourseNameResult[$i]=$Course->ViewSpecificCourse($CourseTimeTable->CourseIDs[$i]);
                             while ($row1= mysqli_fetch_array($CourseNameResult[$i])){
                               $CourseName[$i]=$row1['Name'];
+                              $CourseID[$i]=$row1['ID'];
                             }
                             $ClassName[$i]=$Class->getClassName($CourseTimeTable->ClassIDs[$i]);
                           }
@@ -96,9 +97,11 @@ if(!isset($_SESSION['userID']))
                           for ($x=0;$x<=$CourseTimeTable->newCounter;$x++){
                             echo "<tr>";
                             $newClassID=$Encryption->Encrypt($CourseTimeTable->ClassIDs[$x]);
-                            $NewIDs=$IDs[$x];
+                            $NewIDs=$CourseID[$x];
+                            $NewCourseID=$Encryption->Encrypt($NewIDs);
                             $newClassID = urlencode($newClassID);
-                            echo "<td> <a href=\"ChildsClass.php?Classid=".$newClassID.'&id='.$NewIDs."\"> ".$CourseName[$x]." ".$ClassName[$x]." </a> </td>";
+                            $NewCourseID= urlencode($NewCourseID);
+                            echo "<td> <a href=\"ChildsClass.php?Classid=".$newClassID.'&Courseid='.$NewCourseID."\"> ".$CourseName[$x]." ".$ClassName[$x]." </a> </td>";
                             echo "</tr>";
                                   }
                                   ?>
