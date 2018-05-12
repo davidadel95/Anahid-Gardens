@@ -65,6 +65,12 @@ if (session_status() == PHP_SESSION_NONE) {
                     </a>
                 </li>
 
+                <li class="treeview">
+                    <a href="ViewAvaliableCoursesForTeacher.php">
+                        <i class="fa fa-book"></i>
+                        <span>Grading Course</span>
+                    </a>
+                </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

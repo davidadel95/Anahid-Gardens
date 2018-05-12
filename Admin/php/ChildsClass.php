@@ -69,7 +69,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("Navigationbar2.php"); ?>
+      <?php include("TeacherNavbar.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->
@@ -119,7 +119,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             echo "<tr>";
                             $newID=$EncryptionAndDecreption->Encrypt($userRow['id']);
                             $newID = urlencode($newID);
-                            echo "<td> <a href=\"AddStudentRating.php?id=".$newID."\"> ".$userRow['Value']." </a> </td>";
+                            echo "<td> <a href=\"lesa.php?id=".$newID."\"> ".$userRow['Value']." </a> </td>";
                             echo "</tr>";
                             $i++;
                         }
