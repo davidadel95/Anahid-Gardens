@@ -1,4 +1,8 @@
 <?php
+//if not logged in redirect to login
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
 
