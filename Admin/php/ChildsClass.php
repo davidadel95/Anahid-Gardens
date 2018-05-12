@@ -95,7 +95,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
               <?php
                 $EncryptionAndDecreption = new EncryptionDecrptionClass;
-                $classID = $_REQUEST['id'];
+                $classID = $_REQUEST['Classid'];
                 $EncryptionAndDecreption->ReadFromFile();
                 $classID=$EncryptionAndDecreption->Decrept($classID);
                 $class = new Classes();

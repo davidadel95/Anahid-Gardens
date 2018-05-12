@@ -15,7 +15,7 @@ if(!isset($_SESSION['userID']))
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Show Colors</title>
+<title>View Avaliable Courses For Teacher</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -71,6 +71,7 @@ if(!isset($_SESSION['userID']))
                             $Counter++;
                             $CourseID[$Counter]=$row['CourseID'];
                             $ClassID[$Counter]=$row['ClassID'];
+                            $IDs[$Counter]=$row['ID'];
                           }
                           $CourseTimeTable->GetOneRecord($CourseID,$ClassID,$Counter);
                           for($i=0;$i<=$CourseTimeTable->newCounter;$i++){
@@ -94,9 +95,10 @@ if(!isset($_SESSION['userID']))
                         $Encryption->ReadFromFile();
                           for ($x=0;$x<=$CourseTimeTable->newCounter;$x++){
                             echo "<tr>";
-                            $newID=$Encryption->Encrypt($CourseTimeTable->ClassIDs[$x]);
-                            $newID = urlencode($newID);
-                            echo "<td> <a href=\"ChildsClass.php?id=".$newID."\"> ".$CourseName[$x]." ".$ClassName[$x]." </a> </td>";
+                            $newClassID=$Encryption->Encrypt($CourseTimeTable->ClassIDs[$x]);
+                            $NewIDs=$IDs[$x];
+                            $newClassID = urlencode($newClassID);
+                            echo "<td> <a href=\"ChildsClass.php?Classid=".$newClassID.'&id='.$NewIDs."\"> ".$CourseName[$x]." ".$ClassName[$x]." </a> </td>";
                             echo "</tr>";
                                   }
                                   ?>
