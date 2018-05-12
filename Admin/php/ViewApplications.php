@@ -120,7 +120,7 @@ if(isset($_POST['post'])){
 
                     <?php
                     echo "<form name = 'EAV' id='comment_form' method ='post'>";
-                    $Applicant->notify();
+                    echo $Applicant->notify();
                     $Names;
                     $Types;
                     $i=-1;

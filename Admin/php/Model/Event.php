@@ -19,7 +19,7 @@
                 return;
             }
             foreach($this->storage as $observer){
-                $observer->update($this);
+                return $observer->update($this);
             }
         }
         public function InsertEvent($comment){
