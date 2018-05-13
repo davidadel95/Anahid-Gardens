@@ -58,10 +58,11 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                   </div>
               </div>
                 <?php
-                if($_POST){ 
+                if($_POST){
                   $StudentRating=new StudentRating;
 									$SelectedDate = $_POST['Date'];
 									$UserID= $_SESSION['userID'];
+									$Curriculum = new CurriculumModel;
 									$Counter= $StudentRating->ViewSpecificChildForDay($UserID,$SelectedDate);
 									if( $Counter==-1){
 										echo "No Avaliable Grades For This Day";
@@ -70,7 +71,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
 													echo	'	<div class="tables">';
 													echo 	'<div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">';
-                                                    
+
 													echo	'<h4>Rating</h4>';
 													echo	'<table class="table table-hover">';
 													echo 	'<thead>';
@@ -82,17 +83,16 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 													echo	'	</thead>
 																<tbody>';
 													for ($x=0;$x<=$Counter;$x++){
-													$Curriculum = new CurriculumModel;
-													$Curriculum->viewLessonDetails($StudentRating->CurriculumID[$x]);
+													$Curriculum->viewLessonDetail($StudentRating->CurriculumID[$x]);
 													echo "<tr>";
-													echo "<td>".$Curriculum->LessonName[$x]."</td>";
-													echo "<td>".$Curriculum->LessonDetails[$x]."</td>";
+													echo "<td>".$Curriculum->LessonName."</td>";
+													echo "<td>".$Curriculum->LessonDetails."</td>";
 													echo "<td>".$StudentRating->Rating[$x]." Out Of 5</td>";
 													echo "</tr>";
 													}
 
 																echo '</tbody>
-                                                                </div><a href="reportPDF.php" target="_blank" onclick="view()" class="btn btn-success">Print</a>
+                          </div><a href="reportPDF.php" target="_blank" onclick="view()" class="btn btn-success">Print</a>
 														</table>
 												</div>
 										</div>';

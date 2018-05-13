@@ -30,7 +30,7 @@ $pdf->Cell( 40, 40, $pdf->Image($image, $pdf->GetX(), $pdf->GetY(), 33.78), 0, 0
 
 $pdf->Cell(0,30,'',0,1);
 $pdf->Cell(120,5,'ANAHID GARDENS NURSERY',0,0);
-$pdf->Cell(59,5,'STUDENT REPORT',0,1);
+$pdf->Cell(59,5,'Daily Report Sheet',0,1);
 
 $pdf->SetFont('Arial','',12);
 
@@ -59,7 +59,19 @@ $pdf->Cell(90,5, $User->getUsername($UserID), 0,1);
 $pdf->Cell(189,10,'' ,0,1);
 
 $pdf->SetFont('Arial','B',12);
-
+$pdf->Cell(74,5,'My Mood Was:',0,1);
+$pdf->Cell(74,5,'',0,1);
+$pdf->Cell(30,5,'Happy(.......)',0,0);
+$pdf->Cell(33,5,'Tired(.......)',0,0);
+$pdf->Cell(35,5,'Attentive(.......)',0,0);
+$pdf->Cell(37,5,'Cooperative(.......)',0,1);
+$pdf->Cell(33,5,'Playful(.......)',0,0);
+$pdf->Cell(35,5,'Talkative(.......)',0,0);
+$pdf->Cell(37,5,'Quiet(.......)',0,1);
+$pdf->Cell(74,25,'',0,1);
+$pdf->Cell(37,5,'Rest time: I slept from ....../...... to ....../......',0,1);
+$pdf->Cell(74,25,'',0,1);
+$pdf->Cell(74,20,'Activities',0,1);
 $pdf->Cell(74,5,'Course Name',1,0);
 $pdf->Cell(74,5, 'Lesson Name', 1,0);
 $pdf->Cell(41,5,'Rating',1,1);
@@ -67,9 +79,9 @@ $pdf->Cell(41,5,'Rating',1,1);
 $pdf->SetFont('Arial','',12);
 for ($x=0;$x<=$Counter;$x++){
     $Curriculum = new CurriculumModel;
-    $Curriculum->viewLessonDetails($StudentRating->CurriculumID[$x]);
-    $pdf->Cell(74,5,$Curriculum->LessonName[$x],1,0);
-    $pdf->Cell(74,5, $Curriculum->LessonDetails[$x], 1,0);
+    $Curriculum->viewLessonDetail($StudentRating->CurriculumID[$x]);
+    $pdf->Cell(74,5,$Curriculum->LessonName,1,0);
+    $pdf->Cell(74,5, $Curriculum->LessonDetails, 1,0);
     $pdf->Cell(41,5,$StudentRating->Rating[$x].' Out Of 5', 1, 1);
 }
 
