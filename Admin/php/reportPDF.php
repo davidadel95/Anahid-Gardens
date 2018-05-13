@@ -14,6 +14,7 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentRating.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
     $User = new User;
     $selectedDate =  $_COOKIE['cookieReportDate'];
     $UserID= $_SESSION['userID'];
@@ -79,9 +80,14 @@ $pdf->Cell(41,5,'Rating',1,1);
 $pdf->SetFont('Arial','',12);
 for ($x=0;$x<=$Counter;$x++){
     $Curriculum = new CurriculumModel;
+    $Course = new Course;
     $Curriculum->viewLessonDetail($StudentRating->CurriculumID[$x]);
-    $pdf->Cell(74,5,$Curriculum->LessonName,1,0);
-    $pdf->Cell(74,5, $Curriculum->LessonDetails, 1,0);
+    $Result=$Course->ViewSpecificCourse($Curriculum->CourseID);
+    while ($row=mysqli_fetch_array($Result)){
+    $CouseName=$row['Name'];
+    }
+    $pdf->Cell(74,5,$CouseName,1,0);
+    $pdf->Cell(74,5, $Curriculum->LessonName, 1,0);
     $pdf->Cell(41,5,$StudentRating->Rating[$x].' Out Of 5', 1, 1);
 }
 

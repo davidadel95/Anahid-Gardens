@@ -44,7 +44,8 @@ class User implements CRUD, \SplObserver
     public function CountOFUserRole($RoleID){
         $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-     $sql_query ="SELECT COUNT(*) from user where RoleID = ". $RoleID;
+     $sql_query ="SELECT COUNT(*) from user INNER JOIN userstatus on user.StatusID = userstatus.ID where RoleID ='". $RoleID ."'
+     AND userstatus.Status <> 'Unavailable'"; 
     $result = $mysqli->query($sql_query);
         $row= mysqli_fetch_array($result);
         
