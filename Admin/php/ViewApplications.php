@@ -19,7 +19,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
-$RoleEav->RoleID = $RoleNameEAV->GetID("Child");
+$RoleEav->RoleID = $RoleNameEAV->GetID("Admin");
+$User = new User;
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
 if(isset($_POST['post'])){
@@ -105,8 +106,17 @@ if(isset($_POST['post'])){
             <div class="form-group">
 
                     <?php
-                    echo "<form name = 'EAV' id='comment_form' method ='post'>";
-                    echo $Applicant->notify();
+                $counter=$User->CountRoles();
+                    echo "<select onchange='shaf3y(this.value)'>";
+                    
+                    for($t=0;$t<=$counter;$t++){
+                        echo"<option value='".$User->RoleName[$t]."'>".$User->RoleName[$t]."</option>";
+                    }
+                    echo"</select>";
+                    
+                    echo "<form name = 'EAV'  method ='post'>";
+                    echo"<div id='comment_form'>";
+                    //echo $Applicant->notify();
                     $Names;
                     $Types;
                     $i=-1;
@@ -159,6 +169,7 @@ if(isset($_POST['post'])){
                     }
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' id='post' name='post'>
+                    </div>
                     </form>";
                     if(isset($_POST['post'])){
                     $Applicant->InsertEvent($_POST["value0"]);
@@ -218,7 +229,7 @@ if(isset($_POST['post'])){
 				}
 			}
 
-   /* function shaf3y(x) {
+    function shaf3y(x) {
 
         //var x = document.getElementById("mySelect").value;
 
@@ -226,12 +237,12 @@ if(isset($_POST['post'])){
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("ajax").innerHTML = this.responseText;
+                document.getElementById("comment_form").innerHTML = this.responseText;
          }
         };
         xmlhttp.open("GET", "ajax.php?q=" + x, true);
         xmlhttp.send();
-    }*/
+    }
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
