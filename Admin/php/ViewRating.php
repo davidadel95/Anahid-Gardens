@@ -58,9 +58,9 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                   </div>
               </div>
                 <?php
-                if($_POST){
+                if($_POST){ 
                   $StudentRating=new StudentRating;
-									$SelectedDate= $_POST['Date'];
+									$SelectedDate = $_POST['Date'];
 									$UserID= $_SESSION['userID'];
 									$Counter= $StudentRating->ViewSpecificChildForDay($UserID,$SelectedDate);
 									if( $Counter==-1){
@@ -70,6 +70,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
 													echo	'	<div class="tables">';
 													echo 	'<div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">';
+                                                    
 													echo	'<h4>Rating</h4>';
 													echo	'<table class="table table-hover">';
 													echo 	'<thead>';
@@ -91,6 +92,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 													}
 
 																echo '</tbody>
+                                                                </div><a href="reportPDF.php" target="_blank" onclick="view()" class="btn btn-success">Print</a>
 														</table>
 												</div>
 										</div>';
@@ -131,6 +133,11 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
+            function view()
+            {
+                var date = '<?php echo $SelectedDate; ?>';
+                document.cookie = "cookieReportDate=" + date;
+            }
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
@@ -145,4 +152,3 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 
 </body>
 </html>
-\

@@ -69,7 +69,7 @@
                                         echo "<td>".$TransactionModel->Date[$i]."</td>";
                                         echo "<td>".$TransactionModel->Amount[$i]."</td>";
                                         echo "<td>".$EventModel->getEventPrice($EventModel->getEventName($TransactionModel->EventID[$i]))*$TransactionModel->Amount[$i]."</td>";
-                                        echo '<td><a href="invoicePDF.php" target="_blank" onclick="view('.$TransactionModel->ID[$i].')" class="btn btn-success">Print</a>';
+                                        echo '<td><a href="invoicePDF.php" target="_blank" onclick="view('.$TransactionModel->ID[$i].')" class="btn btn-success">Print</a></td>';
                                         echo "</tr>";
                                         
                                     }
