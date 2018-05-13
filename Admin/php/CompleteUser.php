@@ -123,7 +123,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             echo "<label>". $Names[$i]. "</label>";
                             echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
                             echo"<div id='ajax'>";
-                            echo "<input onblur='CheckUserName(this.value,".$i.")' type='".$Types[$i]."'  name='value".$i."' class='form-control' placeholder='".$Types[$i]."'  required >";     
+                            echo "<input onblur='CheckUserName(this.value,".$i.")' type='".$Types[$i]."'  name='value".$i."' class='form-control' placeholder='".$Types[$i]."' id=".$i."  required >";     
                             echo"</div>";
                         }
                     else{    
@@ -141,7 +141,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $j++;
                     $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UserID);
                     }
-                    $User->Status=$User->GetStatusID("available");
+                    $User->GetStatusID("available");
                     $User->ChangeStatus($UserID);
 
                     }
@@ -195,8 +195,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			}
 
     function CheckUserName(x,y) {
-
-        var xmlhttp = new XMLHttpRequest();
+        if(x==""){
+            
+        }
+        else{var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("ajax").innerHTML = this.responseText;
@@ -204,7 +206,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         };
         xmlhttp.open("GET", "UserNameAjax.php?q=" + x+"&w="+y , true);
         xmlhttp.send();
-    }
+    }}
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
