@@ -4,7 +4,9 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
 $User = new User;
+$Classes = new Classes;
 ?>
 <html>
 <head>
@@ -91,7 +93,7 @@ $User = new User;
 <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 <div class="form-title"><h4>Statistics 2</h4></div>
 
-	<p>This Donut shows the quantitu of users in each Role </p>		
+	<p>This Donut shows the quantity of users in each Role </p>		
     <div id="donut-example" style="height: 250px;"></div>
     
     </div>
@@ -100,7 +102,7 @@ $User = new User;
 <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 <div class="form-title"><h4>Statistics 3</h4></div>
 
-			
+	<p>This Bar shows the number of students in each class</p>		
     <div id="bar-example" style="height: 250px;"></div>
     
     </div>
@@ -124,22 +126,27 @@ $User = new User;
 	<!-- Classie --><!-- for toggle left push menu script -->
     <script>
 
-new Morris.Line({
+new Morris.Bar({
   // ID of the element in which to draw the chart.
-  element: 'myfirstchart',
+  element: 'bar-example',
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
   data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
+      <?php
+      $counter= $Classes->CountUsersInClass();
+      for($x=0;$x<=$counter;$x++){
+          $ClassNames[$x]=$Classes->getClassName($Classes->ClassID[$x]);
+          echo "{y: '".$ClassNames[$x]."', a:".$Classes->Count[$x]."},";
+          
+      }
+      ?>
+      
+
   ],
   // The name of the data record attribute that contains x-values.
-  xkey: 'year',
+  xkey: 'y',
   // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
+  ykeys: ['a'],
   // Labels for the ykeys -- will be displayed when you hover over the
   // chart.
   labels: ['Value']
@@ -157,20 +164,20 @@ new Morris.Line({
   ]
 });
     
-        Morris.Bar({
-  element: 'bar-example',
+        Morris.Line({
+  element: 'myfirstchart',
   data: [
-    { y: '2006', a: 100, b: 90 },
-    { y: '2007', a: 75,  b: 65 },
-    { y: '2008', a: 50,  b: 40 },
-    { y: '2009', a: 75,  b: 65 },
-    { y: '2010', a: 50,  b: 40 },
-    { y: '2011', a: 75,  b: 65 },
-    { y: '2012', a: 100, b: 90 }
+    { year: '2006', value: 100},
+    { year: '2007', value: 75},
+    { year: '2008', value: 50 },
+    { year: '2009', value: 75 },
+    { year: '2010', value: 50 },
+    { year: '2011', value: 75 },
+    { year: '2012', value: 100}
   ],
-  xkey: 'y',
-  ykeys: ['a', 'b'],
-  labels: ['Series A', 'Series B']
+  xkey: 'year',
+  ykeys: ['value'],
+  labels: [ 'value']
 });
 
 </script>

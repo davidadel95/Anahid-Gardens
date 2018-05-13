@@ -22,7 +22,8 @@ class Classes implements CRUD
      * @var void
      */
     public $Name;
-
+    public $ClassID;
+    public $Count;
 
     /**
      * @inheritDoc
@@ -63,6 +64,21 @@ class Classes implements CRUD
     {
 
     }
+   public function CountUsersInClass()
+    {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query ="SELECT ClassID,COUNT(*) FROM `userclasscourse` GROUP BY ClassID";
+          $result = $mysqli->query($sql_query);
+            $counter=-1;
+        while($row=mysqli_fetch_array($result)){
+            $counter++;
+            $this->ClassID[$counter]=$row['ClassID'];
+            $this->Count[$counter]=$row['COUNT(*)'];
+        }
+       
+       return $counter;
+   }
 
     public function getClassName($classID){
         $db = dbconnect::getInstance();

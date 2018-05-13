@@ -60,7 +60,11 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionCla
                 <?php
                 if($_POST){
                     $EncryptionDecrptionClass = new EncryptionDecrptionClass();
-                    $EncryptionDecrptionClass->key = $_POST['NewKey'];
+										$Key = $_POST['NewKey'];
+										$Key = trim($Key);
+										$Key = stripslashes($Key);
+										$Key = htmlspecialchars($Key);
+                    $EncryptionDecrptionClass->key = $Key;
                     $EncryptionDecrptionClass->WriteToFile();
                 }
                 ?>
