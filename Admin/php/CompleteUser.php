@@ -119,10 +119,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     echo "<br />";
                     $Names[$i]=$row["Name"];
                     $Types[$i]=$row["Type"];
+                        if($Names[$i]=="username"){
+                            echo "<label>". $Names[$i]. "</label>";
+                            echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
+                            echo"<div id='ajax'>";
+                            echo "<input onblur='CheckUserName(this.value,".$i.")' type='".$Types[$i]."'  name='value".$i."' class='form-control' placeholder='".$Types[$i]."'  required >";     
+                            echo"</div>";
+                        }
+                    else{    
                     echo "<label>". $Names[$i]. "</label>";
                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                    echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]." '>";
-                    }
+                    echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]."' required>";
+                    }}
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>
                     </form>";
@@ -133,7 +141,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     $j++;
                     $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UserID);
                     }
-                    $User->Status=1;
+                    $User->Status=$User->GetStatusID("available");
                     $User->ChangeStatus($UserID);
 
                     }
@@ -162,7 +170,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
     <!--//footer-->
 
-
+   
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
@@ -186,10 +194,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				}
 			}
 
-   /* function shaf3y(x) {
-
-        //var x = document.getElementById("mySelect").value;
-
+    function CheckUserName(x,y) {
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
@@ -197,9 +202,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 document.getElementById("ajax").innerHTML = this.responseText;
          }
         };
-        xmlhttp.open("GET", "ajax.php?q=" + x, true);
+        xmlhttp.open("GET", "UserNameAjax.php?q=" + x+"&w="+y , true);
         xmlhttp.send();
-    }*/
+    }
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
