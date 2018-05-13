@@ -1,0 +1,2 @@
+Johns-MacBook-Pro:~ john$ cd  /Applications/XAMPP/xamppfiles/htdocs/Anahid-Gardens/Admin/php
+Johns-MacBook-Pro:php john$ sudo chmod 777 Key.txt
