@@ -151,7 +151,7 @@ class StudentClass implements CRUD
                       FROM userclasscourse
                       WHERE ClassID='$this->ClassID'";
       $result = $mysqli->query($sql_query);
-      echo $sql_query;
+      
     }
 
 

@@ -88,7 +88,7 @@ class CourseTimeTable implements CRUD
       $sql_query="DELETE FROM coursetimetable
         WHERE ClassID='$this->ClassID'";
         $result = $mysqli->query($sql_query);
-        echo $sql_query;
+        
 
     }
 

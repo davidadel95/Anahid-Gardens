@@ -89,6 +89,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<?php
 						$Classes = new Classes;
 						$result= $Classes->View();
+
 						if($row =mysqli_fetch_array($result)){
 								$result= $Classes->View();
 							echo "<select name='ClassID' class='form-control' id='courseSelector'>";
@@ -120,6 +121,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						$CourseTimeTable->Delete();
 						$StudentClass->Delete();
 						$Classes->Delete();
+						 echo "<meta http-equiv='refresh' content='0'>";
 						}
 
 					 ?>
