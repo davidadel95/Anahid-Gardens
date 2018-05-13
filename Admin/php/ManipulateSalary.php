@@ -162,7 +162,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <br/>
                                 <label>Value (L.E)</label>
                                 <br/>
-                                <input name="methodVal" id="methodVal" type="number" onchange="getDetails3(this.value)" class="form-control" placeholder="eg: 2000" required>
+                                <input name="methodVal" id="methodVal" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/^0/, '');"  onchange="getDetails3(this.value)" class="form-control" placeholder="eg: 2000" required>
                                 <br/>
                                 <label>Employee ID</label>
                                 <br/>

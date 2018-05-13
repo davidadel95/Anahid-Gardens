@@ -283,6 +283,7 @@ if(isset($_SESSION['roleID'])) {
 <!--                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Package</a></li>-->
                       </ul></li>
                      <li><a href="ManipulateSalary.php"><i class="fa fa-angle-right"></i>Manipulate Salaries</a></li>   
+                       <li><a href="ViewSalaries.php"><i class="fa fa-angle-right"></i>View Salaries</a></li>   
                    </ul>
                  </li>
 

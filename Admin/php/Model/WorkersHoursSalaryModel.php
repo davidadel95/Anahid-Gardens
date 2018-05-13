@@ -89,10 +89,15 @@
 
           while($row =mysqli_fetch_array($result)){
               $i++;
-              if($row["RoleID"] == $RoleID || $Role->GetRoleName($RoleID) == "Child" || $Role->GetRoleName($RoleID) == "Parent")
-                  return false;
+              if($row["RoleID"] == $RoleID)
+              {
+                  if($Role->GetRoleName($RoleID) == "Child" || $Role->GetRoleName($RoleID) == "Parent")
+                      return false;
+                  return true;
+              }
+                  
           }
-          return true;
+          
       }
 
       public function Delete()

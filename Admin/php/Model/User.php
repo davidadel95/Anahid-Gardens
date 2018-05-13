@@ -289,6 +289,25 @@ class User implements CRUD, \SplObserver
         return $result;
 
     }
+    
+    public function getEmployees()
+    {
+         
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query= "SELECT * FROM user WHERE user.RoleID <> 2 AND user.RoleID <> 1";
+          $result = $mysqli->query($sql_query);
+          $i = 0;
+          while($row = mysqli_fetch_array($result))
+          {
+             $this->ID[$i] = $row['ID']; 
+             $this->DateAdded[$i] = $row['DateAdded'];
+             $this->Status[$i] = $row['StatusID'];
+             $this->RoleID[$i] = $row['RoleID'];
+             $i++;
+          }
+          return $this;
+    }
 
     public function ViewChild()
     {
