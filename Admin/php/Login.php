@@ -87,7 +87,12 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-
+			$username = trim($username);
+			$username = stripslashes($username);
+			$username = htmlspecialchars($username);
+			$password = trim($password);
+			$password = stripslashes($password);
+			$password = htmlspecialchars($password);
 			if ($username != "" && $password != ""){
 				$user = new User;
 				$user->login($username, $password);
