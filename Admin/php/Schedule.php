@@ -47,7 +47,7 @@
 
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
-
+		require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CourseTimeTable.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeSlots.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Days.php";
@@ -62,6 +62,7 @@
     $TimeSlot = new TimeSlots;
     $Days = new Days;
     $Course = new Course;
+		$User = new User;
     $AllDaysResult = $Days->View();
     while ($row=mysqli_fetch_array($AllDaysResult)){
         $x2++;
@@ -75,6 +76,7 @@
         $CourseID[$x]=$row["CourseID"];
         $DaysID[$x]=$row["DaysID"];
         $TimeSlotID[$x]=$row["TimeslotsID"];
+				$UserIDs[$x]=$row['UserID'];
 
     }
 
@@ -83,6 +85,8 @@
             $TimeSlotResults[$Counter]=$TimeSlot->GetBeginEnd($TimeSlotID[$Counter]);
             $DaysResults[$Counter]=$Days->ViewSpecificDay($DaysID[$Counter]);
             $CoursesResults[$Counter]=$Course->ViewSpecificCourse($CourseID[$Counter]);
+						$UserNamesResults[$Counter]=$User->GetNameOfChild($UserIDs[$Counter]);
+
         }
         $DaysUsed;
         $Begins;
@@ -109,6 +113,13 @@
                 $Courses[$Counter]=$row3["Name"];
 
             }
+						$x1=-1;
+					while ($row3=mysqli_fetch_array($UserNamesResults[$Counter]))
+					{
+							$x1++;
+							$TeacherNames[$Counter]=$row3["Value"];
+
+					}
         }
 
     }
@@ -170,6 +181,7 @@
                                                 echo '<li class="single-event" data-start="'.$Begins[$Counter1].'" data-end="'.$Ends[$Counter1].'" data-event="event-1">';
                                                 echo	'<a href="">';
                                                 echo	'<em class="event-name">'.$Courses[$Counter1].'</em>';
+																								echo	'<em class="event-name">'.$TeacherNames[$Counter1].'</em>';
                                                 echo	'</a>';
                                                 echo '</li>';
                                             }

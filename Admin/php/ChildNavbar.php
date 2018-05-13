@@ -53,7 +53,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                  <a href="TeacherFirst.php">
+                  <a href="ChildFirst.php">
                     <i class="fa fa-dashboard"></i>
                     <span>Home</span>
                   </a>
@@ -69,7 +69,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <li class="treeview">
                     <a href="">
                         <i class="fa fa-book"></i>
-                        <span>Grading Course</span>
+                        <span>View Grades</span>
                     </a>
                 </li>
                 </ul>

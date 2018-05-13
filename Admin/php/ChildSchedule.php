@@ -54,6 +54,7 @@ session_start();
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeSlots.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Days.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 
     $x=-1;
     $x1=-1;
@@ -63,6 +64,7 @@ session_start();
     $Days = new Days;
     $Course = new Course;
     $StudentClass = new StudentClass;
+    $User = new User;
     $AllDaysResult = $Days->View();
     $result = $StudentClass->GetUserClass($_SESSION['userID']);
     while($row = mysqli_fetch_array($result)){
@@ -80,7 +82,7 @@ session_start();
         $CourseID[$x]=$row["CourseID"];
         $DaysID[$x]=$row["DaysID"];
         $TimeSlotID[$x]=$row["TimeslotsID"];
-
+        $UserIDs[$x]=$row['UserID'];
     }
 
     if($x>-1){
@@ -88,6 +90,7 @@ session_start();
             $TimeSlotResults[$Counter]=$TimeSlot->GetBeginEnd($TimeSlotID[$Counter]);
             $DaysResults[$Counter]=$Days->ViewSpecificDay($DaysID[$Counter]);
             $CoursesResults[$Counter]=$Course->ViewSpecificCourse($CourseID[$Counter]);
+            $UserNamesResults[$Counter]=$User->GetNameOfChild($UserIDs[$Counter]);
         }
         $DaysUsed;
         $Begins;
@@ -112,6 +115,13 @@ session_start();
             {
                 $x1++;
                 $Courses[$Counter]=$row3["Name"];
+
+            }
+              $x1=-1;
+            while ($row3=mysqli_fetch_array($UserNamesResults[$Counter]))
+            {
+                $x1++;
+                $TeacherNames[$Counter]=$row3["Value"];
 
             }
         }
@@ -175,6 +185,7 @@ session_start();
                                                 echo '<li class="single-event" data-start="'.$Begins[$Counter1].'" data-end="'.$Ends[$Counter1].'" data-event="event-1">';
                                                 echo	'<a href="">';
                                                 echo	'<em class="event-name">'.$Courses[$Counter1].'</em>';
+                                                echo	'<em class="event-name">'.$TeacherNames[$Counter1].'</em>';
                                                 echo	'</a>';
                                                 echo '</li>';
                                             }
