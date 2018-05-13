@@ -83,7 +83,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 													echo	'	</thead>
 																<tbody>';
 													for ($x=0;$x<=$Counter;$x++){
-													$Curriculum->viewLessonDetails($StudentRating->CurriculumID[$x]);
+													$Curriculum->viewLessonDetail($StudentRating->CurriculumID[$x]);
 													echo "<tr>";
 													echo "<td>".$Curriculum->LessonName."</td>";
 													echo "<td>".$Curriculum->LessonDetails."</td>";
