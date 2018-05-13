@@ -41,6 +41,8 @@ class StudentRating implements CRUD
      */
      public $NumberOfStars;
 
+     public $date;
+
 
 
     /**
@@ -50,7 +52,8 @@ class StudentRating implements CRUD
     {
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-      $sql_query = "INSERT INTO studentrating (ID,UserID,CurriculumID,Rating) VALUES ('',$this->UserID,$this->CurriculumID,$this->Rating)";
+      $sql_query = "INSERT INTO studentrating (ID,UserID,CurriculumID,Rating,`Date`) VALUES ('',$this->UserID,$this->CurriculumID,$this->Rating,'$this->date')";
+      echo $sql_query;
       $result = $mysqli->query($sql_query);
 
     }

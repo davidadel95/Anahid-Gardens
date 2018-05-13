@@ -83,6 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentClass.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EncryptionDecrptionClass.php";
@@ -96,10 +97,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <?php
                 $EncryptionAndDecreption = new EncryptionDecrptionClass;
                 $classID = $_REQUEST['Classid'];
+                $CourseID= $_REQUEST['Courseid'];
                 $EncryptionAndDecreption->ReadFromFile();
                 $classID=$EncryptionAndDecreption->Decrept($classID);
-                $class = new Classes();
+                $class = new Classes;
                 $className = $class->getClassName($classID);
+
+
               ?>
 
             <h4>Name of the class: <?php echo "$className"; ?></h4>
@@ -119,7 +123,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             echo "<tr>";
                             $newID=$EncryptionAndDecreption->Encrypt($userRow['id']);
                             $newID = urlencode($newID);
-                            echo "<td> <a href=\"lesa.php?id=".$newID."\"> ".$userRow['Value']." </a> </td>";
+                            echo "<td> <a href=\"AddStudentRating.php?id=".$newID.'&courseID='.$CourseID."\"> ".$userRow['Value']." </a> </td>";
                             echo "</tr>";
                             $i++;
                         }
