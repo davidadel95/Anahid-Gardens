@@ -32,6 +32,7 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentRating.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
  ?>
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
@@ -60,6 +61,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                 <?php
                 if($_POST){
                   $StudentRating=new StudentRating;
+									$Course = new Course;
 									$SelectedDate = $_POST['Date'];
 									$UserID= $_SESSION['userID'];
 									$Curriculum = new CurriculumModel;
@@ -84,9 +86,13 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
 																<tbody>';
 													for ($x=0;$x<=$Counter;$x++){
 													$Curriculum->viewLessonDetail($StudentRating->CurriculumID[$x]);
+													$Result=$Course->ViewSpecificCourse($Curriculum->CourseID);
+													while ($row=mysqli_fetch_array($Result)){
+													$CouseName=$row['Name'];
+													}
 													echo "<tr>";
+													echo "<td>".$CouseName."</td>";
 													echo "<td>".$Curriculum->LessonName."</td>";
-													echo "<td>".$Curriculum->LessonDetails."</td>";
 													echo "<td>".$StudentRating->Rating[$x]." Out Of 5</td>";
 													echo "</tr>";
 													}

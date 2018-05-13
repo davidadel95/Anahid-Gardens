@@ -144,6 +144,11 @@ class CourseTimeTable implements CRUD
 
       }
       }
+      if ($Counter==0){
+        $this->CourseIDs[0]=$CourseIDs[0];
+        $this->ClassIDs[0]=$ClassIDs[0];
+        $this->newCounter=0;
+      }
 
     }
 
