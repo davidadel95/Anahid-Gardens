@@ -17,11 +17,6 @@
 </head>
 <body class="cbp-spmenu-push">
     <?php
-    $rootPath = $_SERVER['DOCUMENT_ROOT'];
-
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CarDataModel.php";
     ?>
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
@@ -36,9 +31,12 @@
                 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/SalaryManipulationModel.php";
                 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/WorkersHoursSalaryModel.php";
                 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
+                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/UserStatusModel.php";
+
                 $SalaryManipulationModel = new SalaryManipulationModel;
                 $WorkersHoursSalaryModel = new WorkersHoursSalaryModel;
                 $ExperienceSalariesModel = new ExperienceSalariesModel;
+                $UserStatusModel = new UserStatusModel;
                 $RoleName = new RoleNameEAV;
                 $User = new User;
         ?>
@@ -53,19 +51,24 @@
                 <div class="tables">
                     <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
                         <h4>Employees Salaries</h4>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Employee Name</th>
-                                    <th>Employee Role</th>
-                                    <th>Total Salary</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                    <?php
+                        <h5>Search By Name</h5>
+                        <input type="text" onkeyup="getName(this.value)"/>
+                        
+                        
+                            <div id="search"> 
+                                <?php
                                     $employees = $User->getEmployees();
-                                    
+                                    echo '<table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Employee Name</th>
+                                                <th>Employee Role</th>
+                                                <th>Status</th  >
+                                                <th>Total Salary (/Month)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>';
                                     for($i= 0 ; $i<sizeof($employees->RoleID);$i++)
                                     {   
                                         $totalSalary = 0;
@@ -110,12 +113,16 @@
                                         echo "<th><a href=''>".$employees->ID[$i]."</a></th>";
                                         echo "<td>".$employees->getUsername($employees->ID[$i])."</td>";
                                         echo "<td>".$RoleName->GetRoleName($employees->RoleID[$i])."</td>";
+                                        echo "<td>".$UserStatusModel->getStatusName($employees->Status[$i])."</td>";
                                         echo "<td>".$totalSalary." LE</td>";
                                         echo "</tr>";
+                                        
                                     }
+                                        echo "</tbody>";
+                                        echo "</table>";
                                     ?>
-                            </tbody>
-                        </table>
+                                
+                            </div>
                     </div>
                 </div>
                 <script  src="../js/index1.js"></script>
@@ -150,10 +157,19 @@
 					classie.toggle( showLeftPush, 'disabled' );
 				}
 			}
-
+            function getName(x) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("search").innerHTML = this.responseText;
+                 }
+                };
+                xhttp.open("GET", "ajaxGetByRole.php?q=" + x, true);
+                xhttp.send();
+            }
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
-
+    
 	<!--scrolling js-->
 	<script src="../js/jquery.nicescroll.js"></script>
 	<script src="../js/scripts.js"></script>

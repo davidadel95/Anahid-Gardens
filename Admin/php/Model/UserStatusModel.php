@@ -48,6 +48,19 @@
         return $i;
       }
 
+      
+      public function getStatusName($StatusID)
+      {
+          $db = dbconnect::getInstance();
+            $mysqli = $db->getConnection();
+
+            $sql = "SELECT * 
+                FROM `userstatus`
+                WHERE ID = ".$StatusID;
+            $result = $mysqli->query($sql); 
+            $row = mysqli_fetch_array($result);
+            return $row['Status'];
+      }
 
       public function Delete(){
           // TODO: implement here

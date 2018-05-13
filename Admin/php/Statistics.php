@@ -149,7 +149,8 @@ new Morris.Bar({
   ykeys: ['a'],
   // Labels for the ykeys -- will be displayed when you hover over the
   // chart.
-  labels: ['Value']
+  labels: ['Value'],
+    
 });
         Morris.Donut({
   element: 'donut-example',
