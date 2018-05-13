@@ -5,8 +5,10 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TransactionModel.php";
 $User = new User;
 $Classes = new Classes;
+$Transcation = new TransactionModel;
 ?>
 <html>
 <head>
@@ -82,7 +84,7 @@ $Classes = new Classes;
           
           
           
-          <div class="form-title"><h4>Statistics</h4></div>
+          <div class="form-title"><h4>Transaction Money Statistics</h4></div>
           <div id="myfirstchart" style="height: 250px;"></div>        
            
 
@@ -91,7 +93,7 @@ $Classes = new Classes;
 		</div>
 <div class="forms">
 <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-<div class="form-title"><h4>Statistics 2</h4></div>
+<div class="form-title"><h4>Role Statistics</h4></div>
 
 	<p>This Donut shows the quantity of users in each Role </p>		
     <div id="donut-example" style="height: 250px;"></div>
@@ -100,10 +102,10 @@ $Classes = new Classes;
     </div>
 <div class="forms">
 <div class="form-grids row widget-shadow" data-example-id="basic-forms">
-<div class="form-title"><h4>Statistics 3</h4></div>
+<div class="form-title"><h4>Class Statistics</h4></div>
 
-	<p>This Bar shows the number of students in each class</p>		
-    <div id="bar-example" style="height: 250px;"></div>
+			
+    <div id="bar-example" style="height: 300px;"></div>
     
     </div>
     </div>                
@@ -129,6 +131,7 @@ $Classes = new Classes;
 new Morris.Bar({
   // ID of the element in which to draw the chart.
   element: 'bar-example',
+  barSizeRatio:0.30,
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
   data: [
@@ -136,7 +139,7 @@ new Morris.Bar({
       $counter= $Classes->CountUsersInClass();
       for($x=0;$x<=$counter;$x++){
           $ClassNames[$x]=$Classes->getClassName($Classes->ClassID[$x]);
-          echo "{y: '".$ClassNames[$x]."', a:".$Classes->Count[$x]."},";
+          echo "{y: '".$ClassNames[$x]."', a:20, b:".$Classes->Count[$x]."},";
           
       }
       ?>
@@ -146,10 +149,10 @@ new Morris.Bar({
   // The name of the data record attribute that contains x-values.
   xkey: 'y',
   // A list of names of data record attributes that contain y-values.
-  ykeys: ['a'],
+  ykeys: ['a','b'],
   // Labels for the ykeys -- will be displayed when you hover over the
   // chart.
-  labels: ['Value'],
+  labels: ['upperlimit','Current'],
     
 });
         Morris.Donut({
@@ -168,15 +171,14 @@ new Morris.Bar({
         Morris.Line({
   element: 'myfirstchart',
   data: [
-    { year: '2006', value: 100},
-    { year: '2007', value: 75},
-    { year: '2008', value: 50 },
-    { year: '2009', value: 75 },
-    { year: '2010', value: 50 },
-    { year: '2011', value: 75 },
-    { year: '2012', value: 100}
+      <?php
+      $counter = $Transcation->MoneyPaidStatistics();
+      for($i=0;$i<=$counter;$i++){
+    echo"{day :'". $Transcation->Date[$i] ."', value:".$Transcation->Amount[$i]."},";
+      }
+      ?>
   ],
-  xkey: 'year',
+  xkey: 'day',
   ykeys: ['value'],
   labels: [ 'value']
 });

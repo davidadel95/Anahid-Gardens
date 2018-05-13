@@ -1,11 +1,14 @@
 <?php
     $q = $_REQUEST["q"];
-    require_once "Model/DBconnect.php";
+    require_once "dbconnect.php";
     require_once "Model/CRUD.php";
     require_once "Model/RoleEav.php";
+require_once "Model/Attribute.php";
     $RoleEAV= new RoleEav;
     $result=$RoleEAV->GetRadio();
-
+$Attruibute = new Attribute;
+$NumberOfAttruibutes=$Attruibute->view();
+$Changed=0;
 while($row=mysqli_fetch_array($result)){
     if(!strcmp($row['Name'],$q)){
         $Counter=0;
@@ -17,12 +20,43 @@ while($row=mysqli_fetch_array($result)){
 
         echo "<div id='Shaf3yy'>";
         echo "</div>";
+        $Changed=1;
+        break;
     }
 }
 
-    echo"<br>
+    if($Changed=1){
+        echo"<br>
 	<input type='hidden' id='calcAjax' name='Field1' value='".$q."'>
 	<br> <br>
 	<input name='GroupField' type='submit'>";
+    }
+else {
+    echo'<label>Field Name</label>
+
+										<select name="InFiledFieldName"  onchange="GroupAjax(this.value)" class="form-control" >';
+
+										
+
+										for ($x=0;$x<=$NumberOfAttruibutes;$x++)
+										{
+
+											echo "<option value='".$Attruibute->Types[$x]."'> ".$Attruibute->Types[$x]."</option>";
+
+
+										}
+
+										
+								echo	'</select>
+
+
+                                    <br>
+
+
+
+									<br> <br>
+									<input name="NewInField" type="submit">
+';
+}
 
 ?>

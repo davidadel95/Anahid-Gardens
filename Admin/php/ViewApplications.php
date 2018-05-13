@@ -19,7 +19,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
-$RoleEav->RoleID = $RoleNameEAV->GetID("Admin");
+$_SESSION['RID']= $RoleNameEAV->GetID("Admin");
+$RoleEav->RoleID = $_SESSION['RID'];
 $User = new User;
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
@@ -106,8 +107,9 @@ if(isset($_POST['post'])){
             <div class="form-group">
 
                     <?php
-                $counter=$User->CountRoles();
-                    echo "<select onchange='shaf3y(this.value)'>";
+                    
+                    $counter=$User->CountRoles();
+                    echo "<select class='form-control' onchange='shaf3y(this.value)'>";
                     
                     for($t=0;$t<=$counter;$t++){
                         echo"<option value='".$User->RoleName[$t]."'>".$User->RoleName[$t]."</option>";
@@ -173,6 +175,7 @@ if(isset($_POST['post'])){
                     </form>";
                     if(isset($_POST['post'])){
                     $Applicant->InsertEvent($_POST["value0"]);
+                     $RoleEav->RoleID = $_SESSION['RID'];   
                     $UID = $RoleEav->Add();
                     $j=-1;
                     while($j<$i){
