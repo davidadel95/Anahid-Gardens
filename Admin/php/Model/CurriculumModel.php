@@ -83,12 +83,14 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
                 ";
           $result = $mysqli->query($sql);
           $i=-1;
+          if($result){
           while($row =mysqli_fetch_array($result)){
               $i++;
               $this->ID=$row['ID'];
               $this->CourseID[$i]=$row['CourseID'];
               $this->LessonName[$i]=$row['LessonName'];
               $this->LessonDetails[$i]=$row['LessonDetails'];
+          }
           }
           return $i;
       }
