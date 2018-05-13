@@ -110,9 +110,9 @@ if(isset($_SESSION['roleID'])) {
 
                 <!-- kids checklist menu -->
                 <li class="treeview">
-                  <a href="#">
+                  <a href="Statistics.php">
                   <i class="fa fa-laptop"></i>
-                  <span>Kids Checklist</span>
+                  <span>Statistics</span>
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
 
