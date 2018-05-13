@@ -106,14 +106,7 @@
                 $this->Date[$i]=$row['Date'];
                 $this->Attended[$i]=$row['Attended'];
             }
-
-
-            if ($this->ID != null){
-                return $this->ID;
-            }else{
-                return 1;
-            }
-
+            return $this->ID[0];
         }
         public function Delete(){
 

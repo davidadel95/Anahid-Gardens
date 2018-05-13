@@ -80,73 +80,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
-              <?php $dateWithTime = date('Y-m-d H:i:s', time());
-              $date = date('Y-m-d', time());
-              ?>
+              <?php $dateWithTime = date('Y-m-d H:i:s', time()); ?>
               <h4>Date: <strong><?php echo $dateWithTime; ?></strong></h4>
-            <h4>Workers:</h4>
+            <h4>Teachers:</h4>
 
-<!--              --><?php
-//
-//              $getAttendanceID = new AttendanceModel();
-//
-//              $attendanceID = $getAttendanceID->showAttendanceByDateForWorkers($date);
-//
-//              echo "number :" . $attendanceID;
-//              ?>
-
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>User ID</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                </tr>
+              </thead>
+              <tbody>
+                <form name ="Attendence" method="Post">
                     <?php
-                    echo "<div id='ajax'>";
-
-                    echo "
-                    <table class=\"table table-hover\">
-                      <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>User ID</th>
-                            <th>Check In</th>
-                            <th>Check Out</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                    
-                    ";
                         $user = new User();
                         $numberOfUsers = $user->showAllUsersWithoutChilds();
                         $count = 1;
 
-                        $getAttendanceID = new AttendanceModel();
-
-//                        $attendanceID = $getAttendanceID->showAttendanceByDateAndID($date,$id);
-
-
                         for ($i = 0; $i<= $numberOfUsers; $i++){
-                            $attendanceID = $getAttendanceID->showAttendanceByDateAndID($date,$user->UserID[$i]);
-
                             echo "<tr>";
                             echo "<th>$count</th>";
                             echo "<td>" . $user->Value[$i] . "</td>";
                             echo "<td>" . $user->UserID[$i] . "</td>";
-                            if (!isset($attendanceID[$i])){
-                                echo "<td><button class='btn btn-success' type='button' onclick='checkIn(".$user->UserID[$i].")' name='Formbtn'>Check in</button></td>";
-                            }else{
-                                echo "<td>Checked In</td>";
-                            }
-//                            echo "<td><button class='btn btn-success' type='button' onclick='checkIn(".$user->UserID[$i].")' name='Formbtn'>Check in</button></td>";
-
-                            echo "<td><button class='btn btn-dark' type='button' onclick='checkOut(".$user->UserID[$i].")' name='Formbtn'>Check out</button></td>";
+                            echo "<td><button class='btn btn-success' type='button' onclick='checkIn(".$user->UserID[$i].")' name='Formbtn'>Check in</button>";
+                            echo "<td><button class='btn btn-dark' type='button' onclick='checkOut(".$user->UserID[$i].")' name='Formbtn'>Check out</button>";
                             echo "</tr>";
                             $count++;
                         }
-
-                        echo "
-                           </tbody>
-                        </table>
-                        ";
-                        echo "</div>";
                     ?>
 
+              </tbody>
+            </table>
+          </form>
+              <div id="ajax">
+
+              </div>
           </div>
         </div>
 			</div>
@@ -167,7 +139,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("ajax").innerHTML = this.responseText;
+                // document.getElementById("ajax").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET", "ajaxAttendanceCheckIn.php?userID=" + x, true);
