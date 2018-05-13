@@ -52,7 +52,7 @@ class Classes implements CRUD
     {
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
-          $sql_query = "Select * from Class";
+          $sql_query = "Select * from class";
           $result = $mysqli->query($sql_query);
           return $result;
     }
@@ -67,7 +67,6 @@ class Classes implements CRUD
       $sql_query = "DELETE FROM class
       WHERE ID='$this->ID'";
       $result = $mysqli->query($sql_query);
-      echo $sql_query;
       return $result;
 
     }
