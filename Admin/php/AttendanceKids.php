@@ -84,7 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 $class = new Classes();
                 $className = $class->getClassName($classID);
 //                date_default_timezone_set('Africa/Cairo');
-                $dateWithTime = date('Y-m-d H:i:s', time())
+                $dateWithTime = date('Y-m-d H:i:s', time());
               ?>
               <h4>Date: <strong><?php echo $dateWithTime; ?></strong></h4>
             <h4>Name of the class: <?php echo "$className"; ?></h4>

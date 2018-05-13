@@ -70,12 +70,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
         require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Classes.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Days.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeSlots.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TeacherClass.php";
-        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TimeTable.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+        require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/AttendanceModel.php";
 
         ?>
 		<!-- //header-ends -->
@@ -84,40 +80,41 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="main-page">
         <div class="tables">
           <div class="table-responsive bs-example widget-shadow" data-example-id="hoverable-table">
+              <?php $dateWithTime = date('Y-m-d H:i:s', time()); ?>
+              <h4>Date: <strong><?php echo $dateWithTime; ?></strong></h4>
             <h4>Teachers:</h4>
+
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Attendance</th>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>User ID</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
                 </tr>
               </thead>
               <tbody>
                 <form name ="Attendence" method="Post">
-                  <tr>
-                  <th scope="row">1</th>
-                  <td>Ahmed</td>
-                  <td>Mohamed</td>
-                  <td><input type="checkbox"</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>David</td>
-                  <td>Adel</td>
-                  <td><input type="checkbox"</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Mahmoud</td>
-                  <td>Ahmed</td>
-                  <td><input type="checkbox"</td>
-                </tr>
+                    <?php
+                        $user = new User();
+                        $numberOfUsers = $user->showAllUsersWithoutChilds();
+                        $count = 1;
+
+                        for ($i = 0; $i<= $numberOfUsers; $i++){
+                            echo "<tr>";
+                            echo "<th>$count</th>";
+                            echo "<td>" . $user->Value[$i] . "</td>";
+                            echo "<td>" . $user->UserID[$i] . "</td>";
+                            echo "<td><button class='btn btn-success' type='button' onclick='checkIn(".$user->UserID[$i].")' name='Formbtn'>Check in</button>";
+                            echo "<td><button class='btn btn-dark' type='button' onclick='checkOut(".$user->UserID[$i].")' name='Formbtn'>Check out</button>";
+                            echo "</tr>";
+                            $count++;
+                        }
+                    ?>
 
               </tbody>
             </table>
-        <button type="submit" class="btn btn-success">Submit</button>
           </form>
           </div>
         </div>
@@ -129,3 +126,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
     <!--//footer-->
 	</div>
+</body>
+
+<script>
+    function checkIn(x) {
+
+        //var x = document.getElementById("mySelect").value;
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("ajax").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "ajaxAttendanceCheckIn.php?userID=" + x, true);
+        xmlhttp.send();
+    }
+    function checkOut(x) {
+
+        //var x = document.getElementById("mySelect").value;
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("ajax").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "ajaxAttendanceCheckIn.php?userID=" + x, true);
+        xmlhttp.send();
+    }
+
+
+</script>
+</html>
+
