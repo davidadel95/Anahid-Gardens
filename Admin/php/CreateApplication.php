@@ -120,7 +120,7 @@ if (isset($_POST["GroupField"])){
   $Visibility->FieldID = $FieldID;
   $Visibility->IsVisible=1;
 for($i=0;;$i++){
-  if(!$_POST[$i]){
+  if(isset($_POST[$i])){
     break;
   }
   else{
@@ -414,7 +414,7 @@ if (isset($_POST["NewOutField"])){
             function GroupAjax(x) {
 
 
-if(x=="Gender" || x== "prof"){
+
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
@@ -424,7 +424,7 @@ if(x=="Gender" || x== "prof"){
         };
         xmlhttp.open("GET", "GroupAjax.php?q=" + x, true);
         xmlhttp.send();
-    }}
+    }
 
 		</script>
 <script>

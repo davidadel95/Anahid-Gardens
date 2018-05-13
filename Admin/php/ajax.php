@@ -1,6 +1,6 @@
 <?php
 $rootPath = $_SERVER['DOCUMENT_ROOT'];
-
+session_start();
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
@@ -12,7 +12,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 $q = $_REQUEST["q"];
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
-$RoleEav->RoleID = $RoleNameEAV->GetID($q);
+$_SESSION['RID']= $RoleEav->RoleID = $RoleNameEAV->GetID($q);
 
 
                     

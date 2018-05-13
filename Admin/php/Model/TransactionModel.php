@@ -71,5 +71,21 @@ class TransactionModel implements CRUD
       $ID = mysqli_fetch_array($result);
       return $ID;
     }
+    
+    public function MoneyPaidStatistics(){
+       $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "SELECT EventID,sum(Quantity*price) as Profit,`Date`,eventdetails.Price  from transaction INNER JOIN eventdetails ON transaction.EventID = eventdetails.ID GROUP BY  date";
+        $result = $mysqli->query($sql_query);
+        $counter=-1;
+        while($row=mysqli_fetch_array($result)){
+            $counter++;
+            $this->Amount[$counter]=$row['Profit'];
+            $this->Date[$counter]=$row['Date'];
+            
+        }
+        return $counter;
+    }
+    
 }
 ?>
