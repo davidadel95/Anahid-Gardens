@@ -145,8 +145,16 @@ class StudentClass implements CRUD
 
     public function Delete()
     {
-        // TODO: implement here
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = " Delete
+                      FROM userclasscourse
+                      WHERE ClassID='$this->ClassID'";
+      $result = $mysqli->query($sql_query);
+      echo $sql_query;
     }
+
+
 
 
 }

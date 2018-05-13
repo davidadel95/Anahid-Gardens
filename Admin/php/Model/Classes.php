@@ -62,6 +62,13 @@ class Classes implements CRUD
      */
     public function Delete()
     {
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "DELETE FROM class
+      WHERE ID='$this->ID'";
+      $result = $mysqli->query($sql_query);
+      echo $sql_query;
+      return $result;
 
     }
    public function CountUsersInClass()
