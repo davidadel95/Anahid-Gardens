@@ -60,7 +60,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </li>
 
                 <li class="treeview">
-                    <a href="">
+                    <a href="ChildSchedule.php">
                         <i class="fa fa-dashboard"></i>
                         <span>View Schedule</span>
                     </a>
