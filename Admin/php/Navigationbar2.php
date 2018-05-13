@@ -204,8 +204,9 @@ if(isset($_SESSION['roleID'])) {
                <i class="fa fa-angle-left pull-right"></i>
                </a>
                <ul class="treeview-menu">
-<!--               <li><a href="AttendanceTeachers.php"><i class="fa fa-angle-right"></i>Teachers </a></li>-->
+
                    <li><a href="ViewClassesAttendance.php"><i class="fa fa-angle-right"></i>Childs </a></li>
+                   <li><a href="AttendanceTeachers.php"><i class="fa fa-angle-right"></i>Teachers </a></li>
 <!--                   <li><a href="EarlyLeave.php"><i class="fa fa-angle-right"></i>Leave Form</a>-->
                    <li><a href="ViewAttendance.php"><i class="fa fa-angle-right"></i>Show Attendance</a>
                </ul>
