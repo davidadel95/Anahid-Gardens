@@ -106,6 +106,8 @@ if(isset($_SESSION['roleID'])) {
                       <li><a href="ViewUserStatus.php"><i class="fa fa-angle-right"></i>User Status </a></li>
                   </ul>
                 </li>
+
+
                 <!-- kids checklist menu -->
                 <li class="treeview">
                   <a href="#">
@@ -113,44 +115,45 @@ if(isset($_SESSION['roleID'])) {
                   <span>Kids Checklist</span>
                   <i class="fa fa-angle-left pull-right"></i>
                   </a>
-                  <ul class="treeview-menu">
-                    <li><a href=""><i class="fa fa-angle-right"></i>Academic</a>
-                      <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-angle-right"></i>French</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>English</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Arabic</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Quraan</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Arts</a>
-                            <ul class="treeview-menu">
-                                <li><a href="ArtsCheck.php"><i class="fa fa-angle-right"></i>Arts Table</a></li>
-                                <li><a href="AddArt.php"><i class="fa fa-angle-right"></i>Add New Art</a></li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>Food</a>
-                          <ul class="treeview-menu">
-                            <li><a href="Breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>
-                            <li><a href="Snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>
-                            <li><a href="Lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>Fun</a>
-                          <ul class="treeview-menu">
-                            <li><a href="FunCheck.php"><i class="fa fa-angle-right"></i>Fun Table</a></li>
-                            <li><a href="AddFun.php"><i class="fa fa-angle-right"></i>Add New Fun Event</a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><i class="fa fa-angle-right"></i>Songs</a>
-                        <ul class="treeview-menu">
-                            <li><a href="AddSong.php"><i class="fa fa-angle-right"></i>Add a New Song</a></li>
-                            <li><a href="Songs.php"><i class="fa fa-angle-right"></i>Song List</a></li>
-                        </ul>
-                      </li>
 
-                      <li><a href="ToiletCheck.php"><i class="fa fa-angle-right"></i>Toilet</a></li>
-                      <li><a href="SportsCheck.php"><i class="fa fa-angle-right"></i>Sports</a></li>
-                  </ul>
+<!--                  <ul class="treeview-menu">-->
+<!--                    <li><a href=""><i class="fa fa-angle-right"></i>Academic</a>-->
+<!--                      <ul class="treeview-menu">-->
+<!--                        <li><a href=""><i class="fa fa-angle-right"></i>French</a></li>-->
+<!--                        <li><a href=""><i class="fa fa-angle-right"></i>English</a></li>-->
+<!--                        <li><a href=""><i class="fa fa-angle-right"></i>Arabic</a></li>-->
+<!--                        <li><a href=""><i class="fa fa-angle-right"></i>Quraan</a></li>-->
+<!--                        <li><a href=""><i class="fa fa-angle-right"></i>Arts</a>-->
+<!--                            <ul class="treeview-menu">-->
+<!--                                <li><a href="ArtsCheck.php"><i class="fa fa-angle-right"></i>Arts Table</a></li>-->
+<!--                                <li><a href="AddArt.php"><i class="fa fa-angle-right"></i>Add New Art</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                      </ul>-->
+<!--                    </li>-->
+<!--                    <li><a href=""><i class="fa fa-angle-right"></i>Food</a>-->
+<!--                          <ul class="treeview-menu">-->
+<!--                            <li><a href="Breakfast.php"><i class="fa fa-angle-right"></i>Breakfast</a></li>-->
+<!--                            <li><a href="Snack.php"><i class="fa fa-angle-right"></i>Snack</a></li>-->
+<!--                            <li><a href="Lunch.php"><i class="fa fa-angle-right"></i>Lunch</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li><a href=""><i class="fa fa-angle-right"></i>Fun</a>-->
+<!--                          <ul class="treeview-menu">-->
+<!--                            <li><a href="FunCheck.php"><i class="fa fa-angle-right"></i>Fun Table</a></li>-->
+<!--                            <li><a href="AddFun.php"><i class="fa fa-angle-right"></i>Add New Fun Event</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li><a href=""><i class="fa fa-angle-right"></i>Songs</a>-->
+<!--                        <ul class="treeview-menu">-->
+<!--                            <li><a href="AddSong.php"><i class="fa fa-angle-right"></i>Add a New Song</a></li>-->
+<!--                            <li><a href="Songs.php"><i class="fa fa-angle-right"></i>Song List</a></li>-->
+<!--                        </ul>-->
+<!--                      </li>-->
+<!---->
+<!--                      <li><a href="ToiletCheck.php"><i class="fa fa-angle-right"></i>Toilet</a></li>-->
+<!--                      <li><a href="SportsCheck.php"><i class="fa fa-angle-right"></i>Sports</a></li>-->
+<!--                  </ul>-->
 
 
 <!--                <li class="treeview">-->
@@ -261,7 +264,7 @@ if(isset($_SESSION['roleID'])) {
                        <ul class="treeview-menu">
                         <li><a href="CreatePayment.php"><i class="fa fa-angle-right"></i>Add new Payment</a></li>
                         <li><a href="EditPayment.php"><i class="fa fa-angle-right"></i>Edit Payment</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Payment</a></li>
+<!--                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Payment</a></li>-->
                       </ul></li>
                    </ul>
                  </li>
@@ -276,8 +279,8 @@ if(isset($_SESSION['roleID'])) {
                      <li><a href="  "><i class="fa fa-angle-right"></i>Manipulate Salary Packages</a>
                        <ul class="treeview-menu">
                         <li><a href="CreateSalary.php"><i class="fa fa-angle-right"></i>Add New Package</a></li>
-                        <li><a href="EditPayment.php"><i class="fa fa-angle-right"></i>Edit Package</a></li>
-                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Package</a></li>
+<!--                        <li><a href="EditPayment.php"><i class="fa fa-angle-right"></i>Edit Package</a></li>-->
+<!--                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Package</a></li>-->
                       </ul></li>
                      <li><a href="ManipulateSalary.php"><i class="fa fa-angle-right"></i>Manipulate Salaries</a></li>   
                    </ul>

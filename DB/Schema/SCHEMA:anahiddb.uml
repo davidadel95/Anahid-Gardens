@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>887debe5-f307-4c0d-b6df-96c98ead777c.SCHEMA:anahiddb</OriginalElement>
+  <nodes>
+    <node x="6026.608182730925" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.attendance</node>
+    <node x="484.5248493975914" y="22.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.errortypes</node>
+    <node x="20.0" y="1028.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.resources</node>
+    <node x="5826.541516064259" y="230.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user</node>
+    <node x="1262.4421686746987" y="864.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formoptionsvalue</node>
+    <node x="6955.358182730925" y="875.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.leaving</node>
+    <node x="2560.7748493975914" y="22.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.optionstypes</node>
+    <node x="8319.096134538155" y="241.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.eventdetails</node>
+    <node x="366.0000000000009" y="241.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.messagesanderros</node>
+    <node x="3163.25" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.application</node>
+    <node x="7499.108182730925" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.studentclothes</node>
+    <node x="1923.5712851405624" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.report</node>
+    <node x="4733.9375" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.disease</node>
+    <node x="7921.096134538154" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.extraclothes</node>
+    <node x="7136.608182730925" y="611.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cardata</node>
+    <node x="8117.096134538154" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.toilet</node>
+    <node x="257.5248493975914" y="0.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pages</node>
+    <node x="5444.858182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userdailyhours</node>
+    <node x="6952.608182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.salarymanipulation</node>
+    <node x="947.0000000000009" y="219.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.workershourssalary</node>
+    <node x="4257.524849397591" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodies</node>
+    <node x="4537.9375" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.medicine</node>
+    <node x="4297.9375" y="241.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.curriculum</node>
+    <node x="7538.096134538154" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.carcolor</node>
+    <node x="8550.358182730924" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.transactionlog</node>
+    <node x="725.0000000000009" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.localization</node>
+    <node x="2569.0" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.poptions</node>
+    <node x="1544.000000000001" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentmethods</node>
+    <node x="1152.000000000001" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formname</node>
+    <node x="8348.108182730924" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.useractivities</node>
+    <node x="4011.2748493975914" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.nullstype</node>
+    <node x="0.0" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.word</node>
+    <node x="2638.9462851405624" y="864.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationvalue</node>
+    <node x="483.0" y="1028.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.commentdetails</node>
+    <node x="7868.358182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.transaction</node>
+    <node x="1998.3212851405624" y="864.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportsvalue</node>
+    <node x="7342.096134538154" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cartype</node>
+    <node x="3340.0625" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationoptions</node>
+    <node x="2765.0" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.days</node>
+    <node x="8132.608182730925" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.uservaccination</node>
+    <node x="3555.8125" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.class</node>
+    <node x="5246.858182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.busschedule</node>
+    <node x="2864.5" y="611.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.coursetimetable</node>
+    <node x="3773.0625" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.nulls</node>
+    <node x="402.19216867469913" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.wordlang</node>
+    <node x="4886.858182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.medicinedisease</node>
+    <node x="8337.596134538155" y="22.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.eventtype</node>
+    <node x="2197.625" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportname</node>
+    <node x="5874.541516064259" y="22.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userstatus</node>
+    <node x="1749.0" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formoptions</node>
+    <node x="1432.3171686746987" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.expenditures</node>
+    <node x="1984.625" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportoptionstype</node>
+    <node x="9063.496335341366" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.comments</node>
+    <node x="8552.096134538155" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.vaccination</node>
+    <node x="562.0000000000009" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.rolepages</node>
+    <node x="5837.608182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.salarymanipulationlog</node>
+    <node x="5077.858182730925" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.Holiday</node>
+    <node x="8748.096134538155" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.activities</node>
+    <node x="4022.4375" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.food</node>
+    <node x="1348.000000000001" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.expendituretypes</node>
+    <node x="6786.608182730925" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.experiencesalaries</node>
+    <node x="2428.0" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.timeslots</node>
+    <node x="7732.096134538154" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.caryear</node>
+    <node x="3845.2748493975914" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userclasscourse</node>
+    <node x="4419.524849397591" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodieslog</node>
+    <node x="4581.524849397591" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.studentrating</node>
+    <node x="196.0" y="252.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pageshtml</node>
+    <node x="5015.75" y="864.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentoptionsvalue</node>
+    <node x="6593.608182730925" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.attendancelog</node>
+    <node x="7705.358182730925" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.toiletcheck</node>
+    <node x="8944.096134538155" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.logtable</node>
+    <node x="2962.0" y="263.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationgroup</node>
+    <node x="3574.7789658634556" y="633.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodtimetable</node>
+    <node x="2352.9462851405624" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentoptions</node>
+    <node x="6398.608182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.duration</node>
+    <node x="241.0" y="1028.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.ncomments</node>
+    <node x="6219.608182730925" y="622.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userdailyhourslog</node>
+    <node x="5623.858182730925" y="611.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.salariespayment</node>
+    <node x="1048.0248493975914" y="11.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.role</node>
+    <node x="3805.004668674698" y="22.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.course</node>
+    <node x="1209.1921686746987" y="644.0">887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.form</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cardata" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cartype">
+      <point x="-23.75" y="-81.5" />
+      <point x="7207.858182730925" y="511.0" />
+      <point x="7474.096134538154" y="511.0" />
+      <point x="44.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.application">
+      <point x="-46.25" y="-59.5" />
+      <point x="2685.1962851405624" y="804.0" />
+      <point x="3277.25" y="804.0" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.poptions" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.optionstypes">
+      <point x="0.0" y="-48.5" />
+      <point x="2657.0" y="199.0" />
+      <point x="2667.6498493975914" y="199.0" />
+      <point x="21.375" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cardata" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.caryear">
+      <point x="71.25" y="-81.5" />
+      <point x="7302.858182730925" y="531.0" />
+      <point x="7816.596134538154" y="531.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.salarymanipulationlog" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-70.5" />
+      <point x="3.066666666666606" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.duration" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-70.5" />
+      <point x="6486.108182730925" y="561.0" />
+      <point x="5946.141516064259" y="561.0" />
+      <point x="27.600000000000364" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.coursetimetable" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.class">
+      <point x="34.80000000000018" y="-81.5" />
+      <point x="2986.3" y="451.0" />
+      <point x="3599.8125" y="451.0" />
+      <point x="-44.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userclasscourse" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.class">
+      <point x="-36.5" y="-48.5" />
+      <point x="3881.7748493975914" y="441.0" />
+      <point x="3687.8125" y="441.0" />
+      <point x="44.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.uservaccination" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.vaccination">
+      <point x="47.0" y="-48.5" />
+      <point x="8273.608182730924" y="571.0" />
+      <point x="8640.096134538155" y="571.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.role">
+      <point x="-46.0" y="-70.5" />
+      <point x="5872.541516064259" y="159.0" />
+      <point x="1202.0248493975914" y="159.0" />
+      <point x="66.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pageshtml" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pages">
+      <point x="0.0" y="-48.5" />
+      <point x="271.0" y="199.0" />
+      <point x="345.5248493975914" y="199.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentoptionsvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.transaction">
+      <point x="54.5" y="-59.5" />
+      <point x="5179.25" y="844.0" />
+      <point x="7944.358182730925" y="844.0" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.medicinedisease" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="56.66666666666697" y="-70.5" />
+      <point x="5028.524849397592" y="521.0" />
+      <point x="5872.541516064259" y="521.0" />
+      <point x="-46.0" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cardata" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.carcolor">
+      <point x="23.75" y="-81.5" />
+      <point x="7255.358182730925" y="521.0" />
+      <point x="7625.096134538154" y="521.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.curriculum" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.course">
+      <point x="0.0" y="-59.5" />
+      <point x="4407.9375" y="199.0" />
+      <point x="3937.004668674698" y="199.0" />
+      <point x="44.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.toiletcheck" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.toilet">
+      <point x="35.75" y="-59.5" />
+      <point x="7812.608182730925" y="551.0" />
+      <point x="8202.596134538155" y="551.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cardata" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-71.25" y="-81.5" />
+      <point x="7160.358182730925" y="521.0" />
+      <point x="5970.674849397592" y="521.0" />
+      <point x="52.13333333333321" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentoptions" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentmethods">
+      <point x="-54.25" y="-48.5" />
+      <point x="2407.1962851405624" y="581.0" />
+      <point x="1682.750000000001" y="581.0" />
+      <point x="46.25" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.application" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.role">
+      <point x="0.0" y="-70.5" />
+      <point x="3277.25" y="441.0" />
+      <point x="3263.5" y="441.0" />
+      <point x="3263.5" y="179.0" />
+      <point x="1158.0248493975914" y="179.0" />
+      <point x="22.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.rolepages" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pages">
+      <point x="-35.75" y="-48.5" />
+      <point x="597.7500000000009" y="189.0" />
+      <point x="415.92484939759106" y="189.0" />
+      <point x="70.39999999999998" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.useractivities" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.activities">
+      <point x="40.5" y="-48.5" />
+      <point x="8469.608182730924" y="581.0" />
+      <point x="8836.096134538155" y="581.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.report" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportname">
+      <point x="59.25" y="-48.5" />
+      <point x="2101.3212851405624" y="591.0" />
+      <point x="2285.625" y="591.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.busschedule" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-44.5" y="-70.5" />
+      <point x="5291.358182730925" y="551.0" />
+      <point x="5890.941516064258" y="551.0" />
+      <point x="-27.600000000000364" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pages" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pages">
+      <point x="-70.39999999999964" y="59.5" />
+      <point x="275.1248493975918" y="139.0" />
+      <point x="237.52484939759142" y="139.0" />
+      <point x="237.52484939759142" y="59.5" />
+      <point x="-88.0" y="-0.0" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.coursetimetable" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.timeslots">
+      <point x="-69.59999999999991" y="-81.5" />
+      <point x="2881.9000000000005" y="581.0" />
+      <point x="2488.5" y="581.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.coursetimetable" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.days">
+      <point x="-34.80000000000018" y="-81.5" />
+      <point x="2916.7" y="571.0" />
+      <point x="2853.0" y="571.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentoptionsvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentoptions">
+      <point x="-54.5" y="-59.5" />
+      <point x="5070.25" y="794.0" />
+      <point x="2461.4462851405624" y="794.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userdailyhourslog" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-70.5" />
+      <point x="6299.108182730925" y="571.0" />
+      <point x="5940.008182730926" y="571.0" />
+      <point x="21.46666666666715" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.eventdetails" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.eventtype">
+      <point x="0.0" y="-59.5" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-88.9333333333334" y="70.5" />
+      <point x="5829.608182730925" y="391.0" />
+      <point x="5806.541516064259" y="391.0" />
+      <point x="5806.541516064259" y="300.5" />
+      <point x="-92.0" y="-0.0" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.nullstype" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="43.75" y="-59.5" />
+      <point x="4142.524849397591" y="481.0" />
+      <point x="5848.008182730925" y="481.0" />
+      <point x="-70.53333333333376" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.word" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pages">
+      <point x="0.0" y="-48.5" />
+      <point x="88.0" y="189.0" />
+      <point x="310.3248493975916" y="189.0" />
+      <point x="-35.19999999999999" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.form" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formname">
+      <point x="-48.5" y="-48.5" />
+      <point x="1257.6921686746987" y="591.0" />
+      <point x="1240.000000000001" y="591.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.food" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.food">
+      <point x="-66.0" y="48.5" />
+      <point x="4044.4375" y="369.0" />
+      <point x="4002.4375" y="369.0" />
+      <point x="4002.4375" y="300.5" />
+      <point x="-88.0" y="-0.0" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="46.25" y="-59.5" />
+      <point x="2777.6962851405624" y="834.0" />
+      <point x="6016.108182730925" y="834.0" />
+      <point x="6016.108182730925" y="591.0" />
+      <point x="5927.741516064259" y="591.0" />
+      <point x="9.199999999999818" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportoptionstype" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.optionstypes">
+      <point x="0.0" y="-48.5" />
+      <point x="2081.125" y="199.0" />
+      <point x="2624.8998493975914" y="199.0" />
+      <point x="-21.375" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.attendance" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-59.5" />
+      <point x="6113.108182730925" y="581.0" />
+      <point x="5933.874849397592" y="581.0" />
+      <point x="15.33333333333303" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.report" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportoptionstype">
+      <point x="-59.25" y="-48.5" />
+      <point x="1982.8212851405624" y="591.0" />
+      <point x="2081.125" y="591.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.studentclothes" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-40.0" y="-59.5" />
+      <point x="7539.108182730925" y="501.0" />
+      <point x="5976.808182730925" y="501.0" />
+      <point x="58.266666666666424" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.transactionlog" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.logtable">
+      <point x="41.75" y="-59.5" />
+      <point x="8675.608182730924" y="591.0" />
+      <point x="9042.096134538155" y="591.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.resources" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.resources">
+      <point x="0.0" y="59.5" />
+      <point x="108.0" y="1167.0" />
+      <point x="0.0" y="1167.0" />
+      <point x="0.0" y="1087.5" />
+      <point x="-88.0" y="-0.0" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.leaving" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.attendance">
+      <point x="0.0" y="-48.5" />
+      <point x="7052.858182730925" y="834.0" />
+      <point x="6113.108182730925" y="834.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cartype" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.cartype">
+      <point x="-44.0" y="48.5" />
+      <point x="7386.096134538154" y="369.0" />
+      <point x="7322.096134538154" y="369.0" />
+      <point x="7322.096134538154" y="300.5" />
+      <point x="-88.0" y="-0.0" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.expenditures" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentmethods">
+      <point x="55.5" y="-70.5" />
+      <point x="1598.8171686746987" y="581.0" />
+      <point x="1590.250000000001" y="581.0" />
+      <point x="-46.25" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.medicinedisease" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.medicine">
+      <point x="-56.66666666666697" y="-70.5" />
+      <point x="4915.191516064258" y="421.0" />
+      <point x="4625.9375" y="421.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.paymentoptions" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.poptions">
+      <point x="54.25" y="-48.5" />
+      <point x="2515.6962851405624" y="591.0" />
+      <point x="2657.0" y="591.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.salarymanipulation" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-70.5" />
+      <point x="7034.608182730925" y="531.0" />
+      <point x="5964.541516064259" y="531.0" />
+      <point x="46.0" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userstatus">
+      <point x="46.0" y="-70.5" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.expenditures" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.expendituretypes">
+      <point x="-55.5" y="-70.5" />
+      <point x="1487.8171686746987" y="581.0" />
+      <point x="1436.000000000001" y="581.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userdailyhours" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-70.5" />
+      <point x="5524.358182730925" y="571.0" />
+      <point x="5903.208182730926" y="571.0" />
+      <point x="-15.33333333333303" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.nullstype" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.nulls">
+      <point x="-43.75" y="-59.5" />
+      <point x="4055.0248493975914" y="431.0" />
+      <point x="3861.0625" y="431.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.Holiday" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-59.5" />
+      <point x="5152.358182730925" y="541.0" />
+      <point x="5884.808182730925" y="541.0" />
+      <point x="-33.733333333333576" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formoptionsvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="43.75" y="-59.5" />
+      <point x="1393.6921686746987" y="814.0" />
+      <point x="5067.358182730925" y="814.0" />
+      <point x="5067.358182730925" y="531.0" />
+      <point x="5878.674849397592" y="531.0" />
+      <point x="-39.86666666666679" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.studentclothes" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.extraclothes">
+      <point x="40.0" y="-59.5" />
+      <point x="7619.108182730925" y="541.0" />
+      <point x="8009.096134538154" y="541.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.application" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationgroup">
+      <point x="-76.0" y="-70.5" />
+      <point x="3201.25" y="441.0" />
+      <point x="3107.5" y="441.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.toiletcheck" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-35.75" y="-59.5" />
+      <point x="7741.108182730925" y="491.0" />
+      <point x="5982.941516064258" y="491.0" />
+      <point x="64.39999999999964" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.wordlang" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.localization">
+      <point x="36.25" y="-59.5" />
+      <point x="510.94216867469913" y="591.0" />
+      <point x="826.0000000000009" y="591.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.experiencesalaries" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-48.5" />
+      <point x="6859.608182730925" y="541.0" />
+      <point x="5958.408182730926" y="541.0" />
+      <point x="39.86666666666679" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.medicinedisease" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.disease">
+      <point x="0.0" y="-70.5" />
+      <point x="4971.858182730925" y="411.0" />
+      <point x="4821.9375" y="411.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formoptionsvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.form">
+      <point x="-43.75" y="-59.5" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.userclasscourse" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="36.5" y="-48.5" />
+      <point x="3954.7748493975914" y="471.0" />
+      <point x="5841.874849397592" y="471.0" />
+      <point x="-76.66666666666697" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.coursetimetable" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="69.59999999999991" y="-81.5" />
+      <point x="3021.1000000000004" y="461.0" />
+      <point x="5835.741516064259" y="461.0" />
+      <point x="-82.80000000000018" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.transactionlog" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-41.75" y="-59.5" />
+      <point x="8592.108182730924" y="451.0" />
+      <point x="6007.474849397592" y="451.0" />
+      <point x="88.9333333333334" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.useractivities" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-40.5" y="-48.5" />
+      <point x="8388.608182730924" y="461.0" />
+      <point x="6001.341516064259" y="461.0" />
+      <point x="82.80000000000018" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodtimetable" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.food">
+      <point x="0.0" y="-59.5" />
+      <point x="3649.7789658634556" y="451.0" />
+      <point x="4088.4375" y="451.0" />
+      <point x="-22.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.application" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationoptions">
+      <point x="76.0" y="-70.5" />
+      <point x="3353.25" y="441.0" />
+      <point x="3433.0625" y="441.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.messagesanderros" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.pages">
+      <point x="-44.0" y="-59.5" />
+      <point x="410.0000000000009" y="199.0" />
+      <point x="380.72484939759124" y="199.0" />
+      <point x="35.19999999999999" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.applicationoptions" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.optionstypes">
+      <point x="0.0" y="-48.5" />
+      <point x="3433.0625" y="169.0" />
+      <point x="2710.3998493975914" y="169.0" />
+      <point x="64.125" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.coursetimetable" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.course">
+      <point x="0.0" y="-81.5" />
+      <point x="2951.5" y="199.0" />
+      <point x="3849.004668674698" y="199.0" />
+      <point x="-44.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodies" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="35.5" y="-59.5" />
+      <point x="4364.024849397591" y="491.0" />
+      <point x="5854.141516064259" y="491.0" />
+      <point x="-64.39999999999964" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportsvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.report">
+      <point x="-43.75" y="-59.5" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.studentrating" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.curriculum">
+      <point x="-46.0" y="-59.5" />
+      <point x="4627.524849397591" y="431.0" />
+      <point x="4407.9375" y="431.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.transaction" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.eventdetails">
+      <point x="38.0" y="-70.5" />
+      <point x="7982.358182730925" y="561.0" />
+      <point x="8372.346134538155" y="561.0" />
+      <point x="-53.25" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.rolepages" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.role">
+      <point x="35.75" y="-48.5" />
+      <point x="669.2500000000009" y="189.0" />
+      <point x="1070.0248493975914" y="189.0" />
+      <point x="-66.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.workershourssalary" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.role">
+      <point x="0.0" y="-81.5" />
+      <point x="1039.500000000001" y="199.0" />
+      <point x="1114.0248493975914" y="199.0" />
+      <point x="-22.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formoptions" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.optionstypes">
+      <point x="0.0" y="-48.5" />
+      <point x="1837.0" y="189.0" />
+      <point x="2582.1498493975914" y="189.0" />
+      <point x="-64.125" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.messagesanderros" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.errortypes">
+      <point x="44.0" y="-59.5" />
+      <point x="498.0000000000009" y="199.0" />
+      <point x="572.5248493975914" y="199.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.studentrating" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="46.0" y="-59.5" />
+      <point x="4719.524849397591" y="511.0" />
+      <point x="5866.408182730926" y="511.0" />
+      <point x="-52.13333333333321" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodies" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.food">
+      <point x="-35.5" y="-59.5" />
+      <point x="4293.024849397591" y="451.0" />
+      <point x="4132.4375" y="451.0" />
+      <point x="22.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodieslog" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="35.5" y="-59.5" />
+      <point x="4526.024849397591" y="501.0" />
+      <point x="5860.274849397592" y="501.0" />
+      <point x="-58.266666666666424" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.comments" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.eventdetails">
+      <point x="0.0" y="-48.5" />
+      <point x="9159.996335341366" y="441.0" />
+      <point x="8478.846134538155" y="441.0" />
+      <point x="53.25" y="59.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.form" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.formoptions">
+      <point x="48.5" y="-48.5" />
+      <point x="1354.6921686746987" y="591.0" />
+      <point x="1837.0" y="591.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.wordlang" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.word">
+      <point x="-36.25" y="-59.5" />
+      <point x="438.44216867469913" y="591.0" />
+      <point x="88.0" y="591.0" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.uservaccination" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-47.0" y="-48.5" />
+      <point x="8179.608182730925" y="471.0" />
+      <point x="5995.208182730926" y="471.0" />
+      <point x="76.66666666666697" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.salariespayment" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-81.5" />
+      <point x="5716.858182730925" y="581.0" />
+      <point x="5909.341516064259" y="581.0" />
+      <point x="-9.199999999999818" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.reportsvalue" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="43.75" y="-59.5" />
+      <point x="2129.5712851405624" y="824.0" />
+      <point x="5820.358182730925" y="824.0" />
+      <point x="5820.358182730925" y="591.0" />
+      <point x="5915.474849397592" y="591.0" />
+      <point x="-3.066666666666606" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.foodieslog" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.food">
+      <point x="-35.5" y="-59.5" />
+      <point x="4455.024849397591" y="441.0" />
+      <point x="4176.4375" y="441.0" />
+      <point x="66.0" y="48.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.transaction" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="-38.0" y="-70.5" />
+      <point x="7906.358182730925" y="481.0" />
+      <point x="5989.0748493975925" y="481.0" />
+      <point x="70.53333333333376" y="70.5" />
+    </edge>
+    <edge source="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.attendancelog" target="887debe5-f307-4c0d-b6df-96c98ead777c.TABLE:anahiddb.user">
+      <point x="0.0" y="-59.5" />
+      <point x="6680.108182730925" y="551.0" />
+      <point x="5952.274849397592" y="551.0" />
+      <point x="33.733333333333576" y="70.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.576069692072632" x="1101.4409115907238" y="618.057990485949" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
