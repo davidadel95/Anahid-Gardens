@@ -98,6 +98,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
                                   $curriculum = new CurriculumModel();
                                   $curriculum->View();
     $numberOfLessons = $curriculum->ViewSpecificLesson($course->ID[0]);
+    if($numberOfLessons>-1){
 
 
     if ($numberOfLessons < 0){
@@ -130,7 +131,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CurriculumModel.php";
             }
         }
 
-
+}
                         ?>
             </div>
 </div>
