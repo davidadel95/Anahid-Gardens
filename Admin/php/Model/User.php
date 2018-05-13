@@ -5,6 +5,7 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
 
 class User implements CRUD, \SplObserver
 {
@@ -446,6 +447,21 @@ class User implements CRUD, \SplObserver
           $ID = mysqli_fetch_array($result);
           return $ID["UserID"];
     }
+    
+    public function checkUser($UserID)
+    {
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT * FROM `user` WHERE ID = ".$UserID;
+        $RoleNameEAV = new RoleNameEAV;
+        $result = $mysqli->query($sql_query);
+        if(mysqli_num_rows($result)>0 && $this->GetRoleID($UserID) != 2)
+        {
+            return true;
+        }
+        return false;
+    }
+    
     public function update(\SplSubject $event){
         return "Observer : " . $event->ApplicantInfo;
     }

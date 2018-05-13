@@ -1,9 +1,4 @@
-<--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -84,7 +79,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
               <form method="post" >
 						<div class="form-title">
-											<h4>Manipulate Employee Salary</h4>
+											<h4>Package Information</h4>
 										</div>
 						<div class="form-body">
 							

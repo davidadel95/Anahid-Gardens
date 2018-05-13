@@ -19,14 +19,19 @@
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
 
-          $sql = "INSERT INTO `workershourssalary` (`UserID`, `Date`, `Value`,`isBonus`) 
+          $sql = "INSERT INTO `salarymanipulation` (`UserID`, `Date`, `Value`,`isBonus`) 
                   VALUES ('$this->UserID', NOW(), '$this->Value','$this->isBonus')";
 
           $result = $mysqli->query($sql);
       }
 
       public function Edit(){
-          // TODO: implement here
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query = "UPDATE `salarymanipulation`
+                        SET Value = ".$this->Value.", isBonus = ".$this->isBonus."
+                        WHERE ID = ".$this->ID;
+          $result = $mysqli->query($sql_query);
       }
 
       public function View(){
@@ -48,6 +53,22 @@
           return $i;
       }
       
+      public function existing($UserID)
+      {
+            $db = dbconnect::getInstance();
+            $mysqli = $db->getConnection();
+            $sql_query = "select * from salarymanipulation where UserID=".$UserID." ORDER BY Date DESC LIMIT 1";
+            $result = $mysqli->query($sql_query);
+            $row = mysqli_fetch_array($result);
+            if($row['Date'] == date("Y-m-d"))
+            {
+                $this->ID = $row['ID'];
+                $this->isBonus = $row['isBonus'];
+                $this->Value = $row['Value'];
+                return true;
+            }
+            return false;
+      }
       
       public function Delete()
       {

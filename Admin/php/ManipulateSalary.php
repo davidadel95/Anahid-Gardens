@@ -1,4 +1,17 @@
+<?php
 
+//if not logged in redirect to login
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if(!isset($_SESSION['userID']))
+{
+    // not logged in
+    header('Location: Login.php');
+    exit();
+}
+
+?>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -40,12 +53,73 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/WorkersHoursSalaryModel.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/ExperienceSalariesModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/SalaryManipulationModel.php";
 
     
     $User = new User;
     $WorkersHoursSalary = new WorkersHoursSalaryModel;
     $ExperienceSalaries = new ExperienceSalariesModel;
-    if (isset($_POST["apply"])) {
+    $SalaryManipulationModel = new SalaryManipulationModel;
+    
+    if (isset($_POST["apply"])) { 
+        if($_POST['salarySelect'] != "-Select Option-")
+        {
+            if($User->checkUser($_POST['UserID']))
+            {
+                if($_POST["salarySelect"] == "(Add/Change) Experience Salary")
+                {
+                    if($ExperienceSalaries->existing($_POST["UserID"]))
+                    {
+                        $ExperienceSalaries->UserID = $_POST["UserID"];
+                        $ExperienceSalaries->Value = $_POST["methodVal"];
+                        $ExperienceSalaries->Edit();
+                    }
+                    else
+                    {
+                        $ExperienceSalaries->UserID = $_POST["UserID"];
+                        $ExperienceSalaries->Value = $_POST["methodVal"];
+                        $ExperienceSalaries->Add();
+                    }
+                }
+                if($_POST["salarySelect"] == "Increase Salary (/Month)")
+                {
+                    if($SalaryManipulationModel->existing($_POST["UserID"]))
+                    {
+                        $SalaryManipulationModel->Value = $_POST["methodVal"];
+                        $SalaryManipulationModel->isBonus = 1;
+                        $SalaryManipulationModel->Edit();
+                    }
+                    else
+                    {
+                        $SalaryManipulationModel->UserID = $_POST["UserID"];
+                        $SalaryManipulationModel->Value = $_POST["methodVal"];
+                        $SalaryManipulationModel->isBonus = 1;
+                        $SalaryManipulationModel->Add();
+                    }
+                }
+                if($_POST["salarySelect"] == "Decrease Salary (/Month)")
+                {
+                    if($SalaryManipulationModel->existing($_POST["UserID"]))
+                    {
+                        $SalaryManipulationModel->Value = $_POST["methodVal"];
+                        $SalaryManipulationModel->isBonus = 0;
+                        $SalaryManipulationModel->Edit();
+                    }
+                    else
+                    {
+                        $SalaryManipulationModel->UserID = $_POST["UserID"];
+                        $SalaryManipulationModel->Value = $_POST["methodVal"];
+                        $SalaryManipulationModel->isBonus = 0;
+                        $SalaryManipulationModel->Add();
+                    }
+                }
+            }else{
+                echo '<script>alert("Non-Existing Employee ID!")</script>';
+             }
+        }
+        else
+            echo '<script>alert("Please Select a Method!")</script>';
+        
         
     }
         
@@ -54,7 +128,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php
-        include("NavigationBar2.php");
+        include "Navigationbar2.php";
 			?>
     </div>
 
@@ -63,7 +137,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
              <?php
-        include("Header.php");
+            include "Header.php";
 			?>
 		</div>
 		<!-- //header-ends -->
@@ -79,20 +153,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="form-body">
 							    <label>Method</label>
                                 <br/>
-								<select name="salarySelect" id="selected"  class="form-control" >
+								<select name="salarySelect" id="selected" onchange="getDetails2(this.value)"  class="form-control" >
                                     <option>-Select Option-</option>
                                     <option>Increase Salary (/Month)</option>
                                     <option>Decrease Salary (/Month)</option>
-                                    <option>Add Experience Salary</option>
+                                    <option>(Add/Change) Experience Salary</option>
                                 </select>
                                 <br/>
                                 <label>Value (L.E)</label>
                                 <br/>
-                                <input name="methodVal" id="methodVal" type="number" class="form-control" placeholder="eg: 2000" required>
+                                <input name="methodVal" id="methodVal" type="number" onchange="getDetails3(this.value)" class="form-control" placeholder="eg: 2000" required>
                                 <br/>
                                 <label>Employee ID</label>
                                 <br/>
-                                <input name="UserID" id="Quantity" min="1" type="number" class="form-control" placeholder="eg: 3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/^0/, '');" onchange="getDetails(this.value)" required>
+                                <input name="UserID" id="userID" min="1" type="number" class="form-control" placeholder="eg: 3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/^0/, '');" onchange="getDetails(this.value)" required>
                                 
                                 <br/>
                                 <div id="employeeDetails">
