@@ -118,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										$result1=$user->ViewChildForClass($row['UserID']);
 
 										while($row1 =mysqli_fetch_array($result1)){
-											echo $row1["Value"];
+											echo '<h2>'.$row1["Value"].'<h2>';
 										}
 								}
 					}
