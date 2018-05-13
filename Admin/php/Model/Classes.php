@@ -32,7 +32,7 @@ class Classes implements CRUD
     {
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
-      $sql_query = "Insert into Class (ID,Name) Values ('','$this->Name')";
+      $sql_query = "CALL InsertClass('$this->Name')";
       $result = $mysqli->query($sql_query);
 
     }
@@ -52,7 +52,7 @@ class Classes implements CRUD
     {
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
-          $sql_query = "Select * from Class";
+          $sql_query = "Select * from class";
           $result = $mysqli->query($sql_query);
           return $result;
     }
@@ -62,6 +62,12 @@ class Classes implements CRUD
      */
     public function Delete()
     {
+      $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query = "DELETE FROM class
+      WHERE ID='$this->ID'";
+      $result = $mysqli->query($sql_query);
+      return $result;
 
     }
    public function CountUsersInClass()
@@ -76,7 +82,7 @@ class Classes implements CRUD
             $this->ClassID[$counter]=$row['ClassID'];
             $this->Count[$counter]=$row['COUNT(*)'];
         }
-       
+
        return $counter;
    }
 

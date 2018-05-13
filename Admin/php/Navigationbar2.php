@@ -269,7 +269,7 @@ if(isset($_SESSION['roleID'])) {
                       </ul></li>
                    </ul>
                  </li>
-                  
+
                   <li class="treeview">
                   <a href="#">
                      <i class="fa fa-money"></i>
@@ -283,8 +283,8 @@ if(isset($_SESSION['roleID'])) {
 <!--                        <li><a href="EditPayment.php"><i class="fa fa-angle-right"></i>Edit Package</a></li>-->
 <!--                        <li><a href=""><i class="fa fa-angle-right"></i>Delete Package</a></li>-->
                       </ul></li>
-                     <li><a href="ManipulateSalary.php"><i class="fa fa-angle-right"></i>Manipulate Salaries</a></li>   
-                       <li><a href="ViewSalaries.php"><i class="fa fa-angle-right"></i>View Salaries</a></li>   
+                     <li><a href="ManipulateSalary.php"><i class="fa fa-angle-right"></i>Manipulate Salaries</a></li>
+                       <li><a href="ViewSalaries.php"><i class="fa fa-angle-right"></i>View Salaries</a></li>
                    </ul>
                  </li>
 
@@ -354,6 +354,7 @@ if(isset($_SESSION['roleID'])) {
                     <ul class="treeview-menu">
                      <li><a href="AddNewClass.php"><i class="fa fa-angle-right"></i>Add New Class </a></li>
                      <li><a href="ViewClasses.php"><i class="fa fa-angle-right"></i>Show all classes </a></li>
+                     <li><a href="DeleteClass.php"><i class="fa fa-angle-right"></i>Delete Class</a></li>
 
                     </ul>
                    </li>

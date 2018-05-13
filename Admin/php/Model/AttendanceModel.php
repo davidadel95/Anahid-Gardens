@@ -99,20 +99,14 @@
             $result = $mysqli->query($sql_query);
             $i=-1;
 
-            echo "user id fel function:" .$userID;
             while($row =mysqli_fetch_array($result)){
                 $i++;
-                $this->ID=$row['ID'];
-                $this->UserID=$row['Value'];
-                $this->Date=$row['Date'];
-                $this->Attended=$row['Attended'];
+                $this->ID[$i]=$row['ID'];
+                $this->UserID[$i]=$row['Value'];
+                $this->Date[$i]=$row['Date'];
+                $this->Attended[$i]=$row['Attended'];
             }
-            if ($this->ID != null){
-                return $this->ID;
-            }else{
-                return 1;
-            }
-
+            return $this->ID[0];
         }
         public function Delete(){
 

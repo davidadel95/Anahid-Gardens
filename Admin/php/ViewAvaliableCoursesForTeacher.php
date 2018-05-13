@@ -70,10 +70,21 @@ if(!isset($_SESSION['userID']))
                           while ($row= mysqli_fetch_array($result)){
                             $Counter++;
                             $CourseID[$Counter]=$row['CourseID'];
-                            $ClassID[$Counter]=$row['ClassID'];
+                            $ClassIDs[$Counter]=$row['ClassID'];
                             $IDs[$Counter]=$row['ID'];
                           }
-                          $CourseTimeTable->GetOneRecord($CourseID,$ClassID,$Counter);
+                          $CourseTimeTable->GetOneRecord($CourseID,$ClassIDs,$Counter);
+                          if($CourseTimeTable->newCounter==0){
+                              $CourseID[0]=$CourseTimeTable->CourseIDs[0];
+                              $ClassIDs[0]=$CourseTimeTable->ClassIDs[0];
+                              $ClassName[0]=$Class->getClassName($ClassIDs[0]);
+                              $CourseNameresult=$Course->ViewSpecificCourse($CourseID[0]);
+                              while ($row = mysqli_fetch_array($CourseNameresult)){
+                                $CourseName[0] = $row['Name'];
+
+                                }
+                          }
+                          else {
                           for($i=0;$i<=$CourseTimeTable->newCounter;$i++){
 
                             $CourseNameResult[$i]=$Course->ViewSpecificCourse($CourseTimeTable->CourseIDs[$i]);
@@ -84,7 +95,7 @@ if(!isset($_SESSION['userID']))
                             $ClassName[$i]=$Class->getClassName($CourseTimeTable->ClassIDs[$i]);
                           }
 
-
+                          }
 
 
                               ?>
@@ -100,6 +111,7 @@ if(!isset($_SESSION['userID']))
                             $newClassID = urlencode($newClassID);
                             echo "<td> <a href=\"ChildsClass.php?Classid=".$newClassID.'&xx='.$CourseID[$x]."\"> ".$CourseName[$x]." ".$ClassName[$x]." </a> </td>";
                             echo "</tr>";
+
                                   }
                                   ?>
                  			 </table>
@@ -114,15 +126,7 @@ if(!isset($_SESSION['userID']))
                             </form>
                         </div>
                         </div>
-                      <?php
-                      if($_POST){
-                          $carColorName=$_POST["colorName"];
-                          $color = new CarColorModel();
-                          $color->Color = $carColorName;
-                          $color->Add();
-                          echo "<meta http-equiv='refresh' content='0'>";
-                      }
-                      ?>
+
                   </div>
                                 <!--//sreen-gallery-cursual---->
                 </div>

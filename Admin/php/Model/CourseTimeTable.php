@@ -83,7 +83,12 @@ class CourseTimeTable implements CRUD
      * @inheritDoc
      */
     public function Delete()
-    {
+    {  $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+      $sql_query="DELETE FROM coursetimetable
+        WHERE ClassID='$this->ClassID'";
+        $result = $mysqli->query($sql_query);
+        
 
     }
 
@@ -143,6 +148,11 @@ class CourseTimeTable implements CRUD
         }
 
       }
+      }
+      if ($Counter==0){
+        $this->CourseIDs[0]=$CourseIDs[0];
+        $this->ClassIDs[0]=$ClassIDs[0];
+        $this->newCounter=0;
       }
 
     }
