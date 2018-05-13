@@ -91,7 +91,7 @@ $User = new User;
 <div class="form-grids row widget-shadow" data-example-id="basic-forms">
 <div class="form-title"><h4>Statistics 2</h4></div>
 
-			
+	<p>This Donut shows the quantitu of users in each Role </p>		
     <div id="donut-example" style="height: 250px;"></div>
     
     </div>
