@@ -84,11 +84,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                  $Classes = new Classes;
 								 $Encryption = new EncryptionDecrptionClass;
                  $result= $Classes->View();
-								 $newID=$Encryption->Encrypt($row["ID"]);
-								 $newID = urlencode($newID);
                  while($row =mysqli_fetch_array($result)){
                      echo "<tr>";
-                     echo "<td> <a href=\"AttendanceKids.php?id=".$newID."\"> ".$row["Name"]." </a> </td>";
+                     echo "<td> <a href=\"AttendanceKids.php?id=".$row["ID"]."\"> ".$row["Name"]." </a> </td>";
                      echo "</tr>";
                  }
                  ?>
