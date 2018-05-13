@@ -68,8 +68,8 @@ $pdf->SetFont('Arial','',12);
 for ($x=0;$x<=$Counter;$x++){
     $Curriculum = new CurriculumModel;
     $Curriculum->viewLessonDetails($StudentRating->CurriculumID[$x]);
-    $pdf->Cell(74,5,$Curriculum->LessonName[$x],1,0);
-    $pdf->Cell(74,5, $Curriculum->LessonDetails[$x], 1,0);
+    $pdf->Cell(74,5,$Curriculum->LessonName,1,0);
+    $pdf->Cell(74,5, $Curriculum->LessonDetails, 1,0);
     $pdf->Cell(41,5,$StudentRating->Rating[$x].' Out Of 5', 1, 1);
 }
 
