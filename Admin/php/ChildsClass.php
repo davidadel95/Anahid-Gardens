@@ -97,7 +97,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <?php
                 $EncryptionAndDecreption = new EncryptionDecrptionClass;
                 $classID = $_REQUEST['Classid'];
-                $CourseID= $_REQUEST['Courseid'];
+                $CourseID= $_REQUEST['xx'];
+                $_SESSION['CourseID']=  $CourseID;
                 $EncryptionAndDecreption->ReadFromFile();
                 $classID=$EncryptionAndDecreption->Decrept($classID);
                 $class = new Classes;
@@ -123,7 +124,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             echo "<tr>";
                             $newID=$EncryptionAndDecreption->Encrypt($userRow['id']);
                             $newID = urlencode($newID);
-                            echo "<td> <a href=\"AddStudentRating.php?id=".$newID.'&courseID='.$CourseID."\"> ".$userRow['Value']." </a> </td>";
+                            echo "<td> <a href=\"AddStudentRating.php?id=".$newID."\"> ".$userRow['Value']." </a> </td>";
                             echo "</tr>";
                             $i++;
                         }

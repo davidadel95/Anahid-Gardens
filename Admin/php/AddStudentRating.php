@@ -167,10 +167,9 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
           $EncryptionAndDecreption = new EncryptionDecrptionClass;
           $Course = new Course;
           $StudentRating->UserID=$_REQUEST['id'];
-          $Course->ID = $_REQUEST['courseID'];
           $EncryptionAndDecreption->ReadFromFile();
           $StudentRating->UserID=$EncryptionAndDecreption->Decrept($StudentRating->UserID);
-          $Course->ID=$EncryptionAndDecreption->Decrept($Course->ID);
+          $Course->ID=$_SESSION['CourseID'];
           $User = new User;
           $result = $User->GetNameOfChild($StudentRating->UserID);
           if ($row = mysqli_fetch_array($result)){
@@ -185,8 +184,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 						<?php
 
 							$result= $Course->ViewSpecificCourse($Course->ID);
-              echo $Course->ID;
-            while ($row=mysqli_fetch_array($result)){
+              while ($row=mysqli_fetch_array($result)){
               $Course->Name= $row['Name'];
               echo '<h2>'.$Course->Name.'</h2>';
                             }
@@ -260,7 +258,10 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
                   $StudentRating->CurriculumID=$_POST["lessonID"];
                   $StudentRating->Rating=$_POST['star'];
                   $StudentRating->date=date("Y-m-d");
-                  $StudentRating->Add();
+                  $result=$StudentRating->Add();
+                  if(!$result){
+                    echo "Student Already Graded Before for this Lesson";
+                  }
 
                 }
 

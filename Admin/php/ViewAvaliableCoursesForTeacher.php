@@ -97,11 +97,8 @@ if(!isset($_SESSION['userID']))
                           for ($x=0;$x<=$CourseTimeTable->newCounter;$x++){
                             echo "<tr>";
                             $newClassID=$Encryption->Encrypt($CourseTimeTable->ClassIDs[$x]);
-                            $NewIDs=$CourseID[$x];
-                            $NewCourseID=$Encryption->Encrypt($NewIDs);
                             $newClassID = urlencode($newClassID);
-                            $NewCourseID= urlencode($NewCourseID);
-                            echo "<td> <a href=\"ChildsClass.php?Classid=".$newClassID.'&Courseid='.$NewCourseID."\"> ".$CourseName[$x]." ".$ClassName[$x]." </a> </td>";
+                            echo "<td> <a href=\"ChildsClass.php?Classid=".$newClassID.'&xx='.$CourseID[$x]."\"> ".$CourseName[$x]." ".$ClassName[$x]." </a> </td>";
                             echo "</tr>";
                                   }
                                   ?>
