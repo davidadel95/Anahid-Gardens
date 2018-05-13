@@ -19,7 +19,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
 
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
-$RoleEav->RoleID = $RoleNameEAV->GetID("Teacher");
+$RoleEav->RoleID = $RoleNameEAV->GetID("Child");
 $Applicant = new Applicant("Someone Applied");
 $Applicant->attach(new User);
 if(isset($_POST['post'])){

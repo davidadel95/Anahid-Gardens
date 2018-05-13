@@ -9,7 +9,6 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -59,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body class="cbp-spmenu-push">
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      <?php include("TeacherNavbar.php"); ?>
+      <?php include("ChildNavbar.php"); ?>
     </div>
 
 		<!--left-fixed -navigation-->
