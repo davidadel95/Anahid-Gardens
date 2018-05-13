@@ -1,22 +1,25 @@
 <?php
 
     $userID = $_REQUEST["userID"];
-    echo $userID;
+
     $dateWithTime = date('Y-m-d H:i:s', time());
+    $date = date('Y-m-d', time());
 
     $rootPath = $_SERVER['DOCUMENT_ROOT'];
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/LeavingModel.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/AttendanceModel.php";
 
     $attendance = new AttendanceModel();
-    $attendance->UserID = $userID;
-    $attendance->Date = $dateWithTime;
-    $attendance->Attended = 1;
-    $attendance->Add();
 
+    $attendanceID = $attendance->showAttendanceByDateAndID($date, $userID);
 
+    if ($attendanceID != null){
+        $leaving = new LeavingModel();
+        $leaving->AttendanceID = $attendanceID;
+        $leaving->LeaveTime = $dateWithTime;
+        $leaving->Add();
+    }else{
+        echo "<label style='color: red'><strong>You must check in first</strong></label>";
+    }
 
-    $leaving = new LeavingModel();
-    $leaving->AttendanceID = $attendaceID;
-    $leaving->LeaveTime = $dateWithTime;
 ?>

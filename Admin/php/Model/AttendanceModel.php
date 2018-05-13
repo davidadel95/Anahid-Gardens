@@ -92,7 +92,7 @@
                                 INNER JOIN attendance ON user.ID = attendance.UserID
                                 WHERE applicationoptions.Name ='name'
                                 AND attendance.Attended = 1
-                                AND user.RoleID = 2
+                                AND user.RoleID <> 2
                                 AND attendance.UserID = $userID
                                 AND attendance.Date LIKE '%$date%'
                           ";

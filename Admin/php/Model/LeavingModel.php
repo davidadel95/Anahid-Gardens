@@ -17,10 +17,13 @@
             $mysqli = $db->getConnection();
 
             $sql = "INSERT INTO `leaving` (`ID`, `AttendanceID`, `LeaveTime`) 
-                    VALUES (NULL, '$this->AttendanceID', $this->LeaveTime)
+                    VALUES (NULL, '$this->AttendanceID', '$this->LeaveTime')
                     ";
 
             $result = $mysqli->query($sql);
+            if (!$result){
+                echo $mysqli->error;
+            }
         }
 
         public function Edit(){

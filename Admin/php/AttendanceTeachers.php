@@ -116,6 +116,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               </tbody>
             </table>
           </form>
+              <div id="ajax">
+
+              </div>
           </div>
         </div>
 			</div>
@@ -149,10 +152,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                // document.getElementById("ajax").innerHTML = this.responseText;
+                document.getElementById("ajax").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "ajaxAttendanceCheckIn.php?userID=" + x, true);
+        xmlhttp.open("GET", "ajaxAttendanceCheckOut.php?userID=" + x, true);
         xmlhttp.send();
     }
 
