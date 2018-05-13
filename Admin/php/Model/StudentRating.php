@@ -57,7 +57,13 @@ class StudentRating implements CRUD
       return $result;
 
     }
+    /**
+     * @inheritDoc
+     */
+    public function View()
+    {
 
+    }
     /**
      * @inheritDoc
      */
@@ -69,13 +75,22 @@ class StudentRating implements CRUD
     /**
      * @inheritDoc
      */
-    public function View()
+    public function ViewSpecificChildForDay($UserID,$Day)
     {
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
-          $sql_query = "";
+          $sql_query = "Select * From studentrating where UserID=$UserID and Date='$Day'";
+          $Counter=-1;
           $result = $mysqli->query($sql_query);
-          return $result;
+          if($result){
+            while ($row = mysqli_fetch_array($result)){
+              $Counter++;
+              $this->CurriculumID[$Counter]=$row['CurriculumID'];
+              $this->Rating[$Counter]=$row['Rating'];
+              }
+            }
+
+          return $Counter;
     }
 
     /**

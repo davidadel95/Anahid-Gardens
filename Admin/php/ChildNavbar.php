@@ -67,9 +67,9 @@ if (session_status() == PHP_SESSION_NONE) {
                 </li>
 
                 <li class="treeview">
-                    <a href="">
+                    <a href="ViewRating.php">
                         <i class="fa fa-book"></i>
-                        <span>View Grades</span>
+                        <span>View Ratings</span>
                     </a>
                 </li>
                 </ul>
