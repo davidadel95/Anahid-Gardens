@@ -11,6 +11,8 @@
 
     $attendance = new AttendanceModel();
 
+
+
     $attendanceID = $attendance->showAttendanceByDateAndID($date, $userID);
 
     if ($attendanceID != null){
