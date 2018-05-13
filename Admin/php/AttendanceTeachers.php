@@ -123,15 +123,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                         for ($i = 0; $i<= $numberOfUsers; $i++){
                             $attendanceID = $getAttendanceID->showAttendanceByDateAndID($date,$user->UserID[$i]);
-                            echo "userid:" . $user->UserID[$i];
-                            echo "<br>";
-                            echo "attendance:".$attendanceID;
-                            echo "<br>";
+
                             echo "<tr>";
                             echo "<th>$count</th>";
                             echo "<td>" . $user->Value[$i] . "</td>";
                             echo "<td>" . $user->UserID[$i] . "</td>";
-                            if ($attendanceID == null){
+                            if (!isset($attendanceID[$i])){
                                 echo "<td><button class='btn btn-success' type='button' onclick='checkIn(".$user->UserID[$i].")' name='Formbtn'>Check in</button></td>";
                             }else{
                                 echo "<td>Checked In</td>";

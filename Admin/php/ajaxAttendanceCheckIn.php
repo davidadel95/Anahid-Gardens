@@ -11,13 +11,12 @@
 
 
 
+    $getAttendanceID = new AttendanceModel();
 
-    if ($attendanceID == null){
-        $attendance = new AttendanceModel();
-        $attendance->UserID = $userID;
-        $attendance->Date = $dateWithTime;
-        $attendance->Attended = 1;
-        $attendance->Add();
+    $attendanceID = $getAttendanceID->showAttendanceByDateAndID($date, $userID);
+
+
+
 
         echo "
                     <table class=\"table table-hover\">
@@ -38,14 +37,23 @@
         $count = 1;
 
         for ($i = 0; $i<= $numberOfUsers; $i++){
+
+            echo $attendanceID[$i];
+//            if ($attendanceID[$i] == null) {
+//                $attendance = new AttendanceModel();
+//                $attendance->UserID = $userID;
+//                $attendance->Date = $dateWithTime;
+//                $attendance->Attended = 1;
+//                $attendance->Add();
+//            }
             echo "<tr>";
             echo "<th>$count</th>";
             echo "<td>" . $user->Value[$i] . "</td>";
             echo "<td>" . $user->UserID[$i] . "</td>";
-            if ($attendanceID == null){
-
-            }else{
+            if (!isset($attendanceID[$i])){
                 echo "<td><button class='btn btn-success' type='button' onclick='checkIn(".$user->UserID[$i].")' name='Formbtn'>Check in</button></td>";
+            }else{
+                echo "<td>Checked In</td>";
             }
             echo "<td><button class='btn btn-dark' type='button' onclick='checkOut(".$user->UserID[$i].")' name='Formbtn'>Check out</button></td>";
             echo "</tr>";
@@ -56,7 +64,7 @@
               </tbody>
              </table>
                         ";
-    }
+
 
 
 
