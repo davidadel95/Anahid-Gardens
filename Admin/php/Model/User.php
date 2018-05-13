@@ -432,7 +432,37 @@ class User implements CRUD, \SplObserver
                                 return $result;
     }
 
-
+    public function SearchRole($Name)
+    {
+        $Role = new RoleNameEAV;
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query= "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name'
+                                AND applicationvalue.Value LIKE '%".$Name."%'
+                                AND user.RoleID <> 2 AND user.RoleID <> 1";
+        $result = $mysqli->query($sql_query);
+        $i = 0;
+        while($row=mysqli_fetch_array($result))
+        {
+            $this->ID[$i] = $row['id']; 
+            $this->RoleID[$i] = $row['RoleID'];
+            $this->DateAdded[$i] = $row['DateAdded'];
+            $this->Status[$i] = $row['StatusID'];
+            $i++;
+        }
+        
+        return $i;
+    }
+    
     public function GetNameOfChild($ID){
       $db = dbconnect::getInstance();
       $mysqli = $db->getConnection();
