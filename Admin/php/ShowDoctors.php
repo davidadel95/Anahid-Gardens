@@ -159,46 +159,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			}
             function shaf3y(x) {
 
-        //var x = document.getElementById("mySelect").value;
+                //var x = document.getElementById("mySelect").value;
 
 
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // document.getElementById("ajax").innerHTML = this.responseText;
-                    document.location.href = 'CompleteUser.php';
-         }
-        };
-        xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
-        xmlhttp.send();}
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // document.getElementById("ajax").innerHTML = this.responseText;
+                            document.location.href = 'CompleteUser.php';
+                 }
+                };
+                xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
+                xmlhttp.send();
+            }
                function shaf3y2(x) {
 
-        //var x = document.getElementById("mySelect").value;
+                //var x = document.getElementById("mySelect").value;
 
 
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                // document.getElementById("ajax").innerHTML = this.responseText;
-                    document.location.href = 'EditUser.php';
-         }
-        };
-        xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
-        xmlhttp.send();}
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // document.getElementById("ajax").innerHTML = this.responseText;
+                            document.location.href = 'EditUser.php';
+                 }
+                };
+                xmlhttp.open("GET", "CompleteUserAjax.php?q=" + x, true);
+                xmlhttp.send();
+			}
             function Search() {
 
-        var x = document.getElementById("SearchBar").value;
-        var n = x.includes("\'");
-        if(!n){
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("SearchAjax").innerHTML = this.responseText;
+                var x = document.getElementById("SearchBar").value;
+                var n = x.includes("\'");
+                if(!n){
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                         document.getElementById("SearchAjax").innerHTML = this.responseText;
 
-         }
-        };
-        xmlhttp.open("GET", "ShowUserAjax.php?q=" + x, true);
-        xmlhttp.send();}}
+                 }
+                };
+                xmlhttp.open("GET", "ShowUserAjax.php?q=" + x, true);
+                xmlhttp.send();}
+			}
 		</script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 
