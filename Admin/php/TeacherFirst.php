@@ -67,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php
-         include("Header.php");
+         include("Header2.php");
          ?>
 		</div>
 		<!-- //header-ends -->

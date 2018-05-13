@@ -76,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
-				<?php include("Header.php"); ?>
+				<?php include("Header2.php"); ?>
 		</div>
 		<?php
         $rootPath = $_SERVER['DOCUMENT_ROOT'];

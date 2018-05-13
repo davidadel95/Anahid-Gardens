@@ -36,7 +36,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
  ?>
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
-				<?php include("Header.php"); ?>
+				<?php include("Header2.php"); ?>
 		</div>
 
 		<!-- //header-ends -->

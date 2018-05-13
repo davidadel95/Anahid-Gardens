@@ -133,7 +133,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
             <!-- header-starts -->
             <div class="sticky-header header-section ">
-                <?php include("Header.php"); ?>
+                <?php include("Header2.php"); ?>
             </div>
             <!-- //header-ends -->
             <!-- main content start-->

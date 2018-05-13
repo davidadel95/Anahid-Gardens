@@ -55,49 +55,8 @@ $Notification = new ncomments;
 
       <!--search-box-->
 
-
-
       <a href="logout.php" class="navbar-right user-name" style="padding-right:20px;"  > <span class="glyphicon glyphicon-off" style="font-size:18px;"></span></a>
-
-
-
-
-
-        <ul class="nav navbar-nav navbar-right" id="Notification" >
-
-     <li class="dropdown" >
-
-      <a href="#" onclick="NotificationOpenAjax()"  data-toggle="dropdown"><span class="label label-pill label-danger count" style="border-radius:10px;"><?php
-          if($Notification->GetUnseenNotifications()!=0) echo $Notification->GetUnseenNotifications(); ?></span> <span  class="glyphicon glyphicon-bell" style="font-size:18px;"></span></a>
-
-      <ul class="dropdown-menu">
-          <?php
-          $counter=$Notification->GetlatestNotifications();
-          for($i=0;$i<=$counter;$i++){
-              echo '<li><a><strong>'.$Notification->subject[$i].'</strong>
-             <br/>
-             <small>
-             <em>'.$Notification->comment[$i].'</em>
-             </small>
-             </a></li>';
-          }
-
-          ?>
-
-         </ul>
-
-     </li>
-
-    </ul>
-
-
-
-
-
-
-
-
-
+      
       <!--//end-search-box-->
 
       <div class="profile_details">
