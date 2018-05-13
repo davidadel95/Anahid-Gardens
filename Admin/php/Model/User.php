@@ -5,6 +5,7 @@ $rootPath = $_SERVER['DOCUMENT_ROOT'];
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
 
 class User implements CRUD, \SplObserver
 {
@@ -14,7 +15,8 @@ class User implements CRUD, \SplObserver
     public $Status;
     public $RoleEav;
     public $Value;
-
+    public $RoleID;
+    public $RoleName;
 
 
     public function GetRoleID($UserID){
@@ -24,6 +26,30 @@ class User implements CRUD, \SplObserver
        $result = $mysqli->query($sql_query);
         $row=mysqli_fetch_array($result);
         return $row['RoleID'];
+    }
+    public function CountRoles(){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query = "select * from role";
+    $result= $mysqli->query($sql_query); 
+    
+     $counter=-1;
+    while($row=mysqli_fetch_array($result)){
+        $counter++;
+        $this->RoleID[$counter]=$row['ID'];
+        $this->RoleName[$counter]=$row['Name'];
+    }
+        return $counter;
+    }
+    public function CountOFUserRole($RoleID){
+        $db = dbconnect::getInstance();
+      $mysqli = $db->getConnection();
+     $sql_query ="SELECT COUNT(*) from user where RoleID = ". $RoleID;
+    $result = $mysqli->query($sql_query);
+        $row= mysqli_fetch_array($result);
+        
+        return $row['COUNT(*)'];
+    
     }
 
     public function addDriverCar($User, $Car)
@@ -421,6 +447,21 @@ class User implements CRUD, \SplObserver
           $ID = mysqli_fetch_array($result);
           return $ID["UserID"];
     }
+    
+    public function checkUser($UserID)
+    {
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT * FROM `user` WHERE ID = ".$UserID;
+        $RoleNameEAV = new RoleNameEAV;
+        $result = $mysqli->query($sql_query);
+        if(mysqli_num_rows($result)>0 && $this->GetRoleID($UserID) != 2)
+        {
+            return true;
+        }
+        return false;
+    }
+    
     public function update(\SplSubject $event){
         return "Observer : " . $event->ApplicantInfo;
     }

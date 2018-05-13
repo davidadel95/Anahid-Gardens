@@ -1,36 +1,24 @@
-
-<?php
-
-//if not logged in redirect to login
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-if(!isset($_SESSION['userID']))
-{
-    // not logged in
-    header('Location: Login.php');
-    exit();
-}
-
-$UserID = $_SESSION['CompleteID'];
-if(isset($_POST['EAVbtn'])){header('location: ShowDoctors.php');}
-?>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
+<?php
+$rootPath = $_SERVER['DOCUMENT_ROOT'];
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
+$User = new User;
+?>
 <html>
 <head>
-<title>Show Applications</title>
+<title>Show Statistics</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
 
 <!-- Custom CSS -->
@@ -78,14 +66,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
 				<?php include("Header.php"); ?>
-				<?php
-                $rootPath = $_SERVER['DOCUMENT_ROOT'];
-
-                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
-                require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
-                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
-                require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
-				 ?>
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -96,84 +76,104 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script  src="js/index1.js"></script>
     <div class="forms">
       <div class="form-grids row widget-shadow" data-example-id="basic-forms">
+          
+          
+          
+          
+          <div class="form-title"><h4>Statistics</h4></div>
+          <div id="myfirstchart" style="height: 250px;"></div>        
+           
 
-        <div class="form-title">
-          <h4>New Application
-        </h4>
-
-        </div>
-        <div class="form-body">
-            <?php
-
-        
-             echo "<form name = 'EAV' method ='post'>";
-            $RoleEav = new RoleEav;
-            $User = new User;
-            $RoleEav->RoleID =$User->GetRoleID($UserID);
-                    $Names;
-                    $Types;
-                    $i=-1;
-                    $result = $RoleEav->ViewOut();
-                    while($row =mysqli_fetch_array($result)){
-                    $i++;
-                    echo "<br />";
-                    $Names[$i]=$row["Name"];
-                    $Types[$i]=$row["Type"];
-                        if($Names[$i]=="username"){
-                            echo "<label>". $Names[$i]. "</label>";
-                            echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                            echo"<div id='ajax'>";
-                            echo "<input onblur='CheckUserName(this.value,".$i.")' type='".$Types[$i]."'  name='value".$i."' class='form-control' placeholder='".$Types[$i]."'  required >";     
-                            echo"</div>";
-                        }
-                    else{    
-                    echo "<label>". $Names[$i]. "</label>";
-                    echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                    echo "<input type='".$Types[$i]."' name='value".$i."' class='form-control' placeholder='".$Types[$i]."' required>";
-                    }}
-                    echo "<br/>
-                    <input type='submit' class='btn btn-success'value='Confirm' name='EAVbtn'>
-                    </form>";
-                    if(isset($_POST['EAVbtn'])){
-
-                    $j=-1;
-                    while($j<$i){
-                    $j++;
-                    $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UserID);
-                    }
-                    $User->Status=$User->GetStatusID("available");
-                    $User->ChangeStatus($UserID);
-
-                    }
-
-            ?>
-
-
-
-
-
-
-             </div>
-
-            </div>
-				</div>
-					<!--//sreen-gallery-cursual---->
+					
 			</div>
 		</div>
+<div class="forms">
+<div class="form-grids row widget-shadow" data-example-id="basic-forms">
+<div class="form-title"><h4>Statistics 2</h4></div>
 
+	<p>This Donut shows the quantitu of users in each Role </p>		
+    <div id="donut-example" style="height: 250px;"></div>
+    
+    </div>
+    </div>
+<div class="forms">
+<div class="form-grids row widget-shadow" data-example-id="basic-forms">
+<div class="form-title"><h4>Statistics 3</h4></div>
 
-			</div>
-
+			
+    <div id="bar-example" style="height: 250px;"></div>
+    
+    </div>
+    </div>                
+		
+                
+                
+                
+</div>
+</div>
+</div>        
 	<!--footer-->
 	<div class="footer">
 	   <?php include("Footer.php"); ?>
 	</div>
     <!--//footer-->
 
-   
+
 
 
 	<!-- Classie --><!-- for toggle left push menu script -->
+    <script>
+
+new Morris.Line({
+  // ID of the element in which to draw the chart.
+  element: 'myfirstchart',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data: [
+    { year: '2008', value: 20 },
+    { year: '2009', value: 10 },
+    { year: '2010', value: 5 },
+    { year: '2011', value: 5 },
+    { year: '2012', value: 20 }
+  ],
+  // The name of the data record attribute that contains x-values.
+  xkey: 'year',
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['value'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['Value']
+});
+        Morris.Donut({
+  element: 'donut-example',
+  data: [
+      <?php
+      $counter = $User->CountRoles();
+      for($i=0;$i<=$counter;$i++){
+        echo "{label:'". $User->RoleName[$i] ."', value:". $User->CountOFUserRole($User->RoleID[$i]) ."},";  
+      }
+      ?>
+   
+  ]
+});
+    
+        Morris.Bar({
+  element: 'bar-example',
+  data: [
+    { y: '2006', a: 100, b: 90 },
+    { y: '2007', a: 75,  b: 65 },
+    { y: '2008', a: 50,  b: 40 },
+    { y: '2009', a: 75,  b: 65 },
+    { y: '2010', a: 50,  b: 40 },
+    { y: '2011', a: 75,  b: 65 },
+    { y: '2012', a: 100, b: 90 }
+  ],
+  xkey: 'y',
+  ykeys: ['a', 'b'],
+  labels: ['Series A', 'Series B']
+});
+
+</script>
 		<script src="../js/classie.js"></script>
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
@@ -194,7 +194,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				}
 			}
 
-    function CheckUserName(x,y) {
+   /* function shaf3y(x) {
+
+        //var x = document.getElementById("mySelect").value;
+
 
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
@@ -202,9 +205,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 document.getElementById("ajax").innerHTML = this.responseText;
          }
         };
-        xmlhttp.open("GET", "UserNameAjax.php?q=" + x+"&w="+y , true);
+        xmlhttp.open("GET", "ajax.php?q=" + x, true);
         xmlhttp.send();
-    }
+    }*/
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->
 

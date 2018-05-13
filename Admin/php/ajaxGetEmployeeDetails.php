@@ -8,40 +8,223 @@
     $employeeID = $_REQUEST["q"];
     $value = $_REQUEST["y"];
     $option = $_REQUEST["z"];
+
     if($employeeID != NULL && $value != NULL && $option != NULL)
     {
-        if($option == "Increase Salary (/Month)")
-        {
-            $User = new User;
-            $WorkersHoursSalaryModel = new WorkersHoursSalaryModel;
-            $ExperienceSalariesModel = new ExperienceSalariesModel;
-            $RoleName = new RoleNameEAV;
-            $experienceValue = $ExperienceSalariesModel->getRecord($employeeID);
-            $RoleID = $User->GetRoleID($employeeID);
-            $package = $WorkersHoursSalaryModel->getRoleIDData($RoleID);
-            if($experienceValue->Value == "NULL")
+        $User = new User;
+            if($User->GetRoleID($employeeID))
             {
-                $experienceValue->Value == 0;
+                $SalaryManipulationModel = new SalaryManipulationModel;
+                $WorkersHoursSalaryModel = new WorkersHoursSalaryModel;
+                $ExperienceSalariesModel = new ExperienceSalariesModel;
+                $RoleName = new RoleNameEAV;
+                if($ExperienceSalariesModel->getExpVal($employeeID))
+                {
+                    $experienceValue = $ExperienceSalariesModel->getExpVal($employeeID);
+                }
+                else
+                {
+                    $experienceValue = 0;
+                }
+                if($User->GetRoleID($employeeID) != 2)
+                {
+                    $RoleID = $User->GetRoleID($employeeID);
+                    $package = $WorkersHoursSalaryModel->getRoleIDData($RoleID);  
+                    $packageSalaryPerMonth = $package->BasicHour * $package->NormalHours * 22;
+                    
+                    if($option == "Increase Salary (/Month)")
+                    {
+                        if($SalaryManipulationModel->existing($employeeID))
+                            {   
+                                
+                                if($packageSalaryPerMonth < $value )
+                                {
+                                    $message = "Deduction is over the current Salary!";
+                                    echo $message;
+                                    echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                    return;
+                                }
+                                echo "<div class='form-title'>Employee Information </div><br/>Employee Name: ".$User->getUsername($employeeID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                $num = 0;
+                                if($SalaryManipulationModel->isBonus == 0)
+                                {
+                                    $totalSalary = $packageSalaryPerMonth + $value + $experienceValue + $num;
+                                    $num = -1 * abs($SalaryManipulationModel->Value);
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                else
+                                {   
+                                    $totalSalary = $packageSalaryPerMonth + $value + $experienceValue - $num;
+                                    $num = $SalaryManipulationModel->Value;
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div> <br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >=0)
+                                {
+                                    echo "<br/>+<br/>".$experienceValue;
+                                }
+                                
+                                echo " LE<br/>-<br/>".$num." LE<br/>+<br/>".$value." LE<br/><br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                        else
+                            {
+                                if($packageSalaryPerMonth < $value )
+                                {
+                                    $message = "Deduction is over the current Salary!";
+                                    echo $message;
+                                    echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                    return;
+                                }
+                                echo "<div class='form-title'>Employee Information </div><br/>Employee Name: ".$User->getUsername($employeeID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div><br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >=0)
+                                {
+                                    echo "<br/>+<br/>".$experienceValue;
+                                }
+                                $totalSalary = $packageSalaryPerMonth + $value + $experienceValue;
+                                echo " LE<br/>+<br/>".$value." LE<br/><br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                    }
+                    else if($option == "Decrease Salary (/Month)")
+                    {
+                            $totalSalary = 0;
+                            if($SalaryManipulationModel->existing($employeeID))
+                            {   
+                                
+                                if($packageSalaryPerMonth < $value )
+                                {
+                                    $message = "Deduction is over the current Salary!";
+                                    echo $message;
+                                    echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                    return;
+                                }
+                                echo "<div class='form-title'>Employee Information </div><br/>Employee Name: ".$User->getUsername($employeeID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                $num = 0;
+                                if($SalaryManipulationModel->isBonus == 0)
+                                {
+                                    $totalSalary = $packageSalaryPerMonth - $value + $experienceValue + $num;
+                                    $num = -1 * abs($SalaryManipulationModel->Value);
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                else
+                                {   
+                                    $totalSalary = $packageSalaryPerMonth - $value + $experienceValue - $num;
+                                    $num = $SalaryManipulationModel->Value;
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div> <br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >=0)
+                                {
+                                    echo "<br/>+<br/>".$experienceValue;
+                                }
+                                echo " LE<br/>-<br/>".$num." LE<br/>-<br/>".$value." LE<br/><br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                            else
+                            {
+                                if($packageSalaryPerMonth < $value )
+                                {
+                                    $message = "Deduction is over the current Salary!";
+                                    echo $message;
+                                    echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                    return;
+                                }
+                                echo "<div class='form-title'>Employee Information </div><br/>Employee Name: ".$User->getUsername($employeeID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div><br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >=0)
+                                {
+                                    echo "<br/>+<br/>".$experienceValue;
+                                }
+                                $totalSalary = $packageSalaryPerMonth - $value + $experienceValue;
+                                echo " LE<br/>-<br/>".$value." LE<br/><br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                            
+                    }
+
+                    else if($option == "(Add/Change) Experience Salary")
+                    {
+                            if($SalaryManipulationModel->existing($employeeID))
+                            {   
+                                
+                                if($packageSalaryPerMonth < $value )
+                                {
+                                    $message = "Deduction is over the current Salary!";
+                                    echo $message;
+                                    echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                    return;
+                                }
+                                echo "<div class='form-title'>Employee Information </div><br/>Employee Name: ".$User->getUsername($employeeID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                $num = 0;
+                                if($SalaryManipulationModel->isBonus == 0)
+                                {
+                                    $num = -1 * abs($SalaryManipulationModel->Value);
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                else
+                                {   
+                                    $num = $SalaryManipulationModel->Value;
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div><br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >0)
+                                {
+                                    echo "<br/>-<br/>".$experienceValue;
+                                }
+                                $totalSalary = $packageSalaryPerMonth + $value - $experienceValue + $num;
+                                echo " LE<br/>+<br/>".$num." LE<br/>+<br/>".$value." LE<br/><br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                            else
+                            {
+                                if($packageSalaryPerMonth < $value )
+                                {
+                                    $message = "Deduction is over the current Salary!";
+                                    echo $message;
+                                    echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                    return;
+                                }
+                                echo "<div class='form-title'>Employee Information </div><br/>Employee Name: ".$User->getUsername($employeeID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE,";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div><br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >=0)
+                                {
+                                    echo "<br/>-<br/>".$experienceValue;
+                                }
+                                $totalSalary = $packageSalaryPerMonth + $value - $experienceValue;
+                                echo " LE<br/>+<br/>".$value." LE<br/><br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                    }
+                 }
             }
-            $packageSalaryPerMonth = $package->BasicHour * 730;
-            $totalSalary = $packageSalaryPerMonth + $value + $experienceValue->Value;
-            echo "<br/>Employee Name: ".$User->getUsername($employeeID);
-            echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
-            echo "<br/>Experience Extra Salary = ".$experienceValue->Value." LE";
-            echo "<br/>Salary /Hour = ".$package->BasicHour." LE,";
-            echo "<br/><br/> Package Salary /Month = ".$packageSalaryPerMonth." LE";
-            echo "<br/>+<br/>Value = ".$value." LE<br/>Total Salary = ".$totalSalary." LE";
-            echo "<br/>";
-        }
-        else if($option == "Decrease Salary (/Month)")
-        {
-            
-        }
-        
-        else if($option == "Add Experience Salary")
-        {
-            
-        }
-        
+                    
     }
+        
+    
 ?>

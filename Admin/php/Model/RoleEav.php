@@ -116,6 +116,20 @@ Where optionstypes.Type = 'radio' OR optionstypes.Type ='select'";
             $result = $mysqli->query($sql_query);
           return $result;
     }
+    public function CheckUserName($UserName){
+        
+        $db = dbconnect::getInstance();
+             $mysqli = $db->getConnection();
+             $sql_query = "SELECT * FROM `applicationoptions`
+             INNER JOIN `application`
+             ON applicationoptions.ID = application.ApplicationOptionID
+             INNER JOIN `applicationvalue`
+             ON application.ID= applicationvalue.ApplicationID
+             where Name ='username' AND value='".$UserName."'
+             ORDER BY UserID,OptionTypeID";
+            $result = $mysqli->query($sql_query);
+            return mysqli_num_rows($result);
+    }
     
 
     /**

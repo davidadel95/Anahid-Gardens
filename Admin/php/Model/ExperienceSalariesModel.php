@@ -19,14 +19,19 @@
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
 
-          $sql = "INSERT INTO `workershourssalary` (`UserID`, `Value`) 
+          $sql = "INSERT INTO `experiencesalaries` (`UserID`, `Value`) 
                   VALUES ('$this->UserID', '$this->Value')";
 
           $result = $mysqli->query($sql);
       }
 
       public function Edit(){
-          // TODO: implement here
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query = "UPDATE `experiencesalaries`
+                        SET Value = ".$this->Value."
+                        WHERE UserID = ".$this->UserID;
+          $result = $mysqli->query($sql_query);
       }
 
       public function View(){
@@ -66,6 +71,28 @@
           return $this;
       }
 
+      public function getExpVal($UserID){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "select * from experiencesalaries where UserID=".$UserID;
+        $result = $mysqli->query($sql_query);
+        $row=mysqli_fetch_array($result);
+        return $row['Value'];
+    }
+      
+      public function existing($UserID)
+      {
+            $db = dbconnect::getInstance();
+            $mysqli = $db->getConnection();
+            $sql_query = "select * from experiencesalaries where UserID=".$UserID;
+            $result = $mysqli->query($sql_query);
+            if(mysqli_num_rows($result)>0)
+            {
+                return true;
+            }
+            return false;
+      }
+      
       public function Delete()
       {
           // TODO: implement here

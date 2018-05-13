@@ -12,6 +12,32 @@ function getDetails(x) {
                 xhttp.send();
             }
 
+function getDetails2(x) {
+                var userID = document.getElementById("userID").value;
+                var value = document.getElementById("methodVal").value;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("employeeDetails").innerHTML = this.responseText;
+                 }
+                };
+                xhttp.open("GET", "ajaxGetEmployeeDetails.php?q=" + userID + "&y=" + value + "&z=" + x, true);
+                xhttp.send();
+            }
+
+function getDetails3(x) {
+                var option = document.getElementById("selected").value;
+                var userID = document.getElementById("userID").value;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("employeeDetails").innerHTML = this.responseText;
+                 }
+                };
+                xhttp.open("GET", "ajaxGetEmployeeDetails.php?q=" + userID + "&y=" + x + "&z=" + option, true);
+                xhttp.send();
+            }
+
 
 
 function loadFields(x) 
