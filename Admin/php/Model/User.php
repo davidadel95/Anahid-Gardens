@@ -514,4 +514,40 @@ class User implements CRUD, \SplObserver
     public function update(\SplSubject $event){
         return "Observer : " . $event->ApplicantInfo;
     }
+
+    public function showTeachers(){
+        $db = dbconnect::getInstance();
+        $mysqli = $db->getConnection();
+        $sql_query = "SELECT * from role where Name = 'Teacher' " ;
+        $result = $mysqli->query($sql_query);
+        $User = new User;
+        $row =mysqli_fetch_array($result);
+        $RoleID =$row['ID'];
+        $this->Count=-1;
+        $this->TeachersCounter=-1;
+        $CounterClassedStudents=-1;
+
+        $sql_query = "SELECT user.id,user.RoleID,applicationvalue.Value,user.DateAdded,user.StatusID,userstatus.Status,role.Name
+                                FROM `applicationoptions`
+                                INNER JOIN `application`
+                                ON applicationoptions.ID = application.ApplicationOptionID
+                                INNER JOIN `applicationvalue`
+                                ON application.ID= applicationvalue.ApplicationID
+                                INNER JOIN user ON user.ID = applicationvalue.UserID
+                                INNER JOIN userstatus ON userstatus.ID = user.StatusID
+                                INNER JOIN role ON user.RoleID = role.ID
+                                where applicationoptions.Name ='name' And role.ID=$RoleID
+                                ORDER BY UserID,OptionTypeID " ;
+
+        $result = $mysqli->query($sql_query);
+
+        $i=-1;
+        while($row =mysqli_fetch_array($result)) {
+            $i++;
+            $this->UserID[$i]=$row['id'];
+            $this->Value[$i]=$row["Value"];
+        }
+
+        return $i;
+    }
 }

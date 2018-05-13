@@ -5,22 +5,13 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/CRUD.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
 class TeacherClass implements CRUD
 {
-    /**
-     *
-     */
+
     public function __construct()
     {
     }
 
-    /**
-     * @var void
-     */
     public $ID;
 
-
-    /**
-     * @var void
-     */
     public $UserID;
 
     public $ClassID;
@@ -65,10 +56,9 @@ class TeacherClass implements CRUD
         while($row =mysqli_fetch_array($result)) {
           $this->TeachersCounter++;
           $this->AllTeachers[$this->TeachersCounter]=$row["id"];
-
         }
 
-        }
+    }
 
 
     /**
