@@ -86,7 +86,7 @@ Where optionstypes.Type = 'radio' OR optionstypes.Type ='select'";
          $db = dbconnect::getInstance();
              $mysqli = $db->getConnection();
              $sql_query = "SELECT application.ID,RoleID,ApplicationOptionID,isVisible,applicationoptions.Name,applicationoptions.OptionTypeID,optionstypes.Type,application.GroupID FROM application INNER JOIN applicationoptions ON application.ApplicationOptionID = applicationoptions.ID
-			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$this->RoleID."' And isVisible = 1 order by application.ApplicationOptionID, application.ID" ;
+			INNER JOIN optionstypes ON applicationoptions.OptionTypeID = optionstypes.ID WHERE RoleID = '".$this->RoleID."' And isVisible = 1 order by application.ApplicationOptionID, application.ID " ;
             $result = $mysqli->query($sql_query);
           return $result;
     }

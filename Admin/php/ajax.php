@@ -17,7 +17,7 @@ $_SESSION['RID']= $RoleEav->RoleID = $RoleNameEAV->GetID($q);
 
                     
                     
-                    $Names;
+               $Names;
                     $Types;
                     $i=-1;
                     $result = $RoleEav->View();
@@ -32,14 +32,14 @@ $_SESSION['RID']= $RoleEav->RoleID = $RoleNameEAV->GetID($q);
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
                         $Name =mysqli_fetch_array($NameResult);
                         $SizeResult = $RoleEav->SizeOfRadio($row['Name']);
-                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";
+                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   >".$Name['ApplicationGroupName']."<br />";
                         $Size=mysqli_num_rows($SizeResult);
 
                         for($x=1;$x<$Size;$x++){
                         $row = mysqli_fetch_array($result);
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
                         $Name =mysqli_fetch_array($NameResult);
-                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";}
+                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   >".$Name['ApplicationGroupName']."<br />";}
                     }
                         elseif(!strcmp($row["Type"],"select")){
                              echo "<label>". $row["Name"]. " :</label><br/>";
@@ -61,14 +61,17 @@ $_SESSION['RID']= $RoleEav->RoleID = $RoleNameEAV->GetID($q);
                             <br/>";
 
                         }
+                           elseif(!strcmp($row["Type"],"checkbox")){
+                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
+                    echo "<input type='".$row["Type"]."' name='value[]' value='".$row["Name"]."' >".$row["Name"];      
+                        }
                         else{
                     echo "<label>". $row["Name"]. "</label>";
                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                    echo "<input type='".$row["Type"]."' name='value".$i."' class='form-control' placeholder='".$row["Type"]."' required>";
+                    echo "<input type='".$row["Type"]."' name='value".$i."' class='form-control' placeholder='".$row["Type"]."' required>";      
                     }
                     }
                     echo "<br/>
-                    <input type='submit' class='btn btn-success'value='Confirm' id='post' name='post'>
-                    ";
+                    <input type='submit' class='btn btn-success'value='Confirm' id='post' name='post'>";
 			
             ?>

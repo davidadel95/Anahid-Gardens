@@ -120,7 +120,7 @@ if (isset($_POST["GroupField"])){
   $Visibility->FieldID = $FieldID;
   $Visibility->IsVisible=1;
 for($i=0;;$i++){
-  if(isset($_POST[$i])){
+  if(!isset($_POST[$i])){
     break;
   }
   else{
