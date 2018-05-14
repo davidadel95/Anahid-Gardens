@@ -74,9 +74,10 @@
         {
             $db = dbconnect::getInstance();
             $mysqli = $db->getConnection();
-            $sql_query = "SELECT * from attendance where Day(Date) = Day(NOW())" ;
+            $sql_query = "SELECT * from attendance where Day(Date) = Day(NOW()) AND Month(Date) = Month(NOW()) AND Year(Date) = Year(NOW())" ;
             $result = $mysqli->query($sql_query);
             $row =mysqli_fetch_array($result);
+            return $row['Date'];
         }
         
         public function showAttendanceByDateAndID($date, $userID){

@@ -38,28 +38,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/ExperienceSalariesModel.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/SalaryManipulationModel.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/WorkersHoursSalaryModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/SalariesPaymentModel.php";
     
-    $userID =  $_COOKIE['cookieUserID'];
+    $userID = $_REQUEST['id'];
     $SalaryManipulationModel = new SalaryManipulationModel;
     $WorkersHoursSalaryModel = new WorkersHoursSalaryModel;
     $ExperienceSalariesModel = new ExperienceSalariesModel;
-    $SalaryPayment = new SalaryPaymentModel;
+    $SalaryPayment = new SalariesPaymentModel;
     $RoleName = new RoleNameEAV;
-    if($ExperienceSalariesModel->getExpVal($employeeID))
-    {
-        $experienceValue = $ExperienceSalariesModel->getExpVal($employeeID);
-    }
-    else
-    {
-        $experienceValue = 0;
-    }
-                
-    $RoleID = $User->GetRoleID($employeeID);
-    $package = $WorkersHoursSalaryModel->getRoleIDData($RoleID);  
-    $packageSalaryPerMonth = $package->BasicHour * $package->NormalHours * 22;
-    $hoursWorked = $SalaryPayment->getWorkingHours($userID);
-    $salaryPerDay = $package->BasicHour * $hoursWorked;
+    $User = new User;
+    if($ExperienceSalariesModel->getExpVal($userID))
+                {
+                    $experienceValue = $ExperienceSalariesModel->getExpVal($userID);
+                }
+                else
+                {
+                    $experienceValue = 0;
+                }
+    $RoleID = $User->GetRoleID($userID);
+                    $package = $WorkersHoursSalaryModel->getRoleIDData($RoleID);  
+                    $packageSalaryPerMonth = $package->BasicHour * $package->NormalHours * 22;
+                      
+    
                 
     
 
@@ -67,7 +69,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="main-content">
     <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
       <?php
-        include("NavigationBar2.php");
+        include_once "Navigationbar2.php";
 			?>
     </div>
 
@@ -75,7 +77,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<!-- header-starts -->
 		<div class="sticky-header header-section ">
-            <?php include("Header.php"); ?>
+            <?php
+            include_once "Header.php";
+            ?>
 		</div>
 		<!-- //header-ends -->
 		<!-- main content start-->
@@ -85,33 +89,62 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           <div class="form-grids row widget-shadow" data-example-id="basic-forms">
               <form method="post" >
 						<div class="form-title">
-											<h4>Transaction Details</h4>
+											<h4>Employee Salary Information</h4>
 										</div>
 						<div class="form-body">
 							
 								<div class="form-group">
-								    <div id="print_me">
-                                    <label style="font-size:20px">Transaction ID:</label>
-                                    <label style="font-size:20px"><?php echo $TransactionModel->getTransaction($transactionID)[0]; ?></label>
-                                    <br/><br/>
-                                    <label style="font-size:20px">Username:</label>
-                                    <label style="font-size:20px"><?php echo $TransactionModel->getTransaction($transactionID)[1]; ?></label>
-                                    <br/><br/>
-                                    <label style="font-size:20px">Event Name:</label>
-                                    <label style="font-size:20px"><?php echo $EventModel->getEventName($TransactionModel->getTransaction($transactionID)[2]); ?></label>
-                                    <br/>
-                                    <br/>
-                                    <label style="font-size:20px">Date:</label>
-                                    <label style="font-size:20px"><?php echo $TransactionModel->getTransaction($transactionID)[3]; ?></label>
-                                    <br/>
-                                    <br/>
-                                    <label style="font-size:20px">Quantity:</label>
-                                    <label style="font-size:20px"><?php echo $TransactionModel->getTransaction($transactionID)[4]; ?></label>
-                                    <br/>
-                                    <br>
                                     
-                                    </div>
-                                    <a class="btn btn-success" name="Print" target="_blank" id="print_one" href="invoicePDF.php">Print</a>
+                                    <?php
+                                        if($SalaryManipulationModel->existing($userID))
+                            {   
+                                
+                                echo "<br/>Employee Name: ".$User->getUsername($userID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                $num = 0;
+                                if($SalaryManipulationModel->isBonus == 0)
+                                {
+                                    $totalSalary = $packageSalaryPerMonth+ $experienceValue + $num;
+                                    $num = -1 * abs($SalaryManipulationModel->Value);
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                else
+                                {   
+                                    $totalSalary = $packageSalaryPerMonth  + $experienceValue - $num;
+                                    $num = $SalaryManipulationModel->Value;
+                                    echo "<br/>Manipulated Salary (/Month) = ".$num." LE";
+                                }
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div> <br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >=0)
+                                {
+                                    echo "<br/>+<br/>".$experienceValue;
+                                }
+                                
+                                echo " LE<br/>-<br/>".$num." LE<br/><br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                        else
+                            {
+                                echo "<br/>Employee Name: ".$User->getUsername($userID);
+                                echo "<br/>Employee Role: ".$RoleName->GetRoleName($RoleID);
+                                echo "<br/>Salary (/Hour) = ".$package->BasicHour." LE";
+                                echo "<br/>Current Salary (/Month): ".$packageSalaryPerMonth." LE";
+                                echo "<br/>Experience Extra Salary = ".$experienceValue." LE";
+                                echo "<br/>Attended Salary = ".$SalaryPayment->getValue($userID)." LE";
+                                echo "<br/><br/> <div class='form-title'>Calculation </div><br/><br/> ".$packageSalaryPerMonth." LE";
+                                if($experienceValue >=0)
+                                {
+                                    echo "<br/>+<br/>".$experienceValue;
+                                }
+                                $totalSalary = $packageSalaryPerMonth + $experienceValue+$SalaryPayment->getValue($userID);
+                                echo " LE<br/>+<br/>".$SalaryPayment->getValue($userID)."<br/>Total Salary = ".$totalSalary." LE";
+                                echo "<br/>";
+                            }
+                                    ?>
+                                    
                                 </div>
                                     </div>
                             

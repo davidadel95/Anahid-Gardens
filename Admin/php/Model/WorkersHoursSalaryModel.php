@@ -76,7 +76,7 @@
           return $this;
       }
       
-      public function checkExistingRole($RoleID)
+      public function checkExistingRole2($RoleID)
       {
           $Role = new RoleNameEAV;
           $db = dbconnect::getInstance();
@@ -92,6 +92,30 @@
               if($row["RoleID"] == $RoleID)
               {
                   if($Role->GetRoleName($RoleID) == "Child" || $Role->GetRoleName($RoleID) == "Parent")
+                      return false;
+                  
+              }
+               return true;   
+          }
+          
+          
+      }
+      
+      public function checkExistingRole($RoleID)
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT *
+                  FROM `workershourssalary`";
+          $result = $mysqli->query($sql);
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              if($row["RoleID"] == $RoleID)
+              {
+                  if($RoleID == 2)
                       return false;
                   return true;
               }

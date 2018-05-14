@@ -110,7 +110,7 @@
                                          
                                         
                                         echo "<tr>";
-                                        echo "<th><a href='EmployeeSalary.php' onclick='view(".$employees->ID[$i].")'>".$employees->ID[$i]."</a></th>";
+                                        echo "<th><a href=\"EmployeeSalary.php?id=".$employees->ID[$i]."\">".$employees->ID[$i]."</a></th>";
                                         echo "<td>".$employees->getUsername($employees->ID[$i])."</td>";
                                         echo "<td>".$RoleName->GetRoleName($employees->RoleID[$i])."</td>";
                                         echo "<td>".$UserStatusModel->getStatusName($employees->Status[$i])."</td>";
@@ -169,7 +169,8 @@
             }
             function view(userID)
             {
-                document.cookie = "cookieUserID=" + ID;
+                document.write(userID);
+                document.cookie = "cookieUserID=" + userID;
             }
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->

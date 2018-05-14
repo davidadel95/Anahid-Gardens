@@ -187,6 +187,7 @@ if(isset($_POST['post'])){
                     $UID = $RoleEav->Add();
                     $SalariesPaymentModel->UserID = $UID;
                     $SalariesPaymentModel->isPaid = 0;
+                    $SalariesPaymentModel->ValueToBePaid = 0;
                     $SalariesPaymentModel->Add();
                     $j=-1;
                     while($j<$i){

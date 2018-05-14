@@ -109,9 +109,11 @@
                                             $roleTypes= $Role->View();
                                             for ($i=0;$i<=$roleTypes;$i++)
                                             {
-                                                if($WorkersHours->checkExistingRole($Role->ID[$i]))
+                                                if($WorkersHours->checkExistingRole2($Role->ID[$i]))
                                                 {
-                                                    echo "<option value='".$Role->ID[$i]."' > ".$Role->Names[$i]." </option>";
+                                                    if($Role->Names[$i] != "Child")
+                                                        echo "<option value='".$Role->ID[$i]."' > ".$Role->Names[$i]." </option>";
+                                                        
                                                 }
                                             }
                                         ?>
