@@ -88,7 +88,7 @@ class CourseTimeTable implements CRUD
       $sql_query="DELETE FROM coursetimetable
         WHERE ClassID='$this->ClassID'";
         $result = $mysqli->query($sql_query);
-        
+
 
     }
 
@@ -141,9 +141,9 @@ class CourseTimeTable implements CRUD
         if($bool==True){
 
           $this->newCounter++;
-
           $this->CourseIDs[$this->newCounter]=$CourseIDs[$x];
-          $this->ClassIDs[$this->newCounter]=$ClassIDs[$x-1];
+          $this->ClassIDs[$this->newCounter]=$ClassIDs[$x];
+
 
         }
 

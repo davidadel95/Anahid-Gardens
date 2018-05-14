@@ -72,8 +72,11 @@ if(!isset($_SESSION['userID']))
                             $CourseID[$Counter]=$row['CourseID'];
                             $ClassIDs[$Counter]=$row['ClassID'];
                             $IDs[$Counter]=$row['ID'];
+
+
                           }
                           $CourseTimeTable->GetOneRecord($CourseID,$ClassIDs,$Counter);
+
                           if($CourseTimeTable->newCounter==0){
                               $CourseID[0]=$CourseTimeTable->CourseIDs[0];
                               $ClassIDs[0]=$CourseTimeTable->ClassIDs[0];
@@ -96,6 +99,7 @@ if(!isset($_SESSION['userID']))
                           }
 
                           }
+                        
 
 
                               ?>
