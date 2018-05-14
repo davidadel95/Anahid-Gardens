@@ -33,8 +33,8 @@
           echo ' <div class="form-group">';
             echo '<div class="stars">';
             $StudentRating = new StudentRating;
-            $numberofstars=$StudentRating->GetNumbersOfStars();
-            for ($counter=$numberofstars;$counter>=1;$counter--)
+
+            for ($counter=$curriculum->NumberOfStars[0];$counter>=1;$counter--)
             {
                 echo '<input class="star"  value="'.$counter.'" id="star-'.$counter.'-2" type="radio" name="star"/>';
                 echo '<label class="star" for="star-'.$counter.'-2"></label>';

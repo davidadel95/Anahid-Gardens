@@ -92,6 +92,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
               $this->LessonName[$i]=$row['LessonName'];
               $this->LessonDetails[$i]=$row['LessonDetails'];
               $this->NumberOfStars[$i]=$row['NumberOfStars'];
+              
           }
           }
           return $i;
