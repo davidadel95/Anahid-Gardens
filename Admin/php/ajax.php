@@ -16,8 +16,7 @@ $_SESSION['RID']= $RoleEav->RoleID = $RoleNameEAV->GetID($q);
 
 
                     
-                    
-               $Names;
+                   $Names;
                     $Types;
                     $i=-1;
                     $result = $RoleEav->View();
@@ -63,15 +62,17 @@ $_SESSION['RID']= $RoleEav->RoleID = $RoleNameEAV->GetID($q);
                         }
                            elseif(!strcmp($row["Type"],"checkbox")){
                      echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                    echo "<input type='".$row["Type"]."' name='value[]' value='".$row["Name"]."' >".$row["Name"];      
+                    echo "<input type='".$row["Type"]."' name='value[] 'value='".$row["Name"]."' >".$row["Name"]; 
+                           
                         }
                         else{
                     echo "<label>". $row["Name"]. "</label>";
                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
-                    echo "<input type='".$row["Type"]."' name='value".$i."' class='form-control' placeholder='".$row["Type"]."' required>";      
+                    echo "<input type='".$row["Type"]."' name='value".$i."' class='form-control' placeholder='".$row["Type"]."' required>";
+                            
                     }
                     }
                     echo "<br/>
                     <input type='submit' class='btn btn-success'value='Confirm' id='post' name='post'>";
-			
-            ?>
+?>
+                    
