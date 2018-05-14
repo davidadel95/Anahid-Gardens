@@ -196,6 +196,8 @@ if(isset($_POST['post'])){
                     }
                     elseif (isset($_POST['value'])){
                         $checkbox = $_POST['value'];
+                       // $co =0;
+                       // $len = count($checkbox);
                         foreach ($checkbox as $value){
                           $RoleEav->AddValue($_POST['ApplicationID'.$j],$value,$UID);
                             $j++;
