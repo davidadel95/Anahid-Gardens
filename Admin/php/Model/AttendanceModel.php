@@ -79,7 +79,7 @@
             $row =mysqli_fetch_array($result);
             return $row['Date'];
         }
-        
+
         public function showAttendanceByDateAndID($date, $userID){
             $db = dbconnect::getInstance();
             $mysqli = $db->getConnection();
@@ -119,6 +119,25 @@
             return $this->ID[0];
         }
         public function Delete(){
+
+        }
+
+        public function AttendanceForSpecificUser()
+        {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+          $sql_query = "Select * from attendance where UserID='$this->UserID'";
+          $result = $mysqli->query($sql_query);
+          $i=-1;
+
+          while($row =mysqli_fetch_array($result)){
+              $i++;
+              $this->ID[$i]=$row['ID'];
+              $this->UserID[$i]=$row['UserID'];
+              $this->Date[$i]=$row['Date'];
+              $this->Attended[$i]=$row['Attended'];
+          }
+          return $i;
 
         }
     }

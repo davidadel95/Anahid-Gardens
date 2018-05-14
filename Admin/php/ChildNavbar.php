@@ -72,6 +72,15 @@ if (session_status() == PHP_SESSION_NONE) {
                         <span>View Ratings</span>
                     </a>
                 </li>
+
+                <li class="treeview">
+                    <a href="AttendanceForChild.php">
+                        <i class="fa fa-book"></i>
+                        <span>My Attendance</span>
+                    </a>
+                </li>
+
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

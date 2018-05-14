@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                  <tr>
                      <th>#</th>
                      <th>First Name</th>
-                     <th>Last Name</th>
+                     <th>Date</th>
                      <th>Attendance</th>
                  </tr>
                  </thead>
