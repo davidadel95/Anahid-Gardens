@@ -39,7 +39,7 @@ class StudentRating implements CRUD
     /**
      * @var void
      */
-     public $NumberOfStars;
+
 
      public $date;
 
@@ -107,11 +107,7 @@ class StudentRating implements CRUD
 
       }
 
-      public function GetNumbersOfStars(){
-            $this->NumberOfStars=5;
-            return $this->NumberOfStars;
 
-      }
 
 
 

@@ -95,9 +95,14 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
                             <label>Lesson Name</label>
                             <input name="lessonName" type="text" class="form-control" placeholder="eg: Frere Jacques">
                         </div>
+                          
                         <div class="form-group">
                           <label>Lesson Details</label>
                           <input name="lessonDetails" type="text" class="form-control" placeholder="Details">
+                        </div>
+                           <div class="form-group">
+                            <label>Number Of Rating Stars</label>
+                            <input name="NumberOfStars" type="number" class="form-control" placeholder="eg: 5 stars">
                         </div>
                         <button type="submit" class="btn btn-success">Confirm</button>
                       </form>
@@ -111,6 +116,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
                     $curriculum->CourseID = $_POST["courseID"];
                     $curriculum->LessonName = $_POST["lessonName"];
                     $curriculum->LessonDetails = $_POST["lessonDetails"];
+                    $curriculum->NumberOfStars =$_POST["NumberOfStars"];
                     $curriculum->Add();
                 }
                 ?>

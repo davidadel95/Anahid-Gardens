@@ -12,7 +12,7 @@
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/StudentRating.php";
 
       echo " <form method='post'>";
-    $curriculum = new CurriculumModel();
+    $curriculum = new CurriculumModel;
     $numberOfLessons = $curriculum->viewLessonDetails($lessonID);
 
     if (isset($lessonID)){
