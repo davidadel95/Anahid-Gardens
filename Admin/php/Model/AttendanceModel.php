@@ -70,6 +70,15 @@
             return $i;
         }
 
+        public function getCheckInDate()
+        {
+            $db = dbconnect::getInstance();
+            $mysqli = $db->getConnection();
+            $sql_query = "SELECT * from attendance where Day(Date) = Day(NOW())" ;
+            $result = $mysqli->query($sql_query);
+            $row =mysqli_fetch_array($result);
+        }
+        
         public function showAttendanceByDateAndID($date, $userID){
             $db = dbconnect::getInstance();
             $mysqli = $db->getConnection();

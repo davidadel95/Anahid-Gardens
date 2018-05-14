@@ -110,7 +110,7 @@
                                          
                                         
                                         echo "<tr>";
-                                        echo "<th><a href=''>".$employees->ID[$i]."</a></th>";
+                                        echo "<th><a href='EmployeeSalary.php' onclick='view(".$employees->ID[$i].")'>".$employees->ID[$i]."</a></th>";
                                         echo "<td>".$employees->getUsername($employees->ID[$i])."</td>";
                                         echo "<td>".$RoleName->GetRoleName($employees->RoleID[$i])."</td>";
                                         echo "<td>".$UserStatusModel->getStatusName($employees->Status[$i])."</td>";
@@ -166,6 +166,10 @@
                 };
                 xhttp.open("GET", "ajaxGetByRole.php?q=" + x, true);
                 xhttp.send();
+            }
+            function view(userID)
+            {
+                document.cookie = "cookieUserID=" + ID;
             }
 </script>
 	<!-- //Classie --><!-- //for toggle left push menu script -->

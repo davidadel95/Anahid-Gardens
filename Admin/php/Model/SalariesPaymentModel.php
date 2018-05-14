@@ -23,7 +23,7 @@
           $mysqli = $db->getConnection();
 
           $sql = "INSERT INTO `SalariesPayment` (`ValueToBePaid`, `isPaid`, `StartDate`,`EndDate`,`UserID`) 
-                  VALUES ('$this->ValueToBePaid', '$this->isPaid', '$this->StartDate','$this->EndDate','$this->UserID')";
+                  VALUES ('$this->ValueToBePaid', '$this->isPaid', NOW(),NOW()+INTERVAL 30 DAY,'$this->UserID')";
 
           $result = $mysqli->query($sql);
       }
@@ -31,7 +31,7 @@
       public function Edit(){
           // TODO: implement here
       }
-
+      
       public function View(){
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
@@ -53,6 +53,35 @@
           return $i;
       }
 
+      public function update($UserID)
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "UPDATE `SalariesPayment`
+                  SET `EndDate` = '$this->EndDate' WHERE UserID = ".$UserID;
+          $result = $mysqli->query($sql);
+      }
+      public function getWorkingHours($UserID)
+      {
+          $db = dbconnect::getInstance();
+          $mysqli = $db->getConnection();
+
+          $sql = "SELECT *
+                  FROM `salariespayment` WHERE UserID = ".$UserID." AND Month(EndDate) = Month(Now())";
+          $result = $mysqli->query($sql);
+          $i = 0;
+          while($row = mysqli_fetch_array($result))
+          {
+              $this->StartDate = $row['StartDate'];
+              $this->EndDate = $row['EndDate'];
+          }
+          $Diffrence= strtotime($this->EndDate)-strtotime($this->StartDate);
+          $Difference = $Difference/60;
+          $Difference = $Difference/60;
+          return $Difference;
+      }
+      
       public function Delete()
       {
           // TODO: implement here

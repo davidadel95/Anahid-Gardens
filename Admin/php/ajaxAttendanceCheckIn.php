@@ -10,8 +10,6 @@
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
 
 
-
-
     if ($attendanceID == null){
         $attendance = new AttendanceModel();
         $attendance->UserID = $userID;

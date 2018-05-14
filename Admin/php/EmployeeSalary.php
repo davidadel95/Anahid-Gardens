@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Anahid Gardens - Transaction</title>
+<title>Anahid Gardens - Salary</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -34,25 +34,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body class="cbp-spmenu-push">
     <?php
     $rootPath = $_SERVER['DOCUMENT_ROOT'];
-
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/TransactionModel.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/OptionsTypeModel.php";
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/PaymentEAVModel.php";
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/POptionsModel.php";
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/OptionsTypeModel.php";
-    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/EventModel.php";
-    $EventModel = new EventModel;
-    $transactionID =  $_COOKIE['cookieView'];
-    $TransactionModel = new TransactionModel;
-    $User = new User;
-    $TransactionID = 
-    $OptionsTypeModel = new OptionsTypeModel;
-    $PaymentEAVModel = new PaymentEAVModel;
-    $POptionsModel = new POptionsModel;
-    list($POptionArr,$OptionNames) = $POptionsModel->View();
-    $OptionsTypeModel = new OptionsTypeModel;
-        
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/ExperienceSalariesModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/SalaryManipulationModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/WorkersHoursSalaryModel.php";
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
+    
+    $userID =  $_COOKIE['cookieUserID'];
+    $SalaryManipulationModel = new SalaryManipulationModel;
+    $WorkersHoursSalaryModel = new WorkersHoursSalaryModel;
+    $ExperienceSalariesModel = new ExperienceSalariesModel;
+    $SalaryPayment = new SalaryPaymentModel;
+    $RoleName = new RoleNameEAV;
+    if($ExperienceSalariesModel->getExpVal($employeeID))
+    {
+        $experienceValue = $ExperienceSalariesModel->getExpVal($employeeID);
+    }
+    else
+    {
+        $experienceValue = 0;
+    }
+                
+    $RoleID = $User->GetRoleID($employeeID);
+    $package = $WorkersHoursSalaryModel->getRoleIDData($RoleID);  
+    $packageSalaryPerMonth = $package->BasicHour * $package->NormalHours * 22;
+    $hoursWorked = $SalaryPayment->getWorkingHours($userID);
+    $salaryPerDay = $package->BasicHour * $hoursWorked;
+                
+    
 
 ?>
 	<div class="main-content">

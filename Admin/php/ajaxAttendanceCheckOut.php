@@ -8,9 +8,11 @@
     $rootPath = $_SERVER['DOCUMENT_ROOT'];
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/LeavingModel.php";
     require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/AttendanceModel.php";
-
+    require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/SalariesPaymentModel.php";
+    
+    $SalariesPaymentModel = new SalariesPaymentModel;
     $attendance = new AttendanceModel();
-
+    $checkInDate = $attendance->getCheckInDate(); 
     $attendanceID = $attendance->showAttendanceByDateAndID($date, $userID);
 
     if ($attendanceID != null){

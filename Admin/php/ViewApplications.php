@@ -16,7 +16,9 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleNameEAV.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/RoleEAV.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Event.php";
 require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Applicant.php";
+require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/SalariesPaymentModel.php";
 
+$SalariesPaymentModel = new SalariesPaymentModel;
 $RoleNameEAV = new RoleNameEAV;
 $RoleEav = new RoleEav;
 $_SESSION['RID']= $RoleNameEAV->GetID("Admin");
@@ -183,6 +185,9 @@ if(isset($_POST['post'])){
                     $Applicant->InsertEvent($_POST["value0"]);
                      $RoleEav->RoleID = $_SESSION['RID'];   
                     $UID = $RoleEav->Add();
+                    $SalariesPaymentModel->UserID = $UID;
+                    $SalariesPaymentModel->isPaid = 0;
+                    $SalariesPaymentModel->Add();
                     $j=-1;
                     while($j<$i){
                     $j++;
