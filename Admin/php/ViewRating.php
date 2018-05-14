@@ -93,7 +93,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/Course.php";
 													echo "<tr>";
 													echo "<td>".$CouseName."</td>";
 													echo "<td>".$Curriculum->LessonName."</td>";
-													echo "<td>".$StudentRating->Rating[$x]." Out Of 5</td>";
+													echo "<td>".$StudentRating->Rating[$x]." Out Of ".$Curriculum->NumberOfStars."</td>";
 													echo "</tr>";
 													}
 

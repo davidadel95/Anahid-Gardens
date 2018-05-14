@@ -231,12 +231,12 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/Model/User.php";
         }
         echo "<br>";
         echo "<label>Rating </label>";
-
+        $numberOfStars = $curriculum->viewLessonDetails($curriculum->ID[0]);
 
           echo ' <div class="form-group">';
             echo '<div class="stars">';
-            $numberofstars=$StudentRating->GetNumbersOfStars();
-            for ($counter=$numberofstars;$counter>=1;$counter--)
+   
+            for ($counter=$numberOfStars;$counter>=1;$counter--)
             {
                 echo '<input class="star"  value="'.$counter .'" id="star-'. $counter.'-2" type="radio" name="star"/>';
                 echo '<label class="star" for="star-'.$counter.'-2"></label>';

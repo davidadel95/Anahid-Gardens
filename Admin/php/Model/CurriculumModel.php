@@ -9,6 +9,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
       public $CourseID;
       public $LessonName;
       public $LessonDetail;
+      public $NumberOfStars;
 
 
       public function __construct(){
@@ -19,8 +20,8 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
           $db = dbconnect::getInstance();
           $mysqli = $db->getConnection();
 
-          $sql = "INSERT INTO `curriculum` (`ID`, `CourseID`, `LessonName`, `LessonDetails`)
-                  VALUES (NULL, '$this->CourseID', '$this->LessonName', '$this->LessonDetails')
+          $sql = "INSERT INTO `curriculum` (`ID`, `CourseID`, `LessonName`, `LessonDetails`,`NumberOfStars`)
+                  VALUES (NULL, '$this->CourseID', '$this->LessonName', '$this->LessonDetails','$this->NumberOfStars')
                   ";
 
           $result = $mysqli->query($sql);
@@ -90,6 +91,7 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
               $this->CourseID[$i]=$row['CourseID'];
               $this->LessonName[$i]=$row['LessonName'];
               $this->LessonDetails[$i]=$row['LessonDetails'];
+              $this->NumberOfStars[$i]=$row['NumberOfStars'];
           }
           }
           return $i;
@@ -111,10 +113,16 @@ require_once $rootPath . "/Anahid-Gardens/Admin/php/dbconnect.php";
               $this->CourseID=$row['CourseID'];
               $this->LessonName=$row['LessonName'];
               $this->LessonDetails=$row['LessonDetails'];
+              $this->NumberOfStars=$row['NumberOfStars'];
           }
           return $i;
       }
       public function Delete(){
+
+      }
+            public function GetNumbersOfStars(){
+            $this->NumberOfStars=5;
+            return $this->NumberOfStars;
 
       }
   }
