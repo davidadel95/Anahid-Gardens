@@ -134,14 +134,14 @@ if(isset($_POST['post'])){
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
                         $Name =mysqli_fetch_array($NameResult);
                         $SizeResult = $RoleEav->SizeOfRadio($row['Name']);
-                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";
+                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   >".$Name['ApplicationGroupName']."<br />";
                         $Size=mysqli_num_rows($SizeResult);
 
                         for($x=1;$x<$Size;$x++){
                         $row = mysqli_fetch_array($result);
                         $NameResult = $RoleEav->ShowGroupName($row['GroupID']);
                         $Name =mysqli_fetch_array($NameResult);
-                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   required>".$Name['ApplicationGroupName']."<br />";}
+                        echo "<input  type='".$row["Type"]."' value='".$Name['ApplicationGroupName']."' name='value".$i."'   >".$Name['ApplicationGroupName']."<br />";}
                     }
                         elseif(!strcmp($row["Type"],"select")){
                              echo "<label>". $row["Name"]. " :</label><br/>";
@@ -163,10 +163,16 @@ if(isset($_POST['post'])){
                             <br/>";
 
                         }
+                           elseif(!strcmp($row["Type"],"checkbox")){
+                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
+                    echo "<input type='".$row["Type"]."' name='value[] 'value='".$row["Name"]."' >".$row["Name"]; 
+                           
+                        }
                         else{
                     echo "<label>". $row["Name"]. "</label>";
                     echo"<input type='hidden' name='ApplicationID".$i."' value='".$row["ID"]."'>";
                     echo "<input type='".$row["Type"]."' name='value".$i."' class='form-control' placeholder='".$row["Type"]."' required>";
+                            
                     }
                     }
                     echo "<br/>
@@ -180,8 +186,18 @@ if(isset($_POST['post'])){
                     $j=-1;
                     while($j<$i){
                     $j++;
+                    if(isset($_POST['value'.$j])){ 
                     $RoleEav->AddValue($_POST['ApplicationID'.$j],$_POST['value'.$j],$UID);
                     }
+                    elseif (isset($_POST['value'])){
+                        $checkbox = $_POST['value'];
+                        foreach ($checkbox as $value){
+                          $RoleEav->AddValue($_POST['ApplicationID'.$j],$value,$UID);
+                            $j++;
+                        }
+                    }    
+                    }
+                        
                     }
             ?>
 

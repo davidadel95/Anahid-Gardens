@@ -25,14 +25,14 @@ while($row=mysqli_fetch_array($result)){
     }
 }
 
-    if($Changed=1){
+    if($Changed==1){
         echo"<br>
 	<input type='hidden' id='calcAjax' name='Field1' value='".$q."'>
 	<br> <br>
 	<input name='GroupField' type='submit'>";
     }
 else {
-    echo'<label>Field Name</label>
+        echo'<label>Field Name</label>
 
 										<select name="InFiledFieldName"  onchange="GroupAjax(this.value)" class="form-control" >';
 
@@ -40,11 +40,13 @@ else {
 
 										for ($x=0;$x<=$NumberOfAttruibutes;$x++)
 										{
+                                            if($Attruibute->Types[$x] == $q){
+                                                echo "<option value='".$Attruibute->Types[$x]."'selected='selected'> ".$Attruibute->Types[$x]."</option>";
+                                            }
+											else {echo "<option value='".$Attruibute->Types[$x]."'> ".$Attruibute->Types[$x]."</option>";
 
-											echo "<option value='".$Attruibute->Types[$x]."'> ".$Attruibute->Types[$x]."</option>";
 
-
-										}
+										}}
 
 										
 								echo	'</select>
